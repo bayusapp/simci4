@@ -11,6 +11,7 @@ class M_Laboratorium extends Model
 
   public function getAllLaboratorium()
   {
+    $this->orderBy("kode_lab");
     return $this->findAll();
   }
 }
