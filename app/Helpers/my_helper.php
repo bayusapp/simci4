@@ -1,10 +1,10 @@
 <?php
 
-function getAddress($latlang)
+function getAddress($latlng)
 {
-  if ($latlang != null) {
+  if ($latlng != null) {
     //google map api url
-    $url = "https://maps.google.com/maps/api/geocode/json?latlng=$latlang&key=AIzaSyA-BQS8hr9-K1fOsgTpvWAFrh-ocZk3DcQ";
+    $url = "https://maps.google.com/maps/api/geocode/json?latlng=$latlng&key=AIzaSyA-BQS8hr9-K1fOsgTpvWAFrh-ocZk3DcQ";
 
     // send http request
     $geocode = file_get_contents($url);
