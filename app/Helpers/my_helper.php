@@ -70,3 +70,81 @@ if (!function_exists('check_isp')) {
     return $org;
   }
 }
+
+if (!function_exists('tanggalIndoLengkap')) {
+  function tanggalIndoLengkap($tanggal)
+  {
+    $nama_hari      = hariIndo(date('l', strtotime($tanggal)));
+    $split          = explode(' ', $tanggal);
+    $split_tanggal  = explode('-', $split[0]);
+    $tanggal        = $split_tanggal[2];
+    $bulan          = bulanIndoPanjang($split_tanggal[1]);
+    $tahun          = $split_tanggal[0];
+    return $nama_hari . ', ' . $tanggal . ' ' . $bulan . ' ' . $tahun . ' ' . $split[1];
+  }
+}
+
+if (!function_exists('bulanIndoPanjang')) {
+  function bulanIndoPanjang($bulan)
+  {
+    switch ($bulan) {
+      case 1:
+        return 'Januari';
+        break;
+      case 2:
+        return 'Februari';
+        break;
+      case 3:
+        return 'Maret';
+        break;
+      case 4:
+        return 'April';
+        break;
+      case 5:
+        return 'Mei';
+        break;
+      case 6:
+        return 'Juni';
+        break;
+      case 7:
+        return 'Juli';
+        break;
+      case 8:
+        return 'Agustus';
+        break;
+      case 9:
+        return 'September';
+        break;
+      case 10:
+        return 'Oktober';
+        break;
+      case 11:
+        return 'November';
+        break;
+      case 12:
+        return 'Desember';
+        break;
+    }
+  }
+}
+
+if (!function_exists('hariIndo')) {
+  function hariIndo($hari)
+  {
+    if ($hari == 'Sunday') {
+      return  'Minggu';
+    } elseif ($hari == 'Monday') {
+      return 'Senin';
+    } elseif ($hari == 'Tuesday') {
+      return 'Selasa';
+    } elseif ($hari == 'Wednesday') {
+      return 'Rabu';
+    } elseif ($hari == 'Thursday') {
+      return 'Kamis';
+    } elseif ($hari == 'Friday') {
+      return 'Jumat';
+    } elseif ($hari == 'Saturday') {
+      return 'Sabtu';
+    }
+  }
+}
