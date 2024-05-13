@@ -100,9 +100,11 @@ class Ticketing extends BaseController
   public function tracking($id)
   {
     $data['trouble_ticket'] = $this->trouble_ticket->getTroubleTicketDetail($id);
-    // dd($data);
-    $data['tracking'] = $this->trouble_ticket_tracking->getTroubleTicketTracking($data['trouble_ticket']['id_trouble']);
-    // dd($data['tracking']);
-    return view('ticketing/v_tracking', $data);
+    if ($data['trouble_ticket']) {
+      $data['tracking'] = $this->trouble_ticket_tracking->getTroubleTicketTracking($data['trouble_ticket']['id_trouble']);
+      return view('ticketing/v_tracking', $data);
+    } else {
+      return view('ticketing/v_not_found_ticket');
+    }
   }
 }
