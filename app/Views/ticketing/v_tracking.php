@@ -1,3 +1,6 @@
+<?php
+$uri = service('uri');
+?>
 <!DOCTYPE html>
 <html>
 
@@ -16,105 +19,109 @@
 
 </head>
 
-<body>
-
+<body style="background-color: #f3f3f4;">
   <div id="wrapper">
-
+    <div class="gray-bg" style="margin-bottom: 20px;">
+      <div class="ibox-content" id="ibox-content">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12">
+            <h2>No. Ticket: <?= $uri->getSegment(3) ?></h2>
+            <hr>
+          </div>
+        </div>
+        <?php
+        $status_trouble_ticket = 0;
+        $tanggal_terakhir;
+        $split_tanggal_ticket = explode(' ', $trouble_ticket['tanggal_kendala']);
+        $tanggal_ticket =  strtotime($split_tanggal_ticket[0]);
+        foreach ($tracking as $t) {
+          $status_trouble_ticket = $t['status'];
+          // $tanggal_terakhir = strtotime($t['tanggal']);
+          $split_tanggal_tracking = explode(' ', $t['tanggal']);
+          $tanggal_terakhir = strtotime($split_tanggal_tracking[0]);
+        }
+        if ($status_trouble_ticket == '0') {
+          $status_ticket = 'Sedang dikerjakan';
+        } elseif ($status_trouble_ticket == '1') {
+          $status_ticket = 'Selesai';
+        }
+        // $durasi = $tanggal_terakhir - $trouble_ticket['tanggal_kendala'];
+        $durasi = ($tanggal_terakhir - $tanggal_ticket) + 1;
+        ?>
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-12">
+            <h5>Nama Informan:</h5>
+            <h2><?= $trouble_ticket['nama_informan'] ?></h2>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-12">
+            <h5>Kategori Informan:</h5>
+            <h2><?= $trouble_ticket['kategori_informan'] ?></h2>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-12">
+            <h5>Status Trouble Ticket:</h5>
+            <h2><?= $status_ticket ?></h2>
+          </div>
+          <div class="col-lg-3 col-md-3 col-sm-12">
+            <h5>Durasi Pengerjaan:</h5>
+            <h2><?= $durasi ?> Hari</h2>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="gray-bg">
-
-
       <div class="ibox-content" id="ibox-content">
         <div id="vertical-timeline" class="vertical-container dark-timeline">
           <div class="vertical-timeline-block">
             <div class="vertical-timeline-icon navy-bg">
-              <i class="fa fa-briefcase"></i>
+              <i class="fa fa-ticket"></i>
             </div>
-
             <div class="vertical-timeline-content">
-              <h2>Meeting</h2>
-              <p>Conference on the sales results for the previous year. Monica please examine sales trends in marketing and products. Below please find the current status of the sale.
+              <h2>Trouble Ticket Dibuat</h2>
+              <p>
+                Keluhan: <?= $trouble_ticket['keluhan'] ?><br>
+                Lokasi: <?= $trouble_ticket['nama_lab'] . ' (' . $trouble_ticket['kode_lab'] . ')' ?>
               </p>
-              <a href="#" class="btn btn-sm btn-primary"> More info</a>
               <span class="vertical-date">
-                Today <br />
-                <small>Dec 24</small>
+                <?= tanggalIndoLengkap($trouble_ticket['tanggal_kendala']) ?>
               </span>
             </div>
           </div>
-
-          <div class="vertical-timeline-block">
-            <div class="vertical-timeline-icon blue-bg">
-              <i class="fa fa-file-text"></i>
+          <?php
+          foreach ($tracking as $t) {
+          ?>
+            <div class="vertical-timeline-block">
+              <?php
+              if ($t['status'] == 0) {
+                $background = 'vertical-timeline-icon yellow-bg';
+                $icon = 'fa fa-cog';
+                $title = 'Sedang Dikerjakan';
+              } elseif ($t['status'] == 1) {
+                $background = 'vertical-timeline-icon blue-bg';
+                $icon = 'fa fa-ticket';
+                $title = 'Trouble Ticket Ditutup';
+              }
+              ?>
+              <div class="<?= $background ?>">
+                <i class="<?= $icon ?>"></i>
+              </div>
+              <div class="vertical-timeline-content">
+                <h2><?= $title ?></h2>
+                <p>
+                  Solusi: <?= $t['solusi'] ?><br>
+                  Petugas: <?= $t['nama_petugas'] . ' | ' . $t['kategori_petugas'] ?>
+                </p>
+                <span class="vertical-date">
+                  <?= tanggalIndoLengkap($t['tanggal']) ?>
+                </span>
+              </div>
             </div>
-
-            <div class="vertical-timeline-content">
-              <h2>Send documents to Mike</h2>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since.</p>
-              <a href="#" class="btn btn-sm btn-success"> Download document </a>
-              <span class="vertical-date">
-                Today <br />
-                <small>Dec 24</small>
-              </span>
-            </div>
-          </div>
-
-          <div class="vertical-timeline-block">
-            <div class="vertical-timeline-icon lazur-bg">
-              <i class="fa fa-coffee"></i>
-            </div>
-
-            <div class="vertical-timeline-content">
-              <h2>Coffee Break</h2>
-              <p>Go to shop and find some products. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's. </p>
-              <a href="#" class="btn btn-sm btn-info">Read more</a>
-              <span class="vertical-date"> Yesterday <br /><small>Dec 23</small></span>
-            </div>
-          </div>
-
-          <div class="vertical-timeline-block">
-            <div class="vertical-timeline-icon yellow-bg">
-              <i class="fa fa-phone"></i>
-            </div>
-
-            <div class="vertical-timeline-content">
-              <h2>Phone with Jeronimo</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, optio, dolorum provident rerum aut hic quasi placeat iure tempora laudantium ipsa ad debitis unde? Iste voluptatibus minus veritatis qui ut.</p>
-              <span class="vertical-date">Yesterday <br /><small>Dec 23</small></span>
-            </div>
-          </div>
-
-          <div class="vertical-timeline-block">
-            <div class="vertical-timeline-icon lazur-bg">
-              <i class="fa fa-user-md"></i>
-            </div>
-
-            <div class="vertical-timeline-content">
-              <h2>Go to the doctor dr Smith</h2>
-              <p>Find some issue and go to doctor. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. </p>
-              <span class="vertical-date">Yesterday <br /><small>Dec 23</small></span>
-            </div>
-          </div>
-
-          <div class="vertical-timeline-block">
-            <div class="vertical-timeline-icon navy-bg">
-              <i class="fa fa-comments"></i>
-            </div>
-
-            <div class="vertical-timeline-content">
-              <h2>Chat with Monica and Sandra</h2>
-              <p>Web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). </p>
-              <span class="vertical-date">Yesterday <br /><small>Dec 23</small></span>
-            </div>
-          </div>
+          <?php
+          }
+          ?>
         </div>
-
       </div>
-
     </div>
   </div>
-
-
-
   <!-- Mainly scripts -->
   <script src="<?= base_url() ?>assets/js/jquery-3.1.1.min.js"></script>
   <script src="<?= base_url() ?>assets/js/popper.min.js"></script>
