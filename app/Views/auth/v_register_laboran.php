@@ -92,6 +92,13 @@
     });
   </script>
 <?php endif; ?>
+<?php if (!empty(session()->getFlashdata('already_username'))) : ?>
+  <script>
+    $(document).ready(function() {
+      swal("Gagal Registrasi", "Username yang dimasukkan sudah digunakan", "error");
+    });
+  </script>
+<?php endif; ?>
 <?php if (!empty(session()->getFlashdata('success'))) : ?>
   <script>
     $(document).ready(function() {
