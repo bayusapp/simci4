@@ -57,6 +57,18 @@ class Auth extends BaseController
               'status_akun' => '1',
               'nip_laboran' => $nip
             ];
+            $cek_data_laboran = $this->laboran->getDataLaboran($nip);
+            $nama_laboran     = $cek_data_laboran['nama_laboran'];
+            $no_telp          = $cek_data_laboran['no_telp'];
+            $pesan            = 'Selamat ' . greetings() . " " . $nama_laboran . ',';
+            $pesan            .= "
+            
+Registrasi Anda ke SIMLABFIT sudah berhasil. Berikut ini adalah detail akun Anda untuk login ke SIMLABFIT.
+Username: *" . $username . "*
+Password: *" . $password . "*
+            
+Terima kasih";
+            kirimWA($pesan, $no_telp);
             $this->users->insert($data);
             session()->setFlashdata('success', 'success');
             return redirect()->back();
