@@ -17,6 +17,11 @@ class Auth extends BaseController
     $this->users    = new M_Users();
   }
 
+  public function index()
+  {
+    return view('auth/v_login');
+  }
+
   public function registerLaboran()
   {
     $data['title'] = 'Register Laboran | SIM Laboratorium';
