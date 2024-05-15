@@ -53,7 +53,7 @@ class Auth extends BaseController
               'username'    => $username,
               'password'    => $password_hash,
               'jenis_akses' => 'laboran',
-              'Jabatan'     => 'Laboran',
+              'jabatan'     => 'Laboran',
               'status_akun' => '1',
               'nip_laboran' => $nip
             ];
