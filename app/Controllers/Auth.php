@@ -37,7 +37,6 @@ class Auth extends BaseController
       $username       = $this->request->getPost('username');
       $password       = $this->request->getPost('password');
       $password_hash  = password_hash($password, PASSWORD_DEFAULT);
-      // echo $password;
       $cek_data = $this->laboran->getDataLaboran($nip);
       if ($cek_data) {
         $cek_nip = $this->users->getUserByNIP($nip);
