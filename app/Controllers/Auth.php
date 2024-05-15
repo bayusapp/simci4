@@ -40,22 +40,28 @@ class Auth extends BaseController
       // echo $password;
       $cek_data = $this->laboran->getDataLaboran($nip);
       if ($cek_data) {
-        $cek_users = $this->users->getUserByNIP($nip);
-        if ($cek_users) {
+        $cek_nip = $this->users->getUserByNIP($nip);
+        if ($cek_nip) {
           session()->setFlashdata('already', $this->validator->listErrors());
           return redirect()->back();
         } else {
-          $data = [
-            'username'    => $username,
-            'password'    => $password_hash,
-            'jenis_akses' => 'laboran',
-            'Jabatan'     => 'Laboran',
-            'status_akun' => '1',
-            'nip_laboran' => $nip
-          ];
-          $this->users->insert($data);
-          session()->setFlashdata('success', 'success');
-          return redirect()->back();
+          $cek_username = $this->users->getUsername($username);
+          if ($cek_username) {
+            session()->setFlashdata('already_username', $this->validator->listErrors());
+            return redirect()->back()->withInput();
+          } else {
+            $data = [
+              'username'    => $username,
+              'password'    => $password_hash,
+              'jenis_akses' => 'laboran',
+              'Jabatan'     => 'Laboran',
+              'status_akun' => '1',
+              'nip_laboran' => $nip
+            ];
+            $this->users->insert($data);
+            session()->setFlashdata('success', 'success');
+            return redirect()->back();
+          }
         }
       } else {
         session()->setFlashdata('not_laboran', $this->validator->listErrors());
