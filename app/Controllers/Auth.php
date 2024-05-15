@@ -22,6 +22,34 @@ class Auth extends BaseController
     return view('auth/v_login');
   }
 
+  public function login()
+  {
+    if (!$this->validate([
+      'username'  => ['rules' => 'required'],
+      'password'  => ['rules' => 'required']
+    ])) {
+      session()->setFlashdata('error', $this->validator->listErrors());
+      return redirect()->back()->withInput();
+    } else {
+      $username = $this->request->getPost('username');
+      $password = $this->request->getPost('password');
+      $cek_data = $this->users->getUsername($username);
+      if ($cek_data) {
+        $password_hash  = $cek_data['password'];
+        if (password_verify($password, $password_hash)) {
+          session()->set('nip_laboran', $cek_data['nip_laboran']);
+          return redirect()->to(base_url('Dashboard'));
+        } else {
+          session()->setFlashdata('invalid_password', 'Password tidak valid');
+          return redirect()->back()->withInput();
+        }
+      } else {
+        session()->setFlashdata('not_found', 'Username tidak ditemukan');
+        return redirect()->back()->withInput();
+      }
+    }
+  }
+
   public function registerLaboran()
   {
     $data['title'] = 'Register Laboran | SIM Laboratorium';
