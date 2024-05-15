@@ -117,6 +117,6 @@ Terima kasih";
   public function logout()
   {
     session()->destroy();
-    return redirect()->to(baase_url());
+    return redirect()->to(base_url());
   }
 }
