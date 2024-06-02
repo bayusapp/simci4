@@ -7,20 +7,34 @@ use App\Models\M_Laboran;
 class Dashboard extends BaseController
 {
 
+  var $data;
   protected $laboran;
   protected $nama_laboran;
 
   public function __construct()
   {
-    $this->laboran = new M_Laboran();
-    $nip                = session()->get('nip_laboran');
-    $tmp                = $this->laboran->getDataLaboran($nip);
-    $this->nama_laboran = $tmp['nama_laboran'];
+    if (session()->get('jenis_akses') != 'laboran') {
+      header("Location: " . base_url());
+    }
+    if (session()->get('nip_laboran')) {
+
+      $this->laboran = new M_Laboran();
+      $nip                = session()->get('nip_laboran');
+      $dataLaboran        = $this->laboran->getDataLaboran($nip);
+      $this->data = array(
+        'nip_laboran'   => $dataLaboran['nip_laboran'],
+        'nama_laboran'  => $dataLaboran['nama_laboran'],
+        'foto_laboran'  => $dataLaboran['foto_laboran']
+      );
+    } else {
+      header("Location: " . base_url());
+      die();
+    }
   }
 
   public function index()
   {
-    $data['nama_laboran'] = $this->nama_laboran;
+    $data   = $this->data;
     return view('dashboard/v_index', $data);
   }
 }

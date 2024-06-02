@@ -19,7 +19,8 @@ class Auth extends BaseController
 
   public function index()
   {
-    return view('auth/v_login');
+    $data['title'] = 'Login | Sistem Informasi Manajemen Laboratorium';
+    return view('auth/v_login', $data);
   }
 
   public function login()
@@ -28,7 +29,7 @@ class Auth extends BaseController
       'username'  => ['rules' => 'required'],
       'password'  => ['rules' => 'required']
     ])) {
-      session()->setFlashdata('error', $this->validator->listErrors());
+      session()->setFlashdata('error', 'Harap lengkapi seluruh field');
       return redirect()->back()->withInput();
     } else {
       $username = $this->request->getPost('username');
@@ -37,8 +38,12 @@ class Auth extends BaseController
       if ($cek_data) {
         $password_hash  = $cek_data['password'];
         if (password_verify($password, $password_hash)) {
-          session()->set('nip_laboran', $cek_data['nip_laboran']);
-          return redirect()->to(base_url('Dashboard'));
+          $jenis_akses = $cek_data['jenis_akses'];
+          if ($jenis_akses == 'laboran') {
+            session()->set('nip_laboran', $cek_data['nip_laboran']);
+            session()->set('jenis_akses', $jenis_akses);
+            return redirect()->to(base_url('Dashboard'));
+          }
         } else {
           session()->setFlashdata('invalid_password', 'Password tidak valid');
           return redirect()->back()->withInput();
