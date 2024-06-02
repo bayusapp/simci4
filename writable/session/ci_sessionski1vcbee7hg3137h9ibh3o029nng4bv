@@ -1,0 +1,4 @@
+__ci_last_regenerate|i:1715745252;_ci_previous_url|s:42:"http://localhost:8080/Auth/registerLaboran";already_username|s:131:"<!-- DEBUG-VIEW START 1 SYSTEMPATH/Validation/Views/list.php -->
+
+<!-- DEBUG-VIEW ENDED 1 SYSTEMPATH/Validation/Views/list.php -->
+";__ci_vars|a:2:{s:16:"already_username";s:3:"old";s:13:"_ci_old_input";s:3:"old";}_ci_old_input|a:2:{s:3:"get";a:0:{}s:4:"post";a:3:{s:3:"nip";s:8:"22960042";s:8:"username";s:6:"bayusa";s:8:"password";s:4:"bayu";}}

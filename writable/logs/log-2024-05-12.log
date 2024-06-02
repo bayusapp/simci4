@@ -1,0 +1,499 @@
+CRITICAL - 2024-05-12 05:42:21 --> ErrorException: Array to string conversion
+[Method: POST, Route: Ticketing/submit]
+in APPPATH/Controllers/Ticketing.php on line 37.
+ 1 APPPATH/Controllers/Ticketing.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Ticketing.php', 37)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+WARNING - 2024-05-12 06:20:21 --> [DEPRECATED] preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in APPPATH/Controllers/Ticketing.php on line 28.
+ 1 APPPATH/Controllers/Ticketing.php(28): preg_replace('/[^0-9-.,]/', '', null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+WARNING - 2024-05-12 13:22:14 --> [DEPRECATED] preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in APPPATH/Controllers/Ticketing.php on line 28.
+ 1 APPPATH/Controllers/Ticketing.php(28): preg_replace('/[^0-9-.,]/', '', null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+WARNING - 2024-05-12 13:22:25 --> [DEPRECATED] preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in APPPATH/Controllers/Ticketing.php on line 28.
+ 1 APPPATH/Controllers/Ticketing.php(28): preg_replace('/[^0-9-.,]/', '', null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+WARNING - 2024-05-12 13:26:10 --> [DEPRECATED] preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in APPPATH/Controllers/Ticketing.php on line 28.
+ 1 APPPATH/Controllers/Ticketing.php(28): preg_replace('/[^0-9-.,]/', '', null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+WARNING - 2024-05-12 13:43:50 --> [DEPRECATED] preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in APPPATH/Controllers/Ticketing.php on line 27.
+ 1 APPPATH/Controllers/Ticketing.php(27): preg_replace('/[^0-9-.,]/', '', null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+WARNING - 2024-05-12 13:45:05 --> [DEPRECATED] preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in APPPATH/Controllers/Ticketing.php on line 27.
+ 1 APPPATH/Controllers/Ticketing.php(27): preg_replace('/[^0-9-.,]/', '', null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+WARNING - 2024-05-12 13:45:56 --> [DEPRECATED] preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in APPPATH/Controllers/Ticketing.php on line 27.
+ 1 APPPATH/Controllers/Ticketing.php(27): preg_replace('/[^0-9-.,]/', '', null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-05-12 13:45:57 --> ErrorException: Undefined variable $alamat
+[Method: GET, Route: Ticketing/submit]
+in APPPATH/Controllers/Ticketing.php on line 56.
+ 1 APPPATH/Controllers/Ticketing.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $alamat', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Ticketing.php', 56)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+WARNING - 2024-05-12 13:57:29 --> [DEPRECATED] preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in APPPATH/Controllers/Ticketing.php on line 27.
+ 1 APPPATH/Controllers/Ticketing.php(27): preg_replace('/[^0-9-.,]/', '', null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-05-12 13:57:30 --> ErrorException: Undefined variable $alamat
+[Method: GET, Route: Ticketing/submit]
+in APPPATH/Controllers/Ticketing.php on line 56.
+ 1 APPPATH/Controllers/Ticketing.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $alamat', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Ticketing.php', 56)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-05-12 13:57:36 --> ErrorException: Undefined array key "org"
+[Method: POST, Route: Ticketing/submit]
+in APPPATH/Helpers/my_helper.php on line 61.
+ 1 APPPATH/Helpers/my_helper.php(61): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "org"', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Helpers/my_helper.php', 61)
+ 2 APPPATH/Controllers/Ticketing.php(57): check_isp()
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+WARNING - 2024-05-12 19:57:07 --> [DEPRECATED] preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in APPPATH/Controllers/Ticketing.php on line 27.
+ 1 APPPATH/Controllers/Ticketing.php(27): preg_replace('/[^0-9-.,]/', '', null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-05-12 19:57:07 --> ErrorException: Undefined variable $alamat
+[Method: GET, Route: Ticketing/submit]
+in APPPATH/Controllers/Ticketing.php on line 56.
+ 1 APPPATH/Controllers/Ticketing.php(56): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $alamat', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Ticketing.php', 56)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-05-12 19:59:48 --> ErrorException: Undefined array key "submit"
+[Method: GET, Route: Ticketing/submit]
+in APPPATH/Controllers/Ticketing.php on line 26.
+ 1 APPPATH/Controllers/Ticketing.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "submit"', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Ticketing.php', 26)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+WARNING - 2024-05-12 20:00:17 --> [DEPRECATED] preg_replace(): Passing null to parameter #3 ($subject) of type array|string is deprecated in APPPATH/Controllers/Ticketing.php on line 32.
+ 1 APPPATH/Controllers/Ticketing.php(32): preg_replace('/[^0-9-.,]/', '', null)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-05-12 20:00:17 --> ErrorException: Undefined variable $alamat
+[Method: GET, Route: Ticketing/submit]
+in APPPATH/Controllers/Ticketing.php on line 61.
+ 1 APPPATH/Controllers/Ticketing.php(61): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $alamat', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Ticketing.php', 61)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-05-12 20:33:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 20:33:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 20:58:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 20:59:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 20:59:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:03:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:03:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:03:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:03:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:04:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:04:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:04:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:04:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:04:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:04:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:04:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:04:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:04:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:04:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:04:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:04:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:04:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:05:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:05:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:05:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:06:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:06:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:06:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:06:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:06:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:06:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:07:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:07:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:07:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:07:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:07:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:07:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:08:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:08:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:08:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:08:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:08:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:08:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:09:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:09:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:09:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:10:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:10:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:10:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:11:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:11:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:11:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:11:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:11:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:11:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:11:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:12:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:17:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:17:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:17:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:17:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:17:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:19:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:19:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:19:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:19:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:22:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:22:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:22:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:23:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:23:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:23:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:23:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:24:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:24:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:24:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:25:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:25:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:27:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:27:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:27:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:27:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:28:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:28:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:28:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:28:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:29:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:29:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:29:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:31:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:31:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:32:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:32:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:41:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:41:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:41:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:41:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:41:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:41:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:41:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:41:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:41:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:41:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:41:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:41:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:41:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 21:41:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-05-12 14:58:42 --> ParseError: syntax error, unexpected token "}"
+[Method: POST, Route: Ticketing/submit]
+in APPPATH/Controllers/Ticketing.php on line 77.
+ 1 SYSTEMPATH/Router/Router.php(562): CodeIgniter\Router\AutoRouter->getRoute('Ticketing/submit', 'POST')
+ 2 SYSTEMPATH/Router/Router.php(227): CodeIgniter\Router\Router->autoRoute('Ticketing/submit')
+ 3 SYSTEMPATH/CodeIgniter.php(834): CodeIgniter\Router\Router->handle('Ticketing/submit')
+ 4 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-05-12 21:59:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 22:16:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 22:16:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 22:16:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 22:16:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 22:16:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 22:16:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 22:19:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-05-12 22:19:52 --> CodeIgniter\Database\Exceptions\DataException: Allowed fields must be specified for model: "App\Models\M_Laboratorium"
+[Method: POST, Route: Ticketing/submit]
+in SYSTEMPATH/Model.php on line 813.
+ 1 SYSTEMPATH/Model.php(813): CodeIgniter\Database\Exceptions\DataException::forInvalidAllowedFields('App\\Models\\M_Laboratorium')
+ 2 SYSTEMPATH/BaseModel.php(821): CodeIgniter\Model->doProtectFieldsForInsert([...])
+ 3 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert([...], true)
+ 4 APPPATH/Controllers/Ticketing.php(88): CodeIgniter\Model->insert([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-05-12 22:25:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-05-12 22:25:31 --> mysqli_sql_exception: Unknown column 'tanggal_kendala' in 'field list' in /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(308): mysqli->query('INSERT INTO `la...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `la...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `la...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `la...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Model.php(791): CodeIgniter\BaseModel->insert(Array, true)
+#7 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Ticketing.php(88): CodeIgniter\Model->insert(Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+#9 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+#10 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(49): require_once('/Applications/X...')
+#15 {main}
+CRITICAL - 2024-05-12 22:25:31 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tanggal_kendala' in 'field list'
+[Method: POST, Route: Ticketing/submit]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `laboratorium` (`tanggal_kendala`, `kategori_informan`, `nama_informan`, `no_informan`, `keluhan`, `status`, `ip_address`, `browser`, `platform`, `alamat_geolocation`, `isp`, `lat_long`, `id_lab`) VALUES (:tanggal_kendala:, :kategori_informan:, :nama_informan:, :no_informan:, :keluhan:, :status:, :ip_address:, :browser:, :platform:, :alamat_geolocation:, :isp:, :lat_long:, :id_lab:)', [...], false)
+ 2 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH/Controllers/Ticketing.php(88): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-05-12 22:25:31 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'tanggal_kendala' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `laboratorium` (`tanggal_kendala`, `kategori_informan`, `nama_informan`, `no_informan`, `keluhan`, `status`, `ip_address`, `browser`, `platform`, `alamat_geolocation`, `isp`, `lat_long`, `id_lab`) VALUES (\'2024-05-12 22:25:30\', \'Pegawai\', \'Bayu Setya Ajie\', \'6228989817181\', \'Internet mati\', \'0\', \'::1\', \'Chrome 124.0.0.0\', \'Mac OS X\', \'Jl. Babakan Karees, Mengger, Kec. Bandung Kidul, Kota Bandung, Jawa Barat\', \'Institute of Technology Bandung\', \'-6.963588,107.63507\', \'3\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `laboratorium` (`tanggal_kendala`, `kategori_informan`, `nama_informan`, `no_informan`, `keluhan`, `status`, `ip_address`, `browser`, `platform`, `alamat_geolocation`, `isp`, `lat_long`, `id_lab`) VALUES (\'2024-05-12 22:25:30\', \'Pegawai\', \'Bayu Setya Ajie\', \'6228989817181\', \'Internet mati\', \'0\', \'::1\', \'Chrome 124.0.0.0\', \'Mac OS X\', \'Jl. Babakan Karees, Mengger, Kec. Bandung Kidul, Kota Bandung, Jawa Barat\', \'Institute of Technology Bandung\', \'-6.963588,107.63507\', \'3\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `laboratorium` (`tanggal_kendala`, `kategori_informan`, `nama_informan`, `no_informan`, `keluhan`, `status`, `ip_address`, `browser`, `platform`, `alamat_geolocation`, `isp`, `lat_long`, `id_lab`) VALUES (:tanggal_kendala:, :kategori_informan:, :nama_informan:, :no_informan:, :keluhan:, :status:, :ip_address:, :browser:, :platform:, :alamat_geolocation:, :isp:, :lat_long:, :id_lab:)', [...], false)
+ 4 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH/Controllers/Ticketing.php(88): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-05-12 22:25:31 --> [Caused by] mysqli_sql_exception: Unknown column 'tanggal_kendala' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('INSERT INTO `laboratorium` (`tanggal_kendala`, `kategori_informan`, `nama_informan`, `no_informan`, `keluhan`, `status`, `ip_address`, `browser`, `platform`, `alamat_geolocation`, `isp`, `lat_long`, `id_lab`) VALUES (\'2024-05-12 22:25:30\', \'Pegawai\', \'Bayu Setya Ajie\', \'6228989817181\', \'Internet mati\', \'0\', \'::1\', \'Chrome 124.0.0.0\', \'Mac OS X\', \'Jl. Babakan Karees, Mengger, Kec. Bandung Kidul, Kota Bandung, Jawa Barat\', \'Institute of Technology Bandung\', \'-6.963588,107.63507\', \'3\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `laboratorium` (`tanggal_kendala`, `kategori_informan`, `nama_informan`, `no_informan`, `keluhan`, `status`, `ip_address`, `browser`, `platform`, `alamat_geolocation`, `isp`, `lat_long`, `id_lab`) VALUES (\'2024-05-12 22:25:30\', \'Pegawai\', \'Bayu Setya Ajie\', \'6228989817181\', \'Internet mati\', \'0\', \'::1\', \'Chrome 124.0.0.0\', \'Mac OS X\', \'Jl. Babakan Karees, Mengger, Kec. Bandung Kidul, Kota Bandung, Jawa Barat\', \'Institute of Technology Bandung\', \'-6.963588,107.63507\', \'3\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `laboratorium` (`tanggal_kendala`, `kategori_informan`, `nama_informan`, `no_informan`, `keluhan`, `status`, `ip_address`, `browser`, `platform`, `alamat_geolocation`, `isp`, `lat_long`, `id_lab`) VALUES (\'2024-05-12 22:25:30\', \'Pegawai\', \'Bayu Setya Ajie\', \'6228989817181\', \'Internet mati\', \'0\', \'::1\', \'Chrome 124.0.0.0\', \'Mac OS X\', \'Jl. Babakan Karees, Mengger, Kec. Bandung Kidul, Kota Bandung, Jawa Barat\', \'Institute of Technology Bandung\', \'-6.963588,107.63507\', \'3\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `laboratorium` (`tanggal_kendala`, `kategori_informan`, `nama_informan`, `no_informan`, `keluhan`, `status`, `ip_address`, `browser`, `platform`, `alamat_geolocation`, `isp`, `lat_long`, `id_lab`) VALUES (:tanggal_kendala:, :kategori_informan:, :nama_informan:, :no_informan:, :keluhan:, :status:, :ip_address:, :browser:, :platform:, :alamat_geolocation:, :isp:, :lat_long:, :id_lab:)', [...], false)
+ 5 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH/Controllers/Ticketing.php(88): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->submit()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-05-12 15:28:18 --> Error: Class "App\Models\M_Trouble_Ticker" not found
+[Method: GET, Route: Ticketing]
+in APPPATH/Controllers/Ticketing.php on line 17.
+ 1 SYSTEMPATH/CodeIgniter.php(903): App\Controllers\Ticketing->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-05-12 22:28:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 22:28:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 22:28:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-05-12 22:48:54 --> ErrorException: Undefined array key "id_trouble"
+[Method: GET, Route: Ticketing/tracking/b7913b0]
+in APPPATH/Controllers/Ticketing.php on line 101.
+ 1 APPPATH/Controllers/Ticketing.php(101): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_trouble"', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Ticketing.php', 101)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->tracking('b7913b0')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-05-12 22:49:09 --> ErrorException: Attempt to read property "id_trouble" on array
+[Method: GET, Route: Ticketing/tracking/b7913b0]
+in APPPATH/Controllers/Ticketing.php on line 101.
+ 1 APPPATH/Controllers/Ticketing.php(101): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "id_trouble" on array', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Ticketing.php', 101)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->tracking('b7913b0')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-05-12 22:55:52 --> Error: Cannot use object of type CodeIgniter\Database\MySQLi\Result as array
+[Method: GET, Route: Ticketing/tracking/b7913b0]
+in APPPATH/Views/ticketing/v_tracking.php on line 34.
+ 1 SYSTEMPATH/View/View.php(234): include()
+ 2 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('ticketing/v_tracking', [], true)
+ 4 APPPATH/Controllers/Ticketing.php(101): view('ticketing/v_tracking', [...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->tracking('b7913b0')
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-05-12 16:14:23 --> Error: Class "App\Models\M_Trouble_Ticket_Tracking" not found
+[Method: GET, Route: Ticketing/tracking/b7913b0]
+in APPPATH/Controllers/Ticketing.php on line 20.
+ 1 SYSTEMPATH/CodeIgniter.php(903): App\Controllers\Ticketing->__construct()
+ 2 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-05-12 23:15:02 --> ErrorException: Undefined array key "id"
+[Method: GET, Route: Ticketing/tracking/b7913b0]
+in APPPATH/Controllers/Ticketing.php on line 104.
+ 1 APPPATH/Controllers/Ticketing.php(104): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Ticketing.php', 104)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->tracking('b7913b0')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-05-12 23:27:41 --> ErrorException: Undefined array key "petugas"
+[Method: GET, Route: Ticketing/tracking/b7913b0]
+in APPPATH/Views/ticketing/v_tracking.php on line 55.
+ 1 APPPATH/Views/ticketing/v_tracking.php(55): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "petugas"', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/ticketing/v_tracking.php', 55)
+ 2 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/ticketing/v_tracking.php')
+ 3 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('ticketing/v_tracking', [], true)
+ 5 APPPATH/Controllers/Ticketing.php(106): view('ticketing/v_tracking', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->tracking('b7913b0')
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-05-12 23:29:44 --> ArgumentCountError: Too few arguments to function App\Controllers\Ticketing::tracking(), 0 passed in /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php on line 933 and exactly 1 expected
+[Method: GET, Route: Ticketing/tracking]
+in APPPATH/Controllers/Ticketing.php on line 100.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->tracking()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-05-12 23:29:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-12 23:30:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-05-12 23:40:51 --> ErrorException: Trying to access array offset on null
+[Method: GET, Route: Ticketing/tracking/b7913b]
+in APPPATH/Controllers/Ticketing.php on line 104.
+ 1 APPPATH/Controllers/Ticketing.php(104): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on null', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Ticketing.php', 104)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->tracking('b7913b')
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-05-12 23:55:54 --> Error: Call to undefined function bulanIndoPanjang()
+[Method: GET, Route: Ticketing/tracking/b7913b0]
+in APPPATH/Helpers/my_helper.php on line 80.
+ 1 APPPATH/Views/ticketing/v_tracking.php(65): tanggalIndoLengkap('12 23:04:50')
+ 2 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/ticketing/v_tracking.php')
+ 3 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('ticketing/v_tracking', [], true)
+ 5 APPPATH/Controllers/Ticketing.php(106): view('ticketing/v_tracking', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Ticketing->tracking('b7913b0')
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Ticketing))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')

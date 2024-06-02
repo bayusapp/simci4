@@ -1,0 +1,40 @@
+INFO - 2024-05-17 15:37:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-17 15:37:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-17 08:37:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-17 15:42:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-17 15:42:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-17 08:42:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-05-17 08:42:28 --> ErrorException: Trying to access array offset on null
+[Method: GET, Route: Dashboard]
+in APPPATH/Controllers/Dashboard.php on line 19.
+ 1 APPPATH/Controllers/Dashboard.php(19): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on null', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Dashboard.php', 19)
+ 2 SYSTEMPATH/CodeIgniter.php(903): App\Controllers\Dashboard->__construct()
+ 3 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-05-17 08:43:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-17 08:43:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-17 08:46:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-17 15:46:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-17 15:48:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-17 08:48:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-17 15:48:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-17 15:48:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-17 08:48:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-05-17 08:48:46 --> ErrorException: Undefined variable $tmp
+[Method: GET, Route: Dashboard]
+in APPPATH/Controllers/Dashboard.php on line 21.
+ 1 APPPATH/Controllers/Dashboard.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $tmp', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Dashboard.php', 21)
+ 2 SYSTEMPATH/CodeIgniter.php(903): App\Controllers\Dashboard->__construct()
+ 3 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-05-17 08:48:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-17 08:50:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-05-17 08:50:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

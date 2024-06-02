@@ -1,0 +1,10 @@
+__ci_last_regenerate|i:1715524098;_ci_previous_url|s:41:"http://localhost:8080/index.php/Ticketing";error|s:275:"<!-- DEBUG-VIEW START 1 SYSTEMPATH/Validation/Views/list.php -->
+	<div class="errors" role="alert">
+		<ul>
+					<li>kategori_informan harus diisi</li>
+					<li>nama_informan harus diisi</li>
+				</ul>
+	</div>
+
+<!-- DEBUG-VIEW ENDED 1 SYSTEMPATH/Validation/Views/list.php -->
+";__ci_vars|a:3:{s:5:"error";s:3:"old";s:13:"_ci_old_input";s:3:"old";s:21:"_ci_validation_errors";s:3:"old";}_ci_old_input|a:2:{s:3:"get";a:0:{}s:4:"post";a:8:{s:14:"csrf_test_name";s:32:"09d90842bc2638bb7f81c67071a86a62";s:17:"kategori_informan";s:0:"";s:13:"nama_informan";s:0:"";s:11:"no_informan";s:0:"";s:12:"laboratorium";s:0:"";s:7:"keluhan";s:0:"";s:6:"lokasi";s:29:"LatLng(-6.963575, 107.635071)";s:6:"submit";s:0:"";}}_ci_validation_errors|a:2:{s:17:"kategori_informan";s:29:"kategori_informan harus diisi";s:13:"nama_informan";s:25:"nama_informan harus diisi";}
