@@ -33,8 +33,8 @@ if (!function_exists('check_ip')) {
     // IP ITB
     // $json = file_get_contents("http://ipinfo.io/167.205.22.106/geo");
     // IP Non TUNE
-    // $json = file_get_contents("http://ipinfo.io/114.122.100.20/geo");
-    $json = file_get_contents("http://ipinfo.io/{$ip_address}/geo");
+    $json = file_get_contents("http://ipinfo.io/114.122.100.20/geo");
+    // $json = file_get_contents("http://ipinfo.io/{$ip_address}/geo");
     $details = json_decode($json, true);
     return $details;
   }
@@ -68,6 +68,29 @@ if (!function_exists('check_isp')) {
       }
     }
     return $org;
+  }
+}
+
+if (!function_exists('checkUserAgent')) {
+  function checkUserAgent() {
+    $agent = $this->request->getUserAgent();
+    if ($agent->isBrowser()) {
+      $currentAgent = $agent->getBrowser() . ' ' . $agent->getVersion();
+    } elseif ($agent->isRobot()) {
+      $currentAgent = $agent->getRobot();
+    } elseif ($agent->isMobile()) {
+      $currentAgent = $agent->getMobile();
+    } else {
+      $currentAgent = 'Unidentified User Agent';
+    }
+    return $currentAgent;
+  }
+}
+
+if (!function_exists('getPlatform')) {
+  function getPlatform() {
+    $agent = $this->request->getUserAgent();
+    return $agent->getPlatform();;
   }
 }
 

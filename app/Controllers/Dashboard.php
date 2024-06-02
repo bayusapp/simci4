@@ -17,7 +17,6 @@ class Dashboard extends BaseController
       header("Location: " . base_url());
     }
     if (session()->get('nip_laboran')) {
-
       $this->laboran = new M_Laboran();
       $nip                = session()->get('nip_laboran');
       $dataLaboran        = $this->laboran->getDataLaboran($nip);
@@ -34,7 +33,8 @@ class Dashboard extends BaseController
 
   public function index()
   {
-    $data   = $this->data;
+    $data           = $this->data;
+    $data['title']  = 'Dashboard | SIM Laboratorium';
     return view('dashboard/v_index', $data);
   }
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Ablepro v8.0 bootstrap admin template by Phoenixcoded</title>
+  <title><?=$title?></title>
   <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 11]>
@@ -18,11 +18,7 @@
   <meta name="author" content="Phoenixcoded" />
   <link rel="shortcut icon" href="<?= base_url() ?>assets/images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
-
-
-
 </head>
-
 <body class="">
   <!-- [ Pre-loader ] start -->
   <div class="loader-bg">
@@ -43,7 +39,6 @@
             </div>
           </div>
         </div>
-
         <ul class="nav pcoded-inner-navbar ">
           <li class="nav-item pcoded-menu-caption">
             <label>Menu</label>
@@ -58,6 +53,12 @@
             <a href="<?= base_url() ?>TroubleTicket" class="nav-link ">
               <span class="pcoded-micon"><i class="feather icon-thumbs-down"></i></span>
               <span class="pcoded-mtext">Trouble Ticket</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= base_url() ?>TroubleTicket" class="nav-link ">
+              <span class="pcoded-micon"><i class="feather icon-clock"></i></span>
+              <span class="pcoded-mtext">Riwayat Login</span>
             </a>
           </li>
         </ul>
@@ -96,9 +97,8 @@
                 </div>
               </div>
               <ul class="pro-body">
-                <li><a href="user-profile.html" class="dropdown-item"><i class="feather icon-user"></i> Profile</a></li>
-                <li><a href="email_inbox.html" class="dropdown-item"><i class="feather icon-mail"></i> My Messages</a></li>
-                <li><a href="<?= base_url() ?>Auth/logout" class="dropdown-item"><i class="feather icon-power text-danger"></i> Lock Screen</a></li>
+                <li><a href="user-profile.html" class="dropdown-item"><i class="feather icon-user"></i> Pengaturan Profil</a></li>
+                <li><a href="<?= base_url() ?>Auth/logout" class="dropdown-item"><i class="feather icon-log-out text-danger"></i> Keluar</a></li>
               </ul>
             </div>
           </div>
@@ -288,53 +288,6 @@
 
 
   <!-- [ Main Content ] end -->
-  <!-- Warning Section start -->
-  <!-- Older IE warning message -->
-  <!--[if lt IE 11]>
-        <div class="ie-warning">
-            <h1>Warning!!</h1>
-            <p>You are using an outdated version of Internet Explorer, please upgrade
-               <br/>to any of the following web browsers to access this website.
-            </p>
-            <div class="iew-container">
-                <ul class="iew-download">
-                    <li>
-                        <a href="http://www.google.com/chrome/">
-                            <img src="assets/images/browser/chrome.png" alt="Chrome">
-                            <div>Chrome</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.mozilla.org/en-US/firefox/new/">
-                            <img src="assets/images/browser/firefox.png" alt="Firefox">
-                            <div>Firefox</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://www.opera.com">
-                            <img src="assets/images/browser/opera.png" alt="Opera">
-                            <div>Opera</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://www.apple.com/safari/">
-                            <img src="assets/images/browser/safari.png" alt="Safari">
-                            <div>Safari</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                            <img src="assets/images/browser/ie.png" alt="">
-                            <div>IE (11 & above)</div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <p>Sorry for the inconvenience!</p>
-        </div>
-    <![endif]-->
-  <!-- Warning Section Ends -->
-
   <!-- Required Js -->
   <script src="assets/js/vendor-all.min.js"></script>
   <script src="assets/js/plugins/bootstrap.min.js"></script>

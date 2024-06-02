@@ -18,6 +18,7 @@
   <meta name="author" content="Phoenixcoded" />
   <link rel="shortcut icon" href="<?= base_url() ?>assets/images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
 </head>
 
 <body>
@@ -52,6 +53,11 @@
               <?= session()->getFlashdata('invalid_password') ?>
             </div>
           <?php endif; ?>
+          <?php if (!empty(session()->getFlashdata('deactiv'))) : ?>
+            <div class="alert alert-danger" role="alert">
+              <?= session()->getFlashdata('deactiv') ?>
+            </div>
+          <?php endif; ?>
           <form action="<?= base_url() ?>auth/login" method="post">
             <div class="form-group mb-3">
               <label class="floating-label" for="username">Username</label>
@@ -61,6 +67,8 @@
               <label class="floating-label" for="password">Password</label>
               <input type="password" class="form-control" id="password" name="password">
             </div>
+            <input type="text" name="location" id="location" class="form-control" readonly hidden>
+            <div id='map' hidden></div>
             <button class="btn btn-block btn-primary mb-4">Login</button>
           </form>
           <div class="text-center">
@@ -76,6 +84,32 @@
   <script src="<?= base_url() ?>assets/js/plugins/bootstrap.min.js"></script>
   <script src="<?= base_url() ?>assets/js/ripple.js"></script>
   <script src="<?= base_url() ?>assets/js/pcoded.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+  <script>
+    const map = L.map('map').fitWorld();
+
+    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    function onLocationFound(e) {
+      document.getElementById('location').value = e.latlng;
+    }
+
+    function onLocationError(e) {
+      // alert(e.message);
+      console.log(e.message);
+    }
+
+    map.on('locationfound', onLocationFound);
+    map.on('locationerror', onLocationError);
+
+    map.locate({
+      setView: true,
+      maxZoom: 16
+    });
+  </script>
 </body>
 
 </html>

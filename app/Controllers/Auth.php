@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\M_Laboran;
+use App\Models\M_Riwayat_Login;
 use App\Models\M_Users;
 
 class Auth extends BaseController
@@ -10,11 +11,13 @@ class Auth extends BaseController
 
   protected $laboran;
   protected $users;
+  protected $history;
 
   public function __construct()
   {
     $this->laboran  = new M_Laboran();
     $this->users    = new M_Users();
+    $this->history  = new M_Riwayat_Login();
   }
 
   public function index()
@@ -32,20 +35,49 @@ class Auth extends BaseController
       session()->setFlashdata('error', 'Harap lengkapi seluruh field');
       return redirect()->back()->withInput();
     } else {
-      $username = $this->request->getPost('username');
-      $password = $this->request->getPost('password');
+      $username     = $this->request->getPost('username');
+      $password     = $this->request->getPost('password');
+      $lokasi       = $this->request->getPost('location');
+      $lokasi       = preg_replace('/[^0-9-.,]/', '', $lokasi);
+      $maps         = getAddress($lokasi);
+      $geolocation  = check_ip();
+      if ($maps == 'off') {
+        $kota = $geolocation['city'];
+        $provinsi = $geolocation['region'];
+      } else {
+        $maps     = getAddress($lokasi)->address_components;
+        $kota = $maps[2]->short_name . ', ' . $maps[3]->short_name . ', ' . $maps[4]->short_name;
+        $provinsi = $maps[5]->short_name;
+      }
       $cek_data = $this->users->getUsername($username);
       if ($cek_data) {
-        $password_hash  = $cek_data['password'];
-        if (password_verify($password, $password_hash)) {
-          $jenis_akses = $cek_data['jenis_akses'];
-          if ($jenis_akses == 'laboran') {
-            session()->set('nip_laboran', $cek_data['nip_laboran']);
-            session()->set('jenis_akses', $jenis_akses);
-            return redirect()->to(base_url('Dashboard'));
+        if ($cek_data['status_akun'] == "1") {
+          $password_hash  = $cek_data['password'];
+          if (password_verify($password, $password_hash)) {
+            $data_history = [
+              'ip_address'    => $geolocation['ip'],
+              'browser'       => checkUserAgent(),
+              'platform'      => getPlatform(),
+              'tanggal_login' => date('Y-m-d H:i:s'),
+              'kota'          => $kota,
+              'provinsi'      => $provinsi,
+              'organisasi'    => check_isp(),
+              'geolocation'   => $lokasi,
+              'username'      => $username
+            ];
+            $this->history->insert($data_history);
+            $jenis_akses = $cek_data['jenis_akses'];
+            if ($jenis_akses == 'laboran') {
+              session()->set('nip_laboran', $cek_data['nip_laboran']);
+              session()->set('jenis_akses', $jenis_akses);
+              return redirect()->to(base_url('Dashboard'));
+            }
+          } else {
+            session()->setFlashdata('invalid_password', 'Password tidak valid');
+            return redirect()->back()->withInput();
           }
         } else {
-          session()->setFlashdata('invalid_password', 'Password tidak valid');
+          session()->setFlashdata('deactiv', 'Akun Anda berstatus nonaktif. Silahkan hubungi Unit Laboratorium');
           return redirect()->back()->withInput();
         }
       } else {
