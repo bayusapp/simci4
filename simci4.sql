@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Waktu pembuatan: 02 Jun 2024 pada 17.29
--- Versi server: 10.4.28-MariaDB
--- Versi PHP: 8.2.4
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 02 Jun 2024 pada 19.13
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -66,7 +66,26 @@ CREATE TABLE `laboran` (
 --
 
 INSERT INTO `laboran` (`nip_laboran`, `nama_laboran`, `foto_laboran`) VALUES
-('12345678', 'Administrator', NULL);
+('12345678', 'Administrator', 'assets/images/administrator.png');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `riwayat_login`
+--
+
+CREATE TABLE `riwayat_login` (
+  `id_riwayat` int(11) NOT NULL,
+  `ip_address` char(30) DEFAULT NULL,
+  `browser` char(50) DEFAULT NULL,
+  `platform` char(50) DEFAULT NULL,
+  `tanggal_login` datetime DEFAULT NULL,
+  `kota` varchar(255) DEFAULT NULL,
+  `provinsi` varchar(255) DEFAULT NULL,
+  `organisasi` varchar(255) DEFAULT NULL,
+  `geolocation` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -108,6 +127,12 @@ ALTER TABLE `laboran`
   ADD PRIMARY KEY (`nip_laboran`);
 
 --
+-- Indeks untuk tabel `riwayat_login`
+--
+ALTER TABLE `riwayat_login`
+  ADD PRIMARY KEY (`id_riwayat`);
+
+--
 -- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
@@ -122,6 +147,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `calon_aslab`
   MODIFY `id_caslab` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `riwayat_login`
+--
+ALTER TABLE `riwayat_login`
+  MODIFY `id_riwayat` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
