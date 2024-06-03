@@ -68,6 +68,7 @@ class Auth extends BaseController
             $this->history->insert($data_history);
             $jenis_akses = $cek_data['jenis_akses'];
             if ($jenis_akses == 'laboran') {
+              session()->set('username', $username);
               session()->set('nip_laboran', $cek_data['nip_laboran']);
               session()->set('jenis_akses', $jenis_akses);
               return redirect()->to(base_url('Dashboard'));
