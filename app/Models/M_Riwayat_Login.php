@@ -13,6 +13,7 @@ class M_Riwayat_Login extends Model
   public function getHistoryLogin($username)
   {
     $this->where('username', $username);
+    $this->orderBy('id_riwayat', 'desc');
     return $this->findAll();
   }
 }
