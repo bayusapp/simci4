@@ -18,6 +18,7 @@
   <meta name="author" content="Phoenixcoded" />
   <link rel="shortcut icon" href="<?= base_url() ?>assets/images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
+  <link rel="stylesheet" href="<?= base_url() ?>assets/css/plugins/dataTables.bootstrap4.min.css">
 </head>
 
 <body class="">
@@ -111,15 +112,19 @@
   <?= $this->renderSection('content'); ?>
   <!-- [ Main Content ] end -->
   <!-- Required Js -->
-  <script src="assets/js/vendor-all.min.js"></script>
-  <script src="assets/js/plugins/bootstrap.min.js"></script>
-  <script src="assets/js/ripple.js"></script>
-  <script src="assets/js/pcoded.min.js"></script>
+  <script src="<?= base_url() ?>assets/js/vendor-all.min.js"></script>
+  <script src="<?= base_url() ?>assets/js/plugins/bootstrap.min.js"></script>
+  <script src="<?= base_url() ?>assets/js/ripple.js"></script>
+  <script src="<?= base_url() ?>assets/js/pcoded.min.js"></script>
 
   <!-- Apex Chart -->
-  <script src="assets/js/plugins/apexcharts.min.js"></script>
+  <script src="<?= base_url() ?>assets/js/plugins/apexcharts.min.js"></script>
   <!-- custom-chart js -->
-  <script src="assets/js/pages/dashboard-main.js"></script>
+  <script src="<?= base_url() ?>assets/js/pages/dashboard-main.js"></script>
+  <!-- datatable Js -->
+  <script src="<?= base_url() ?>assets/js/plugins/jquery.dataTables.min.js"></script>
+  <script src="<?= base_url() ?>assets/js/plugins/dataTables.bootstrap4.min.js"></script>
+  <script src="<?= base_url() ?>assets/js/pages/data-basic-custom.js"></script>
 </body>
 
 </html>
