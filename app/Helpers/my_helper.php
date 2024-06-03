@@ -71,29 +71,6 @@ if (!function_exists('check_isp')) {
   }
 }
 
-if (!function_exists('checkUserAgent')) {
-  function checkUserAgent() {
-    $agent = $this->request->getUserAgent();
-    if ($agent->isBrowser()) {
-      $currentAgent = $agent->getBrowser() . ' ' . $agent->getVersion();
-    } elseif ($agent->isRobot()) {
-      $currentAgent = $agent->getRobot();
-    } elseif ($agent->isMobile()) {
-      $currentAgent = $agent->getMobile();
-    } else {
-      $currentAgent = 'Unidentified User Agent';
-    }
-    return $currentAgent;
-  }
-}
-
-if (!function_exists('getPlatform')) {
-  function getPlatform() {
-    $agent = $this->request->getUserAgent();
-    return $agent->getPlatform();;
-  }
-}
-
 if (!function_exists('greetings')) {
   function greetings()
   {

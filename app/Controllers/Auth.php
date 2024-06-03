@@ -56,8 +56,8 @@ class Auth extends BaseController
           if (password_verify($password, $password_hash)) {
             $data_history = [
               'ip_address'    => $geolocation['ip'],
-              'browser'       => checkUserAgent(),
-              'platform'      => getPlatform(),
+              'browser'       => $this->checkUserAgent(),
+              'platform'      => $this->getPlatform(),
               'tanggal_login' => date('Y-m-d H:i:s'),
               'kota'          => $kota,
               'provinsi'      => $provinsi,
@@ -155,5 +155,26 @@ Terima kasih";
   {
     session()->destroy();
     return redirect()->to(base_url());
+  }
+
+  private function checkUserAgent()
+  {
+    $agent = $this->request->getUserAgent();
+    if ($agent->isBrowser()) {
+      $currentAgent = $agent->getBrowser() . ' ' . $agent->getVersion();
+    } elseif ($agent->isRobot()) {
+      $currentAgent = $agent->getRobot();
+    } elseif ($agent->isMobile()) {
+      $currentAgent = $agent->getMobile();
+    } else {
+      $currentAgent = 'Unidentified User Agent';
+    }
+    return $currentAgent;
+  }
+
+  private function getPlatform()
+  {
+    $agent = $this->request->getUserAgent();
+    return $agent->getPlatform();;
   }
 }
