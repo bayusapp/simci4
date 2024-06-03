@@ -58,7 +58,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url() ?>TroubleTicket" class="nav-link ">
+            <a href="<?= base_url() ?>RiwayatLogin" class="nav-link ">
               <span class="pcoded-micon"><i class="feather icon-clock"></i></span>
               <span class="pcoded-mtext">Riwayat Login</span>
             </a>
