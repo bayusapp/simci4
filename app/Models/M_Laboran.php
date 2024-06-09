@@ -16,7 +16,8 @@ class M_Laboran extends Model
 
   public function getDataLaboran($nip)
   {
-    $this->where('nip_laboran', $nip);
+    $this->join('users', 'laboran.nip_laboran = users.nip_laboran');
+    $this->where('laboran.nip_laboran', $nip);
     return $this->first();
   }
 
