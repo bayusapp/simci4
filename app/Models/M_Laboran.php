@@ -19,4 +19,12 @@ class M_Laboran extends Model
     $this->where('nip_laboran', $nip);
     return $this->first();
   }
+
+  public function getListLaboranToProfile($nip)
+  {
+    $nip_ = [$nip];
+    $this->whereNotIn('nip_laboran', $nip_);
+    $this->orderBy('nip_laboran', 'asc');
+    return $this->findAll();
+  }
 }
