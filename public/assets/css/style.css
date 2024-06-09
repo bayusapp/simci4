@@ -25152,6 +25152,27 @@ pre[class*=language-]:before {
     background: linear-gradient(to bottom, transparent 8px, #ecf0f5 0%);
 }
 
+.lay-customizer .theme-color.background-color.image > a[data-value="background-img-7"],
+  .theme-color.background-color.image > a[data-value="background-img-7"] {
+    background-image: url("../images/nav-bg/body-bg-7.jpg");
+}
+
+.lay-customizer .theme-color.background-color.image > a[data-value="background-img-7"] > span:nth-child(1):after, .lay-customizer .theme-color.background-color.image > a[data-value="background-img-7"] > span:nth-child(1):before,
+    .theme-color.background-color.image > a[data-value="background-img-7"] > span:nth-child(1):after,
+    .theme-color.background-color.image > a[data-value="background-img-7"] > span:nth-child(1):before {
+    background: transparent;
+}
+
+.lay-customizer .theme-color.background-color.image > a[data-value="background-img-7"] > span:nth-child(2):before,
+    .theme-color.background-color.image > a[data-value="background-img-7"] > span:nth-child(2):before {
+    background: #fff;
+}
+
+.lay-customizer .theme-color.background-color.image > a[data-value="background-img-7"] > span:nth-child(2):after,
+    .theme-color.background-color.image > a[data-value="background-img-7"] > span:nth-child(2):after {
+    background: linear-gradient(to bottom, transparent 8px, #ecf0f5 0%);
+}
+
 .doc-img > a {
     position: relative;
     width: 130px;
@@ -25552,6 +25573,22 @@ pre[class*=language-]:before {
 }
 
 .doc-img.background-color.image > a[data-value="background-img-6"] > span:nth-child(2):after {
+    background: linear-gradient(to bottom, transparent 20px, #ecf0f5 0%);
+}
+
+.doc-img.background-color.image > a[data-value="background-img-7"] {
+    background-image: url("../images/nav-bg/body-bg-7.jpg");
+}
+
+.doc-img.background-color.image > a[data-value="background-img-7"] > span:nth-child(1):after, .doc-img.background-color.image > a[data-value="background-img-7"] > span:nth-child(1):before {
+    background: transparent;
+}
+
+.doc-img.background-color.image > a[data-value="background-img-7"] > span:nth-child(2):before {
+    background: #fff;
+}
+
+.doc-img.background-color.image > a[data-value="background-img-7"] > span:nth-child(2):after {
     background: linear-gradient(to bottom, transparent 20px, #ecf0f5 0%);
 }
 
@@ -26665,6 +26702,14 @@ body.background-img-6 {
 
 body.background-img-6 .pcoded-navbar.theme-horizontal ~ .pcoded-header[class*="header-"] {
     background-image: url("../images/nav-bg/body-bg-6.jpg");
+}
+
+body.background-img-7 {
+    background-image: url("../images/nav-bg/body-bg-7.jpg");
+}
+
+body.background-img-7 .pcoded-navbar.theme-horizontal ~ .pcoded-header[class*="header-"] {
+    background-image: url("../images/nav-bg/body-bg-7.jpg");
 }
 
 /* ====== [ Header color end ] ======== */
