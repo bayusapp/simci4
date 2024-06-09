@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="<?= base_url() ?>assets/css/plugins/dataTables.bootstrap4.min.css">
 </head>
 
-<body class="">
+<body class="background-img-7">
   <!-- [ Pre-loader ] start -->
   <div class="loader-bg">
     <div class="loader-track">
@@ -99,7 +99,7 @@
                 </div>
               </div>
               <ul class="pro-body">
-                <li><a href="user-profile.html" class="dropdown-item"><i class="feather icon-user"></i> Pengaturan Profil</a></li>
+                <li><a href="<?= base_url() ?>Profil" class="dropdown-item"><i class="feather icon-user"></i> Pengaturan Profil</a></li>
                 <li><a href="<?= base_url() ?>Auth/logout" class="dropdown-item"><i class="feather icon-log-out text-danger"></i> Keluar</a></li>
               </ul>
             </div>
