@@ -1,3 +1,18 @@
+<?php
+$uri    = service('uri');
+$model  = new \App\Models\M_Users_Access_Menu();
+$menu   = $model->getAccessMenu(session()->get('id_role'));
+
+$segment_1 = $uri->getSegment(1);
+$segment_2 = $uri->getSegment(2);
+if ($segment_2 == null) {
+  $title   = preg_replace('/(?<!^)([A-Z])/', ' $1', $segment_1);
+  $title   = $title . ' | SIM Laboratorium';
+} else {
+  $title   = preg_replace('/(?<!^)([A-Z])/', ' $1', $segment_2);
+  $title   = $title . ' | SIM Laboratorium';
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,9 +50,21 @@
       <div class="navbar-content scroll-div ">
         <div class="" style="margin-bottom: 15px;">
           <div class="main-menu-header">
-            <img class="img-radius" src="<?= base_url() . "/" . $foto_laboran ?>" alt="User-Profile-Image">
+            <?php
+            $id_role = session()->get('id_role');
+            if ($id_role == '1' || $id_role == '2') {
+              $foto     = base_url($foto_laboran);
+              $nama     = $nama_laboran;
+              $no_induk = $nip_laboran;
+            } else {
+              $foto     = base_url('assets/images/person-flat.png');
+              $nama     = 'Users';
+              $no_induk = '1234';
+            }
+            ?>
+            <img class="img-radius" src="<?= $foto ?>" alt="User-Profile-Image">
             <div class="user-details">
-              <div id="more-details"><?= $nama_laboran . "<br>" . $nip_laboran ?></div>
+              <div id="more-details"><?= $nama . "<br>" . $no_induk ?></div>
             </div>
           </div>
         </div>
@@ -45,24 +72,14 @@
           <li class="nav-item pcoded-menu-caption">
             <label>Menu</label>
           </li>
-          <li class="nav-item">
-            <a href="<?= base_url() ?>Dashboard" class="nav-link ">
-              <span class="pcoded-micon"><i class="feather icon-home"></i></span>
-              <span class="pcoded-mtext">Dashboard</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="<?= base_url() ?>TroubleTicket" class="nav-link ">
-              <span class="pcoded-micon"><i class="feather icon-thumbs-down"></i></span>
-              <span class="pcoded-mtext">Trouble Ticket</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="<?= base_url() ?>RiwayatLogin" class="nav-link ">
-              <span class="pcoded-micon"><i class="feather icon-clock"></i></span>
-              <span class="pcoded-mtext">Riwayat Login</span>
-            </a>
-          </li>
+          <?php foreach ($menu as $m) : ?>
+            <li class="nav-item">
+              <a href="<?= base_url($m['url_menu']) ?>" class="nav-link ">
+                <span class="pcoded-micon"><i class="<?= $m['icon_menu'] ?>"></i></span>
+                <span class="pcoded-mtext"><?= $m['nama_menu'] ?></span>
+              </a>
+            </li>
+          <?php endforeach; ?>
         </ul>
       </div>
     </div>
@@ -91,10 +108,10 @@
               <div class="pro-head">
                 <div class="row">
                   <div class="col-lg-3">
-                    <img src="<?= base_url() . "/" . $foto_laboran ?>" class="img-radius" alt="User-Profile-Image">
+                    <img src="<?= $foto ?>" class="img-radius" alt="User-Profile-Image">
                   </div>
                   <div class="col-lg-9">
-                    <span><?= $nama_laboran . "<br>" . $nip_laboran ?></span>
+                    <span><?= $nama . "<br>" . $no_induk ?></span>
                   </div>
                 </div>
               </div>
