@@ -5,25 +5,33 @@ namespace App\Controllers;
 use App\Models\M_Laboran;
 use App\Models\M_Riwayat_Login;
 use App\Models\M_Users;
+use App\Models\M_Users_Role;
 
 class Auth extends BaseController
 {
 
   protected $laboran;
   protected $users;
+  protected $users_role;
   protected $history;
 
   public function __construct()
   {
-    $this->laboran  = new M_Laboran();
-    $this->users    = new M_Users();
-    $this->history  = new M_Riwayat_Login();
+    $this->laboran    = new M_Laboran();
+    $this->users      = new M_Users();
+    $this->users_role = new M_Users_Role();
+    $this->history    = new M_Riwayat_Login();
   }
 
   public function index()
   {
-    $data['title'] = 'Login | Sistem Informasi Manajemen Laboratorium';
-    return view('auth/v_login', $data);
+    if (session()->get('id_role')) {
+      header("Location: " . base_url('Beranda'));
+      die();
+    } else {
+      $data['title'] = 'Login | Sistem Informasi Manajemen Laboratorium';
+      return view('auth/v_login', $data);
+    }
   }
 
   public function login()
@@ -66,12 +74,17 @@ class Auth extends BaseController
               'username'      => $username
             ];
             $this->history->insert($data_history);
-            $jenis_akses = $cek_data['jenis_akses'];
-            if ($jenis_akses == 'laboran') {
-              session()->set('username', $username);
+            $jenis_akses  = $this->users_role->getRole($cek_data['id_role']);
+            session()->set('login', 'login');
+            session()->set('username', $username);
+            session()->set('id_role', $jenis_akses['id_role']);
+            if ($jenis_akses['nama_role'] == 'Administrator' || $jenis_akses['nama_role'] == 'Laboran') {
               session()->set('nip_laboran', $cek_data['nip_laboran']);
-              session()->set('jenis_akses', $jenis_akses);
-              return redirect()->to(base_url('Dashboard'));
+              return redirect()->to(base_url('Beranda'));
+            } elseif ($jenis_akses['nama_role'] == 'Asisten Laboratorium') {
+              return redirect()->to(base_url('Aslab/Beranda'));
+            } elseif ($jenis_akses['nama_role'] == 'Asisten Praktikum') {
+              return redirect()->to(base_url('Asprak/Beranda'));
             }
           } else {
             session()->setFlashdata('invalid_password', 'Password tidak valid');
