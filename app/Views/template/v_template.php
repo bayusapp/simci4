@@ -34,6 +34,17 @@ if ($segment_2 == null) {
   <link rel="shortcut icon" href="<?= base_url() ?>assets/images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
   <link rel="stylesheet" href="<?= base_url() ?>assets/css/plugins/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?= base_url() ?>assets/css/plugins/select2.min.css">
+  <style>
+    .select2-dropdown {
+      z-index: 10060 !important;
+      /*1051;*/
+    }
+
+    .select2 {
+      width: 100% !important;
+    }
+  </style>
 </head>
 
 <body class="background-img-7">
@@ -142,6 +153,30 @@ if ($segment_2 == null) {
   <script src="<?= base_url() ?>assets/js/plugins/jquery.dataTables.min.js"></script>
   <script src="<?= base_url() ?>assets/js/plugins/dataTables.bootstrap4.min.js"></script>
   <script src="<?= base_url() ?>assets/js/pages/data-basic-custom.js"></script>
+  <!-- select2 Js -->
+  <script src="<?= base_url() ?>assets/js/plugins/select2.full.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      setTimeout(function() {
+        $('#lab-praktikum').DataTable();
+
+        $('#lab-riset').DataTable();
+      }, 350);
+
+      $(".id_lab_kategori").select2({
+        placeholder: "Pilih Kategori Laboratorium"
+      });
+
+      $(".id_lab_lokasi").select2({
+        placeholder: "Pilih Lokasi Laboratorium"
+      });
+
+      $(".id_prodi").select2({
+        placeholder: "Pilih Program Studi"
+      });
+
+    });
+  </script>
 </body>
 
 </html>
