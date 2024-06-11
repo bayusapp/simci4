@@ -156,6 +156,12 @@ if ($segment_2 == null) {
   <!-- select2 Js -->
   <script src="<?= base_url() ?>assets/js/plugins/select2.full.min.js"></script>
   <script>
+    window.setTimeout(function() {
+      $(".alert").fadeTo(500, 0).slideUp(500, function() {
+        $(this).remove();
+      });
+    }, 5000);
+
     $(document).ready(function() {
       setTimeout(function() {
         $('#lab-praktikum').DataTable();
