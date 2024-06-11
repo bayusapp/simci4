@@ -35,6 +35,6 @@ class Beranda extends BaseController
   {
     $data           = $this->data;
     $data['title']  = 'Beranda | SIM Laboratorium';
-    return view('beranda/v_index', $data);
+    return view('laboran/beranda/v_index', $data);
   }
 }
