@@ -72,39 +72,51 @@
                 </button>
               </div>
               <div class="card-body border-top pro-det-edit collapse show" id="pro-det-edit-1">
-                <form>
-                  <div class="form-group row">
-                    <label class="col-sm-3 font-weight-bolder">Nama Lengkap</label>
-                    <div class="col-sm-9"><?= $profil['nama_laboran'] ?></div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-sm-3 font-weight-bolder">Nomor Telepon</label>
-                    <div class="col-sm-9"><?= $profil['kontak_laboran'] ?></div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-sm-3 font-weight-bolder">Alamat E-mail</label>
-                    <div class="col-sm-9"><?= $profil['email_laboran'] ?></div>
-                  </div>
-                </form>
+                <div class="form-group row">
+                  <label class="col-sm-3 font-weight-bolder">Username</label>
+                  <div class="col-sm-9"><?= $profil['username'] ?></div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-3 font-weight-bolder">NIP</label>
+                  <div class="col-sm-9"><?= $profil['nip_laboran'] ?></div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-3 font-weight-bolder">Nama Lengkap</label>
+                  <div class="col-sm-9"><?= $profil['nama_laboran'] ?></div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-3 font-weight-bolder">Nomor Telepon</label>
+                  <div class="col-sm-9"><?= $profil['kontak_laboran'] ?></div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-3 font-weight-bolder">Alamat E-mail</label>
+                  <div class="col-sm-9"><?= $profil['email_laboran'] ?></div>
+                </div>
               </div>
               <div class="card-body border-top pro-det-edit collapse " id="pro-det-edit-2">
                 <form method="post" action="<?= base_url() ?>Profil/UbahProfil">
                   <div class="form-group row">
+                    <label class="col-sm-3 col-form-label font-weight-bolder">Username</label>
+                    <div class="col-sm-9">
+                      <input type="text" name="username" id="username" class="form-control" placeholder="Username" value="<?= $profil['username'] ?>" readonly>
+                    </div>
+                  </div>
+                  <div class="form-group row">
                     <label class="col-sm-3 col-form-label font-weight-bolder">Nama Lengkap</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" placeholder="Nama Lengkap" value="<?= $profil['nama_laboran'] ?>">
+                      <input type="text" name="nama_laboran" id="nama_laboran" class="form-control" placeholder="Nama Lengkap" value="<?= $profil['nama_laboran'] ?>">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label font-weight-bolder">Nomot Telepon</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" placeholder="kontak_laboran" value="<?= $profil['kontak_laboran'] ?>">
+                      <input type="text" name="kontak_laboran" id="kontak_laboran" class="form-control" placeholder="kontak_laboran" value="<?= $profil['kontak_laboran'] ?>">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-3 col-form-label font-weight-bolder">Alamat E-mail</label>
                     <div class="col-sm-9">
-                      <input type="text" class="form-control" placeholder="email_laboran" value="<?= $profil['email_laboran'] ?>">
+                      <input type="text" name="email_laboran" id="email_laboran" class="form-control" placeholder="email_laboran" value="<?= $profil['email_laboran'] ?>">
                     </div>
                   </div>
                   <div class="form-group row">
