@@ -121,10 +121,25 @@
                         <th>Nama Laboratorium</th>
                         <th>Kode Ruangan</th>
                         <th>Lokasi</th>
+                        <th>Program Studi</th>
                         <th>Aksi</th>
                       </tr>
                     </thead>
                     <tbody>
+                      <?php $no = 1; ?>
+                      <?php foreach ($lab_praktikum as $p) : ?>
+                        <tr>
+                          <td><?= $no++ ?></td>
+                          <td><?= $p['nama_lab'] ?></td>
+                          <td><?= $p['kode_lab'] . ' | ' . $p['kode_ruang'] ?></td>
+                          <td><?= $p['lokasi'] ?></td>
+                          <td><?= $p['jenjang_prodi'] . ' ' . $p['nama_prodi'] ?></td>
+                          <td style="text-align: center;">
+                            <button type="button" class="btn btn-warning btn-sm">Edit</button>
+                            <button type="button" class="btn btn-danger btn-sm">Hapus</button>
+                          </td>
+                        </tr>
+                      <?php endforeach; ?>
                     </tbody>
                   </table>
                 </div>
