@@ -1,7 +1,9 @@
 <?php
 $uri    = service('uri');
 $model  = new \App\Models\M_Users_Access_Menu();
+$tahun  = new \App\Models\M_Tahun_Ajaran();
 $menu   = $model->getAccessMenu(session()->get('id_role'));
+$ta     = $tahun->getTahunAjaran();
 
 $segment_1 = $uri->getSegment(1);
 $segment_2 = $uri->getSegment(2);
@@ -110,6 +112,7 @@ if ($segment_2 == null) {
     </div>
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav ml-auto">
+        <li><?= $ta['tahun_ajaran'] ?></li>
         <li>
           <div class="dropdown drp-user">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
