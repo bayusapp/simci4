@@ -174,7 +174,6 @@ if ($segment_2 == null) {
   <!-- datatable Js -->
   <script src="<?= base_url() ?>assets/js/plugins/jquery.dataTables.min.js"></script>
   <script src="<?= base_url() ?>assets/js/plugins/dataTables.bootstrap4.min.js"></script>
-  <script src="<?= base_url() ?>assets/js/pages/data-basic-custom.js"></script>
   <!-- select2 Js -->
   <script src="<?= base_url() ?>assets/js/plugins/select2.full.min.js"></script>
   <script>
