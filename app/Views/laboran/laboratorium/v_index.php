@@ -128,6 +128,9 @@
                     <tbody>
                       <?php $no = 1; ?>
                       <?php foreach ($lab_praktikum as $p) : ?>
+                        <?php
+                        $hash_id_lab = substr(sha1($p['id_lab']), 7, 7);
+                        ?>
                         <tr>
                           <td><?= $no++ ?></td>
                           <td><?= $p['nama_lab'] ?></td>
@@ -135,9 +138,102 @@
                           <td><?= $p['lokasi'] ?></td>
                           <td><?= $p['jenjang_prodi'] . ' ' . $p['nama_prodi'] ?></td>
                           <td style="text-align: center;">
-                            <button type="button" class="btn btn-warning btn-sm">Edit</button>
-                            <button type="button" class="btn btn-danger btn-sm">Hapus</button>
+                            <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#form_edit_lab_<?= $hash_id_lab ?>">Edit</button>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="hapus_lab('<?= $hash_id_lab ?>')">Hapus</button>
                           </td>
+                          <div id="form_edit_lab_<?= $hash_id_lab ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="label_form" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="label_form">Form Edit Laboratorium</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                </div>
+                                <form method="post" action="<?= base_url('Laboratorium/updateLaboratorium/' . $hash_id_lab) ?>">
+                                  <div class="modal-body">
+                                    <div class="row">
+                                      <div class="col-lg-6 col-md-6 col-sm-12">
+                                        <div class="form-group">
+                                          <label for="edit_nama_lab">Nama Laboratorium</label>
+                                          <input type="text" class="form-control" name="edit_nama_lab" id="edit_nama_lab" value="<?= $p['nama_lab'] ?>" placeholder="Contoh: Computer Laboratory">
+                                          <input type="text" name="id_lab" id="id_lab" value="<?= $p['id_lab'] ?>" readonly hidden>
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-3 col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                          <label for="edit_kode_lab">Kode Laboratorium</label>
+                                          <input type="text" class="form-control" name="edit_kode_lab" id="edit_kode_lab" value="<?= $p['kode_lab'] ?>" placeholder="Contoh: Y2">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-3 col-md-3 col-sm-12">
+                                        <div class="form-group">
+                                          <label for="edit_kode_ruang">Kode Ruangan</label>
+                                          <input type="text" class="form-control" name="edit_kode_ruang" id="edit_kode_ruang" value="<?= $p['kode_ruang'] ?>" placeholder="Contoh: IT1.02.07">
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="form-group">
+                                          <label for="lokasi_lab">Lokasi Laboratorium</label>
+                                          <select class="id_lab_lokasi form-control" name="edit_id_lab_lokasi">
+                                            <option></option>
+                                            <?php foreach ($lokasi as $l) : ?>
+                                              <?php
+                                              if ($l['id_lab_lokasi'] == $p['id_lab_lokasi']) {
+                                                $select_lokasi = 'selected';
+                                              } else {
+                                                $select_lokasi = '';
+                                              }
+                                              ?>
+                                              <option value="<?= $l['id_lab_lokasi'] ?>" <?= $select_lokasi ?>><?= $l['lokasi'] ?></option>
+                                            <?php endforeach; ?>
+                                          </select>
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="form-group">
+                                          <label for="kategori_lab">Kategori Laboratorium</label>
+                                          <select class="id_lab_kategori form-control" name="edit_id_lab_kategori">
+                                            <option></option>
+                                            <?php foreach ($kategori as $k) : ?>
+                                              <?php
+                                              if ($k['id_lab_kategori'] == $p['id_lab_kategori']) {
+                                                $select_kategori = 'selected';
+                                              } else {
+                                                $select_kategori = '';
+                                              }
+                                              ?>
+                                              <option value="<?= $k['id_lab_kategori'] ?>" <?= $select_kategori ?>><?= $k['kategori_lab'] ?></option>
+                                            <?php endforeach; ?>
+                                          </select>
+                                        </div>
+                                      </div>
+                                      <div class="col-lg-4 col-md-4 col-sm-12">
+                                        <div class="form-group">
+                                          <label for="id_prodi">Program Studi</label>
+                                          <select class="id_prodi form-control" name="edit_id_prodi">
+                                            <option></option>
+                                            <?php foreach ($prodi as $pr) : ?>
+                                              <?php
+                                              if ($pr['id_prodi'] == $p['id_prodi']) {
+                                                $select_prodi = 'selected';
+                                              } else {
+                                                $select_prodi = '';
+                                              }
+                                              ?>
+                                              <option value="<?= $pr['id_prodi'] ?>" <?= $select_prodi ?>><?= $pr['jenjang_prodi'] . ' ' . $pr['nama_prodi'] ?></option>
+                                            <?php endforeach; ?>
+                                          </select>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                    <button type="submit" class="btn btn-primary">Perbarui</button>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
                         </tr>
                       <?php endforeach; ?>
                     </tbody>
