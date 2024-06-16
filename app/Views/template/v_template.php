@@ -1,9 +1,10 @@
 <?php
-$uri    = service('uri');
-$model  = new \App\Models\M_Users_Access_Menu();
-$tahun  = new \App\Models\M_Tahun_Ajaran();
-$menu   = $model->getAccessMenu(session()->get('id_role'));
-$ta     = $tahun->getTahunAjaran();
+$uri        = service('uri');
+$model      = new \App\Models\M_Users_Access_Menu();
+$m_sub_menu = new \App\Models\M_Users_Menu_Sub();
+$tahun      = new \App\Models\M_Tahun_Ajaran();
+$menu       = $model->getAccessMenu(session()->get('id_role'));
+$ta         = $tahun->getTahunAjaran();
 
 $segment_1 = $uri->getSegment(1);
 $segment_2 = $uri->getSegment(2);
@@ -86,12 +87,33 @@ if ($segment_2 == null) {
             <label>Menu</label>
           </li>
           <?php foreach ($menu as $m) : ?>
-            <li class="nav-item">
-              <a href="<?= base_url($m['url_menu']) ?>" class="nav-link ">
-                <span class="pcoded-micon"><i class="<?= $m['icon_menu'] ?>"></i></span>
-                <span class="pcoded-mtext"><?= $m['nama_menu'] ?></span>
-              </a>
-            </li>
+            <?php
+            $sub_menu = $m_sub_menu->getDataSubMenu($m['id_menu']);
+            if ($sub_menu) {
+            ?>
+              <li class="nav-item pcoded-hasmenu">
+                <a href="#" class="nav-link">
+                  <span class="pcoded-micon"><i class="<?= $m['icon_menu'] ?>"></i></span>
+                  <span class="pcoded-mtext"><?= $m['nama_menu'] ?></span>
+                </a>
+                <ul class="pcoded-submenu">
+                  <?php foreach ($sub_menu as $s) : ?>
+                    <li><a href="<?= base_url($s['url_menu']) ?>"><?= $s['nama_menu'] ?></a></li>
+                  <?php endforeach; ?>
+                </ul>
+              </li>
+            <?php
+            } else {
+            ?>
+              <li class="nav-item">
+                <a href="<?= base_url($m['url_menu']) ?>" class="nav-link">
+                  <span class="pcoded-micon"><i class="<?= $m['icon_menu'] ?>"></i></span>
+                  <span class="pcoded-mtext"><?= $m['nama_menu'] ?></span>
+                </a>
+              </li>
+            <?php
+            }
+            ?>
           <?php endforeach; ?>
         </ul>
       </div>
