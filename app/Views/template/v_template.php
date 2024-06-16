@@ -169,6 +169,8 @@ if ($segment_2 == null) {
   <script src="<?= base_url() ?>assets/js/plugins/bootstrap.min.js"></script>
   <script src="<?= base_url() ?>assets/js/ripple.js"></script>
   <script src="<?= base_url() ?>assets/js/pcoded.min.js"></script>
+  <!-- sweet alert Js -->
+  <script src="<?= base_url() ?>assets/js/plugins/sweetalert.min.js"></script>
   <!-- datatable Js -->
   <script src="<?= base_url() ?>assets/js/plugins/jquery.dataTables.min.js"></script>
   <script src="<?= base_url() ?>assets/js/plugins/dataTables.bootstrap4.min.js"></script>
@@ -202,6 +204,23 @@ if ($segment_2 == null) {
       });
 
     });
+  </script>
+  <script>
+    function hapus_lab(id) {
+      swal({
+          title: "Apakah Anda yakin?",
+          text: "Data Laboratorium akan dihapus",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+          buttons: ["Tidak", "Ya"],
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            window.location.href = '<?= base_url('Laboratorium/deleteLaboratorium/') ?>' + id;
+          }
+        });
+    }
   </script>
 </body>
 
