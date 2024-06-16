@@ -27,6 +27,15 @@ class M_Laboratorium extends Model
     return $this->findAll();
   }
 
+  public function getDataLabRiset()
+  {
+    $this->select('laboratorium.id_lab, laboratorium.nama_lab, laboratorium.kode_lab, laboratorium.kode_ruang, laboratorium.id_lab_kategori, laboratorium.id_lab_lokasi, laboratorium.id_prodi, laboratorium_lokasi.lokasi');
+    $this->join('laboratorium_lokasi', 'laboratorium.id_lab_lokasi = laboratorium_lokasi.id_lab_lokasi');
+    $this->where('laboratorium.id_lab_kategori', '2');
+    $this->orderBy('laboratorium.kode_lab', 'asc');
+    return $this->findAll();
+  }
+
   public function updateDataLab($id, $data)
   {
     return $this->update($id, $data);
