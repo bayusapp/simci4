@@ -25,9 +25,17 @@ class Auth extends BaseController
 
   public function index()
   {
-    if (session()->get('id_role')) {
-      header("Location: " . base_url('Beranda'));
-      die();
+    if (session()->get('login') == 'login') {
+      if (session()->get('id_role') == '1' || session()->get('id_role') == '2') {
+        header("Location: " . base_url('Beranda'));
+        die();
+      } elseif (session()->get('id_role') == '3') {
+        header("Location: " . base_url('Aslab/Beranda'));
+        die();
+      } elseif (session()->get('id_role') == '4') {
+        header("Location: " . base_url('Asprak/Beranda'));
+        die();
+      }
     } else {
       $data['title'] = 'Login | Sistem Informasi Manajemen Laboratorium';
       return view('auth/v_login', $data);
