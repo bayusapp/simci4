@@ -169,11 +169,6 @@ if ($segment_2 == null) {
   <script src="<?= base_url() ?>assets/js/plugins/bootstrap.min.js"></script>
   <script src="<?= base_url() ?>assets/js/ripple.js"></script>
   <script src="<?= base_url() ?>assets/js/pcoded.min.js"></script>
-
-  <!-- Apex Chart -->
-  <script src="<?= base_url() ?>assets/js/plugins/apexcharts.min.js"></script>
-  <!-- custom-chart js -->
-  <script src="<?= base_url() ?>assets/js/pages/dashboard-main.js"></script>
   <!-- datatable Js -->
   <script src="<?= base_url() ?>assets/js/plugins/jquery.dataTables.min.js"></script>
   <script src="<?= base_url() ?>assets/js/plugins/dataTables.bootstrap4.min.js"></script>
