@@ -253,6 +253,16 @@
                       </tr>
                     </thead>
                     <tbody>
+                      <?php $no = 1; ?>
+                      <?php foreach ($lab_riset as $r) : ?>
+                        <tr>
+                          <td><?= $no++ ?></td>
+                          <td><?= $r['nama_lab'] ?></td>
+                          <td><?= $r['kode_lab'] ?></td>
+                          <td><?= $r['lokasi'] ?></td>
+                          <td><?= $r['lokasi'] ?></td>
+                        </tr>
+                      <?php endforeach; ?>
                     </tbody>
                   </table>
                 </div>
