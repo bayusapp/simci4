@@ -47,10 +47,11 @@ class Laboratorium extends BaseController
   public function index()
   {
     $data = $this->data;
-    $data['kategori'] = $this->lab_kategori->getDataKategori();
+    $data['kategori']       = $this->lab_kategori->getDataKategori();
     $data['lab_praktikum']  = $this->lab->getDataLabPraktikum();
-    $data['lokasi']   = $this->lab_lokasi->getDataLokasi();
-    $data['prodi']    = $this->prodi->getDataProdi();
+    $data['lab_riset']      = $this->lab->getDataLabRiset();
+    $data['lokasi']         = $this->lab_lokasi->getDataLokasi();
+    $data['prodi']          = $this->prodi->getDataProdi();
     return view('laboran/laboratorium/v_index', $data);
   }
 
