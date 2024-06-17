@@ -36,9 +36,11 @@ class M_Laboratorium extends Model
     return $this->findAll();
   }
 
-  public function updateDataLab($id, $data)
+  public function updateDataLab($id, $nama_lab, $kode_lab, $kode_ruang, $id_lab_lokasi, $id_lab_kategori, $id_prodi)
   {
-    return $this->update($id, $data);
+    $db = db_connect();
+    $query = "UPDATE laboratorium SET nama_lab = '{$nama_lab}', kode_lab = '{$kode_lab}', kode_igracias = '{$kode_lab}', kode_ruang = '{$kode_ruang}', id_lab_kategori = '{$id_lab_kategori}', id_lab_lokasi = '{$id_lab_lokasi}', id_prodi = {$id_prodi} WHERE id_lab = {$id}";
+    return $db->query($query);
   }
 
   public function deleteDataLab($id)
