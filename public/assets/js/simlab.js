@@ -1,5 +1,30 @@
 $(document).ready(function() {
   setTimeout(function() {
+
+    $('#lab-Praktikum').DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        {"width": "5%", "targets": [0]},
+        {"width": "12%", "targets": [5]}
+      ]
+    });
+
+    $('#lab-Riset').DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        {"width": "5%", "targets": [0]},
+        {"width": "12%", "targets": [4]}
+      ]
+    });
+
+    $('#lab-Workshop').DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        {"width": "5%", "targets": [0]},
+        {"width": "12%", "targets": [4]}
+      ]
+    });
+
     $('#mk_si').DataTable({
       bAutoWidth: false,
       columnDefs: [
