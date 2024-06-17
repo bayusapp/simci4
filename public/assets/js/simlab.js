@@ -71,6 +71,8 @@ $(document).ready(function() {
         {"width": "12%", "targets": [3]},
       ]
     });
+
+    $('#riwayat_login').DataTable();
   }, 0);
 
   $(".id_prodi").select2({
