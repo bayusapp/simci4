@@ -200,7 +200,8 @@ if ($segment_2 == null) {
       });
 
       $(".id_prodi").select2({
-        placeholder: "Pilih Program Studi"
+        placeholder: "Pilih Program Studi",
+        allowClear: true
       });
 
     });
@@ -217,7 +218,7 @@ if ($segment_2 == null) {
         })
         .then((willDelete) => {
           if (willDelete) {
-            window.location.href = '<?= base_url('Laboratorium/deleteLaboratorium/') ?>' + id;
+            window.location.href = '<?= base_url('Laboratorium/deleteLab/') ?>' + id;
           }
         });
     }
