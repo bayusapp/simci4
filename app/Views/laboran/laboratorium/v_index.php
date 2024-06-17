@@ -159,7 +159,7 @@
                         } elseif ($k['kategori_lab'] == 'Riset') {
                           $data_lab = $model_lab->getDataLabRiset();
                         } elseif ($k['kategori_lab'] == 'Workshop') {
-                          //
+                          $data_lab = $model_lab->getDataLabWorkshop();
                         }
                         foreach ($data_lab as $d) {
                           $hash_id = substr(sha1($d['id_lab']), 7, 7);
