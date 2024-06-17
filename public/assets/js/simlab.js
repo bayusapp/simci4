@@ -2,6 +2,9 @@ $(document).ready(function() {
   setTimeout(function() {
 
     $('#lab-Praktikum').DataTable({
+      "scrollY": "600px",
+      "scrollCollapse": true,
+      "paging": false,
       bAutoWidth: false,
       columnDefs: [
         {"width": "5%", "targets": [0]},
