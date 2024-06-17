@@ -9,10 +9,10 @@ $ta         = $tahun->getTahunAjaran();
 $segment_1 = $uri->getSegment(1);
 $segment_2 = $uri->getSegment(2);
 if ($segment_2 == null) {
-  $title   = preg_replace('/(?<!^)([A-Z])/', ' $1', $segment_1);
-  $title   = $title . ' | SIM Laboratorium';
+  $title  = $model->getAccessMenuByLink(session()->get('id_role'), $segment_1)['nama_menu'];
+  $title  = $title . ' | SIM Laboratorium';
 } else {
-  $title   = preg_replace('/(?<!^)([A-Z])/', ' $1', $segment_2);
+  $title  = $m_sub_menu->getDataSubMenuSegment($segment_1, $segment_2)['nama_menu'];
   $title   = $title . ' | SIM Laboratorium';
 }
 ?>
@@ -176,6 +176,7 @@ if ($segment_2 == null) {
   <script src="<?= base_url() ?>assets/js/plugins/dataTables.bootstrap4.min.js"></script>
   <!-- select2 Js -->
   <script src="<?= base_url() ?>assets/js/plugins/select2.full.min.js"></script>
+  <script src="<?= base_url() ?>assets/js/simlab.js"></script>
   <script>
     window.setTimeout(function() {
       $(".alert").fadeTo(500, 0).slideUp(500, function() {
@@ -217,6 +218,22 @@ if ($segment_2 == null) {
         .then((willDelete) => {
           if (willDelete) {
             window.location.href = '<?= base_url('Laboratorium/deleteLaboratorium/') ?>' + id;
+          }
+        });
+    }
+
+    function hapus_mk(id) {
+      swal({
+          title: "Apakah Anda yakin?",
+          text: "Data Mata Kuliah akan dihapus",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+          buttons: ["Tidak", "Ya"],
+        })
+        .then((willDelete) => {
+          if (willDelete) {
+            window.location.href = '<?= base_url('Matakuliah/delete/') ?>' + id;
           }
         });
     }
