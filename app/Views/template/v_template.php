@@ -233,7 +233,7 @@ if ($segment_2 == null) {
         })
         .then((willDelete) => {
           if (willDelete) {
-            window.location.href = '<?= base_url('Matakuliah/delete/') ?>' + id;
+            window.location.href = '<?= base_url('Praktikum/deleteMK/') ?>' + id;
           }
         });
     }
