@@ -55,14 +55,13 @@ class Laboratorium extends BaseController
     return view('laboran/laboratorium/v_index', $data);
   }
 
-  public function simpanLaboratorium()
+  public function simpanLab()
   {
     if (!$this->validate([
       'nama_lab'        => ['rules' => 'required'],
       'kode_lab'        => ['rules' => 'required'],
       'id_lab_kategori' => ['rules' => 'required'],
-      'id_lab_lokasi'   => ['rules' => 'required'],
-      'id_prodi'        => ['rules' => 'required']
+      'id_lab_lokasi'   => ['rules' => 'required']
     ])) {
       session()->setFlashdata('error', 'Harap lengkapi seluruh field');
       return redirect()->back()->withInput();
@@ -79,50 +78,47 @@ class Laboratorium extends BaseController
         'kode_igracias'   => $kode_lab,
         'kode_ruang'      => $kode_ruang,
         'id_lab_lokasi'   => $id_lab_lokasi,
-        'id_lab_kategori' => $id_lab_kategori,
-        'id_prodi'        => $id_prodi
+        'id_lab_kategori' => $id_lab_kategori
       ];
+      if ($id_prodi != null) {
+        $data_lab['id_prodi'] = $id_prodi;
+      }
       $this->lab->insert($data_lab);
       session()->setFlashdata('sukses', 'Data Laboratorium Sukses Ditambahkan');
       return redirect()->back();
     }
   }
 
-  public function updateLaboratorium()
+  public function updateLab()
   {
     if (!$this->validate([
-      'edit_nama_lab'        => ['rules' => 'required'],
-      'edit_kode_lab'        => ['rules' => 'required'],
-      'edit_id_lab_kategori' => ['rules' => 'required'],
-      'edit_id_lab_lokasi'   => ['rules' => 'required'],
-      'edit_id_prodi'        => ['rules' => 'required']
+      'nama_lab'        => ['rules' => 'required'],
+      'kode_lab'        => ['rules' => 'required'],
+      'id_lab_kategori' => ['rules' => 'required'],
+      'id_lab_lokasi'   => ['rules' => 'required']
     ])) {
       session()->setFlashdata('error', 'Harap lengkapi seluruh field');
       return redirect()->back();
     } else {
       $id               = $this->request->getPost('id_lab');
-      $nama_lab         = $this->request->getPost('edit_nama_lab');
-      $kode_lab         = $this->request->getPost('edit_kode_lab');
-      $kode_ruang       = $this->request->getPost('edit_kode_ruang');
-      $id_lab_lokasi    = $this->request->getPost('edit_id_lab_lokasi');
-      $id_lab_kategori  = $this->request->getPost('edit_id_lab_kategori');
-      $id_prodi         = $this->request->getPost('edit_id_prodi');
-      $data_lab         = [
-        'nama_lab'        => $nama_lab,
-        'kode_lab'        => $kode_lab,
-        'kode_igracias'   => $kode_lab,
-        'kode_ruang'      => $kode_ruang,
-        'id_lab_lokasi'   => $id_lab_lokasi,
-        'id_lab_kategori' => $id_lab_kategori,
-        'id_prodi'        => $id_prodi
-      ];
-      $this->lab->updateDataLab($id, $data_lab);
+      $nama_lab         = $this->request->getPost('nama_lab');
+      $kode_lab         = $this->request->getPost('kode_lab');
+      $kode_ruang       = $this->request->getPost('kode_ruang');
+      $id_lab_lokasi    = $this->request->getPost('id_lab_lokasi');
+      $id_lab_kategori  = $this->request->getPost('id_lab_kategori');
+      $id_prodi         = $this->request->getPost('id_prodi');
+      if ($id_prodi != null) {
+        $id_prodi = $id_prodi;
+      } else {
+        $id_prodi = 'NULL';
+      }
+      $this->lab->updateDataLab($id, $nama_lab, $kode_lab, $kode_ruang, $id_lab_lokasi, $id_lab_kategori, $id_prodi);
       session()->setFlashdata('sukses', 'Data Laboratorium Sukses Diperbarui');
       return redirect()->back();
     }
   }
 
-  public function deleteLaboratorium($id)
+  public function deleteLab($id)
   {
     $this->lab->deleteDataLab($id);
     session()->setFlashdata('sukses', 'Data Laboratorium Sukses Dihapus');
