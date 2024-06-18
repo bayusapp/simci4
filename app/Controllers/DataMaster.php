@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\M_Dosen;
 use App\Models\M_Laboran;
 use App\Models\M_Prodi;
 
@@ -9,6 +10,7 @@ class DataMaster extends BaseController
 {
 
   var $data;
+  protected $dosen;
   protected $laboran;
   protected $prodi;
 
@@ -19,6 +21,7 @@ class DataMaster extends BaseController
       die();
     } else {
       if (session()->get('id_role') == '1') {
+        $this->dosen    = new M_Dosen();
         $this->laboran  = new M_Laboran();
         $this->prodi    = new M_Prodi();
         $nip            = session()->get('nip_laboran');
@@ -95,5 +98,51 @@ class DataMaster extends BaseController
   {
     $id_prodi = $this->request->getPost('id');
     $this->prodi->deleteProdi($id_prodi);
+  }
+
+  public function csvDosen()
+  {
+    return view('laboran/data_master/v_csv_dosen');
+  }
+
+  public function simpanCSVDosen()
+  {
+    $file = $_FILES['file_csv']['tmp_name'];
+    $ekstensi_file  = explode('.', $_FILES['file_csv']['name']);
+    if (strtolower(end($ekstensi_file)) === 'csv' && $_FILES['file_csv']['size'] > 0) {
+      $handle = fopen($file, 'r');
+      $i = 0;
+      while ($row = fgetcsv($handle, 2048, ';')) {
+        $i++;
+        if ($i == 1) {
+          continue;
+        }
+        $nama_dosen = $row[1];
+        $split_gelar  = explode(",", $nama_dosen);
+        $gelar = '';
+        for ($i = 1; $i < count($split_gelar); $i++) {
+          $gelar .= ', ' . $split_gelar[$i];
+        }
+        $split_nama = explode(" ", $split_gelar[0]);
+        for ($i = 0; $i < count($split_nama); $i++) {
+          $split_nama[$i] = ucwords(strtolower($split_nama[$i]));
+        }
+        $nama_dosen = '';
+        for ($i = 0; $i < count($split_nama); $i++) {
+          if ($i != (count($split_nama) - 1)) {
+            $nama_dosen .= $split_nama[$i] . ' ';
+          } else {
+            $nama_dosen .= $split_nama[$i];
+          }
+        }
+        $kode_dosen = $row[0];
+        $input  = [
+          'kode_dosen'  => $kode_dosen,
+          'nama_dosen'  => $nama_dosen . '' . $gelar
+        ];
+        $this->dosen->insert($input);
+      }
+    }
+    return redirect();
   }
 }
