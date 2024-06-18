@@ -39,6 +39,18 @@ if ($segment_2 == null) {
   <link rel="stylesheet" href="<?= base_url() ?>assets/css/plugins/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?= base_url() ?>assets/css/plugins/select2.min.css">
   <style>
+    .honor_asprak {
+      max-height: 330px;
+      overflow: auto;
+      display: inline-block;
+    }
+
+    thead tr:nth-child(1) th {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
     .select2-dropdown {
       z-index: 10060 !important;
       /*1051;*/
