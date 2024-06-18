@@ -1,6 +1,14 @@
 $(document).ready(function() {
   setTimeout(function() {
 
+    $('#prodi').DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        {"width": "5%", "targets": [0]},
+        {"width": "12%", "targets": [4]}
+      ]
+    });
+
     $('#lab-Praktikum').DataTable({
       bAutoWidth: false,
       columnDefs: [
