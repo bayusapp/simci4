@@ -113,4 +113,11 @@ class Praktikum extends BaseController
     session()->setFlashdata('sukses', 'Data Mata Kuliah Sukses Dihapus');
     return redirect()->back();
   }
+
+  public function Asprak()
+  {
+    $data = $this->data;
+    $data['prodi']  = $this->prodi->getDataProdi();
+    return view('laboran/praktikum/v_asprak', $data);
+  }
 }
