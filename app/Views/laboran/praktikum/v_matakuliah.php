@@ -81,15 +81,33 @@
               </div>
             </div>
             <ul class="nav nav-pills mb-3" id="myTab" role="tablist" style="margin-top: 10px;">
+              <?php $count = 1; ?>
               <?php foreach ($prodi as $p) : ?>
+                <?php
+                if ($count == 1) {
+                  $active = 'active';
+                } else {
+                  $active = '';
+                }
+                $count++;
+                ?>
                 <li class="nav-item">
-                  <a class="nav-link" id="<?= $p['kode_prodi'] ?>-tab" data-toggle="pill" href="#pills-<?= $p['kode_prodi'] ?>" role="tab" aria-controls="pills-<?= $p['kode_prodi'] ?>" aria-selected="true"><?= $p['kode_prodi'] ?></a>
+                  <a class="nav-link <?= $active ?>" id="<?= $p['kode_prodi'] ?>-tab" data-toggle="pill" href="#pills-<?= $p['kode_prodi'] ?>" role="tab" aria-controls="pills-<?= $p['kode_prodi'] ?>" aria-selected="true"><?= $p['kode_prodi'] ?></a>
                 </li>
               <?php endforeach; ?>
             </ul>
             <div class="tab-content" id="pills-tabContent">
+              <?php $count = 1; ?>
               <?php foreach ($prodi as $p) : ?>
-                <div class="tab-pane fade" id="pills-<?= $p['kode_prodi'] ?>" role="tabpanel" aria-labelledby="<?= $p['kode_prodi'] ?>-tab">
+                <?php
+                if ($count == 1) {
+                  $show_active = 'show active';
+                } else {
+                  $show_active = '';
+                }
+                $count++;
+                ?>
+                <div class="tab-pane fade <?= $show_active ?>" id="pills-<?= $p['kode_prodi'] ?>" role="tabpanel" aria-labelledby="<?= $p['kode_prodi'] ?>-tab">
                   <div class="dt-responsive table-responsive">
                     <table id="mk_<?= strtolower($p['kode_prodi']) ?>" class="table table-striped table-bordered nowrap" style="width: 100%;">
                       <thead>
