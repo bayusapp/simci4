@@ -9,56 +9,54 @@
     <!-- [ breadcrumb ] end -->
     <!-- [ Main Content ] start -->
     <div class="row">
-      <div class="col-lg-7 col-md-12">
+      <div class="col-lg-3 col-md-12">
         <!-- support-section start -->
         <div class="row">
-          <div class="col-sm-6">
+          <div class="col-sm-12">
             <div class="card support-bar overflow-hidden">
               <div class="card-body pb-0">
                 <h2 class="m-0">350</h2>
-                <span class="text-c-blue">Support Requests</span>
-                <p class="mb-3 mt-3">Total number of support requests that come in.</p>
+                <p class="mb-3 mt-3">Total Trouble Ticket dalam <?= date('Y') ?></p>
               </div>
               <div id="support-chart"></div>
               <div class="card-footer bg-primary text-white">
                 <div class="row text-center">
                   <div class="col">
-                    <h4 class="m-0 text-white">10</h4>
-                    <span>Open</span>
+                    <h4 class="m-0 text-white">999</h4>
+                    <span>Buka</span>
                   </div>
                   <div class="col">
                     <h4 class="m-0 text-white">5</h4>
-                    <span>Running</span>
+                    <span>Berjalan</span>
                   </div>
                   <div class="col">
                     <h4 class="m-0 text-white">3</h4>
-                    <span>Solved</span>
+                    <span>Selesai</span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-sm-6">
+          <div class="col-sm-12">
             <div class="card support-bar overflow-hidden">
               <div class="card-body pb-0">
                 <h2 class="m-0">350</h2>
-                <span class="text-c-green">Support Requests</span>
-                <p class="mb-3 mt-3">Total number of support requests that come in.</p>
+                <p class="mb-3 mt-3">Total Trouble Ticket dalam <?= date('Y') ?></p>
               </div>
-              <div id="support-chart1"></div>
-              <div class="card-footer bg-success text-white">
+              <div id="support-chart"></div>
+              <div class="card-footer bg-primary text-white">
                 <div class="row text-center">
                   <div class="col">
-                    <h4 class="m-0 text-white">10</h4>
-                    <span>Open</span>
+                    <h4 class="m-0 text-white">999</h4>
+                    <span>Buka</span>
                   </div>
                   <div class="col">
                     <h4 class="m-0 text-white">5</h4>
-                    <span>Running</span>
+                    <span>Berjalan</span>
                   </div>
                   <div class="col">
                     <h4 class="m-0 text-white">3</h4>
-                    <span>Solved</span>
+                    <span>Selesai</span>
                   </div>
                 </div>
               </div>
@@ -67,105 +65,138 @@
         </div>
         <!-- support-section end -->
       </div>
-      <div class="col-lg-5 col-md-12">
+      <div class="col-lg-9 col-md-12">
         <!-- page statustic card start -->
         <div class="row">
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <div class="row align-items-center">
-                  <div class="col-8">
-                    <h4 class="text-c-yellow">$30200</h4>
-                    <h6 class="text-muted m-b-0">All Earnings</h6>
-                  </div>
-                  <div class="col-4 text-right">
-                    <i class="feather icon-bar-chart-2 f-28"></i>
-                  </div>
-                </div>
+          <div class="col-sm-12">
+            <div class="card table-card latest-activity-card">
+              <div class="card-header">
+                <h5>Biaya Honor Asisten Praktikum <?= date('Y') ?></h5>
               </div>
-              <div class="card-footer bg-c-yellow">
-                <div class="row align-items-center">
-                  <div class="col-9">
-                    <p class="text-white m-b-0">% change</p>
-                  </div>
-                  <div class="col-3 text-right">
-                    <i class="feather icon-trending-up text-white f-16"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <div class="row align-items-center">
-                  <div class="col-8">
-                    <h4 class="text-c-green">290+</h4>
-                    <h6 class="text-muted m-b-0">Page Views</h6>
-                  </div>
-                  <div class="col-4 text-right">
-                    <i class="feather icon-file-text f-28"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer bg-c-green">
-                <div class="row align-items-center">
-                  <div class="col-9">
-                    <p class="text-white m-b-0">% change</p>
-                  </div>
-                  <div class="col-3 text-right">
-                    <i class="feather icon-trending-up text-white f-16"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <div class="row align-items-center">
-                  <div class="col-8">
-                    <h4 class="text-c-red">145</h4>
-                    <h6 class="text-muted m-b-0">Task</h6>
-                  </div>
-                  <div class="col-4 text-right">
-                    <i class="feather icon-calendar f-28"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer bg-c-red">
-                <div class="row align-items-center">
-                  <div class="col-9">
-                    <p class="text-white m-b-0">% change</p>
-                  </div>
-                  <div class="col-3 text-right">
-                    <i class="feather icon-trending-down text-white f-16"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="card">
-              <div class="card-body">
-                <div class="row align-items-center">
-                  <div class="col-8">
-                    <h4 class="text-c-blue">500</h4>
-                    <h6 class="text-muted m-b-0">Downloads</h6>
-                  </div>
-                  <div class="col-4 text-right">
-                    <i class="feather icon-thumbs-down f-28"></i>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer bg-c-blue">
-                <div class="row align-items-center">
-                  <div class="col-9">
-                    <p class="text-white m-b-0">% change</p>
-                  </div>
-                  <div class="col-3 text-right">
-                    <i class="feather icon-trending-down text-white f-16"></i>
-                  </div>
+              <div class="card-body p-0">
+                <div class="table-responsive honor_asprak">
+                  <table id="honor_asprak" class="table table-striped table-borderless mb-0" style="width: 100%;" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th>No</th>
+                        <th>Program Studi</th>
+                        <th colspan="2">Triwulan 1</th>
+                        <th colspan="2">Triwulan 2</th>
+                        <th colspan="2">Triwulan 3</th>
+                        <th colspan="2">Triwulan 4</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>D3 Sistem Informasi</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>D3 Teknologi Komputer</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>D3 Sistem Informasi Akuntansi</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>D3 Manajemen Pemasaran</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td>D3 Teknologi Telekomunikasi</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td>D3 Teknologi Telekomunikasi</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td>D3 Teknologi Telekomunikasi</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td>D3 Teknologi Telekomunikasi</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                      </tr>
+                      <tr>
+                        <td>5</td>
+                        <td>D3 Teknologi Telekomunikasi</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                        <td style="text-align: left;">Rp </td>
+                        <td style="text-align: right;">86.000.000</td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
