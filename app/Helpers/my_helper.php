@@ -53,9 +53,10 @@ if (!function_exists('check_isp')) {
     // IP TUNE
     // $json = file_get_contents("http://ipinfo.io/103.233.100.236/geo");
     // IP ITB
-    $json = file_get_contents("http://ipinfo.io/167.205.22.106/geo");
+    // $json = file_get_contents("http://ipinfo.io/167.205.22.106/geo");
     // IP Non TUNE
     // $json = file_get_contents("http://ipinfo.io/114.122.100.20/geo");
+    $json = file_get_contents("https://ipinfo.io/182.253.124.19/geo");
     // $json = file_get_contents("http://ipinfo.io/{$ip_address}/geo");
     $details = json_decode($json, true);
     $tmp = explode(' ', $details['org']);
