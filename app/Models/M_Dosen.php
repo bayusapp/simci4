@@ -15,4 +15,11 @@ class M_Dosen extends Model
   {
     return $this->findAll();
   }
+
+  public function updateDataDosen($kode_old, $kode_dosen, $nama_dosen)
+  {
+    $db = db_connect();
+    $query = "UPDATE dosen SET kode_dosen = '{$kode_dosen}', nama_dosen = '{$nama_dosen}' WHERE SUBSTR(SHA1(kode_dosen), 8, 7) = '{$kode_old}'";
+    return $db->query($query);
+  }
 }
