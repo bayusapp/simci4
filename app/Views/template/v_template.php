@@ -71,7 +71,7 @@ if ($segment_2 == null) {
   </div>
   <!-- [ Pre-loader ] End -->
   <!-- [ navigation menu ] start -->
-  <nav class="pcoded-navbar menu-light ">
+  <nav class="pcoded-navbar menupos-fixed menu-light ">
     <div class="navbar-wrapper  ">
       <div class="navbar-content scroll-div ">
         <div class="" style="margin-bottom: 15px;">
