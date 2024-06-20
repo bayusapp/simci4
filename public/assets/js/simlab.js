@@ -1,31 +1,61 @@
 function hapus_prodi(id) {
   swal({
-      title: "Apakah Anda yakin?",
-      text: "Data Laboratorium akan dihapus",
-      icon: "warning",
-      buttons: true,
-      dangerMode: true,
-      buttons: ["Tidak", "Ya"],
-    })
-    .then((willDelete) => {
-      if (willDelete) {
-        $.ajax({
-          url: window.location.origin+'/DataMaster/deleteProdi',
-          method: 'POST',
-          data: {id: id},
-          success: function(response) {
-            swal({
-              text: "Data Program Studi Sukses Dihapus",
-              icon: "success",
-              timer: 2000,
-              buttons: false
-            }).then(function() {
-              location.reload();
-            });
-          }
-        });
-      }
-    });
+    title: "Apakah Anda yakin?",
+    text: "Data Laboratorium akan dihapus",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+    buttons: ["Tidak", "Ya"],
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      $.ajax({
+        url: window.location.origin+'/DataMaster/deleteProdi',
+        method: 'POST',
+        data: {id: id},
+        success: function(response) {
+          swal({
+            text: "Data Program Studi Sukses Dihapus",
+            icon: "success",
+            timer: 2000,
+            buttons: false
+          }).then(function() {
+            location.reload();
+          });
+        }
+      });
+    }
+  });
+}
+
+function hapus_dosen(id) {
+  swal({
+    title: "Apakah Anda yakin?",
+    text: "Data Dosen akan dihapus",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+    buttons: ["Tidak", "Ya"],
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      $.ajax({
+        url: window.location.origin+'/DataMaster/deleteDosen',
+        method: 'POST',
+        data: {id, id},
+        success: function(response) {
+          swal({
+            text: "Data Dosen Sukses Dihapus",
+            icon: "success",
+            timer: 2000,
+            buttons: false
+          }).then(function() {
+            location.reload();
+          });
+        }
+      });
+    }
+  })
 }
 
 $(document).ready(function() {
