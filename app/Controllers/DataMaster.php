@@ -186,6 +186,12 @@ class DataMaster extends BaseController
     }
   }
 
+  public function deleteDosen()
+  {
+    $kode_dosen = $this->request->getPost('id');
+    $this->dosen->deleteDosen($kode_dosen);
+  }
+
   public function csvDosen()
   {
     return view('laboran/data_master/v_csv_dosen');
