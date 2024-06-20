@@ -146,6 +146,46 @@ class DataMaster extends BaseController
     }
   }
 
+  public function updateDosen()
+  {
+    if (!$this->validate([
+      'kode_dosen'  => ['rules' => 'required'],
+      'nama_dosen'  => ['rules' => 'required']
+    ])) {
+      session()->setFlashdata('error', 'Harap lengkapi seluruh field');
+      return redirect()->back()->withInput();
+    } else {
+      $kode_dosen_old = $this->request->getPost('kode_dosen_old');
+      $kode_dosen     = strtoupper($this->request->getPost('kode_dosen'));
+      $nama_dosen     = $this->request->getPost('nama_dosen');
+      $split_gelar    = explode(",", $nama_dosen);
+      $gelar = '';
+      for ($i = 1; $i < count($split_gelar); $i++) {
+        $gelar .= ', ' . $split_gelar[$i];
+      }
+      $split_nama = explode(" ", $split_gelar[0]);
+      for ($i = 0; $i < count($split_nama); $i++) {
+        $split_nama[$i] = ucwords(strtolower($split_nama[$i]));
+      }
+      $nama_dosen = '';
+      for ($i = 0; $i < count($split_nama); $i++) {
+        if ($i != (count($split_nama) - 1)) {
+          $nama_dosen .= $split_nama[$i] . ' ';
+        } else {
+          $nama_dosen .= $split_nama[$i];
+        }
+      }
+      $nama_dosen = $nama_dosen . '' . $gelar;
+      $input      = [
+        'kode_dosen'  => $kode_dosen,
+        'nama_dosen'  => $nama_dosen
+      ];
+      $this->dosen->updateDataDosen($kode_dosen_old, $kode_dosen, $nama_dosen);
+      session()->setFlashdata('sukses', 'Data Dosen Sukses Diperbarui');
+      return redirect()->back();
+    }
+  }
+
   public function csvDosen()
   {
     return view('laboran/data_master/v_csv_dosen');
