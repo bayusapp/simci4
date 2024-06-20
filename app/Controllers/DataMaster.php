@@ -100,6 +100,13 @@ class DataMaster extends BaseController
     $this->prodi->deleteProdi($id_prodi);
   }
 
+  public function Dosen()
+  {
+    $data = $this->data;
+    $data['dosen']  = $this->dosen->getDataDosen();
+    return view('laboran/data_master/v_dosen', $data);
+  }
+
   public function csvDosen()
   {
     return view('laboran/data_master/v_csv_dosen');
