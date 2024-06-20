@@ -83,14 +83,53 @@
                 <tbody>
                   <?php $no = 1; ?>
                   <?php foreach ($dosen as $d) : ?>
+                    <?php $hash_kode_dosen = substr(sha1($d['kode_dosen']), 7, 7); ?>
                     <tr>
                       <td><?= $no++ ?></td>
                       <td><?= $d['kode_dosen'] ?></td>
                       <td><?= $d['nama_dosen'] ?></td>
                       <td style="text-align: center;">
-                        <button type="button" class="btn btn-sm btn-warning"><i class="feather icon-edit"></i></button>
-                        <button type="button" class="btn btn-sm btn-danger"><i class="feather icon-trash-2"></i></button>
+                        <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#edit_dosen_<?= $hash_kode_dosen ?>">
+                          <span data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="feather icon-edit"></i></span>
+                        </button>
+                        <button type="button" class="btn btn-sm btn-danger" onclick="hapus_dosen('<?= $hash_kode_dosen ?>')">
+                          <span data-toggle="tooltip" data-placement="bottom" title="Hapus"><i class="feather icon-trash-2"></i></span>
+                        </button>
                       </td>
+                      <div id="edit_dosen_<?= $hash_kode_dosen ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="label_form" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="label_form">Form Edit Dosen</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            </div>
+                            <form method="post" action="<?= base_url('DataMaster/updateDosen') ?>">
+                              <?= csrf_field(); ?>
+                              <div class="modal-body">
+                                <div class="row">
+                                  <div class="col-lg-3 col-md-3 col-sm-12">
+                                    <div class="form-group">
+                                      <label for="kode_dosen">Kode Dosen</label>
+                                      <input type="text" class="form-control" name="kode_dosen" id="kode_dosen" value="<?= $d['kode_dosen'] ?>" placeholder="Contoh: JOH" required>
+                                      <input type="text" name="kode_dosen_old" value="<?= $hash_kode_dosen ?>" hidden readonly>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-9 col-md-9 col-sm-12">
+                                    <div class="form-group">
+                                      <label for="nama_dosen">Nama Dosen</label>
+                                      <input type="text" class="form-control" name="nama_dosen" id="nama_dosen" value="<?= $d['nama_dosen'] ?>" placeholder="Contoh: John Doe" required>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                                <button type="submit" class="btn btn-primary">Perbarui</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>
