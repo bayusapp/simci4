@@ -23,7 +23,7 @@
       <div class="col-sm-12">
         <div class="card">
           <div class="card-header">
-            <h5>Program Studi</h5>
+            <h5>Dosen</h5>
           </div>
           <div class="card-body">
             <?php if (!empty(session()->getFlashdata('sukses'))) : ?>
@@ -36,34 +36,28 @@
                 <?= session()->getFlashdata('error') ?>
               </div>
             <?php endif; ?>
-            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#form_lab"><i class="feather icon-plus"></i> Tambah Program Studi</button>
-            <div id="form_lab" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="label_form" aria-hidden="true">
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#form_dosen"><i class="feather icon-plus"></i> Tambah Dosen</button>
+            <div id="form_dosen" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="label_form" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="label_form">Form Tambah Program Studi</h5>
+                    <h5 class="modal-title" id="label_form">Form Tambah Dosen</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                   </div>
-                  <form method="post" action="<?= base_url('DataMaster/simpanProdi') ?>">
+                  <form method="post" action="<?= base_url('DataMaster/simpanDosen') ?>">
                     <?= csrf_field(); ?>
                     <div class="modal-body">
                       <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                          <div class="form-group">
-                            <label for="nama_prodi">Nama Program Studi</label>
-                            <input type="text" class="form-control" name="nama_prodi" id="nama_prodi" value="<?= old('nama_prodi') ?>" placeholder="Contoh: D4 Sistem Informasi" required>
-                          </div>
-                        </div>
                         <div class="col-lg-3 col-md-3 col-sm-12">
                           <div class="form-group">
-                            <label for="jenjang_prodi">Jenjang</label>
-                            <input type="text" class="form-control" name="jenjang_prodi" id="jenjang_prodi" value="<?= old('jenjang_prodi') ?>" placeholder="Contoh: D4" required>
+                            <label for="kode_dosen">Kode Dosen</label>
+                            <input type="text" class="form-control" name="kode_dosen" id="kode_dosen" value="<?= old('kode_dosen') ?>" placeholder="Contoh: JOH" required>
                           </div>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-12">
+                        <div class="col-lg-9 col-md-9 col-sm-12">
                           <div class="form-group">
-                            <label for="kode_prodi">Kode Program Studi</label>
-                            <input type="text" class="form-control" name="kode_prodi" id="kode_prodi" value="<?= old('kode_prodi') ?>" placeholder="Contoh: SI" required>
+                            <label for="nama_dosen">Nama Dosen</label>
+                            <input type="text" class="form-control" name="nama_dosen" id="nama_dosen" value="<?= old('nama_dosen') ?>" placeholder="Contoh: John Doe" required>
                           </div>
                         </div>
                       </div>
@@ -93,7 +87,10 @@
                       <td><?= $no++ ?></td>
                       <td><?= $d['kode_dosen'] ?></td>
                       <td><?= $d['nama_dosen'] ?></td>
-                      <td></td>
+                      <td style="text-align: center;">
+                        <button type="button" class="btn btn-sm btn-warning"><i class="feather icon-edit"></i></button>
+                        <button type="button" class="btn btn-sm btn-danger"><i class="feather icon-trash-2"></i></button>
+                      </td>
                     </tr>
                   <?php endforeach; ?>
                 </tbody>
