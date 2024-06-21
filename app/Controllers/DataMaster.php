@@ -253,6 +253,12 @@ class DataMaster extends BaseController
     return redirect();
   }
 
+  public function MataKuliah()
+  {
+    $data = $this->data;
+    return view('laboran/data_master/v_matakuliah', $data);
+  }
+
   public function csvMK()
   {
     return view('laboran/data_master/v_csv_mk');
