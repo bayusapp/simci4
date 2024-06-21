@@ -16,6 +16,12 @@ class M_Dosen extends Model
     return $this->findAll();
   }
 
+  public function getDataDosenByKodeDosen($kode_dosen)
+  {
+    $this->where('kode_dosen', $kode_dosen);
+    return $this->first();
+  }
+
   public function updateDataDosen($kode_old, $kode_dosen, $nama_dosen)
   {
     $db = db_connect();
