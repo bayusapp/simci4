@@ -26,7 +26,7 @@
     <div class="flex-grow-1">
       <div class="h-100 d-md-flex align-items-center auth-side-img">
         <div class="col-sm-10 auth-content w-auto">
-          <!-- <img src="assets/images/auth/auth-logo.png" alt="" class="img-fluid"> -->
+          <img src="assets/images/logo_auth.png" alt="" class="img-fluid" style="max-width: 200px;">
           <h3 class="text-white font-weight-normal mb-4">Selamat Datang di</h3>
           <h2 class="text-white font-weight-normal mb-4">SIMLAB FIT</h2>
           <h5 class="text-white font-weight-normal mt-3">Fakultas Ilmu Terapan, Telkom University</h5>
