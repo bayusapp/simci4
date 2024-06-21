@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\M_Dosen;
 use App\Models\M_Laboran;
+use App\Models\M_Matakuliah;
 use App\Models\M_Prodi;
 
 class DataMaster extends BaseController
@@ -12,6 +13,7 @@ class DataMaster extends BaseController
   var $data;
   protected $dosen;
   protected $laboran;
+  protected $matakuliah;
   protected $prodi;
 
   public function __construct()
@@ -21,12 +23,13 @@ class DataMaster extends BaseController
       die();
     } else {
       if (session()->get('id_role') == '1') {
-        $this->dosen    = new M_Dosen();
-        $this->laboran  = new M_Laboran();
-        $this->prodi    = new M_Prodi();
-        $nip            = session()->get('nip_laboran');
-        $data_laboran   = $this->laboran->getDataLaboran($nip);
-        $this->data     = array(
+        $this->dosen      = new M_Dosen();
+        $this->laboran    = new M_Laboran();
+        $this->matakuliah = new M_Matakuliah();
+        $this->prodi      = new M_Prodi();
+        $nip              = session()->get('nip_laboran');
+        $data_laboran     = $this->laboran->getDataLaboran($nip);
+        $this->data       = array(
           'nip_laboran'   => $data_laboran['nip_laboran'],
           'nama_laboran'  => $data_laboran['nama_laboran'],
           'foto_laboran'  => $data_laboran['foto_laboran']
@@ -252,6 +255,36 @@ class DataMaster extends BaseController
 
   public function csvMK()
   {
-    //
+    return view('laboran/data_master/v_csv_mk');
+  }
+
+  public function simpanCSVMK()
+  {
+    $file = $_FILES['file_csv']['tmp_name'];
+    $ekstensi_file  = explode('.', $_FILES['file_csv']['name']);
+    if (strtolower(end($ekstensi_file)) === 'csv' && $_FILES['file_csv']['size'] > 0) {
+      $handle = fopen($file, 'r');
+      $i = 0;
+      while ($row = fgetcsv($handle, 2048, ';')) {
+        $i++;
+        if ($i == 1) {
+          continue;
+        }
+        $kode_prodi = $row[0];
+        $kode_mk    = $row[1];
+        $nama_mk    = $row[2];
+        $id_prodi   = $this->prodi->getDataProdiByKodeProdi($kode_prodi)['id_prodi'];
+        $input      = [
+          'kode_mk'   => $kode_mk,
+          'nama_mk'   => $nama_mk,
+          'id_prodi'  => $id_prodi
+        ];
+        $cek_data_mk = $this->matakuliah->getDataMK($kode_mk);
+        if (!$cek_data_mk) {
+          $this->matakuliah->insert($input);
+        }
+      }
+    }
+    return redirect();
   }
 }
