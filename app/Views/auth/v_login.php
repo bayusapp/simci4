@@ -27,7 +27,9 @@
       <div class="h-100 d-md-flex align-items-center auth-side-img">
         <div class="col-sm-10 auth-content w-auto">
           <!-- <img src="assets/images/auth/auth-logo.png" alt="" class="img-fluid"> -->
-          <h1 class="text-white my-4">Selamat Datang</h1>
+          <h3 class="text-white font-weight-normal mb-4">Selamat Datang di</h3>
+          <h2 class="text-white font-weight-normal mb-4">SIMLAB FIT</h2>
+          <h5 class="text-white font-weight-normal mt-3">Fakultas Ilmu Terapan, Telkom University</h5>
           <!-- <h4 class="text-white font-weight-normal">Signin to your account and get explore the Able pro Dashboard Template.<br />Do not forget to play with live customizer</h4> -->
         </div>
       </div>
