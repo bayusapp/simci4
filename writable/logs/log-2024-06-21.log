@@ -1,0 +1,280 @@
+INFO - 2024-06-21 02:44:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 09:44:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 09:44:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 02:44:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 02:44:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 02:44:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 02:44:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 02:46:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 02:46:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 16:43:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 16:43:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 09:43:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 09:43:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 09:43:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 13:51:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 20:51:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 20:51:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 13:51:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 13:52:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 13:52:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 13:52:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-06-21 20:52:28 --> mysqli_sql_exception: Duplicate entry 'AAG' for key 'PRIMARY' in /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(308): mysqli->query('INSERT INTO `do...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `do...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `do...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `do...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Model.php(791): CodeIgniter\BaseModel->insert(Array, true)
+#7 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/DataMaster.php(143): CodeIgniter\Model->insert(Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\DataMaster->simpanDosen()
+#9 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataMaster))
+#10 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(49): require_once('/Applications/X...')
+#15 {main}
+CRITICAL - 2024-06-21 20:52:28 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'AAG' for key 'PRIMARY'
+[Method: POST, Route: DataMaster/simpanDosen]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `dosen` (`kode_dosen`, `nama_dosen`) VALUES (:kode_dosen:, :nama_dosen:)', [...], false)
+ 2 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH/Controllers/DataMaster.php(143): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\DataMaster->simpanDosen()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataMaster))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-21 20:52:28 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'AAG' for key 'PRIMARY'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `dosen` (`kode_dosen`, `nama_dosen`) VALUES (\'AAG\', \'Asasa\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `dosen` (`kode_dosen`, `nama_dosen`) VALUES (\'AAG\', \'Asasa\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `dosen` (`kode_dosen`, `nama_dosen`) VALUES (:kode_dosen:, :nama_dosen:)', [...], false)
+ 4 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH/Controllers/DataMaster.php(143): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\DataMaster->simpanDosen()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataMaster))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-21 20:52:28 --> [Caused by] mysqli_sql_exception: Duplicate entry 'AAG' for key 'PRIMARY'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('INSERT INTO `dosen` (`kode_dosen`, `nama_dosen`) VALUES (\'AAG\', \'Asasa\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `dosen` (`kode_dosen`, `nama_dosen`) VALUES (\'AAG\', \'Asasa\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `dosen` (`kode_dosen`, `nama_dosen`) VALUES (\'AAG\', \'Asasa\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `dosen` (`kode_dosen`, `nama_dosen`) VALUES (:kode_dosen:, :nama_dosen:)', [...], false)
+ 5 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH/Controllers/DataMaster.php(143): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\DataMaster->simpanDosen()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataMaster))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-21 13:54:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 13:54:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 13:54:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 13:54:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 13:55:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 13:55:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 13:56:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 13:56:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 13:56:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-06-21 20:56:23 --> mysqli_sql_exception: Duplicate entry 'AAG' for key 'PRIMARY' in /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(308): mysqli->query('UPDATE dosen SE...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE dosen SE...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE dosen SE...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Models/M_Dosen.php(29): CodeIgniter\Database\BaseConnection->query('UPDATE dosen SE...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/DataMaster.php(189): App\Models\M_Dosen->updateDataDosen('9bd8a8f', 'AAG', 'Asasa')
+#5 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\DataMaster->updateDosen()
+#6 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataMaster))
+#7 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 /Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(49): require_once('/Applications/X...')
+#12 {main}
+CRITICAL - 2024-06-21 20:56:23 --> CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'AAG' for key 'PRIMARY'
+[Method: POST, Route: DataMaster/updateDosen]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 APPPATH/Models/M_Dosen.php(29): CodeIgniter\Database\BaseConnection->query('UPDATE dosen SET kode_dosen = \'AAG\', nama_dosen = \'Asasa\' WHERE SUBSTR(SHA1(kode_dosen), 8, 7) = \'9bd8a8f\'')
+ 2 APPPATH/Controllers/DataMaster.php(189): App\Models\M_Dosen->updateDataDosen('9bd8a8f', 'AAG', 'Asasa')
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\DataMaster->updateDosen()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataMaster))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-21 20:56:23 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Duplicate entry 'AAG' for key 'PRIMARY'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE dosen SET kode_dosen = \'AAG\', nama_dosen = \'Asasa\' WHERE SUBSTR(SHA1(kode_dosen), 8, 7) = \'9bd8a8f\'')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE dosen SET kode_dosen = \'AAG\', nama_dosen = \'Asasa\' WHERE SUBSTR(SHA1(kode_dosen), 8, 7) = \'9bd8a8f\'')
+ 3 APPPATH/Models/M_Dosen.php(29): CodeIgniter\Database\BaseConnection->query('UPDATE dosen SET kode_dosen = \'AAG\', nama_dosen = \'Asasa\' WHERE SUBSTR(SHA1(kode_dosen), 8, 7) = \'9bd8a8f\'')
+ 4 APPPATH/Controllers/DataMaster.php(189): App\Models\M_Dosen->updateDataDosen('9bd8a8f', 'AAG', 'Asasa')
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\DataMaster->updateDosen()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataMaster))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-21 20:56:23 --> [Caused by] mysqli_sql_exception: Duplicate entry 'AAG' for key 'PRIMARY'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('UPDATE dosen SET kode_dosen = \'AAG\', nama_dosen = \'Asasa\' WHERE SUBSTR(SHA1(kode_dosen), 8, 7) = \'9bd8a8f\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE dosen SET kode_dosen = \'AAG\', nama_dosen = \'Asasa\' WHERE SUBSTR(SHA1(kode_dosen), 8, 7) = \'9bd8a8f\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE dosen SET kode_dosen = \'AAG\', nama_dosen = \'Asasa\' WHERE SUBSTR(SHA1(kode_dosen), 8, 7) = \'9bd8a8f\'')
+ 4 APPPATH/Models/M_Dosen.php(29): CodeIgniter\Database\BaseConnection->query('UPDATE dosen SET kode_dosen = \'AAG\', nama_dosen = \'Asasa\' WHERE SUBSTR(SHA1(kode_dosen), 8, 7) = \'9bd8a8f\'')
+ 5 APPPATH/Controllers/DataMaster.php(189): App\Models\M_Dosen->updateDataDosen('9bd8a8f', 'AAG', 'Asasa')
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\DataMaster->updateDosen()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataMaster))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-21 13:56:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 13:57:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 13:57:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 13:57:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 13:57:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 13:59:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 14:00:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 14:24:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 14:25:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-21 21:25:00 --> ErrorException: Undefined variable $kode_dosen
+[Method: POST, Route: DataMaster/simpanCSVMK]
+in APPPATH/Controllers/DataMaster.php on line 277.
+ 1 APPPATH/Controllers/DataMaster.php(277): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $kode_dosen', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/DataMaster.php', 277)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\DataMaster->simpanCSVMK()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataMaster))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-21 14:25:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-21 21:25:17 --> ErrorException: Trying to access array offset on null
+[Method: POST, Route: DataMaster/simpanCSVMK]
+in APPPATH/Controllers/DataMaster.php on line 280.
+ 1 APPPATH/Controllers/DataMaster.php(280): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on null', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/DataMaster.php', 280)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\DataMaster->simpanCSVMK()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataMaster))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-21 14:25:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 14:26:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-21 21:26:05 --> ErrorException: Trying to access array offset on null
+[Method: POST, Route: DataMaster/simpanCSVMK]
+in APPPATH/Controllers/DataMaster.php on line 282.
+ 1 APPPATH/Controllers/DataMaster.php(282): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on null', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/DataMaster.php', 282)
+ 2 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\DataMaster->simpanCSVMK()
+ 3 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataMaster))
+ 4 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 7 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-21 14:26:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 14:26:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 14:26:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 14:28:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 14:29:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-21 21:29:06 --> CodeIgniter\Database\Exceptions\DataException: There is no data to insert.
+[Method: POST, Route: DataMaster/simpanCSVMK]
+in SYSTEMPATH/BaseModel.php on line 826.
+ 1 SYSTEMPATH/BaseModel.php(826): CodeIgniter\Database\Exceptions\DataException::forEmptyDataset('insert')
+ 2 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert([], true)
+ 3 APPPATH/Controllers/DataMaster.php(284): CodeIgniter\Model->insert([...])
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\DataMaster->simpanCSVMK()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataMaster))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-21 14:29:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-21 14:29:19 --> ErrorException: Allowed memory size of 134217728 bytes exhausted (tried to allocate 69632 bytes)
+[Method: GET, Route: /]
+in SYSTEMPATH/Debug/Toolbar.php on line 313.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+INFO - 2024-06-21 14:29:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 14:29:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 14:29:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-21 14:29:34 --> ErrorException: Allowed memory size of 134217728 bytes exhausted (tried to allocate 69632 bytes)
+[Method: GET, Route: /]
+in SYSTEMPATH/Debug/Toolbar.php on line 313.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+INFO - 2024-06-21 14:30:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 14:30:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 14:30:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 21:34:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 21:34:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 21:35:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 21:35:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 21:35:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 21:35:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 21:35:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 21:40:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 21:41:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 21:41:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 21:41:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 21:42:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 21:54:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 14:54:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 15:01:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 15:01:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 15:02:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-21 22:02:00 --> ErrorException: Undefined variable $prodi
+[Method: GET, Route: DataMaster/MataKuliah]
+in APPPATH/Views/laboran/data_master/v_matakuliah.php on line 92.
+ 1 APPPATH/Views/laboran/data_master/v_matakuliah.php(92): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $prodi', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/laboran/data_master/v_matakuliah.php', 92)
+ 2 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/laboran/data_master/v_matakuliah.php')
+ 3 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/data_master/v_matakuliah', [], true)
+ 5 APPPATH/Controllers/DataMaster.php(259): view('laboran/data_master/v_matakuliah')
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\DataMaster->MataKuliah()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataMaster))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-21 15:02:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-21 22:02:13 --> ErrorException: Undefined variable $foto_laboran
+[Method: GET, Route: DataMaster/MataKuliah]
+in APPPATH/Views/template/v_template.php on line 82.
+ 1 APPPATH/Views/template/v_template.php(82): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $foto_laboran', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/template/v_template.php', 82)
+ 2 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/template/v_template.php')
+ 3 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/View/View.php(250): CodeIgniter\View\View->render('template/v_template', [], true)
+ 5 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/data_master/v_matakuliah', [], true)
+ 6 APPPATH/Controllers/DataMaster.php(259): view('laboran/data_master/v_matakuliah')
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\DataMaster->MataKuliah()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\DataMaster))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-21 15:02:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 15:04:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-21 15:04:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

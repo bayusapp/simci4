@@ -1,0 +1,1661 @@
+CRITICAL - 2024-06-17 00:24:35 --> ErrorException: Array to string conversion
+[Method: GET, Route: Matakuliah]
+in SYSTEMPATH/Database/Query.php on line 331.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/Query.php', 331)
+ 2 SYSTEMPATH/Database/Query.php(331): implode(',', [...])
+ 3 SYSTEMPATH/Database/Query.php(312): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...])
+ 4 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 5 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\Query->getQuery()
+ 6 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...], false)
+ 7 SYSTEMPATH/Model.php(319): CodeIgniter\Database\BaseBuilder->get()
+ 8 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 9 APPPATH/Models/M_Users_Access_Menu.php(27): CodeIgniter\BaseModel->first()
+10 APPPATH/Views/template/v_template.php(13): App\Models\M_Users_Access_Menu->getAccessMenuByLink([...], 'Matakuliah')
+11 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/template/v_template.php')
+12 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+13 SYSTEMPATH/View/View.php(250): CodeIgniter\View\View->render('template/v_template', [], true)
+14 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/matakuliah/v_index', [], true)
+15 APPPATH/Controllers/Matakuliah.php(42): view('laboran/matakuliah/v_index', [...])
+16 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->index()
+17 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+18 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+22 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 00:24:51 --> ErrorException: Array to string conversion
+[Method: GET, Route: Matakuliah]
+in SYSTEMPATH/Database/Query.php on line 331.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/Query.php', 331)
+ 2 SYSTEMPATH/Database/Query.php(331): implode(',', [...])
+ 3 SYSTEMPATH/Database/Query.php(312): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...])
+ 4 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 5 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\Query->getQuery()
+ 6 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...], false)
+ 7 SYSTEMPATH/Model.php(319): CodeIgniter\Database\BaseBuilder->get()
+ 8 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 9 APPPATH/Models/M_Users_Access_Menu.php(27): CodeIgniter\BaseModel->first()
+10 APPPATH/Views/template/v_template.php(13): App\Models\M_Users_Access_Menu->getAccessMenuByLink([...], 'Matakuliah')
+11 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/template/v_template.php')
+12 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+13 SYSTEMPATH/View/View.php(250): CodeIgniter\View\View->render('template/v_template', [], true)
+14 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/matakuliah/v_index', [], true)
+15 APPPATH/Controllers/Matakuliah.php(42): view('laboran/matakuliah/v_index', [...])
+16 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->index()
+17 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+18 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+22 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 00:24:53 --> ErrorException: Array to string conversion
+[Method: GET, Route: Matakuliah]
+in SYSTEMPATH/Database/Query.php on line 331.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/Query.php', 331)
+ 2 SYSTEMPATH/Database/Query.php(331): implode(',', [...])
+ 3 SYSTEMPATH/Database/Query.php(312): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...])
+ 4 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 5 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\Query->getQuery()
+ 6 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...], false)
+ 7 SYSTEMPATH/Model.php(319): CodeIgniter\Database\BaseBuilder->get()
+ 8 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 9 APPPATH/Models/M_Users_Access_Menu.php(27): CodeIgniter\BaseModel->first()
+10 APPPATH/Views/template/v_template.php(13): App\Models\M_Users_Access_Menu->getAccessMenuByLink([...], 'Matakuliah')
+11 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/template/v_template.php')
+12 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+13 SYSTEMPATH/View/View.php(250): CodeIgniter\View\View->render('template/v_template', [], true)
+14 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/matakuliah/v_index', [], true)
+15 APPPATH/Controllers/Matakuliah.php(42): view('laboran/matakuliah/v_index', [...])
+16 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->index()
+17 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+18 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+22 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 00:24:53 --> ErrorException: Array to string conversion
+[Method: GET, Route: Matakuliah]
+in SYSTEMPATH/Database/Query.php on line 331.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/Query.php', 331)
+ 2 SYSTEMPATH/Database/Query.php(331): implode(',', [...])
+ 3 SYSTEMPATH/Database/Query.php(312): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...])
+ 4 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 5 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\Query->getQuery()
+ 6 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...], false)
+ 7 SYSTEMPATH/Model.php(319): CodeIgniter\Database\BaseBuilder->get()
+ 8 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 9 APPPATH/Models/M_Users_Access_Menu.php(27): CodeIgniter\BaseModel->first()
+10 APPPATH/Views/template/v_template.php(13): App\Models\M_Users_Access_Menu->getAccessMenuByLink([...], 'Matakuliah')
+11 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/template/v_template.php')
+12 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+13 SYSTEMPATH/View/View.php(250): CodeIgniter\View\View->render('template/v_template', [], true)
+14 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/matakuliah/v_index', [], true)
+15 APPPATH/Controllers/Matakuliah.php(42): view('laboran/matakuliah/v_index', [...])
+16 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->index()
+17 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+18 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+22 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 00:24:54 --> ErrorException: Array to string conversion
+[Method: GET, Route: Matakuliah]
+in SYSTEMPATH/Database/Query.php on line 331.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/Query.php', 331)
+ 2 SYSTEMPATH/Database/Query.php(331): implode(',', [...])
+ 3 SYSTEMPATH/Database/Query.php(312): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...])
+ 4 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 5 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\Query->getQuery()
+ 6 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...], false)
+ 7 SYSTEMPATH/Model.php(319): CodeIgniter\Database\BaseBuilder->get()
+ 8 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 9 APPPATH/Models/M_Users_Access_Menu.php(27): CodeIgniter\BaseModel->first()
+10 APPPATH/Views/template/v_template.php(13): App\Models\M_Users_Access_Menu->getAccessMenuByLink([...], 'Matakuliah')
+11 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/template/v_template.php')
+12 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+13 SYSTEMPATH/View/View.php(250): CodeIgniter\View\View->render('template/v_template', [], true)
+14 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/matakuliah/v_index', [], true)
+15 APPPATH/Controllers/Matakuliah.php(42): view('laboran/matakuliah/v_index', [...])
+16 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->index()
+17 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+18 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+22 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 00:24:54 --> ErrorException: Array to string conversion
+[Method: GET, Route: Matakuliah]
+in SYSTEMPATH/Database/Query.php on line 331.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/Query.php', 331)
+ 2 SYSTEMPATH/Database/Query.php(331): implode(',', [...])
+ 3 SYSTEMPATH/Database/Query.php(312): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...])
+ 4 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 5 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\Query->getQuery()
+ 6 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...], false)
+ 7 SYSTEMPATH/Model.php(319): CodeIgniter\Database\BaseBuilder->get()
+ 8 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 9 APPPATH/Models/M_Users_Access_Menu.php(27): CodeIgniter\BaseModel->first()
+10 APPPATH/Views/template/v_template.php(13): App\Models\M_Users_Access_Menu->getAccessMenuByLink([...], 'Matakuliah')
+11 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/template/v_template.php')
+12 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+13 SYSTEMPATH/View/View.php(250): CodeIgniter\View\View->render('template/v_template', [], true)
+14 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/matakuliah/v_index', [], true)
+15 APPPATH/Controllers/Matakuliah.php(42): view('laboran/matakuliah/v_index', [...])
+16 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->index()
+17 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+18 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+22 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 00:24:54 --> ErrorException: Array to string conversion
+[Method: GET, Route: Matakuliah]
+in SYSTEMPATH/Database/Query.php on line 331.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/Query.php', 331)
+ 2 SYSTEMPATH/Database/Query.php(331): implode(',', [...])
+ 3 SYSTEMPATH/Database/Query.php(312): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...])
+ 4 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 5 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\Query->getQuery()
+ 6 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...], false)
+ 7 SYSTEMPATH/Model.php(319): CodeIgniter\Database\BaseBuilder->get()
+ 8 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 9 APPPATH/Models/M_Users_Access_Menu.php(27): CodeIgniter\BaseModel->first()
+10 APPPATH/Views/template/v_template.php(13): App\Models\M_Users_Access_Menu->getAccessMenuByLink([...], 'Matakuliah')
+11 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/template/v_template.php')
+12 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+13 SYSTEMPATH/View/View.php(250): CodeIgniter\View\View->render('template/v_template', [], true)
+14 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/matakuliah/v_index', [], true)
+15 APPPATH/Controllers/Matakuliah.php(42): view('laboran/matakuliah/v_index', [...])
+16 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->index()
+17 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+18 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+22 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 00:24:54 --> ErrorException: Array to string conversion
+[Method: GET, Route: Matakuliah]
+in SYSTEMPATH/Database/Query.php on line 331.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/Query.php', 331)
+ 2 SYSTEMPATH/Database/Query.php(331): implode(',', [...])
+ 3 SYSTEMPATH/Database/Query.php(312): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...])
+ 4 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 5 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\Query->getQuery()
+ 6 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...], false)
+ 7 SYSTEMPATH/Model.php(319): CodeIgniter\Database\BaseBuilder->get()
+ 8 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 9 APPPATH/Models/M_Users_Access_Menu.php(27): CodeIgniter\BaseModel->first()
+10 APPPATH/Views/template/v_template.php(13): App\Models\M_Users_Access_Menu->getAccessMenuByLink([...], 'Matakuliah')
+11 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/template/v_template.php')
+12 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+13 SYSTEMPATH/View/View.php(250): CodeIgniter\View\View->render('template/v_template', [], true)
+14 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/matakuliah/v_index', [], true)
+15 APPPATH/Controllers/Matakuliah.php(42): view('laboran/matakuliah/v_index', [...])
+16 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->index()
+17 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+18 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+22 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 00:24:54 --> ErrorException: Array to string conversion
+[Method: GET, Route: Matakuliah]
+in SYSTEMPATH/Database/Query.php on line 331.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/Query.php', 331)
+ 2 SYSTEMPATH/Database/Query.php(331): implode(',', [...])
+ 3 SYSTEMPATH/Database/Query.php(312): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...])
+ 4 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 5 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\Query->getQuery()
+ 6 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...], false)
+ 7 SYSTEMPATH/Model.php(319): CodeIgniter\Database\BaseBuilder->get()
+ 8 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 9 APPPATH/Models/M_Users_Access_Menu.php(27): CodeIgniter\BaseModel->first()
+10 APPPATH/Views/template/v_template.php(13): App\Models\M_Users_Access_Menu->getAccessMenuByLink([...], 'Matakuliah')
+11 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/template/v_template.php')
+12 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+13 SYSTEMPATH/View/View.php(250): CodeIgniter\View\View->render('template/v_template', [], true)
+14 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/matakuliah/v_index', [], true)
+15 APPPATH/Controllers/Matakuliah.php(42): view('laboran/matakuliah/v_index', [...])
+16 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->index()
+17 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+18 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+22 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 00:24:55 --> ErrorException: Array to string conversion
+[Method: GET, Route: Matakuliah]
+in SYSTEMPATH/Database/Query.php on line 331.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/Query.php', 331)
+ 2 SYSTEMPATH/Database/Query.php(331): implode(',', [...])
+ 3 SYSTEMPATH/Database/Query.php(312): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...])
+ 4 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 5 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\Query->getQuery()
+ 6 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...], false)
+ 7 SYSTEMPATH/Model.php(319): CodeIgniter\Database\BaseBuilder->get()
+ 8 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 9 APPPATH/Models/M_Users_Access_Menu.php(27): CodeIgniter\BaseModel->first()
+10 APPPATH/Views/template/v_template.php(13): App\Models\M_Users_Access_Menu->getAccessMenuByLink([...], 'Matakuliah')
+11 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/template/v_template.php')
+12 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+13 SYSTEMPATH/View/View.php(250): CodeIgniter\View\View->render('template/v_template', [], true)
+14 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/matakuliah/v_index', [], true)
+15 APPPATH/Controllers/Matakuliah.php(42): view('laboran/matakuliah/v_index', [...])
+16 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->index()
+17 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+18 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+22 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 00:24:55 --> ErrorException: Array to string conversion
+[Method: GET, Route: Matakuliah]
+in SYSTEMPATH/Database/Query.php on line 331.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/Query.php', 331)
+ 2 SYSTEMPATH/Database/Query.php(331): implode(',', [...])
+ 3 SYSTEMPATH/Database/Query.php(312): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...])
+ 4 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 5 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\Query->getQuery()
+ 6 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...], false)
+ 7 SYSTEMPATH/Model.php(319): CodeIgniter\Database\BaseBuilder->get()
+ 8 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 9 APPPATH/Models/M_Users_Access_Menu.php(27): CodeIgniter\BaseModel->first()
+10 APPPATH/Views/template/v_template.php(13): App\Models\M_Users_Access_Menu->getAccessMenuByLink([...], 'Matakuliah')
+11 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/template/v_template.php')
+12 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+13 SYSTEMPATH/View/View.php(250): CodeIgniter\View\View->render('template/v_template', [], true)
+14 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/matakuliah/v_index', [], true)
+15 APPPATH/Controllers/Matakuliah.php(42): view('laboran/matakuliah/v_index', [...])
+16 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->index()
+17 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+18 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+22 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 00:24:55 --> ErrorException: Array to string conversion
+[Method: GET, Route: Matakuliah]
+in SYSTEMPATH/Database/Query.php on line 331.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/Query.php', 331)
+ 2 SYSTEMPATH/Database/Query.php(331): implode(',', [...])
+ 3 SYSTEMPATH/Database/Query.php(312): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...])
+ 4 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 5 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\Query->getQuery()
+ 6 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...], false)
+ 7 SYSTEMPATH/Model.php(319): CodeIgniter\Database\BaseBuilder->get()
+ 8 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 9 APPPATH/Models/M_Users_Access_Menu.php(27): CodeIgniter\BaseModel->first()
+10 APPPATH/Views/template/v_template.php(13): App\Models\M_Users_Access_Menu->getAccessMenuByLink([...], 'Matakuliah')
+11 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/template/v_template.php')
+12 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+13 SYSTEMPATH/View/View.php(250): CodeIgniter\View\View->render('template/v_template', [], true)
+14 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/matakuliah/v_index', [], true)
+15 APPPATH/Controllers/Matakuliah.php(42): view('laboran/matakuliah/v_index', [...])
+16 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->index()
+17 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+18 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+22 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 00:24:55 --> ErrorException: Array to string conversion
+[Method: GET, Route: Matakuliah]
+in SYSTEMPATH/Database/Query.php on line 331.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/Query.php', 331)
+ 2 SYSTEMPATH/Database/Query.php(331): implode(',', [...])
+ 3 SYSTEMPATH/Database/Query.php(312): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...])
+ 4 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 5 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\Query->getQuery()
+ 6 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...], false)
+ 7 SYSTEMPATH/Model.php(319): CodeIgniter\Database\BaseBuilder->get()
+ 8 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 9 APPPATH/Models/M_Users_Access_Menu.php(27): CodeIgniter\BaseModel->first()
+10 APPPATH/Views/template/v_template.php(13): App\Models\M_Users_Access_Menu->getAccessMenuByLink([...], 'Matakuliah')
+11 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/template/v_template.php')
+12 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+13 SYSTEMPATH/View/View.php(250): CodeIgniter\View\View->render('template/v_template', [], true)
+14 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/matakuliah/v_index', [], true)
+15 APPPATH/Controllers/Matakuliah.php(42): view('laboran/matakuliah/v_index', [...])
+16 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->index()
+17 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+18 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+22 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 00:24:55 --> ErrorException: Array to string conversion
+[Method: GET, Route: Matakuliah]
+in SYSTEMPATH/Database/Query.php on line 331.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/Query.php', 331)
+ 2 SYSTEMPATH/Database/Query.php(331): implode(',', [...])
+ 3 SYSTEMPATH/Database/Query.php(312): CodeIgniter\Database\Query->matchNamedBinds('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...])
+ 4 SYSTEMPATH/Database/Query.php(163): CodeIgniter\Database\Query->compileBinds()
+ 5 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\Query->getQuery()
+ 6 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users_access_menu`
+JOIN `users_menu` ON `users_access_menu`.`id_menu` = `users_menu`.`id_menu`
+WHERE `id_role` = :id_role:
+AND `url_menu` = :url_menu:
+ LIMIT 1', [...], false)
+ 7 SYSTEMPATH/Model.php(319): CodeIgniter\Database\BaseBuilder->get()
+ 8 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 9 APPPATH/Models/M_Users_Access_Menu.php(27): CodeIgniter\BaseModel->first()
+10 APPPATH/Views/template/v_template.php(13): App\Models\M_Users_Access_Menu->getAccessMenuByLink([...], 'Matakuliah')
+11 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/template/v_template.php')
+12 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+13 SYSTEMPATH/View/View.php(250): CodeIgniter\View\View->render('template/v_template', [], true)
+14 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/matakuliah/v_index', [], true)
+15 APPPATH/Controllers/Matakuliah.php(42): view('laboran/matakuliah/v_index', [...])
+16 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->index()
+17 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+18 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+19 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+20 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+21 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+22 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 00:25:11 --> ErrorException: Undefined variable $title
+[Method: GET, Route: Matakuliah]
+in APPPATH/Views/template/v_template.php on line 15.
+ 1 APPPATH/Views/template/v_template.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $title', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/template/v_template.php', 15)
+ 2 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/template/v_template.php')
+ 3 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/View/View.php(250): CodeIgniter\View\View->render('template/v_template', [], true)
+ 5 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/matakuliah/v_index', [], true)
+ 6 APPPATH/Controllers/Matakuliah.php(42): view('laboran/matakuliah/v_index', [...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 00:25:26 --> ErrorException: Undefined variable $menu
+[Method: GET, Route: Matakuliah]
+in APPPATH/Views/template/v_template.php on line 93.
+ 1 APPPATH/Views/template/v_template.php(93): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $menu', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/template/v_template.php', 93)
+ 2 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/template/v_template.php')
+ 3 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/View/View.php(250): CodeIgniter\View\View->render('template/v_template', [], true)
+ 5 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/matakuliah/v_index', [], true)
+ 6 APPPATH/Controllers/Matakuliah.php(42): view('laboran/matakuliah/v_index', [...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->index()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 00:46:20 --> CodeIgniter\Validation\Exceptions\ValidationException: "rules" is not a valid rule.
+[Method: POST, Route: Matakuliah/simpan]
+in SYSTEMPATH/Validation/Validation.php on line 345.
+ 1 SYSTEMPATH/Validation/Validation.php(345): CodeIgniter\Validation\Exceptions\ValidationException::forRuleNotFound('rules')
+ 2 SYSTEMPATH/Validation/Validation.php(201): CodeIgniter\Validation\Validation->processRules('kode_mk', 'kode_mk', 'VSI1I3', [...], [...], 'kode_mk')
+ 3 SYSTEMPATH/Controller.php(137): CodeIgniter\Validation\Validation->run()
+ 4 APPPATH/Controllers/Matakuliah.php(50): CodeIgniter\Controller->validate([...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->simpan()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 01:29:02 --> ErrorException: Undefined array key "id_mk"
+[Method: GET, Route: Matakuliah]
+in APPPATH/Views/laboran/matakuliah/v_index.php on line 147.
+ 1 APPPATH/Views/laboran/matakuliah/v_index.php(147): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_mk"', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/laboran/matakuliah/v_index.php', 147)
+ 2 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/laboran/matakuliah/v_index.php')
+ 3 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/matakuliah/v_index', [], true)
+ 5 APPPATH/Controllers/Matakuliah.php(45): view('laboran/matakuliah/v_index', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+ERROR - 2024-06-17 01:33:16 --> mysqli_sql_exception: Unknown column 'matakuliah.id' in 'where clause' in /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(308): mysqli->query('UPDATE `matakul...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `matakul...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `matakul...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2497): CodeIgniter\Database\BaseConnection->query('UPDATE `matakul...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Model.php(450): CodeIgniter\Database\BaseBuilder->update()
+#5 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/BaseModel.php(1028): CodeIgniter\Model->doUpdate(Array, Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Model.php(854): CodeIgniter\BaseModel->update(Array, Array)
+#7 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Models/M_Matakuliah.php(27): CodeIgniter\Model->update('AAA', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Matakuliah.php(103): App\Models\M_Matakuliah->updateDataMK('AAA', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\Matakuliah->update()
+#10 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+#11 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#13 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(49): require_once('/Applications/X...')
+#16 {main}
+CRITICAL - 2024-06-17 01:33:16 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'matakuliah.id' in 'where clause'
+[Method: POST, Route: Matakuliah/update]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2497): CodeIgniter\Database\BaseConnection->query('UPDATE `matakuliah` SET `kode_mk` = :kode_mk:, `nama_mk` = :nama_mk:, `id_prodi` = :id_prodi:
+WHERE `matakuliah`.`id` IN :matakuliah.id:', [...], false)
+ 2 SYSTEMPATH/Model.php(450): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH/BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH/Model.php(854): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH/Models/M_Matakuliah.php(27): CodeIgniter\Model->update('AAA', [...])
+ 6 APPPATH/Controllers/Matakuliah.php(103): App\Models\M_Matakuliah->updateDataMK('AAA', [...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->update()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 01:33:16 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'matakuliah.id' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `matakuliah` SET `kode_mk` = \'AAAHI\', `nama_mk` = \'Haha Update\', `id_prodi` = \'8\'
+WHERE `matakuliah`.`id` IN (\'AAA\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `matakuliah` SET `kode_mk` = \'AAAHI\', `nama_mk` = \'Haha Update\', `id_prodi` = \'8\'
+WHERE `matakuliah`.`id` IN (\'AAA\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2497): CodeIgniter\Database\BaseConnection->query('UPDATE `matakuliah` SET `kode_mk` = :kode_mk:, `nama_mk` = :nama_mk:, `id_prodi` = :id_prodi:
+WHERE `matakuliah`.`id` IN :matakuliah.id:', [...], false)
+ 4 SYSTEMPATH/Model.php(450): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH/BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH/Model.php(854): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH/Models/M_Matakuliah.php(27): CodeIgniter\Model->update('AAA', [...])
+ 8 APPPATH/Controllers/Matakuliah.php(103): App\Models\M_Matakuliah->updateDataMK('AAA', [...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->update()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 01:33:16 --> [Caused by] mysqli_sql_exception: Unknown column 'matakuliah.id' in 'where clause'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('UPDATE `matakuliah` SET `kode_mk` = \'AAAHI\', `nama_mk` = \'Haha Update\', `id_prodi` = \'8\'
+WHERE `matakuliah`.`id` IN (\'AAA\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `matakuliah` SET `kode_mk` = \'AAAHI\', `nama_mk` = \'Haha Update\', `id_prodi` = \'8\'
+WHERE `matakuliah`.`id` IN (\'AAA\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `matakuliah` SET `kode_mk` = \'AAAHI\', `nama_mk` = \'Haha Update\', `id_prodi` = \'8\'
+WHERE `matakuliah`.`id` IN (\'AAA\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2497): CodeIgniter\Database\BaseConnection->query('UPDATE `matakuliah` SET `kode_mk` = :kode_mk:, `nama_mk` = :nama_mk:, `id_prodi` = :id_prodi:
+WHERE `matakuliah`.`id` IN :matakuliah.id:', [...], false)
+ 5 SYSTEMPATH/Model.php(450): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH/BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH/Model.php(854): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH/Models/M_Matakuliah.php(27): CodeIgniter\Model->update('AAA', [...])
+ 9 APPPATH/Controllers/Matakuliah.php(103): App\Models\M_Matakuliah->updateDataMK('AAA', [...])
+10 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Matakuliah->update()
+11 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Matakuliah))
+12 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-17 04:54:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 11:54:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 11:54:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 04:54:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 04:58:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 04:58:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:00:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:01:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:01:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:01:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:02:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:02:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:04:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:04:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:04:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:09:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:10:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-17 12:10:51 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "laboran/matakuliah/v_index.php"
+[Method: GET, Route: Praktikum/Matakuliah]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 41.
+ 1 SYSTEMPATH/View/View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('laboran/matakuliah/v_index.php')
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/matakuliah/v_index', [], true)
+ 3 APPPATH/Controllers/Praktikum.php(45): view('laboran/matakuliah/v_index', [...])
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Praktikum->Matakuliah()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Praktikum))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-17 05:11:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:15:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:20:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:21:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:21:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:21:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:21:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:21:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:21:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:22:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:22:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:25:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:25:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:25:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:25:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:26:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:28:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:28:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-17 12:28:15 --> Error: Call to a member function getHistoryLogin() on null
+[Method: GET, Route: RiwayatLogin]
+in APPPATH/Controllers/RiwayatLogin.php on line 67.
+ 1 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\RiwayatLogin->index()
+ 2 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RiwayatLogin))
+ 3 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-17 05:29:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-17 12:29:37 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "riwayat_login/v_index.php"
+[Method: GET, Route: RiwayatLogin]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 41.
+ 1 SYSTEMPATH/View/View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('riwayat_login/v_index.php')
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('riwayat_login/v_index', [], true)
+ 3 APPPATH/Controllers/RiwayatLogin.php(71): view('riwayat_login/v_index', [...])
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\RiwayatLogin->index()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\RiwayatLogin))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-17 05:29:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:30:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:31:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:31:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:33:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:34:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:37:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:37:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:38:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:42:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:42:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:43:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-17 12:43:52 --> ParseError: syntax error, unexpected token "endif"
+[Method: GET, Route: Laboratorium]
+in APPPATH/Views/laboran/laboratorium/v_index.php on line 126.
+ 1 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/laboratorium/v_index', [], true)
+ 3 APPPATH/Controllers/Laboratorium.php(55): view('laboran/laboratorium/v_index', [...])
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->index()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-17 05:43:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:44:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:45:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:45:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:46:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:46:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:47:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-17 12:47:39 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "profil/v_index.php"
+[Method: GET, Route: Profil]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 41.
+ 1 SYSTEMPATH/View/View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('profil/v_index.php')
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('profil/v_index', [], true)
+ 3 APPPATH/Controllers/Profil.php(40): view('profil/v_index', [...])
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\profil->index()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\profil))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-17 05:47:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:47:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:57:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 05:57:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 06:00:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 06:00:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 06:00:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 06:00:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 06:00:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 06:12:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 06:12:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:02:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:03:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:03:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:03:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:03:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:04:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:07:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:09:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:11:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:11:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:11:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:11:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:12:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:12:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:12:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:13:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:14:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:20:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:21:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:21:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:23:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:23:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:23:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:24:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:24:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:25:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:26:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:28:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:30:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:33:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:34:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 07:38:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 08:46:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 08:48:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 08:48:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 08:48:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 08:49:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 08:49:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 08:49:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 08:50:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-17 15:50:20 --> CodeIgniter\Database\Exceptions\DatabaseException: Updates are not allowed unless they contain a "where" or "like" clause.
+[Method: POST, Route: Laboratorium/updateLab]
+in SYSTEMPATH/Model.php on line 445.
+ 1 SYSTEMPATH/BaseModel.php(1028): CodeIgniter\Model->doUpdate(null, [...])
+ 2 SYSTEMPATH/Model.php(854): CodeIgniter\BaseModel->update(null, [...])
+ 3 APPPATH/Models/M_Laboratorium.php(41): CodeIgniter\Model->update(null, [...])
+ 4 APPPATH/Controllers/Laboratorium.php(117): App\Models\M_Laboratorium->updateDataLab(null, [...])
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-17 08:51:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 08:51:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 08:51:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-06-17 15:51:23 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`)) in /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(308): mysqli->query('UPDATE `laborat...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `laborat...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `laborat...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2497): CodeIgniter\Database\BaseConnection->query('UPDATE `laborat...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Model.php(450): CodeIgniter\Database\BaseBuilder->update()
+#5 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/BaseModel.php(1028): CodeIgniter\Model->doUpdate(Array, Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Model.php(854): CodeIgniter\BaseModel->update(Array, Array)
+#7 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Models/M_Laboratorium.php(41): CodeIgniter\Model->update('21', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Laboratorium.php(117): App\Models\M_Laboratorium->updateDataLab('21', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+#10 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+#11 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#13 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(49): require_once('/Applications/X...')
+#16 {main}
+CRITICAL - 2024-06-17 15:51:23 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`))
+[Method: POST, Route: Laboratorium/updateLab]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2497): CodeIgniter\Database\BaseConnection->query('UPDATE `laboratorium` SET `nama_lab` = :nama_lab:, `kode_lab` = :kode_lab:, `kode_igracias` = :kode_igracias:, `kode_ruang` = :kode_ruang:, `id_lab_lokasi` = :id_lab_lokasi:, `id_lab_kategori` = :id_lab_kategori:, `id_prodi` = :id_prodi:
+WHERE `laboratorium`.`id_lab` IN :laboratorium.id_lab:', [...], false)
+ 2 SYSTEMPATH/Model.php(450): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH/BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH/Model.php(854): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH/Models/M_Laboratorium.php(41): CodeIgniter\Model->update('21', [...])
+ 6 APPPATH/Controllers/Laboratorium.php(117): App\Models\M_Laboratorium->updateDataLab('21', [...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 15:51:23 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `laboratorium` SET `nama_lab` = \'HAHAu\', `kode_lab` = \'A1u\', `kode_igracias` = \'A1u\', `kode_ruang` = \'Hasu\', `id_lab_lokasi` = \'2\', `id_lab_kategori` = \'2\', `id_prodi` = \'\'
+WHERE `laboratorium`.`id_lab` IN (\'21\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `laboratorium` SET `nama_lab` = \'HAHAu\', `kode_lab` = \'A1u\', `kode_igracias` = \'A1u\', `kode_ruang` = \'Hasu\', `id_lab_lokasi` = \'2\', `id_lab_kategori` = \'2\', `id_prodi` = \'\'
+WHERE `laboratorium`.`id_lab` IN (\'21\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2497): CodeIgniter\Database\BaseConnection->query('UPDATE `laboratorium` SET `nama_lab` = :nama_lab:, `kode_lab` = :kode_lab:, `kode_igracias` = :kode_igracias:, `kode_ruang` = :kode_ruang:, `id_lab_lokasi` = :id_lab_lokasi:, `id_lab_kategori` = :id_lab_kategori:, `id_prodi` = :id_prodi:
+WHERE `laboratorium`.`id_lab` IN :laboratorium.id_lab:', [...], false)
+ 4 SYSTEMPATH/Model.php(450): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH/BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH/Model.php(854): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH/Models/M_Laboratorium.php(41): CodeIgniter\Model->update('21', [...])
+ 8 APPPATH/Controllers/Laboratorium.php(117): App\Models\M_Laboratorium->updateDataLab('21', [...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 15:51:23 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('UPDATE `laboratorium` SET `nama_lab` = \'HAHAu\', `kode_lab` = \'A1u\', `kode_igracias` = \'A1u\', `kode_ruang` = \'Hasu\', `id_lab_lokasi` = \'2\', `id_lab_kategori` = \'2\', `id_prodi` = \'\'
+WHERE `laboratorium`.`id_lab` IN (\'21\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `laboratorium` SET `nama_lab` = \'HAHAu\', `kode_lab` = \'A1u\', `kode_igracias` = \'A1u\', `kode_ruang` = \'Hasu\', `id_lab_lokasi` = \'2\', `id_lab_kategori` = \'2\', `id_prodi` = \'\'
+WHERE `laboratorium`.`id_lab` IN (\'21\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `laboratorium` SET `nama_lab` = \'HAHAu\', `kode_lab` = \'A1u\', `kode_igracias` = \'A1u\', `kode_ruang` = \'Hasu\', `id_lab_lokasi` = \'2\', `id_lab_kategori` = \'2\', `id_prodi` = \'\'
+WHERE `laboratorium`.`id_lab` IN (\'21\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2497): CodeIgniter\Database\BaseConnection->query('UPDATE `laboratorium` SET `nama_lab` = :nama_lab:, `kode_lab` = :kode_lab:, `kode_igracias` = :kode_igracias:, `kode_ruang` = :kode_ruang:, `id_lab_lokasi` = :id_lab_lokasi:, `id_lab_kategori` = :id_lab_kategori:, `id_prodi` = :id_prodi:
+WHERE `laboratorium`.`id_lab` IN :laboratorium.id_lab:', [...], false)
+ 5 SYSTEMPATH/Model.php(450): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH/BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH/Model.php(854): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH/Models/M_Laboratorium.php(41): CodeIgniter\Model->update('21', [...])
+ 9 APPPATH/Controllers/Laboratorium.php(117): App\Models\M_Laboratorium->updateDataLab('21', [...])
+10 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+11 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+12 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-17 08:52:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 08:52:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 08:52:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 08:53:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 08:53:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 08:53:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-06-17 15:53:53 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`)) in /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(308): mysqli->query('UPDATE `laborat...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `laborat...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `laborat...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2497): CodeIgniter\Database\BaseConnection->query('UPDATE `laborat...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Model.php(450): CodeIgniter\Database\BaseBuilder->update()
+#5 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/BaseModel.php(1028): CodeIgniter\Model->doUpdate(Array, Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Model.php(854): CodeIgniter\BaseModel->update(Array, Array)
+#7 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Models/M_Laboratorium.php(41): CodeIgniter\Model->update('21', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Laboratorium.php(122): App\Models\M_Laboratorium->updateDataLab('21', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+#10 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+#11 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#13 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(49): require_once('/Applications/X...')
+#16 {main}
+CRITICAL - 2024-06-17 15:53:53 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`))
+[Method: POST, Route: Laboratorium/updateLab]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2497): CodeIgniter\Database\BaseConnection->query('UPDATE `laboratorium` SET `nama_lab` = :nama_lab:, `kode_lab` = :kode_lab:, `kode_igracias` = :kode_igracias:, `kode_ruang` = :kode_ruang:, `id_lab_lokasi` = :id_lab_lokasi:, `id_lab_kategori` = :id_lab_kategori:, `id_prodi` = :id_prodi:
+WHERE `laboratorium`.`id_lab` IN :laboratorium.id_lab:', [...], false)
+ 2 SYSTEMPATH/Model.php(450): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH/BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH/Model.php(854): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH/Models/M_Laboratorium.php(41): CodeIgniter\Model->update('21', [...])
+ 6 APPPATH/Controllers/Laboratorium.php(122): App\Models\M_Laboratorium->updateDataLab('21', [...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 15:53:53 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `laboratorium` SET `nama_lab` = \'HAHA\', `kode_lab` = \'A1\', `kode_igracias` = \'A1\', `kode_ruang` = \'Has\', `id_lab_lokasi` = \'1\', `id_lab_kategori` = \'1\', `id_prodi` = \'NULL\'
+WHERE `laboratorium`.`id_lab` IN (\'21\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `laboratorium` SET `nama_lab` = \'HAHA\', `kode_lab` = \'A1\', `kode_igracias` = \'A1\', `kode_ruang` = \'Has\', `id_lab_lokasi` = \'1\', `id_lab_kategori` = \'1\', `id_prodi` = \'NULL\'
+WHERE `laboratorium`.`id_lab` IN (\'21\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2497): CodeIgniter\Database\BaseConnection->query('UPDATE `laboratorium` SET `nama_lab` = :nama_lab:, `kode_lab` = :kode_lab:, `kode_igracias` = :kode_igracias:, `kode_ruang` = :kode_ruang:, `id_lab_lokasi` = :id_lab_lokasi:, `id_lab_kategori` = :id_lab_kategori:, `id_prodi` = :id_prodi:
+WHERE `laboratorium`.`id_lab` IN :laboratorium.id_lab:', [...], false)
+ 4 SYSTEMPATH/Model.php(450): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH/BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH/Model.php(854): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH/Models/M_Laboratorium.php(41): CodeIgniter\Model->update('21', [...])
+ 8 APPPATH/Controllers/Laboratorium.php(122): App\Models\M_Laboratorium->updateDataLab('21', [...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 15:53:53 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('UPDATE `laboratorium` SET `nama_lab` = \'HAHA\', `kode_lab` = \'A1\', `kode_igracias` = \'A1\', `kode_ruang` = \'Has\', `id_lab_lokasi` = \'1\', `id_lab_kategori` = \'1\', `id_prodi` = \'NULL\'
+WHERE `laboratorium`.`id_lab` IN (\'21\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `laboratorium` SET `nama_lab` = \'HAHA\', `kode_lab` = \'A1\', `kode_igracias` = \'A1\', `kode_ruang` = \'Has\', `id_lab_lokasi` = \'1\', `id_lab_kategori` = \'1\', `id_prodi` = \'NULL\'
+WHERE `laboratorium`.`id_lab` IN (\'21\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `laboratorium` SET `nama_lab` = \'HAHA\', `kode_lab` = \'A1\', `kode_igracias` = \'A1\', `kode_ruang` = \'Has\', `id_lab_lokasi` = \'1\', `id_lab_kategori` = \'1\', `id_prodi` = \'NULL\'
+WHERE `laboratorium`.`id_lab` IN (\'21\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2497): CodeIgniter\Database\BaseConnection->query('UPDATE `laboratorium` SET `nama_lab` = :nama_lab:, `kode_lab` = :kode_lab:, `kode_igracias` = :kode_igracias:, `kode_ruang` = :kode_ruang:, `id_lab_lokasi` = :id_lab_lokasi:, `id_lab_kategori` = :id_lab_kategori:, `id_prodi` = :id_prodi:
+WHERE `laboratorium`.`id_lab` IN :laboratorium.id_lab:', [...], false)
+ 5 SYSTEMPATH/Model.php(450): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH/BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH/Model.php(854): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH/Models/M_Laboratorium.php(41): CodeIgniter\Model->update('21', [...])
+ 9 APPPATH/Controllers/Laboratorium.php(122): App\Models\M_Laboratorium->updateDataLab('21', [...])
+10 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+11 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+12 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-17 08:54:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 08:55:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 08:57:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 08:57:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 08:57:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:02:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:03:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:03:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:03:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:04:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-06-17 16:04:33 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`)) in /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(308): mysqli->query('INSERT INTO `la...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `la...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `la...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `la...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+#5 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/BaseModel.php(840): CodeIgniter\Model->doInsert(Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Model.php(791): CodeIgniter\BaseModel->insert(Array, true)
+#7 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Laboratorium.php(84): CodeIgniter\Model->insert(Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\Laboratorium->simpanLab()
+#9 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+#10 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(49): require_once('/Applications/X...')
+#15 {main}
+CRITICAL - 2024-06-17 16:04:33 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`))
+[Method: POST, Route: Laboratorium/simpanLab]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `laboratorium` (`nama_lab`, `kode_lab`, `kode_igracias`, `kode_ruang`, `id_lab_lokasi`, `id_lab_kategori`, `id_prodi`) VALUES (:nama_lab:, :kode_lab:, :kode_igracias:, :kode_ruang:, :id_lab_lokasi:, :id_lab_kategori:, :id_prodi:)', [...], false)
+ 2 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH/Controllers/Laboratorium.php(84): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->simpanLab()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 16:04:33 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `laboratorium` (`nama_lab`, `kode_lab`, `kode_igracias`, `kode_ruang`, `id_lab_lokasi`, `id_lab_kategori`, `id_prodi`) VALUES (\'Applied Information Systems Research\', \'-\', \'-\', \'IT1.02.20\', \'2\', \'2\', \'\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `laboratorium` (`nama_lab`, `kode_lab`, `kode_igracias`, `kode_ruang`, `id_lab_lokasi`, `id_lab_kategori`, `id_prodi`) VALUES (\'Applied Information Systems Research\', \'-\', \'-\', \'IT1.02.20\', \'2\', \'2\', \'\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `laboratorium` (`nama_lab`, `kode_lab`, `kode_igracias`, `kode_ruang`, `id_lab_lokasi`, `id_lab_kategori`, `id_prodi`) VALUES (:nama_lab:, :kode_lab:, :kode_igracias:, :kode_ruang:, :id_lab_lokasi:, :id_lab_kategori:, :id_prodi:)', [...], false)
+ 4 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH/Controllers/Laboratorium.php(84): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->simpanLab()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 16:04:33 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('INSERT INTO `laboratorium` (`nama_lab`, `kode_lab`, `kode_igracias`, `kode_ruang`, `id_lab_lokasi`, `id_lab_kategori`, `id_prodi`) VALUES (\'Applied Information Systems Research\', \'-\', \'-\', \'IT1.02.20\', \'2\', \'2\', \'\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `laboratorium` (`nama_lab`, `kode_lab`, `kode_igracias`, `kode_ruang`, `id_lab_lokasi`, `id_lab_kategori`, `id_prodi`) VALUES (\'Applied Information Systems Research\', \'-\', \'-\', \'IT1.02.20\', \'2\', \'2\', \'\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `laboratorium` (`nama_lab`, `kode_lab`, `kode_igracias`, `kode_ruang`, `id_lab_lokasi`, `id_lab_kategori`, `id_prodi`) VALUES (\'Applied Information Systems Research\', \'-\', \'-\', \'IT1.02.20\', \'2\', \'2\', \'\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2325): CodeIgniter\Database\BaseConnection->query('INSERT INTO `laboratorium` (`nama_lab`, `kode_lab`, `kode_igracias`, `kode_ruang`, `id_lab_lokasi`, `id_lab_kategori`, `id_prodi`) VALUES (:nama_lab:, :kode_lab:, :kode_igracias:, :kode_ruang:, :id_lab_lokasi:, :id_lab_kategori:, :id_prodi:)', [...], false)
+ 5 SYSTEMPATH/Model.php(383): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH/BaseModel.php(840): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH/Model.php(791): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH/Controllers/Laboratorium.php(84): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->simpanLab()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-17 09:05:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:06:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:06:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:06:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-17 09:07:29 --> ParseError: syntax error, unexpected token "=>", expecting ")"
+[Method: POST, Route: Laboratorium/simpanLab]
+in APPPATH/Controllers/Laboratorium.php on line 86.
+ 1 SYSTEMPATH/Router/Router.php(562): CodeIgniter\Router\AutoRouter->getRoute('Laboratorium/simpanLab', 'POST')
+ 2 SYSTEMPATH/Router/Router.php(227): CodeIgniter\Router\Router->autoRoute('Laboratorium/simpanLab')
+ 3 SYSTEMPATH/CodeIgniter.php(834): CodeIgniter\Router\Router->handle('Laboratorium/simpanLab')
+ 4 SYSTEMPATH/CodeIgniter.php(457): CodeIgniter\CodeIgniter->tryToRouteIt(Object(CodeIgniter\Router\RouteCollection))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-17 09:08:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:08:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:09:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:09:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:09:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-06-17 16:09:15 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`)) in /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(308): mysqli->query('UPDATE `laborat...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `laborat...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `laborat...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2497): CodeIgniter\Database\BaseConnection->query('UPDATE `laborat...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Model.php(450): CodeIgniter\Database\BaseBuilder->update()
+#5 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/BaseModel.php(1028): CodeIgniter\Model->doUpdate(Array, Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Model.php(854): CodeIgniter\BaseModel->update(Array, Array)
+#7 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Models/M_Laboratorium.php(41): CodeIgniter\Model->update('23', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Laboratorium.php(119): App\Models\M_Laboratorium->updateDataLab('23', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+#10 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+#11 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#13 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(49): require_once('/Applications/X...')
+#16 {main}
+CRITICAL - 2024-06-17 16:09:15 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`))
+[Method: POST, Route: Laboratorium/updateLab]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2497): CodeIgniter\Database\BaseConnection->query('UPDATE `laboratorium` SET `nama_lab` = :nama_lab:, `kode_lab` = :kode_lab:, `kode_igracias` = :kode_igracias:, `kode_ruang` = :kode_ruang:, `id_lab_lokasi` = :id_lab_lokasi:, `id_lab_kategori` = :id_lab_kategori:, `id_prodi` = :id_prodi:
+WHERE `laboratorium`.`id_lab` IN :laboratorium.id_lab:', [...], false)
+ 2 SYSTEMPATH/Model.php(450): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH/BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH/Model.php(854): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH/Models/M_Laboratorium.php(41): CodeIgniter\Model->update('23', [...])
+ 6 APPPATH/Controllers/Laboratorium.php(119): App\Models\M_Laboratorium->updateDataLab('23', [...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 16:09:15 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `laboratorium` SET `nama_lab` = \'Applied Information Systems Research\', `kode_lab` = \'-\', `kode_igracias` = \'-\', `kode_ruang` = \'IT1.02.20\', `id_lab_lokasi` = \'2\', `id_lab_kategori` = \'2\', `id_prodi` = \'\'
+WHERE `laboratorium`.`id_lab` IN (\'23\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `laboratorium` SET `nama_lab` = \'Applied Information Systems Research\', `kode_lab` = \'-\', `kode_igracias` = \'-\', `kode_ruang` = \'IT1.02.20\', `id_lab_lokasi` = \'2\', `id_lab_kategori` = \'2\', `id_prodi` = \'\'
+WHERE `laboratorium`.`id_lab` IN (\'23\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2497): CodeIgniter\Database\BaseConnection->query('UPDATE `laboratorium` SET `nama_lab` = :nama_lab:, `kode_lab` = :kode_lab:, `kode_igracias` = :kode_igracias:, `kode_ruang` = :kode_ruang:, `id_lab_lokasi` = :id_lab_lokasi:, `id_lab_kategori` = :id_lab_kategori:, `id_prodi` = :id_prodi:
+WHERE `laboratorium`.`id_lab` IN :laboratorium.id_lab:', [...], false)
+ 4 SYSTEMPATH/Model.php(450): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH/BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH/Model.php(854): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH/Models/M_Laboratorium.php(41): CodeIgniter\Model->update('23', [...])
+ 8 APPPATH/Controllers/Laboratorium.php(119): App\Models\M_Laboratorium->updateDataLab('23', [...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 16:09:15 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('UPDATE `laboratorium` SET `nama_lab` = \'Applied Information Systems Research\', `kode_lab` = \'-\', `kode_igracias` = \'-\', `kode_ruang` = \'IT1.02.20\', `id_lab_lokasi` = \'2\', `id_lab_kategori` = \'2\', `id_prodi` = \'\'
+WHERE `laboratorium`.`id_lab` IN (\'23\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `laboratorium` SET `nama_lab` = \'Applied Information Systems Research\', `kode_lab` = \'-\', `kode_igracias` = \'-\', `kode_ruang` = \'IT1.02.20\', `id_lab_lokasi` = \'2\', `id_lab_kategori` = \'2\', `id_prodi` = \'\'
+WHERE `laboratorium`.`id_lab` IN (\'23\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `laboratorium` SET `nama_lab` = \'Applied Information Systems Research\', `kode_lab` = \'-\', `kode_igracias` = \'-\', `kode_ruang` = \'IT1.02.20\', `id_lab_lokasi` = \'2\', `id_lab_kategori` = \'2\', `id_prodi` = \'\'
+WHERE `laboratorium`.`id_lab` IN (\'23\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2497): CodeIgniter\Database\BaseConnection->query('UPDATE `laboratorium` SET `nama_lab` = :nama_lab:, `kode_lab` = :kode_lab:, `kode_igracias` = :kode_igracias:, `kode_ruang` = :kode_ruang:, `id_lab_lokasi` = :id_lab_lokasi:, `id_lab_kategori` = :id_lab_kategori:, `id_prodi` = :id_prodi:
+WHERE `laboratorium`.`id_lab` IN :laboratorium.id_lab:', [...], false)
+ 5 SYSTEMPATH/Model.php(450): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH/BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH/Model.php(854): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH/Models/M_Laboratorium.php(41): CodeIgniter\Model->update('23', [...])
+ 9 APPPATH/Controllers/Laboratorium.php(119): App\Models\M_Laboratorium->updateDataLab('23', [...])
+10 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+11 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+12 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-17 09:10:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:10:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-06-17 16:10:06 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`)) in /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(308): mysqli->query('UPDATE `laborat...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `laborat...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `laborat...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(2497): CodeIgniter\Database\BaseConnection->query('UPDATE `laborat...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Model.php(450): CodeIgniter\Database\BaseBuilder->update()
+#5 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/BaseModel.php(1028): CodeIgniter\Model->doUpdate(Array, Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Model.php(854): CodeIgniter\BaseModel->update(Array, Array)
+#7 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Models/M_Laboratorium.php(41): CodeIgniter\Model->update('23', Array)
+#8 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Laboratorium.php(124): App\Models\M_Laboratorium->updateDataLab('23', Array)
+#9 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+#10 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+#11 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#12 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#13 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#14 /Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#15 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(49): require_once('/Applications/X...')
+#16 {main}
+CRITICAL - 2024-06-17 16:10:06 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`))
+[Method: POST, Route: Laboratorium/updateLab]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2497): CodeIgniter\Database\BaseConnection->query('UPDATE `laboratorium` SET `nama_lab` = :nama_lab:, `kode_lab` = :kode_lab:, `kode_igracias` = :kode_igracias:, `kode_ruang` = :kode_ruang:, `id_lab_lokasi` = :id_lab_lokasi:, `id_lab_kategori` = :id_lab_kategori:, `id_prodi` = :id_prodi:
+WHERE `laboratorium`.`id_lab` IN :laboratorium.id_lab:', [...], false)
+ 2 SYSTEMPATH/Model.php(450): CodeIgniter\Database\BaseBuilder->update()
+ 3 SYSTEMPATH/BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 4 SYSTEMPATH/Model.php(854): CodeIgniter\BaseModel->update([...], [...])
+ 5 APPPATH/Models/M_Laboratorium.php(41): CodeIgniter\Model->update('23', [...])
+ 6 APPPATH/Controllers/Laboratorium.php(124): App\Models\M_Laboratorium->updateDataLab('23', [...])
+ 7 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+ 8 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+ 9 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 16:10:06 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `laboratorium` SET `nama_lab` = \'Applied Information Systems Research\', `kode_lab` = \'-\', `kode_igracias` = \'-\', `kode_ruang` = \'IT1.02.20\', `id_lab_lokasi` = \'2\', `id_lab_kategori` = \'2\', `id_prodi` = \'IS NULL\'
+WHERE `laboratorium`.`id_lab` IN (\'23\')')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `laboratorium` SET `nama_lab` = \'Applied Information Systems Research\', `kode_lab` = \'-\', `kode_igracias` = \'-\', `kode_ruang` = \'IT1.02.20\', `id_lab_lokasi` = \'2\', `id_lab_kategori` = \'2\', `id_prodi` = \'IS NULL\'
+WHERE `laboratorium`.`id_lab` IN (\'23\')')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(2497): CodeIgniter\Database\BaseConnection->query('UPDATE `laboratorium` SET `nama_lab` = :nama_lab:, `kode_lab` = :kode_lab:, `kode_igracias` = :kode_igracias:, `kode_ruang` = :kode_ruang:, `id_lab_lokasi` = :id_lab_lokasi:, `id_lab_kategori` = :id_lab_kategori:, `id_prodi` = :id_prodi:
+WHERE `laboratorium`.`id_lab` IN :laboratorium.id_lab:', [...], false)
+ 4 SYSTEMPATH/Model.php(450): CodeIgniter\Database\BaseBuilder->update()
+ 5 SYSTEMPATH/BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 6 SYSTEMPATH/Model.php(854): CodeIgniter\BaseModel->update([...], [...])
+ 7 APPPATH/Models/M_Laboratorium.php(41): CodeIgniter\Model->update('23', [...])
+ 8 APPPATH/Controllers/Laboratorium.php(124): App\Models\M_Laboratorium->updateDataLab('23', [...])
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 16:10:06 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('UPDATE `laboratorium` SET `nama_lab` = \'Applied Information Systems Research\', `kode_lab` = \'-\', `kode_igracias` = \'-\', `kode_ruang` = \'IT1.02.20\', `id_lab_lokasi` = \'2\', `id_lab_kategori` = \'2\', `id_prodi` = \'IS NULL\'
+WHERE `laboratorium`.`id_lab` IN (\'23\')', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `laboratorium` SET `nama_lab` = \'Applied Information Systems Research\', `kode_lab` = \'-\', `kode_igracias` = \'-\', `kode_ruang` = \'IT1.02.20\', `id_lab_lokasi` = \'2\', `id_lab_kategori` = \'2\', `id_prodi` = \'IS NULL\'
+WHERE `laboratorium`.`id_lab` IN (\'23\')')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `laboratorium` SET `nama_lab` = \'Applied Information Systems Research\', `kode_lab` = \'-\', `kode_igracias` = \'-\', `kode_ruang` = \'IT1.02.20\', `id_lab_lokasi` = \'2\', `id_lab_kategori` = \'2\', `id_prodi` = \'IS NULL\'
+WHERE `laboratorium`.`id_lab` IN (\'23\')')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2497): CodeIgniter\Database\BaseConnection->query('UPDATE `laboratorium` SET `nama_lab` = :nama_lab:, `kode_lab` = :kode_lab:, `kode_igracias` = :kode_igracias:, `kode_ruang` = :kode_ruang:, `id_lab_lokasi` = :id_lab_lokasi:, `id_lab_kategori` = :id_lab_kategori:, `id_prodi` = :id_prodi:
+WHERE `laboratorium`.`id_lab` IN :laboratorium.id_lab:', [...], false)
+ 5 SYSTEMPATH/Model.php(450): CodeIgniter\Database\BaseBuilder->update()
+ 6 SYSTEMPATH/BaseModel.php(1028): CodeIgniter\Model->doUpdate([...], [...])
+ 7 SYSTEMPATH/Model.php(854): CodeIgniter\BaseModel->update([...], [...])
+ 8 APPPATH/Models/M_Laboratorium.php(41): CodeIgniter\Model->update('23', [...])
+ 9 APPPATH/Controllers/Laboratorium.php(124): App\Models\M_Laboratorium->updateDataLab('23', [...])
+10 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+11 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+12 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+13 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+14 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+15 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+16 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-17 09:10:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:11:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:11:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:17:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-17 09:17:04 --> ParseError: syntax error, unexpected token "}"
+[Method: GET, Route: Laboratorium]
+in APPPATH/Models/M_Laboratorium.php on line 43.
+ 1 VENDORPATH/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/composer/../../app/Models/M_Laboratorium.php')
+ 2 APPPATH/Controllers/Laboratorium.php(29): Composer\Autoload\ClassLoader->loadClass('App\\Models\\M_Laboratorium')
+ 3 SYSTEMPATH/CodeIgniter.php(903): App\Controllers\Laboratorium->__construct()
+ 4 SYSTEMPATH/CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-17 09:17:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:22:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:22:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-06-17 16:22:38 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''-'}, kode_ruang = 'IT1.02.20', id_lab_kategori = '2', id_lab_lokasi = '2', i...' at line 1 in /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(308): mysqli->query('UPDATE laborato...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE laborato...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE laborato...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Models/M_Laboratorium.php(44): CodeIgniter\Database\BaseConnection->query('UPDATE laborato...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Laboratorium.php(123): App\Models\M_Laboratorium->updateDataLab('23', 'Applied Informa...', '-', 'IT1.02.20', '2', '2', '')
+#5 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+#6 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+#7 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 /Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(49): require_once('/Applications/X...')
+#12 {main}
+CRITICAL - 2024-06-17 16:22:38 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''-'}, kode_ruang = 'IT1.02.20', id_lab_kategori = '2', id_lab_lokasi = '2', i...' at line 1
+[Method: POST, Route: Laboratorium/updateLab]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 APPPATH/Models/M_Laboratorium.php(44): CodeIgniter\Database\BaseConnection->query('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = {\'-\'}, kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = {\'\'} WHERE id_lab = 23')
+ 2 APPPATH/Controllers/Laboratorium.php(123): App\Models\M_Laboratorium->updateDataLab('23', 'Applied Information Systems Research', '-', 'IT1.02.20', '2', '2', '')
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 16:22:38 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''-'}, kode_ruang = 'IT1.02.20', id_lab_kategori = '2', id_lab_lokasi = '2', i...' at line 1
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = {\'-\'}, kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = {\'\'} WHERE id_lab = 23')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = {\'-\'}, kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = {\'\'} WHERE id_lab = 23')
+ 3 APPPATH/Models/M_Laboratorium.php(44): CodeIgniter\Database\BaseConnection->query('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = {\'-\'}, kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = {\'\'} WHERE id_lab = 23')
+ 4 APPPATH/Controllers/Laboratorium.php(123): App\Models\M_Laboratorium->updateDataLab('23', 'Applied Information Systems Research', '-', 'IT1.02.20', '2', '2', '')
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 16:22:38 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''-'}, kode_ruang = 'IT1.02.20', id_lab_kategori = '2', id_lab_lokasi = '2', i...' at line 1
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = {\'-\'}, kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = {\'\'} WHERE id_lab = 23', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = {\'-\'}, kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = {\'\'} WHERE id_lab = 23')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = {\'-\'}, kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = {\'\'} WHERE id_lab = 23')
+ 4 APPPATH/Models/M_Laboratorium.php(44): CodeIgniter\Database\BaseConnection->query('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = {\'-\'}, kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = {\'\'} WHERE id_lab = 23')
+ 5 APPPATH/Controllers/Laboratorium.php(123): App\Models\M_Laboratorium->updateDataLab('23', 'Applied Information Systems Research', '-', 'IT1.02.20', '2', '2', '')
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-17 09:23:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:23:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-06-17 16:23:54 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '''} WHERE id_lab = 23' at line 1 in /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(308): mysqli->query('UPDATE laborato...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE laborato...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE laborato...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Models/M_Laboratorium.php(44): CodeIgniter\Database\BaseConnection->query('UPDATE laborato...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Laboratorium.php(123): App\Models\M_Laboratorium->updateDataLab('23', 'Applied Informa...', '-', 'IT1.02.20', '2', '2', '')
+#5 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+#6 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+#7 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 /Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(49): require_once('/Applications/X...')
+#12 {main}
+CRITICAL - 2024-06-17 16:23:54 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '''} WHERE id_lab = 23' at line 1
+[Method: POST, Route: Laboratorium/updateLab]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 APPPATH/Models/M_Laboratorium.php(44): CodeIgniter\Database\BaseConnection->query('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = \'-\', kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = {\'\'} WHERE id_lab = 23')
+ 2 APPPATH/Controllers/Laboratorium.php(123): App\Models\M_Laboratorium->updateDataLab('23', 'Applied Information Systems Research', '-', 'IT1.02.20', '2', '2', '')
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 16:23:54 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '''} WHERE id_lab = 23' at line 1
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = \'-\', kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = {\'\'} WHERE id_lab = 23')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = \'-\', kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = {\'\'} WHERE id_lab = 23')
+ 3 APPPATH/Models/M_Laboratorium.php(44): CodeIgniter\Database\BaseConnection->query('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = \'-\', kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = {\'\'} WHERE id_lab = 23')
+ 4 APPPATH/Controllers/Laboratorium.php(123): App\Models\M_Laboratorium->updateDataLab('23', 'Applied Information Systems Research', '-', 'IT1.02.20', '2', '2', '')
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 16:23:54 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '''} WHERE id_lab = 23' at line 1
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = \'-\', kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = {\'\'} WHERE id_lab = 23', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = \'-\', kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = {\'\'} WHERE id_lab = 23')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = \'-\', kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = {\'\'} WHERE id_lab = 23')
+ 4 APPPATH/Models/M_Laboratorium.php(44): CodeIgniter\Database\BaseConnection->query('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = \'-\', kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = {\'\'} WHERE id_lab = 23')
+ 5 APPPATH/Controllers/Laboratorium.php(123): App\Models\M_Laboratorium->updateDataLab('23', 'Applied Information Systems Research', '-', 'IT1.02.20', '2', '2', '')
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-17 09:24:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:24:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-06-17 16:24:20 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`)) in /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(308): mysqli->query('UPDATE laborato...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE laborato...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE laborato...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Models/M_Laboratorium.php(44): CodeIgniter\Database\BaseConnection->query('UPDATE laborato...')
+#4 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Laboratorium.php(123): App\Models\M_Laboratorium->updateDataLab('23', 'Applied Informa...', '-', 'IT1.02.20', '2', '2', '')
+#5 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+#6 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+#7 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#9 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 /Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(49): require_once('/Applications/X...')
+#12 {main}
+CRITICAL - 2024-06-17 16:24:20 --> CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`))
+[Method: POST, Route: Laboratorium/updateLab]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 APPPATH/Models/M_Laboratorium.php(44): CodeIgniter\Database\BaseConnection->query('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = \'-\', kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = \'\' WHERE id_lab = 23')
+ 2 APPPATH/Controllers/Laboratorium.php(123): App\Models\M_Laboratorium->updateDataLab('23', 'Applied Information Systems Research', '-', 'IT1.02.20', '2', '2', '')
+ 3 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+ 4 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+ 5 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 16:24:20 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = \'-\', kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = \'\' WHERE id_lab = 23')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = \'-\', kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = \'\' WHERE id_lab = 23')
+ 3 APPPATH/Models/M_Laboratorium.php(44): CodeIgniter\Database\BaseConnection->query('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = \'-\', kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = \'\' WHERE id_lab = 23')
+ 4 APPPATH/Controllers/Laboratorium.php(123): App\Models\M_Laboratorium->updateDataLab('23', 'Applied Information Systems Research', '-', 'IT1.02.20', '2', '2', '')
+ 5 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+ 6 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+ 7 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-17 16:24:20 --> [Caused by] mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`simci4`.`laboratorium`, CONSTRAINT `laboratorium_ibfk_2` FOREIGN KEY (`id_prodi`) REFERENCES `prodi` (`id_prodi`))
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = \'-\', kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = \'\' WHERE id_lab = 23', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = \'-\', kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = \'\' WHERE id_lab = 23')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = \'-\', kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = \'\' WHERE id_lab = 23')
+ 4 APPPATH/Models/M_Laboratorium.php(44): CodeIgniter\Database\BaseConnection->query('UPDATE laboratorium SET nama_lab = \'Applied Information Systems Research\', kode_lab = \'-\', kode_igracias = \'-\', kode_ruang = \'IT1.02.20\', id_lab_kategori = \'2\', id_lab_lokasi = \'2\', id_prodi = \'\' WHERE id_lab = 23')
+ 5 APPPATH/Controllers/Laboratorium.php(123): App\Models\M_Laboratorium->updateDataLab('23', 'Applied Information Systems Research', '-', 'IT1.02.20', '2', '2', '')
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->updateLab()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-17 09:26:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:26:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:27:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:28:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:28:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:28:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:29:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:29:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:32:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:33:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:33:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:33:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:34:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:34:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:34:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:34:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:34:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:34:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:34:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:34:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:41:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:41:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:42:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:44:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:45:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:46:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:48:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:48:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:49:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:49:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:49:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:50:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:51:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:51:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:52:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:52:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:52:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:53:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:53:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:53:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:53:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:53:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:54:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:55:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:55:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:55:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:56:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:56:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:56:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 09:58:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:24:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:25:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:26:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:26:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:26:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:27:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:27:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:27:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:28:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:28:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:28:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:29:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:29:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:29:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:29:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:30:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:30:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:30:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:30:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:30:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:31:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:32:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:32:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:32:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:32:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:33:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:33:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:33:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:33:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:34:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:34:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:34:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:34:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:34:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:35:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:35:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:35:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:36:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:36:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:36:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:36:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:37:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:42:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:42:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:43:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:43:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-17 17:45:13 --> CodeIgniter\View\Exceptions\ViewException: Invalid file: "ticketing/v_index.php"
+[Method: GET, Route: TroubleTicket]
+in SYSTEMPATH/Exceptions/FrameworkException.php on line 41.
+ 1 SYSTEMPATH/View/View.php(222): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('ticketing/v_index.php')
+ 2 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('ticketing/v_index', [], true)
+ 3 APPPATH/Controllers/TroubleTicket.php(27): view('ticketing/v_index', [...])
+ 4 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\TroubleTicket->index()
+ 5 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TroubleTicket))
+ 6 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 9 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+10 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-17 17:45:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:45:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:47:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:47:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:47:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 10:47:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:19:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 21:19:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 21:19:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:19:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:22:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:22:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:22:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:22:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:23:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:24:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:25:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:25:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:25:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:25:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:25:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:25:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:26:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:27:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:27:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:27:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:29:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:29:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:29:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:30:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:31:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:31:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:31:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:32:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:33:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:33:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:34:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:34:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:35:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:38:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:41:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:41:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:41:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:42:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:43:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:45:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:45:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:46:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:46:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:47:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:47:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:47:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:47:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:48:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:48:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:48:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:48:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:49:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:49:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:49:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:50:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:50:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:51:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:51:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:52:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:56:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:56:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:56:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:57:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:57:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:57:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:57:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:58:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:58:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:58:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:58:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:59:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:59:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:59:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:59:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 14:59:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:00:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:00:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:01:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:01:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:02:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:02:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:02:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:03:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:03:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:03:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:03:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:03:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:06:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:07:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:09:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:10:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:11:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:12:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:12:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:12:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:13:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:14:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:14:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:14:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:15:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:17:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:18:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:18:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:18:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:18:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:20:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 15:21:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:20:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:20:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:20:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:20:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:20:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:20:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:21:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:21:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:21:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:22:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:25:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:25:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:26:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:27:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:27:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:28:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:29:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:31:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:33:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:33:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:33:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:33:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-17 18:33:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

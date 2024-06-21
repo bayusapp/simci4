@@ -1,0 +1,138 @@
+INFO - 2024-06-12 09:44:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-12 16:44:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-12 16:45:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-12 09:45:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-12 09:45:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-12 09:54:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-12 09:54:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-12 09:55:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-12 09:58:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2024-06-12 16:58:49 --> mysqli_sql_exception: Table 'laboratorium_lokasi.id_lab_lokasi' doesn't exist in /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php:308
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(308): mysqli->query('SELECT `laborat...', 0)
+#1 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `laborat...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `laborat...')
+#3 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `laborat...', Array, false)
+#4 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+#5 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Models/M_Laboratorium.php(27): CodeIgniter\BaseModel->findAll()
+#7 /Applications/XAMPP/xamppfiles/htdocs/simci4/app/Controllers/Laboratorium.php(51): App\Models\M_Laboratorium->getDataLabPraktikumProdi()
+#8 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(933): App\Controllers\Laboratorium->index()
+#9 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+#10 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(312): CodeIgniter\CodeIgniter->run()
+#12 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 /Applications/XAMPP/xamppfiles/htdocs/simci4/vendor/codeigniter4/framework/system/Commands/Server/rewrite.php(49): require_once('/Applications/X...')
+#15 {main}
+CRITICAL - 2024-06-12 16:58:49 --> CodeIgniter\Database\Exceptions\DatabaseException: Table 'laboratorium_lokasi.id_lab_lokasi' doesn't exist
+[Method: GET, Route: Laboratorium]
+in SYSTEMPATH/Database/BaseConnection.php on line 676.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `laboratorium`.`id_lab`, `laboratorium`.`nama_lab`, `laboratorium`.`kode_lab`, `laboratorium`.`kode_ruang`, `laboratorium_lokasi`.`lokasi`, `prodi`.`nama_prodi`, `prodi`.`jenjang_prodi`
+FROM `laboratorium`
+JOIN `laboratorium_lokasi`.`id_lab_lokasi` ON `laboratorium`.`id_lab_lokasi` = `laboratorium_lokasi`.`id_lab_lokasi`
+JOIN `prodi` ON `laboratorium`.`id_prodi` = `prodi`.`id_prodi`
+WHERE `laboratorium`.`id_lab_kategori` = :laboratorium.id_lab_kategori:
+ORDER BY `laboratorium`.`id_prodi` ASC, `laboratorium`.`kode_lab`', [...], false)
+ 2 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 3 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 4 APPPATH/Models/M_Laboratorium.php(27): CodeIgniter\BaseModel->findAll()
+ 5 APPPATH/Controllers/Laboratorium.php(51): App\Models\M_Laboratorium->getDataLabPraktikumProdi()
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-12 16:58:49 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Table 'laboratorium_lokasi.id_lab_lokasi' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 313.
+ 1 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `laboratorium`.`id_lab`, `laboratorium`.`nama_lab`, `laboratorium`.`kode_lab`, `laboratorium`.`kode_ruang`, `laboratorium_lokasi`.`lokasi`, `prodi`.`nama_prodi`, `prodi`.`jenjang_prodi`
+FROM `laboratorium`
+JOIN `laboratorium_lokasi`.`id_lab_lokasi` ON `laboratorium`.`id_lab_lokasi` = `laboratorium_lokasi`.`id_lab_lokasi`
+JOIN `prodi` ON `laboratorium`.`id_prodi` = `prodi`.`id_prodi`
+WHERE `laboratorium`.`id_lab_kategori` = \'1\'
+ORDER BY `laboratorium`.`id_prodi` ASC, `laboratorium`.`kode_lab`')
+ 2 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `laboratorium`.`id_lab`, `laboratorium`.`nama_lab`, `laboratorium`.`kode_lab`, `laboratorium`.`kode_ruang`, `laboratorium_lokasi`.`lokasi`, `prodi`.`nama_prodi`, `prodi`.`jenjang_prodi`
+FROM `laboratorium`
+JOIN `laboratorium_lokasi`.`id_lab_lokasi` ON `laboratorium`.`id_lab_lokasi` = `laboratorium_lokasi`.`id_lab_lokasi`
+JOIN `prodi` ON `laboratorium`.`id_prodi` = `prodi`.`id_prodi`
+WHERE `laboratorium`.`id_lab_kategori` = \'1\'
+ORDER BY `laboratorium`.`id_prodi` ASC, `laboratorium`.`kode_lab`')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `laboratorium`.`id_lab`, `laboratorium`.`nama_lab`, `laboratorium`.`kode_lab`, `laboratorium`.`kode_ruang`, `laboratorium_lokasi`.`lokasi`, `prodi`.`nama_prodi`, `prodi`.`jenjang_prodi`
+FROM `laboratorium`
+JOIN `laboratorium_lokasi`.`id_lab_lokasi` ON `laboratorium`.`id_lab_lokasi` = `laboratorium_lokasi`.`id_lab_lokasi`
+JOIN `prodi` ON `laboratorium`.`id_prodi` = `prodi`.`id_prodi`
+WHERE `laboratorium`.`id_lab_kategori` = :laboratorium.id_lab_kategori:
+ORDER BY `laboratorium`.`id_prodi` ASC, `laboratorium`.`kode_lab`', [...], false)
+ 4 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 5 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 6 APPPATH/Models/M_Laboratorium.php(27): CodeIgniter\BaseModel->findAll()
+ 7 APPPATH/Controllers/Laboratorium.php(51): App\Models\M_Laboratorium->getDataLabPraktikumProdi()
+ 8 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->index()
+ 9 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+10 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+CRITICAL - 2024-06-12 16:58:49 --> [Caused by] mysqli_sql_exception: Table 'laboratorium_lokasi.id_lab_lokasi' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 308.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(308): mysqli->query('SELECT `laboratorium`.`id_lab`, `laboratorium`.`nama_lab`, `laboratorium`.`kode_lab`, `laboratorium`.`kode_ruang`, `laboratorium_lokasi`.`lokasi`, `prodi`.`nama_prodi`, `prodi`.`jenjang_prodi`
+FROM `laboratorium`
+JOIN `laboratorium_lokasi`.`id_lab_lokasi` ON `laboratorium`.`id_lab_lokasi` = `laboratorium_lokasi`.`id_lab_lokasi`
+JOIN `prodi` ON `laboratorium`.`id_prodi` = `prodi`.`id_prodi`
+WHERE `laboratorium`.`id_lab_kategori` = \'1\'
+ORDER BY `laboratorium`.`id_prodi` ASC, `laboratorium`.`kode_lab`', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(722): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `laboratorium`.`id_lab`, `laboratorium`.`nama_lab`, `laboratorium`.`kode_lab`, `laboratorium`.`kode_ruang`, `laboratorium_lokasi`.`lokasi`, `prodi`.`nama_prodi`, `prodi`.`jenjang_prodi`
+FROM `laboratorium`
+JOIN `laboratorium_lokasi`.`id_lab_lokasi` ON `laboratorium`.`id_lab_lokasi` = `laboratorium_lokasi`.`id_lab_lokasi`
+JOIN `prodi` ON `laboratorium`.`id_prodi` = `prodi`.`id_prodi`
+WHERE `laboratorium`.`id_lab_kategori` = \'1\'
+ORDER BY `laboratorium`.`id_prodi` ASC, `laboratorium`.`kode_lab`')
+ 3 SYSTEMPATH/Database/BaseConnection.php(636): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `laboratorium`.`id_lab`, `laboratorium`.`nama_lab`, `laboratorium`.`kode_lab`, `laboratorium`.`kode_ruang`, `laboratorium_lokasi`.`lokasi`, `prodi`.`nama_prodi`, `prodi`.`jenjang_prodi`
+FROM `laboratorium`
+JOIN `laboratorium_lokasi`.`id_lab_lokasi` ON `laboratorium`.`id_lab_lokasi` = `laboratorium_lokasi`.`id_lab_lokasi`
+JOIN `prodi` ON `laboratorium`.`id_prodi` = `prodi`.`id_prodi`
+WHERE `laboratorium`.`id_lab_kategori` = \'1\'
+ORDER BY `laboratorium`.`id_prodi` ASC, `laboratorium`.`kode_lab`')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1629): CodeIgniter\Database\BaseConnection->query('SELECT `laboratorium`.`id_lab`, `laboratorium`.`nama_lab`, `laboratorium`.`kode_lab`, `laboratorium`.`kode_ruang`, `laboratorium_lokasi`.`lokasi`, `prodi`.`nama_prodi`, `prodi`.`jenjang_prodi`
+FROM `laboratorium`
+JOIN `laboratorium_lokasi`.`id_lab_lokasi` ON `laboratorium`.`id_lab_lokasi` = `laboratorium_lokasi`.`id_lab_lokasi`
+JOIN `prodi` ON `laboratorium`.`id_prodi` = `prodi`.`id_prodi`
+WHERE `laboratorium`.`id_lab_kategori` = :laboratorium.id_lab_kategori:
+ORDER BY `laboratorium`.`id_prodi` ASC, `laboratorium`.`kode_lab`', [...], false)
+ 5 SYSTEMPATH/Model.php(275): CodeIgniter\Database\BaseBuilder->get()
+ 6 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 7 APPPATH/Models/M_Laboratorium.php(27): CodeIgniter\BaseModel->findAll()
+ 8 APPPATH/Controllers/Laboratorium.php(51): App\Models\M_Laboratorium->getDataLabPraktikumProdi()
+ 9 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->index()
+10 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+11 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-12 09:59:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2024-06-12 16:59:29 --> ErrorException: Undefined array key "id_lab_lokasi"
+[Method: GET, Route: Laboratorium]
+in APPPATH/Views/laboran/laboratorium/v_index.php on line 136.
+ 1 APPPATH/Views/laboran/laboratorium/v_index.php(136): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_lab_lokasi"', '/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/laboran/laboratorium/v_index.php', 136)
+ 2 SYSTEMPATH/View/View.php(234): include('/Applications/XAMPP/xamppfiles/htdocs/simci4/app/Views/laboran/laboratorium/v_index.php')
+ 3 SYSTEMPATH/View/View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH/Common.php(1171): CodeIgniter\View\View->render('laboran/laboratorium/v_index', [], true)
+ 5 APPPATH/Controllers/Laboratorium.php(54): view('laboran/laboratorium/v_index', [...])
+ 6 SYSTEMPATH/CodeIgniter.php(933): App\Controllers\Laboratorium->index()
+ 7 SYSTEMPATH/CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Laboratorium))
+ 8 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(312): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/Commands/Server/rewrite.php(49): require_once('/Applications/XAMPP/xamppfiles/htdocs/simci4/public/index.php')
+INFO - 2024-06-12 10:00:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-12 10:05:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-12 10:05:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-12 10:07:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-12 10:15:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-12 10:15:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2024-06-12 10:15:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
