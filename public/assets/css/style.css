@@ -30632,7 +30632,7 @@ text.highcharts-drilldown-data-label {
 
 /* image varient start */
 .aut-bg-img {
-    background-image: url("https://lms.bayusapp.com/pluginfile.php/1/theme_lambda/slide4image/1686403311/DSC00300.JPG");
+    background-image: url("/assets/images/bg_auth.jpg");
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
