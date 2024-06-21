@@ -140,9 +140,15 @@ class DataMaster extends BaseController
         'kode_dosen'  => $kode_dosen,
         'nama_dosen'  => $nama_dosen
       ];
-      $this->dosen->insert($input);
-      session()->setFlashdata('sukses', 'Data Dosen Sukses Ditambahkan');
-      return redirect()->back();
+      $cek_data_dosen = $this->dosen->getDataDosenByKodeDosen($kode_dosen);
+      if ($cek_data_dosen) {
+        session()->setFlashdata('error', 'Kode Dosen/Data Dosen Sudah Ada');
+        return redirect()->back()->withInput();
+      } else {
+        $this->dosen->insert($input);
+        session()->setFlashdata('sukses', 'Data Dosen Sukses Ditambahkan');
+        return redirect()->back();
+      }
     }
   }
 
@@ -180,9 +186,15 @@ class DataMaster extends BaseController
         'kode_dosen'  => $kode_dosen,
         'nama_dosen'  => $nama_dosen
       ];
-      $this->dosen->updateDataDosen($kode_dosen_old, $kode_dosen, $nama_dosen);
-      session()->setFlashdata('sukses', 'Data Dosen Sukses Diperbarui');
-      return redirect()->back();
+      $cek_data_dosen = $this->dosen->getDataDosenByKodeDosen($kode_dosen);
+      if ($cek_data_dosen) {
+        session()->setFlashdata('error', 'Kode Dosen/Data Dosen Sudah Ada');
+        return redirect()->back()->withInput();
+      } else {
+        $this->dosen->updateDataDosen($kode_dosen_old, $kode_dosen, $nama_dosen);
+        session()->setFlashdata('sukses', 'Data Dosen Sukses Diperbarui');
+        return redirect()->back();
+      }
     }
   }
 
@@ -236,5 +248,10 @@ class DataMaster extends BaseController
       }
     }
     return redirect();
+  }
+
+  public function csvMK()
+  {
+    //
   }
 }
