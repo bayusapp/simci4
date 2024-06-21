@@ -16,6 +16,12 @@ class M_Prodi extends Model
     return $this->findAll();
   }
 
+  public function getDataProdiByKodeProdi($kode_prodi)
+  {
+    $this->where('kode_prodi', $kode_prodi);
+    return $this->first();
+  }
+
   public function updateProdi($id_prodi, $nama_prodi, $jenjang_prodi, $kode_prodi)
   {
     $db = db_connect();
