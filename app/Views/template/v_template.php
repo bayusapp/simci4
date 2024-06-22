@@ -211,11 +211,6 @@ if ($segment_2 == null) {
         placeholder: "Pilih Lokasi Laboratorium"
       });
 
-      $(".id_prodi").select2({
-        placeholder: "Pilih Program Studi",
-        allowClear: true
-      });
-
     });
   </script>
   <script>
@@ -231,22 +226,6 @@ if ($segment_2 == null) {
         .then((willDelete) => {
           if (willDelete) {
             window.location.href = '<?= base_url('Laboratorium/deleteLab/') ?>' + id;
-          }
-        });
-    }
-
-    function hapus_mk(id) {
-      swal({
-          title: "Apakah Anda yakin?",
-          text: "Data Mata Kuliah akan dihapus",
-          icon: "warning",
-          buttons: true,
-          dangerMode: true,
-          buttons: ["Tidak", "Ya"],
-        })
-        .then((willDelete) => {
-          if (willDelete) {
-            window.location.href = '<?= base_url('Praktikum/deleteMK/') ?>' + id;
           }
         });
     }
