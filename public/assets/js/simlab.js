@@ -78,6 +78,15 @@ $(document).ready(function() {
       ]
     });
 
+    $('#matkul').DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        {"width": "5%", "targets": [0]},
+        {"width": "10%", "targets": [1]},
+        {"width": "12%", "targets": [4]}
+      ]
+    });
+
     $('#lab-Praktikum').DataTable({
       bAutoWidth: false,
       columnDefs: [
