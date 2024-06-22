@@ -47,7 +47,7 @@ class File extends SplFileInfo
      */
     public function __construct(string $path, bool $checkFile = false)
     {
-        if ($checkFile && ! is_file($path)) {
+        if ($checkFile && !is_file($path)) {
             throw FileNotFoundException::forFileNotFound($path);
         }
 
@@ -106,7 +106,7 @@ class File extends SplFileInfo
      */
     public function getMimeType(): string
     {
-        if (! function_exists('finfo_open')) {
+        if (!function_exists('finfo_open')) {
             return $this->originalMimeType ?? 'application/octet-stream'; // @codeCoverageIgnore
         }
 
@@ -129,6 +129,11 @@ class File extends SplFileInfo
         return Time::now()->getTimestamp() . '_' . bin2hex(random_bytes(10)) . $extension;
     }
 
+    public function getGenerateName($file_name): string
+    {
+        return rand(10, 99) . '-' . str_replace(' ', '_', $file_name);
+    }
+
     /**
      * Moves a file to a new location.
      *
@@ -142,7 +147,7 @@ class File extends SplFileInfo
 
         $oldName = $this->getRealPath() ?: $this->__toString();
 
-        if (! @rename($oldName, $destination)) {
+        if (!@rename($oldName, $destination)) {
             $error = error_get_last();
 
             throw FileException::forUnableToMove($this->getBasename(), $targetPath, strip_tags($error['message']));
