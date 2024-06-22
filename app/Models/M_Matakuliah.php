@@ -30,9 +30,11 @@ class M_Matakuliah extends Model
     return $this->findAll();
   }
 
-  public function updateDataMK($kode_mk, $data)
+  public function updateDataMK($kode_old, $kode_mk, $nama_mk, $id_prodi)
   {
-    return $this->update($kode_mk, $data);
+    $db = db_connect();
+    $query = "UPDATE matakuliah SET kode_mk = '{$kode_mk}', nama_mk = '{$nama_mk}', id_prodi = '{$id_prodi}' WHERE SUBSTR(SHA1(kode_mk), 8, 7) = '{$kode_old}'";
+    return $db->query($query);
   }
 
   public function deleteDataMK($kode_mk)
