@@ -185,14 +185,16 @@ class DataMaster extends BaseController
         }
       }
       $nama_dosen = $nama_dosen . '' . $gelar;
-      $input      = [
-        'kode_dosen'  => $kode_dosen,
-        'nama_dosen'  => $nama_dosen
-      ];
       $cek_data_dosen = $this->dosen->getDataDosenByKodeDosen($kode_dosen);
       if ($cek_data_dosen) {
-        session()->setFlashdata('error', 'Kode Dosen/Data Dosen Sudah Ada');
-        return redirect()->back()->withInput();
+        if ($cek_data_dosen['kode_dosen'] == $kode_dosen) {
+          $this->dosen->updateDataDosen($kode_dosen_old, $kode_dosen, $nama_dosen);
+          session()->setFlashdata('sukses', 'Data Dosen Sukses Diperbarui');
+          return redirect()->back();
+        } else {
+          session()->setFlashdata('error', 'Kode Dosen/Data Dosen Sudah Ada');
+          return redirect()->back()->withInput();
+        }
       } else {
         $this->dosen->updateDataDosen($kode_dosen_old, $kode_dosen, $nama_dosen);
         session()->setFlashdata('sukses', 'Data Dosen Sukses Diperbarui');
