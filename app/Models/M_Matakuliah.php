@@ -11,6 +11,13 @@ class M_Matakuliah extends Model
   protected $primaryKey = 'kode_mk';
   protected $allowedFields = ['kode_mk', 'nama_mk', 'id_prodi'];
 
+  public function getDataMKAll()
+  {
+    $this->join('prodi', 'matakuliah.id_prodi = prodi.id_prodi');
+    $this->orderBy('prodi.id_prodi', 'ASC');
+    return $this->findAll();
+  }
+
   public function getDataMK($kode_mk)
   {
     $this->where('kode_mk', $kode_mk);
