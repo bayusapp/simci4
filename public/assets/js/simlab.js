@@ -58,6 +58,36 @@ function hapus_dosen(id) {
   })
 }
 
+function hapus_mk(id) {
+  swal({
+    title: "Apakah Anda yakin?",
+    text: "Data Mata Kuliah akan dihapus",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+    buttons: ["Tidak", "Ya"],
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      $.ajax({
+        url: window.location.origin+'/DataMaster/deleteDosen',
+        method: 'POST',
+        data: {id, id},
+        success: function(response) {
+          swal({
+            text: "Data Dosen Sukses Dihapus",
+            icon: "success",
+            timer: 2000,
+            buttons: false
+          }).then(function() {
+            location.reload();
+          });
+        }
+      });
+    }
+  })
+}
+
 $(document).ready(function() {
   setTimeout(function() {
 
@@ -186,7 +216,8 @@ $(document).ready(function() {
     $('#riwayat_login').DataTable();
   }, 0);
 
-  $(".id_prodi").select2({
-    placeholder: "Pilih Program Studi"
+  $(".prodi").select2({
+    placeholder: "Pilih Program Studi",
+    allowClear: true
   });
 });
