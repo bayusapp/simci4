@@ -189,6 +189,8 @@ if ($segment_2 == null) {
   <!-- select2 Js -->
   <script src="<?= base_url() ?>assets/js/plugins/select2.full.min.js"></script>
   <script src="<?= base_url() ?>assets/js/simlab.js"></script>
+  <!-- Input mask Js -->
+  <script src="<?= base_url() ?>assets/js/plugins/jquery.mask.min.js"></script>
   <script>
     window.setTimeout(function() {
       $(".alert").fadeTo(500, 0).slideUp(500, function() {
