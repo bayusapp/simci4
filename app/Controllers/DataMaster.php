@@ -256,7 +256,39 @@ class DataMaster extends BaseController
   public function MataKuliah()
   {
     $data = $this->data;
+    $data['matkul'] = $this->matakuliah->getDataMKAll();
+    $data['prodi']  = $this->prodi->getDataProdi();
     return view('laboran/data_master/v_matakuliah', $data);
+  }
+
+  public function simpanMK()
+  {
+    if (!$this->validate([
+      'kode_mk'   => ['rules' => 'required'],
+      'nama_mk'   => ['rules' => 'required'],
+      'id_prodi'  => ['rules' => 'required']
+    ])) {
+      session()->setFlashdata('error', 'Harap lengkapi seluruh field');
+      return redirect()->back()->withInput();
+    } else {
+      $kode_mk  = $this->request->getPost('kode_mk');
+      $nama_mk  = $this->request->getPost('nama_mk');
+      $id_prodi = $this->request->getPost('id_prodi');
+      $input    = [
+        'kode_mk'   => $kode_mk,
+        'nama_mk'   => $nama_mk,
+        'id_prodi'  => $id_prodi
+      ];
+      $cek_data_mk = $this->matakuliah->getDataMK($kode_mk);
+      if ($cek_data_mk) {
+        session()->setFlashdata('error', 'Data Mata Kuliah sudah ada');
+        return redirect()->back()->withInput();
+      } else {
+        $this->matakuliah->insert($input);
+        session()->setFlashdata('sukses', 'Data Mata Kuliah Sukses Ditambahkan');
+        return redirect()->back();
+      }
+    }
   }
 
   public function csvMK()
