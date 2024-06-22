@@ -293,6 +293,38 @@ class DataMaster extends BaseController
     }
   }
 
+  public function updateMK()
+  {
+    if (!$this->validate([
+      'kode_mk'   => ['rules' => 'required'],
+      'nama_mk'   => ['rules' => 'required'],
+      'id_prodi'  => ['rules' => 'required']
+    ])) {
+      session()->setFlashdata('error', 'Harap lengkapi seluruh field');
+      return redirect()->back()->withInput();
+    } else {
+      $kode_mk_old  = $this->request->getPost('kode_mk_old');
+      $kode_mk      = $this->request->getPost('kode_mk');
+      $nama_mk      = $this->request->getPost('nama_mk');
+      $id_prodi     = $this->request->getPost('id_prodi');
+      $cek_data_mk  = $this->matakuliah->getDataMK($kode_mk);
+      if ($cek_data_mk) {
+        if ($cek_data_mk['kode_mk'] == $kode_mk) {
+          $this->matakuliah->updateDataMK($kode_mk_old, $kode_mk, $nama_mk, $id_prodi);
+          session()->setFlashdata('sukses', 'Data Mata Kuliah Sukses Diperbarui');
+          return redirect()->back();
+        } else {
+          session()->setFlashdata('error', 'Data Mata Kuliah sudah ada');
+          return redirect()->back()->withInput();
+        }
+      } else {
+        $this->matakuliah->updateDataMK($kode_mk_old, $kode_mk, $nama_mk, $id_prodi);
+        session()->setFlashdata('sukses', 'Data Mata Kuliah Sukses Diperbarui');
+        return redirect()->back();
+      }
+    }
+  }
+
   public function csvMK()
   {
     return view('laboran/data_master/v_csv_mk');
