@@ -164,10 +164,11 @@ class DataMaster extends BaseController
       session()->setFlashdata('error', 'Harap lengkapi seluruh field');
       return redirect()->back()->withInput();
     } else {
-      $kode_dosen_old = $this->request->getPost('kode_dosen_old');
-      $kode_dosen     = strtoupper($this->request->getPost('kode_dosen'));
-      $nama_dosen     = $this->request->getPost('nama_dosen');
-      $split_gelar    = explode(",", $nama_dosen);
+      $kode_dosen_old   = $this->request->getPost('kode_dosen_old');
+      $kode_dosen       = strtoupper($this->request->getPost('kode_dosen'));
+      $nama_dosen       = $this->request->getPost('nama_dosen');
+      $split_gelar      = explode(",", $nama_dosen);
+      $hash_kode_dosen  = substr(sha1($kode_dosen), 7, 7);
       $gelar = '';
       for ($i = 1; $i < count($split_gelar); $i++) {
         $gelar .= ', ' . $split_gelar[$i];
@@ -185,20 +186,20 @@ class DataMaster extends BaseController
         }
       }
       $nama_dosen = $nama_dosen . '' . $gelar;
-      $cek_data_dosen = $this->dosen->getDataDosenByKodeDosen($kode_dosen);
-      if ($cek_data_dosen) {
-        if ($cek_data_dosen['kode_dosen'] == $kode_dosen) {
-          $this->dosen->updateDataDosen($kode_dosen_old, $kode_dosen, $nama_dosen);
-          session()->setFlashdata('sukses', 'Data Dosen Sukses Diperbarui');
-          return redirect()->back();
-        } else {
-          session()->setFlashdata('error', 'Kode Dosen/Data Dosen Sudah Ada');
-          return redirect()->back()->withInput();
-        }
-      } else {
+      if ($kode_dosen_old == $hash_kode_dosen) {
         $this->dosen->updateDataDosen($kode_dosen_old, $kode_dosen, $nama_dosen);
         session()->setFlashdata('sukses', 'Data Dosen Sukses Diperbarui');
         return redirect()->back();
+      } else {
+        $cek_data_dosen = $this->dosen->getDataDosenByKodeDosen($kode_dosen);
+        if ($cek_data_dosen) {
+          session()->setFlashdata('error', 'Kode Dosen/Data Dosen Sudah Ada');
+          return redirect()->back()->withInput();
+        } else {
+          $this->dosen->updateDataDosen($kode_dosen_old, $kode_dosen, $nama_dosen);
+          session()->setFlashdata('sukses', 'Data Dosen Sukses Diperbarui');
+          return redirect()->back();
+        }
       }
     }
   }
