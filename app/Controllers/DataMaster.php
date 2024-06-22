@@ -307,20 +307,21 @@ class DataMaster extends BaseController
       $kode_mk      = $this->request->getPost('kode_mk');
       $nama_mk      = $this->request->getPost('nama_mk');
       $id_prodi     = $this->request->getPost('id_prodi');
-      $cek_data_mk  = $this->matakuliah->getDataMK($kode_mk);
-      if ($cek_data_mk) {
-        if ($cek_data_mk['kode_mk'] == $kode_mk) {
-          $this->matakuliah->updateDataMK($kode_mk_old, $kode_mk, $nama_mk, $id_prodi);
-          session()->setFlashdata('sukses', 'Data Mata Kuliah Sukses Diperbarui');
-          return redirect()->back();
-        } else {
-          session()->setFlashdata('error', 'Data Mata Kuliah sudah ada');
-          return redirect()->back()->withInput();
-        }
-      } else {
+      $hash_kode_mk = substr(sha1($kode_mk), 7, 7);
+      if ($kode_mk_old == $hash_kode_mk) {
         $this->matakuliah->updateDataMK($kode_mk_old, $kode_mk, $nama_mk, $id_prodi);
         session()->setFlashdata('sukses', 'Data Mata Kuliah Sukses Diperbarui');
         return redirect()->back();
+      } else {
+        $cek_data_mk  = $this->matakuliah->getDataMK($kode_mk);
+        if ($cek_data_mk) {
+          session()->setFlashdata('error', 'Kode Mata Kuliah sudah ada');
+          return redirect()->back()->withInput();
+        } else {
+          $this->matakuliah->updateDataMK($kode_mk_old, $kode_mk, $nama_mk, $id_prodi);
+          session()->setFlashdata('sukses', 'Data Mata Kuliah Sukses Diperbarui');
+          return redirect()->back();
+        }
       }
     }
   }
