@@ -8,10 +8,25 @@ class M_Laboran extends Model
 {
 
   protected $table = 'laboran';
+  protected $allowedFields = ['nip_laboran', 'nama_laboran', 'foto_laboran', 'kontak_laboran', 'email_laboran', 'posisi_laboran', 'level_laboran'];
 
   public function getListLaboran()
   {
     return $this->findAll();
+  }
+
+  public function getAllLaboran()
+  {
+    $this->where('level_laboran IS NOT NULL');
+    $this->orderBy('level_laboran', 'ASC');
+    $this->orderBy('nip_laboran', 'ASC');
+    return $this->findAll();
+  }
+
+  public function getDataLaboranByNIP($nip)
+  {
+    $this->where('nip_laboran', $nip);
+    return $this->first();
   }
 
   public function getDataLaboran($nip)
