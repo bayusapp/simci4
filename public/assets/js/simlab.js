@@ -213,8 +213,19 @@ $(document).ready(function() {
       ]
     });
 
+    $('#laboran').DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        {"width": "5%", "targets": [0]},
+        {"width": "10%", "targets": [3]},
+        {"width": "12%", "targets": [5]},
+      ]
+    });
+
     $('#riwayat_login').DataTable();
   }, 0);
+
+  $('.kontak').mask('(00) 0000-0000-0000');
 
   $(".prodi").select2({
     placeholder: "Pilih Program Studi",
