@@ -55,7 +55,7 @@ function hapus_dosen(id) {
         }
       });
     }
-  })
+  });
 }
 
 function hapus_mk(id) {
@@ -85,7 +85,37 @@ function hapus_mk(id) {
         }
       });
     }
+  });
+}
+
+function hapus_laboran(id) {
+  swal({
+    title: "Apakah Anda yakin?",
+    text: "Data Laboran akan dihapus",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+    buttons: ["Tidak", "Ya"],
   })
+  .then((willDelete) => {
+    if (willDelete) {
+      $.ajax({
+        url: window.location.origin+'/DataMaster/deleteLaboran',
+        method: 'POST',
+        data: {id, id},
+        success: function(response) {
+          swal({
+            text: "Data Laboran Sukses Dihapus",
+            icon: "success",
+            timer: 2000,
+            buttons: false
+          }).then(function() {
+            location.reload();
+          });
+        }
+      });
+    }
+  });
 }
 
 $(document).ready(function() {
