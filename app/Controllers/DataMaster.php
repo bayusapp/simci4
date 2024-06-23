@@ -100,8 +100,14 @@ class DataMaster extends BaseController
 
   public function deleteProdi()
   {
-    $id_prodi = $this->request->getPost('id');
-    $this->prodi->deleteProdi($id_prodi);
+    if (!$this->validate([
+      'id' => ['rules' => 'required']
+    ])) {
+      return redirect()->to('Beranda');
+    } else {
+      $id_prodi = $this->request->getPost('id');
+      $this->prodi->deleteProdi($id_prodi);
+    }
   }
 
   public function Dosen()
@@ -207,8 +213,14 @@ class DataMaster extends BaseController
 
   public function deleteDosen()
   {
-    $kode_dosen = $this->request->getPost('id');
-    $this->dosen->deleteDosen($kode_dosen);
+    if (!$this->validate([
+      'id' => ['rules' => 'required']
+    ])) {
+      return redirect()->to('Beranda');
+    } else {
+      $kode_dosen = $this->request->getPost('id');
+      $this->dosen->deleteDosen($kode_dosen);
+    }
   }
 
   public function csvDosen()
@@ -465,9 +477,15 @@ class DataMaster extends BaseController
 
   public function deleteLaboran()
   {
-    $nip_laboran  = $this->request->getPost('id');
-    $data         = $this->laboran->getDataLaboranByNIPHash($nip_laboran);
-    unlink($data['foto_laboran']);
-    $this->laboran->deleteLaboran($nip_laboran);
+    if (!$this->validate([
+      'id' => ['rules' => 'required']
+    ])) {
+      return redirect()->to('Beranda');
+    } else {
+      $nip_laboran  = $this->request->getPost('id');
+      $data         = $this->laboran->getDataLaboranByNIPHash($nip_laboran);
+      unlink($data['foto_laboran']);
+      $this->laboran->deleteLaboran($nip_laboran);
+    }
   }
 }
