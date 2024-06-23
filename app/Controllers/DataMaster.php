@@ -340,6 +340,18 @@ class DataMaster extends BaseController
     }
   }
 
+  public function deleteMK()
+  {
+    if (!$this->validate([
+      'id' => ['rules' => 'required']
+    ])) {
+      return redirect()->to('Beranda');
+    } else {
+      $kode_mk = $this->request->getPost('id');
+      $this->matakuliah->deleteDataMK($kode_mk);
+    }
+  }
+
   public function csvMK()
   {
     return view('laboran/data_master/v_csv_mk');
