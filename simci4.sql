@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Waktu pembuatan: 21 Jun 2024 pada 17.09
--- Versi server: 10.4.28-MariaDB
--- Versi PHP: 8.2.4
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 23 Jun 2024 pada 19.02
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -93,7 +93,7 @@ CREATE TABLE `dosen` (
 
 INSERT INTO `dosen` (`kode_dosen`, `nama_dosen`) VALUES
 ('AAG', 'Anak Agung Gde Agung,  S.T.,  M.M.'),
-('AAZ', 'Dr.Eng. Alfian Akbar Gozali,  S.T.,  M.T.'),
+('AAZ', 'Dr.eng. Alfian Akbar Gozali,    S.T.,    M.T.'),
 ('ADY', 'Ady Purna Kurniawan, S.T., M.T.'),
 ('AGD', 'Ir. R Agus Ganda Permana,  M.T.'),
 ('AGT', 'Agung Widyangga Rethanindita,  M. Kom'),
@@ -248,18 +248,15 @@ CREATE TABLE `laboran` (
 --
 
 INSERT INTO `laboran` (`nip_laboran`, `nama_laboran`, `foto_laboran`, `kontak_laboran`, `email_laboran`, `posisi_laboran`) VALUES
-('07820016', 'Rixard George Dillak, S.T., M.M.', NULL, NULL, NULL, NULL),
+('07820016', 'Rixard George Dillak, S.T., M.M.', NULL, NULL, NULL, 'Laboran D3 Sistem Informasi & Sistem Informasi Akuntansi'),
 ('12071996', 'Administrator', 'assets/images/administrator.png', '628989817181', 'bayusa@telkomuniversity.ac.id', 'System Administrator'),
-('12800028', 'Euis Susilawaty, S.Kom.', NULL, NULL, NULL, NULL),
-('19971347', 'Luthfi Hafiyyan Nabila, S.Kom.', NULL, NULL, NULL, NULL),
-('20810004', 'Roni Riandi, S.E.', NULL, NULL, NULL, NULL),
-('20940021', 'Dhiomart Rendita Hadiyanto, A.Md.Par.', NULL, NULL, NULL, NULL),
-('22960042', 'Bayu Setya Ajie Perdana Putra, S.Kom.', NULL, NULL, NULL, NULL),
-('22970027', 'Nourman Aditya Agista, A.Md.T.', NULL, NULL, NULL, NULL),
-('23980034', 'Nanda Harry Nurbudyana, S.T.', NULL, NULL, NULL, NULL),
-('82395190', 'Muhammad Harun Arrasid, S.E.', NULL, NULL, NULL, NULL),
-('91680026', 'Leli Lismey, S.Par.', NULL, NULL, NULL, NULL),
-('95740039', 'Imas Lelyana', NULL, NULL, NULL, NULL);
+('19971347', 'Luthfi Hafiyyan Nabila, S.Kom.', NULL, NULL, NULL, 'Administrasi dan Layanan Umum'),
+('20810004', 'Roni Riandi, S.E.', NULL, NULL, NULL, 'Laboran D3 Teknologi Telekomunikasi'),
+('20940021', 'Dhiomart Rendita Hadiyanto, A.Md.Par.', NULL, NULL, NULL, 'Laboran D3 Perhotelan'),
+('22960042', 'Bayu Setya Ajie Perdana Putra, S.Kom.', 'assets/images/laboran/Bayu-Setya-Ajie-Perdana-Putra-S.Kom.png', '628989817181', 'bayusa@telkomuniversity.ac.id', 'Laboran D3 Rekayasa Perangkat Lunak Aplikasi'),
+('22970027', 'Nourman Aditya Agista, A.Md.T.', NULL, NULL, NULL, 'Laboran D4 Teknologi Rekayasa Multimedia'),
+('82395190', 'Muhammad Harun Arrasid, S.E.', NULL, NULL, NULL, 'Laboran D3 Manajemen Pemasaran'),
+('91680026', 'Leli Lismey, S.Par.', NULL, NULL, NULL, 'Administrasi dan Layanan Umum');
 
 -- --------------------------------------------------------
 
@@ -431,7 +428,6 @@ INSERT INTO `matakuliah` (`kode_mk`, `nama_mk`, `id_prodi`) VALUES
 ('VKI1C3', 'Elektronika Dasar', 2),
 ('VKI1D3', 'Rangkaian Elektrik', 2),
 ('VKI1E4', 'Algoritma dan Pemrograman', 2),
-('VKI1E5', 'Algoritma dan Pemrograman', 2),
 ('VKI1G3', 'Sistem Jaringan Komputer', 2),
 ('VKI1H4', 'Mikroelektronika', 2),
 ('VKI1I4', 'Sistem Digital', 2),
@@ -440,7 +436,7 @@ INSERT INTO `matakuliah` (`kode_mk`, `nama_mk`, `id_prodi`) VALUES
 ('VKI2B3', 'Routing dan Switching', 2),
 ('VKI2C2', 'Pemrograman Web', 2),
 ('VKI2D4', 'Interface, Peripheral, dan Komunikasi', 2),
-('VKI2E4', 'Interface, Peripheral, dan Komunikasi', 2),
+('VKI2E4', 'Sistem Mikrokontroler', 2),
 ('VKI2F3', 'Administrasi Jaringan', 2),
 ('VKI2G3', 'Jaringan Lanjut', 2),
 ('VKI2H3', 'Keamanan Jaringan', 2),
@@ -472,12 +468,10 @@ INSERT INTO `matakuliah` (`kode_mk`, `nama_mk`, `id_prodi`) VALUES
 ('VPI3E3', 'Perencanaan Pemasaran', 4),
 ('VPI3F3', 'Manajemen Human Capital', 4),
 ('VSI1A4', 'Algoritma dan Pemrograman Komputer', 1),
-('VSI1A5', 'Algoritma dan Pemrograman Komputer', 1),
 ('VSI1I3', 'Arsitektur dan Jaringan Komputer', 1),
 ('VSI1K3', 'Implementasi User Experience Design', 1),
 ('VSI1N3', 'Pengolahan Basis Data', 1),
 ('VSI2A4', 'Implementasi Desain Antarmuka Pengguna', 1),
-('VSI2A5', 'Implementasi Desain Antarmuka Pengguna', 1),
 ('VSI2D4', 'Pemrograman Web', 1),
 ('VSI2J3', 'Dasar Ilmu Data', 1),
 ('VSI2K4', 'Dasar Pemrograman Perangkat Bergerak', 1),
@@ -502,8 +496,7 @@ INSERT INTO `matakuliah` (`kode_mk`, `nama_mk`, `id_prodi`) VALUES
 ('VTI3A3', 'Sistem Komunikasi Bergerak', 5),
 ('VTI3B3', 'Sistem Komunikasi Optik', 5),
 ('VTI3D3', 'Keamanan Jaringan', 5),
-('VTI3E2', 'Cloud Computing', 5),
-('VTI3E3', 'Cloud Computing', 5);
+('VTI3E2', 'Cloud Computing', 5);
 
 -- --------------------------------------------------------
 
@@ -594,7 +587,15 @@ INSERT INTO `riwayat_login` (`id_riwayat`, `ip_address`, `browser`, `platform`, 
 (22, '114.122.100.20', 'Chrome 126.0.0.0', 'Mac OS X', '2024-06-21 09:44:31', 'Gg. Raden Saleh, Citeureup, Kec. Dayeuhkolot', 'Kabupaten Bandung', 'BIZNET NETWORKS', '-6.976201,107.633382', 'admin'),
 (23, '114.122.100.20', 'Chrome 126.0.0.0', 'Mac OS X', '2024-06-21 16:43:23', 'Bandung', 'West Java', 'BIZNET NETWORKS', '', 'admin'),
 (24, '114.122.100.20', 'Chrome 126.0.0.0', 'Mac OS X', '2024-06-21 20:51:59', 'Mengger, Kec. Bandung Kidul, Kota Bandung', 'Jawa Barat', 'BIZNET NETWORKS', '-6.963589,107.635065', 'admin'),
-(25, '114.122.100.20', 'Chrome 126.0.0.0', 'Mac OS X', '2024-06-21 21:54:18', 'Mengger, Kec. Bandung Kidul, Kota Bandung', 'Jawa Barat', 'BIZNET NETWORKS', '-6.963589,107.635067', 'admin');
+(25, '114.122.100.20', 'Chrome 126.0.0.0', 'Mac OS X', '2024-06-21 21:54:18', 'Mengger, Kec. Bandung Kidul, Kota Bandung', 'Jawa Barat', 'BIZNET NETWORKS', '-6.963589,107.635067', 'admin'),
+(26, '114.122.100.20', 'Chrome 126.0.0.0', 'Windows 10', '2024-06-21 22:38:00', 'Mengger, Kec. Bandung Kidul, Kota Bandung', 'Jawa Barat', 'BIZNET NETWORKS', '-6.963588,107.635059', 'admin'),
+(27, '114.122.100.20', 'Chrome 126.0.0.0', 'Windows 10', '2024-06-21 23:43:33', 'Mengger, Kec. Bandung Kidul, Kota Bandung', 'Jawa Barat', 'BIZNET NETWORKS', '-6.96359,107.635066', 'admin'),
+(28, '114.122.100.20', 'Chrome 126.0.0.0', 'Windows 10', '2024-06-22 11:05:42', 'Mengger, Kec. Bandung Kidul, Kota Bandung', 'Jawa Barat', 'BIZNET NETWORKS', '-6.96359,107.635056', 'admin'),
+(29, '114.122.100.20', 'Chrome 126.0.0.0', 'Windows 10', '2024-06-22 11:19:53', 'Mengger, Kec. Bandung Kidul, Kota Bandung', 'Jawa Barat', 'BIZNET NETWORKS', '-6.963591,107.635083', 'admin'),
+(30, '114.122.100.20', 'Chrome 126.0.0.0', 'Windows 10', '2024-06-22 14:36:28', 'Mengger, Kec. Bandung Kidul, Kota Bandung', 'Jawa Barat', 'BIZNET NETWORKS', '-6.963601,107.635077', 'admin'),
+(31, '114.122.100.20', 'Chrome 126.0.0.0', 'Windows 10', '2024-06-22 23:42:31', 'Mengger, Kec. Bandung Kidul, Kota Bandung', 'Jawa Barat', 'BIZNET NETWORKS', '-6.963584,107.635061', 'admin'),
+(32, '114.122.100.20', 'Chrome 126.0.0.0', 'Windows 10', '2024-06-23 15:10:42', 'Mengger, Kec. Bandung Kidul, Kota Bandung', 'Jawa Barat', 'BIZNET NETWORKS', '-6.963589,107.635065', 'admin'),
+(33, '114.122.100.20', 'Chrome 126.0.0.0', 'Windows 10', '2024-06-23 21:34:59', 'Mengger, Kec. Bandung Kidul, Kota Bandung', 'Jawa Barat', 'BIZNET NETWORKS', '-6.963601,107.635065', 'admin');
 
 -- --------------------------------------------------------
 
@@ -741,8 +742,8 @@ INSERT INTO `users_menu` (`id_menu`, `nama_menu`, `url_menu`, `icon_menu`, `is_a
 (1, 'Beranda', 'Beranda', 'feather icon-home', 1),
 (2, 'Laboratorium', 'Laboratorium', 'feather icon-cast', 1),
 (3, 'Praktikum', 'Asprak', 'feather icon-cpu', 1),
-(4, 'Asisten Laboratorium', 'Aslab', 'feather icon-users', 1),
-(5, 'Jadwal', 'Jadwal', 'feather icon-calendar', 1),
+(4, 'Asisten Laboratorium', 'Aslab', 'feather icon-users', 0),
+(5, 'Jadwal', 'Jadwal', 'feather icon-calendar', 0),
 (6, 'Peminjaman', 'Peminjaman', 'feather icon-layers', 1),
 (7, 'Trouble Ticket', 'TroubleTicket', 'feather icon-thumbs-down', 1),
 (8, 'Pengaturan Aplikasi', 'Pengaturan', 'feather icon-settings', 1),
@@ -986,7 +987,7 @@ ALTER TABLE `prodi`
 -- AUTO_INCREMENT untuk tabel `riwayat_login`
 --
 ALTER TABLE `riwayat_login`
-  MODIFY `id_riwayat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_riwayat` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT untuk tabel `tahun_ajaran`
