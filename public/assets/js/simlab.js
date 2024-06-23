@@ -70,12 +70,12 @@ function hapus_mk(id) {
   .then((willDelete) => {
     if (willDelete) {
       $.ajax({
-        url: window.location.origin+'/DataMaster/deleteDosen',
+        url: window.location.origin+'/DataMaster/deleteMK',
         method: 'POST',
         data: {id, id},
         success: function(response) {
           swal({
-            text: "Data Dosen Sukses Dihapus",
+            text: "Data Mata Kuliah Sukses Dihapus",
             icon: "success",
             timer: 2000,
             buttons: false
