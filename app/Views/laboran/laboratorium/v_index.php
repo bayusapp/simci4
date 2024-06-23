@@ -90,7 +90,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-12">
                           <div class="form-group">
                             <label for="id_prodi">Program Studi</label>
-                            <select class="id_prodi form-control" name="id_prodi">
+                            <select class="prodi form-control" name="id_prodi">
                               <option></option>
                               <?php foreach ($prodi as $p) : ?>
                                 <option value="<?= $p['id_prodi'] ?>"><?= $p['jenjang_prodi'] . ' ' . $p['nama_prodi'] ?></option>
@@ -244,7 +244,7 @@
                                         <div class="col-lg-4 col-md-4 col-sm-12">
                                           <div class="form-group">
                                             <label>Program Studi</label>
-                                            <select class="id_prodi form-control" name="id_prodi">
+                                            <select class="prodi form-control" name="id_prodi">
                                               <option></option>
                                               <?php foreach ($prodi as $pr) : ?>
                                                 <?php
