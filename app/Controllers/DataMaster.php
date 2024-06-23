@@ -6,6 +6,7 @@ use App\Models\M_Dosen;
 use App\Models\M_Laboran;
 use App\Models\M_Matakuliah;
 use App\Models\M_Prodi;
+use CodeIgniter\Files\File;
 
 class DataMaster extends BaseController
 {
@@ -360,5 +361,113 @@ class DataMaster extends BaseController
       }
     }
     return redirect();
+  }
+
+  public function Laboran()
+  {
+    $data             = $this->data;
+    $data['laboran']  = $this->laboran->getAllLaboran();
+    return view('laboran/data_master/v_laboran', $data);
+  }
+
+  public function simpanLaboran()
+  {
+    if (!$this->validate([
+      'nip_laboran'   => ['rules' => 'required'],
+      'nama_laboran'  => ['rules' => 'required']
+    ])) {
+      session()->setFlashdata('error', 'Harap lengkapi seluruh field');
+      return redirect()->back()->withInput();
+    } else {
+      $nip_laboran    = $this->request->getPost('nip_laboran');
+      $nama_laboran   = $this->request->getPost('nama_laboran');
+      $foto_laboran   = $this->request->getFile('foto_laboran');
+      $kontak_laboran = $this->request->getPost('kontak_laboran');
+      $email_laboran  = $this->request->getPost('email_laboran');
+      $posisi_laboran = $this->request->getPost('posisi_laboran');
+      $tmp_kontak     = str_replace('-', '', $kontak_laboran);
+      $tmp_kontak     = str_replace('(', '', $tmp_kontak);
+      $kontak_laboran = str_replace(') ', '', $tmp_kontak);
+      $input          = [
+        'nip_laboran'     => $nip_laboran,
+        'nama_laboran'    => $nama_laboran,
+        'kontak_laboran'  => $kontak_laboran,
+        'email_laboran'   => $email_laboran,
+        'posisi_laboran'  => $posisi_laboran
+      ];
+      if ($foto_laboran->getSize() > 0) {
+        $nama_file      = $foto_laboran->getGenerateName($foto_laboran->getName());
+        $input['foto_laboran']  = 'assets/images/laboran/' . $nama_file;
+      }
+      $cek_data       = $this->laboran->getDataLaboranByNIP($nip_laboran);
+      if ($cek_data) {
+        session()->setFlashdata('error', 'NIP Laboran sudah ada');
+        return redirect()->back()->withInput();
+      } else {
+        $this->laboran->insert($input);
+        $foto_laboran->move('assets/images/laboran', $nama_file);
+        session()->setFlashdata('sukses', 'Data Mata Kuliah Sukses Ditambahkan');
+        return redirect()->back();
+      }
+    }
+  }
+
+  public function updateLaboran()
+  {
+    if (!$this->validate([
+      'nip_laboran'   => ['rules' => 'required'],
+      'nama_laboran'  => ['rules' => 'required']
+    ])) {
+      session()->setFlashdata('error', 'Harap lengkapi seluruh field');
+      return redirect()->back()->withInput();
+    } else {
+      $nip_old        = $this->request->getPost('nip_laboran_old');
+      $nip_laboran    = $this->request->getPost('nip_laboran');
+      $nama_laboran   = $this->request->getPost('nama_laboran');
+      $foto_laboran   = $this->request->getFile('foto_laboran');
+      $kontak_laboran = $this->request->getPost('kontak_laboran');
+      $email_laboran  = $this->request->getPost('email_laboran');
+      $posisi_laboran = $this->request->getPost('posisi_laboran');
+      $tmp_kontak     = str_replace('-', '', $kontak_laboran);
+      $tmp_kontak     = str_replace('(', '', $tmp_kontak);
+      $kontak_laboran = str_replace(') ', '', $tmp_kontak);
+      $hash_nip       = substr(sha1($nip_laboran), 7, 7);
+      $cek_data       = $this->laboran->getDataLaboranByNIPHash($hash_nip);
+      if ($foto_laboran->getSize() > 0) {
+        $nama_file      = $foto_laboran->getGenerateName($foto_laboran->getName());
+        $foto           = 'assets/images/laboran/' . $nama_file;
+        $foto_laboran->move('assets/images/laboran', $nama_file);
+      } else {
+        $foto           = '';
+      }
+      if ($nip_old == $hash_nip) {
+        if ($cek_data['foto_laboran']) {
+          unlink($cek_data['foto_laboran']);
+        }
+        $this->laboran->updateDataLaboran($nip_old, $nip_laboran, $nama_laboran, $foto, $kontak_laboran, $email_laboran, $posisi_laboran);
+        session()->setFlashdata('sukses', 'Data Laboran Sukses Diperbarui');
+        return redirect()->back();
+      } else {
+        if ($cek_data) {
+          session()->setFlashdata('error', 'NIP sudah ada');
+          return redirect()->back()->withInput();
+        } else {
+          if ($cek_data['foto_laboran']) {
+            unlink($cek_data['foto_laboran']);
+          }
+          $this->laboran->updateDataLaboran($nip_old, $nip_laboran, $nama_laboran, $foto, $kontak_laboran, $email_laboran, $posisi_laboran);
+          session()->setFlashdata('sukses', 'Data Laboran Sukses Diperbarui');
+          return redirect()->back();
+        }
+      }
+    }
+  }
+
+  public function deleteLaboran()
+  {
+    $nip_laboran  = $this->request->getPost('id');
+    $data         = $this->laboran->getDataLaboranByNIPHash($nip_laboran);
+    unlink($data['foto_laboran']);
+    $this->laboran->deleteLaboran($nip_laboran);
   }
 }
