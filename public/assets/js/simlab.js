@@ -1,3 +1,9 @@
+window.setTimeout(function() {
+  $(".alert").fadeTo(500, 0).slideUp(500, function() {
+    $(this).remove();
+  });
+}, 5000);
+
 function hapus_prodi(id) {
   swal({
     title: "Apakah Anda yakin?",
