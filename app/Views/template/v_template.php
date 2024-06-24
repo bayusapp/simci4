@@ -215,23 +215,6 @@ if ($segment_2 == null) {
 
     });
   </script>
-  <script>
-    function hapus_lab(id) {
-      swal({
-          title: "Apakah Anda yakin?",
-          text: "Data Laboratorium akan dihapus",
-          icon: "warning",
-          buttons: true,
-          dangerMode: true,
-          buttons: ["Tidak", "Ya"],
-        })
-        .then((willDelete) => {
-          if (willDelete) {
-            window.location.href = '<?= base_url('Laboratorium/deleteLab/') ?>' + id;
-          }
-        });
-    }
-  </script>
 </body>
 
 </html>
