@@ -118,6 +118,22 @@ function hapus_laboran(id) {
   });
 }
 
+function hapus_lab(id) {
+  swal({
+    itle: "Apakah Anda yakin?",
+    text: "Data Laboratorium akan dihapus",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+    buttons: ["Tidak", "Ya"],
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      window.location.href = '<?= base_url('Laboratorium/deleteLab/') ?>' + id;
+    }
+  });
+}
+
 $(document).ready(function() {
   setTimeout(function() {
 
