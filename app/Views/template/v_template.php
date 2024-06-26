@@ -192,12 +192,6 @@ if ($segment_2 == null) {
   <!-- Input mask Js -->
   <script src="<?= base_url() ?>assets/js/plugins/jquery.mask.min.js"></script>
   <script>
-    window.setTimeout(function() {
-      $(".alert").fadeTo(500, 0).slideUp(500, function() {
-        $(this).remove();
-      });
-    }, 5000);
-
     $(document).ready(function() {
       setTimeout(function() {
         $('#lab-praktikum').DataTable();
