@@ -118,10 +118,15 @@ class Laboratorium extends BaseController
     }
   }
 
-  public function deleteLab($id)
+  public function deleteLab()
   {
-    $this->lab->deleteDataLab($id);
-    session()->setFlashdata('sukses', 'Data Laboratorium Sukses Dihapus');
-    return redirect()->back();
+    if (!$this->validate([
+      'id' => ['rules' => 'required']
+    ])) {
+      return redirect()->to('Beranda');
+    } else {
+      $id_lab   = $this->request->getPost('id');
+      $this->lab->deleteDataLab($id_lab);
+    }
   }
 }
