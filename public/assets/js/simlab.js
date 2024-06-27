@@ -135,7 +135,21 @@ function hapus_lab(id) {
   })
   .then((willDelete) => {
     if (willDelete) {
-      window.location.href = '<?= base_url('Laboratorium/deleteLab/') ?>' + id;
+      $.ajax({
+        url: window.location.origin+'/DataMaster/deleteLaboran',
+        method: 'POST',
+        data: {id, id},
+        success: function(response) {
+          swal({
+            text: "Data Laboratorium Sukses Dihapus",
+            icon: "success",
+            timer: 2000,
+            buttons: false
+          }).then(function() {
+            location.reload();
+          });
+        }
+      });
     }
   });
 }
