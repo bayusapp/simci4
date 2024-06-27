@@ -279,6 +279,15 @@ $(document).ready(function() {
       ]
     });
 
+    $('#mk_sikc').DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        {"width": "5%", "targets": [0]},
+        {"width": "15%", "targets": [1]},
+        {"width": "12%", "targets": [3]},
+      ]
+    });
+
     $('#laboran').DataTable({
       bAutoWidth: false,
       columnDefs: [
@@ -295,6 +304,21 @@ $(document).ready(function() {
 
   $(".prodi").select2({
     placeholder: "Pilih Program Studi",
+    allowClear: true
+  });
+
+  $(".matakuliah").select2({
+    placeholder: "Pilih Mata Kuliah",
+    allowClear: true
+  });
+
+  $(".tahun_ajaran").select2({
+    placeholder: "Pilih Tahun Ajaran",
+    allowClear: true
+  });
+
+  $(".dosen").select2({
+    placeholder: "Pilih Data Dosen",
     allowClear: true
   });
 });
