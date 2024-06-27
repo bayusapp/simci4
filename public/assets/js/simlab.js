@@ -136,7 +136,7 @@ function hapus_lab(id) {
   .then((willDelete) => {
     if (willDelete) {
       $.ajax({
-        url: window.location.origin+'/Laboratroium/deleteLab',
+        url: window.location.origin+'/Laboratorium/deleteLab',
         method: 'POST',
         data: {id, id},
         success: function(response) {
