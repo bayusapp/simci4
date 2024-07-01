@@ -10,9 +10,21 @@ class M_Tahun_Ajaran extends Model
   protected $table = 'tahun_ajaran';
   protected $allowedFields = ['tahun_ajaran', 'is_active'];
 
+  public function getAllTahunAjaran()
+  {
+    $this->orderBy('id_ta', 'DESC');
+    return $this->findAll();
+  }
+
   public function getTahunAjaran()
   {
     $this->where('is_active', '1');
+    return $this->first();
+  }
+
+  public function getTahunAjaranByID($id)
+  {
+    $this->where('id_ta', $id);
     return $this->first();
   }
 }
