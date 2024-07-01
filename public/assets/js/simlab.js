@@ -1,7 +1,9 @@
-window.setTimeout(function() {
-  $(".alert").fadeTo(500, 0).slideUp(500, function() {
-    $(this).remove();
-  });
+window.setTimeout(function () {
+  $(".alert")
+    .fadeTo(500, 0)
+    .slideUp(500, function () {
+      $(this).remove();
+    });
 }, 5000);
 
 function hapus_prodi(id) {
@@ -12,23 +14,22 @@ function hapus_prodi(id) {
     buttons: true,
     dangerMode: true,
     buttons: ["Tidak", "Ya"],
-  })
-  .then((willDelete) => {
+  }).then((willDelete) => {
     if (willDelete) {
       $.ajax({
-        url: window.location.origin+'/DataMaster/deleteProdi',
-        method: 'POST',
-        data: {id: id},
-        success: function(response) {
+        url: window.location.origin + "/DataMaster/deleteProdi",
+        method: "POST",
+        data: { id: id },
+        success: function (response) {
           swal({
             text: "Data Program Studi Sukses Dihapus",
             icon: "success",
             timer: 2000,
-            buttons: false
-          }).then(function() {
+            buttons: false,
+          }).then(function () {
             location.reload();
           });
-        }
+        },
       });
     }
   });
@@ -42,23 +43,22 @@ function hapus_dosen(id) {
     buttons: true,
     dangerMode: true,
     buttons: ["Tidak", "Ya"],
-  })
-  .then((willDelete) => {
+  }).then((willDelete) => {
     if (willDelete) {
       $.ajax({
-        url: window.location.origin+'/DataMaster/deleteDosen',
-        method: 'POST',
-        data: {id, id},
-        success: function(response) {
+        url: window.location.origin + "/DataMaster/deleteDosen",
+        method: "POST",
+        data: { id, id },
+        success: function (response) {
           swal({
             text: "Data Dosen Sukses Dihapus",
             icon: "success",
             timer: 2000,
-            buttons: false
-          }).then(function() {
+            buttons: false,
+          }).then(function () {
             location.reload();
           });
-        }
+        },
       });
     }
   });
@@ -72,23 +72,22 @@ function hapus_mk(id) {
     buttons: true,
     dangerMode: true,
     buttons: ["Tidak", "Ya"],
-  })
-  .then((willDelete) => {
+  }).then((willDelete) => {
     if (willDelete) {
       $.ajax({
-        url: window.location.origin+'/DataMaster/deleteMK',
-        method: 'POST',
-        data: {id, id},
-        success: function(response) {
+        url: window.location.origin + "/DataMaster/deleteMK",
+        method: "POST",
+        data: { id, id },
+        success: function (response) {
           swal({
             text: "Data Mata Kuliah Sukses Dihapus",
             icon: "success",
             timer: 2000,
-            buttons: false
-          }).then(function() {
+            buttons: false,
+          }).then(function () {
             location.reload();
           });
-        }
+        },
       });
     }
   });
@@ -102,23 +101,22 @@ function hapus_laboran(id) {
     buttons: true,
     dangerMode: true,
     buttons: ["Tidak", "Ya"],
-  })
-  .then((willDelete) => {
+  }).then((willDelete) => {
     if (willDelete) {
       $.ajax({
-        url: window.location.origin+'/DataMaster/deleteLaboran',
-        method: 'POST',
-        data: {id, id},
-        success: function(response) {
+        url: window.location.origin + "/DataMaster/deleteLaboran",
+        method: "POST",
+        data: { id, id },
+        success: function (response) {
           swal({
             text: "Data Laboran Sukses Dihapus",
             icon: "success",
             timer: 2000,
-            buttons: false
-          }).then(function() {
+            buttons: false,
+          }).then(function () {
             location.reload();
           });
-        }
+        },
       });
     }
   });
@@ -132,193 +130,219 @@ function hapus_lab(id) {
     buttons: true,
     dangerMode: true,
     buttons: ["Tidak", "Ya"],
-  })
-  .then((willDelete) => {
+  }).then((willDelete) => {
     if (willDelete) {
       $.ajax({
-        url: window.location.origin+'/Laboratorium/deleteLab',
-        method: 'POST',
-        data: {id, id},
-        success: function(response) {
+        url: window.location.origin + "/Laboratorium/deleteLab",
+        method: "POST",
+        data: { id, id },
+        success: function (response) {
           swal({
             text: "Data Laboratorium Sukses Dihapus",
             icon: "success",
             timer: 2000,
-            buttons: false
-          }).then(function() {
+            buttons: false,
+          }).then(function () {
             location.reload();
           });
-        }
+        },
       });
     }
   });
 }
 
-$(document).ready(function() {
-  setTimeout(function() {
+function hapus_mk_semester(id) {
+  swal({
+    title: "Apakah Anda yakin?",
+    text: "Data Mata Kuliah Semester akan dihapus",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+    buttons: ["Tidak", "Ya"],
+  }).then((willDelete) => {
+    if (willDelete) {
+      $.ajax({
+        url: window.location.origin + "/Praktikum/deleteMK",
+        method: "POST",
+        data: { id, id },
+        success: function (response) {
+          swal({
+            text: "Data Mata Kuliah Semester Sukses Dihapus",
+            icon: "success",
+            timer: 2000,
+            buttons: false,
+          }).then(function () {
+            location.reload();
+          });
+        },
+      });
+    }
+  });
+}
 
-    $('#prodi').DataTable({
+$(document).ready(function () {
+  setTimeout(function () {
+    $("#prodi").DataTable({
       bAutoWidth: false,
       columnDefs: [
-        {"width": "5%", "targets": [0]},
-        {"width": "12%", "targets": [4]}
-      ]
+        { width: "5%", targets: [0] },
+        { width: "12%", targets: [4] },
+      ],
     });
 
-    $('#dosen').DataTable({
+    $("#dosen").DataTable({
       bAutoWidth: false,
       columnDefs: [
-        {"width": "5%", "targets": [0]},
-        {"width": "10%", "targets": [1]},
-        {"width": "12%", "targets": [3]}
-      ]
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "12%", targets: [3] },
+      ],
     });
 
-    $('#matkul').DataTable({
+    $("#matkul").DataTable({
       bAutoWidth: false,
       columnDefs: [
-        {"width": "5%", "targets": [0]},
-        {"width": "10%", "targets": [1]},
-        {"width": "12%", "targets": [4]}
-      ]
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "12%", targets: [4] },
+      ],
     });
 
-    $('#lab-Praktikum').DataTable({
+    $("#lab-Praktikum").DataTable({
       bAutoWidth: false,
       columnDefs: [
-        {"width": "5%", "targets": [0]},
-        {"width": "12%", "targets": [5]}
-      ]
+        { width: "5%", targets: [0] },
+        { width: "12%", targets: [5] },
+      ],
     });
 
-    $('#lab-Riset').DataTable({
+    $("#lab-Riset").DataTable({
       bAutoWidth: false,
       columnDefs: [
-        {"width": "5%", "targets": [0]},
-        {"width": "12%", "targets": [4]}
-      ]
+        { width: "5%", targets: [0] },
+        { width: "12%", targets: [4] },
+      ],
     });
 
-    $('#lab-Workshop').DataTable({
+    $("#lab-Workshop").DataTable({
       bAutoWidth: false,
       columnDefs: [
-        {"width": "5%", "targets": [0]},
-        {"width": "12%", "targets": [4]}
-      ]
+        { width: "5%", targets: [0] },
+        { width: "12%", targets: [4] },
+      ],
     });
 
-    $('#mk_si').DataTable({
+    $("#mk_si").DataTable({
       bAutoWidth: false,
       columnDefs: [
-        {"width": "5%", "targets": [0]},
-        {"width": "15%", "targets": [1]},
-        {"width": "12%", "targets": [3]},
-      ]
+        { width: "5%", targets: [0] },
+        { width: "15%", targets: [1] },
+        { width: "12%", targets: [3] },
+      ],
     });
 
-    $('#mk_tk').DataTable({
+    $("#mk_tk").DataTable({
       bAutoWidth: false,
       columnDefs: [
-        {"width": "5%", "targets": [0]},
-        {"width": "15%", "targets": [1]},
-        {"width": "12%", "targets": [3]},
-      ]
+        { width: "5%", targets: [0] },
+        { width: "15%", targets: [1] },
+        { width: "12%", targets: [3] },
+      ],
     });
 
-    $('#mk_sia').DataTable({
+    $("#mk_sia").DataTable({
       bAutoWidth: false,
       columnDefs: [
-        {"width": "5%", "targets": [0]},
-        {"width": "15%", "targets": [1]},
-        {"width": "12%", "targets": [3]},
-      ]
+        { width: "5%", targets: [0] },
+        { width: "15%", targets: [1] },
+        { width: "12%", targets: [3] },
+      ],
     });
 
-    $('#mk_mp').DataTable({
+    $("#mk_mp").DataTable({
       bAutoWidth: false,
       columnDefs: [
-        {"width": "5%", "targets": [0]},
-        {"width": "15%", "targets": [1]},
-        {"width": "12%", "targets": [3]},
-      ]
+        { width: "5%", targets: [0] },
+        { width: "15%", targets: [1] },
+        { width: "12%", targets: [3] },
+      ],
     });
 
-    $('#mk_tt').DataTable({
+    $("#mk_tt").DataTable({
       bAutoWidth: false,
       columnDefs: [
-        {"width": "5%", "targets": [0]},
-        {"width": "15%", "targets": [1]},
-        {"width": "12%", "targets": [3]},
-      ]
+        { width: "5%", targets: [0] },
+        { width: "15%", targets: [1] },
+        { width: "12%", targets: [3] },
+      ],
     });
 
-    $('#mk_rpla').DataTable({
+    $("#mk_rpla").DataTable({
       bAutoWidth: false,
       columnDefs: [
-        {"width": "5%", "targets": [0]},
-        {"width": "15%", "targets": [1]},
-        {"width": "12%", "targets": [3]},
-      ]
+        { width: "5%", targets: [0] },
+        { width: "12%", targets: [3] },
+      ],
     });
 
-    $('#mk_ph').DataTable({
+    $("#mk_ph").DataTable({
       bAutoWidth: false,
       columnDefs: [
-        {"width": "5%", "targets": [0]},
-        {"width": "15%", "targets": [1]},
-        {"width": "12%", "targets": [3]},
-      ]
+        { width: "5%", targets: [0] },
+        { width: "15%", targets: [1] },
+        { width: "12%", targets: [3] },
+      ],
     });
 
-    $('#mk_trm').DataTable({
+    $("#mk_trm").DataTable({
       bAutoWidth: false,
       columnDefs: [
-        {"width": "5%", "targets": [0]},
-        {"width": "15%", "targets": [1]},
-        {"width": "12%", "targets": [3]},
-      ]
+        { width: "5%", targets: [0] },
+        { width: "15%", targets: [1] },
+        { width: "12%", targets: [3] },
+      ],
     });
 
-    $('#mk_sikc').DataTable({
+    $("#mk_sikc").DataTable({
       bAutoWidth: false,
       columnDefs: [
-        {"width": "5%", "targets": [0]},
-        {"width": "15%", "targets": [1]},
-        {"width": "12%", "targets": [3]},
-      ]
+        { width: "5%", targets: [0] },
+        { width: "15%", targets: [1] },
+        { width: "12%", targets: [3] },
+      ],
     });
 
-    $('#laboran').DataTable({
+    $("#laboran").DataTable({
       bAutoWidth: false,
       columnDefs: [
-        {"width": "5%", "targets": [0]},
-        {"width": "10%", "targets": [3]},
-        {"width": "12%", "targets": [5]},
-      ]
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [3] },
+        { width: "12%", targets: [5] },
+      ],
     });
 
-    $('#riwayat_login').DataTable();
+    $("#riwayat_login").DataTable();
   }, 0);
 
-  $('.kontak').mask('(00) 0000-0000-0000');
+  $(".kontak").mask("(00) 0000-0000-0000");
 
   $(".prodi").select2({
     placeholder: "Pilih Program Studi",
-    allowClear: true
+    allowClear: true,
   });
 
   $(".matakuliah").select2({
     placeholder: "Pilih Mata Kuliah",
-    allowClear: true
+    allowClear: true,
   });
 
   $(".tahun_ajaran").select2({
     placeholder: "Pilih Tahun Ajaran",
-    allowClear: true
+    allowClear: true,
   });
 
   $(".dosen").select2({
     placeholder: "Pilih Data Dosen",
-    allowClear: true
+    allowClear: true,
   });
 });
