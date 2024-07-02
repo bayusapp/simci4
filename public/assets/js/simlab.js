@@ -180,6 +180,35 @@ function hapus_mk_semester(id) {
   });
 }
 
+function hapus_asprak(id) {
+  swal({
+    title: "Apakah Anda yakin?",
+    text: "Daftar Asisten Praktikum akan dihapus",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+    buttons: ["Tidak", "Ya"],
+  }).then((willDelete) => {
+    if (willDelete) {
+      $.ajax({
+        url: window.location.origin + "/Praktikum/deleteAsprakList",
+        method: "POST",
+        data: { id, id },
+        success: function (response) {
+          swal({
+            text: "Data Asisten Praktikum Sukses Dihapus",
+            icon: "success",
+            timer: 2000,
+            buttons: false,
+          }).then(function () {
+            location.reload();
+          });
+        },
+      });
+    }
+  });
+}
+
 $(document).ready(function () {
   setTimeout(function () {
     $("#prodi").DataTable({
