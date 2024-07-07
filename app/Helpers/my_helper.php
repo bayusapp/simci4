@@ -200,7 +200,7 @@ if (!function_exists('kirimWA')) {
     $response = curl_exec($curl);
 
     curl_close($curl);
-    echo $response;
-    // sleep(7);
+    // echo $response;
+    sleep(7);
   }
 }
