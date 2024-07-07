@@ -35,7 +35,7 @@
                   $semester = 'Genap';
                 }
                 ?>
-                <h5>Mata Kuliah Semester Tahun Ajaran <?= $split_ta[0] . ' Semester ' . $semester ?></h5>
+                <h5>Mata Kuliah Semester <?= $semester ?> Tahun Ajaran <?= $split_ta[0] ?></h5>
               </div>
               <div class="offset-lg-4 col-lg-3 offset-md-3 col-md-5">
                 <form method="post" action="<?= base_url('Praktikum/Matakuliah') ?>">
