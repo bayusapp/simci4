@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\M_Forgot_Password;
 use App\Models\M_Laboran;
 use App\Models\M_Riwayat_Login;
 use App\Models\M_Users;
@@ -11,6 +12,7 @@ class Auth extends BaseController
 {
 
   protected $laboran;
+  protected $token;
   protected $users;
   protected $users_role;
   protected $history;
@@ -18,6 +20,7 @@ class Auth extends BaseController
   public function __construct()
   {
     $this->laboran    = new M_Laboran();
+    $this->token      = new M_Forgot_Password();
     $this->users      = new M_Users();
     $this->users_role = new M_Users_Role();
     $this->history    = new M_Riwayat_Login();
@@ -169,6 +172,129 @@ Terima kasih";
       } else {
         session()->setFlashdata('not_laboran', $this->validator->listErrors());
         return redirect()->back()->withInput();
+      }
+    }
+  }
+
+  public function resetPassword()
+  {
+    $data['title'] = 'Reset Password | Sistem Informasi Manajemen Laboratorium';
+    return view('auth/v_reset_password', $data);
+  }
+
+  public function submitReset()
+  {
+    if (!$this->validate([
+      'id'  => ['rules' => 'required']
+    ])) {
+      return redirect()->to(base_url());
+    } else {
+      $id = $this->request->getPost('id');
+      $cek = $this->users->getData($id);
+      if ($cek) {
+        $username = $cek['username'];
+        $token    = bin2hex(random_bytes(16));
+        $tanggal  = date('Y-m-d H:i:s');
+        $input    = [
+          'username'  => $username,
+          'token'     => $token,
+          'tanggal'   => $tanggal,
+          'status'    => '0'
+        ];
+        if ($cek['status_akun'] == '1') {
+          if ($cek['nip_laboran']) {
+            $whatsapp = $this->laboran->getDataLaboranByNIP($cek['nip_laboran'])['kontak_laboran'];
+            $nama     = $this->laboran->getDataLaboranByNIP($cek['nip_laboran'])['nama_laboran'];
+          }
+          if ($cek['nim_aslab']) {
+            echo 'aslab nih';
+          }
+          if ($cek['nim_asprak']) {
+            echo 'asprak nih';
+          }
+          $this->token->insert($input);
+          $pesan = 'Selamat ' . greetings() . ' ' . $nama . ',
+
+Untuk melakukan reset password silahkan klik tautan dibawah ini dan tautan tersebut *hanya berlaku selama 5 menit*
+          
+' . base_url('Auth/reset/' . $token) . ' 
+          
+Terima kasih
+          
+Salam
+Unit Laboratorium/Bengkel/Studio, Fakultas Ilmu Terapan';
+          session()->setFlashdata('sukses', 'Token untuk reset password sukses dikirim ke WhatsApp');
+          kirimWA($pesan, $whatsapp);
+          return redirect()->back();
+        } else {
+          session()->setFlashdata('error', 'Akun berstatus tidak aktif, silahkan hubungi Unit Laboratorium');
+          return redirect()->back()->withInput();
+        }
+      } else {
+        session()->setFlashdata('error', 'Data Username/NIP/NIM tidak ditemukan');
+        return redirect()->back()->withInput();
+      }
+    }
+  }
+
+  public function reset($id)
+  {
+    $cek_token = $this->token->checkToken($id);
+    if ($cek_token) {
+      if ($cek_token['status'] == '0') {
+        $tanggal_token    = strtotime($cek_token['tanggal']);
+        $tanggal_sekarang = strtotime(date('Y-m-d H:i:s'));
+        $selisih          = round(abs($tanggal_sekarang - $tanggal_token) / 60);
+        if ($selisih > 5) {
+          session()->setFlashdata('error', 'Token sudah tidak belaku/lebih dari 5 menit');
+          return redirect()->to(base_url('Auth/resetPassword'));
+        } else {
+          $data['title'] = 'Reset Password | Sistem Informasi Manajemen Laboratorium';
+          $data['token'] = $id;
+          return view('auth/v_reset', $data);
+        }
+      } elseif ($cek_token['status'] == '1') {
+        session()->setFlashdata('error', 'Token sudah digunakan');
+        return redirect()->to(base_url('Auth/resetPassword'));
+      } else {
+        session()->setFlashdata('error', 'Token tidak ditemukan, harap cek kembali');
+        return redirect()->to(base_url('Auth/resetPassword'));
+      }
+    } else {
+      session()->setFlashdata('error', 'Token tidak ditemukan, harap cek kembali');
+      return redirect()->to(base_url('Auth/resetPassword'));
+    }
+  }
+
+  public function ubah()
+  {
+    if (!$this->validate([
+      'password_baru'     => ['rules' => 'required'],
+      'konfirm_password'  => ['rules' => 'required'],
+      'token'             => ['rules' => 'required']
+    ])) {
+      session()->setFlashdata('error', 'Harap lengkapi seluruh field');
+      return redirect()->back();
+    } else {
+      $password_baru    = $this->request->getPost('password_baru');
+      $konfirm_password = $this->request->getPost('konfirm_password');
+      $token            = $this->request->getPost('token');
+      $cek              = $this->token->checkToken($token);
+      if ($password_baru == $konfirm_password) {
+        //
+      } else {
+        session()->setFlashdata('error', 'Password Baru dan Konfirmasi Password Baru tidak cocok, harap cek kembali');
+        return redirect()->to(base_url('Auth/reset/' . $token));
+      }
+      if ($cek) {
+        // echo $cek['username'];
+        $password_baru = password_hash($password_baru, PASSWORD_DEFAULT);
+        $this->users->changePassword($cek['username'], $password_baru);
+        session()->setFlashdata('sukses', 'Password sukses diperbarui. Silahkan login');
+        return redirect()->to(base_url());
+      } else {
+        session()->setFlashdata('error', 'Token tidak ditemukan, harap cek kembali');
+        return redirect()->back();
       }
     }
   }
