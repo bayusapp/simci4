@@ -21,4 +21,20 @@ class M_Users extends Model
     $this->where('nip_laboran', $nip);
     return $this->first();
   }
+
+  public function getData($id)
+  {
+    $this->where('username', $id);
+    $this->orWhere('nip_laboran', $id);
+    $this->orWhere('nim_aslab', $id);
+    $this->orWhere('nim_asprak', $id);
+    return $this->first();
+  }
+
+  public function changePassword($username, $password)
+  {
+    $this->set('password', $password);
+    $this->where('username', $username);
+    $this->update();
+  }
 }
