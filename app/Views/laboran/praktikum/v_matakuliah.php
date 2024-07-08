@@ -44,14 +44,7 @@
                       <select class="tahun_ajaran form-control" name="tahun_ajaran">
                         <option></option>
                         <?php foreach ($ta as $t) : ?>
-                          <?php
-                          if ($ta_aktif == $t['tahun_ajaran']) {
-                            $select_ta_aktif = 'selected';
-                          } else {
-                            $select_ta_aktif = '';
-                          }
-                          ?>
-                          <option value="<?= $t['id_ta'] ?>" <?= $select_ta_aktif ?>><?= $t['tahun_ajaran'] ?></option>
+                          <option value="<?= $t['id_ta'] ?>"><?= $t['tahun_ajaran'] ?></option>
                         <?php endforeach; ?>
                       </select>
                     </div>
