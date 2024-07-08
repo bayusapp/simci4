@@ -410,4 +410,9 @@ $(document).ready(function () {
     placeholder: "Pilih Data Dosen",
     allowClear: true,
   });
+
+  $(".tahun").select2({
+    placeholder: "Pilih Tahun",
+    allowClear: true,
+  });
 });
