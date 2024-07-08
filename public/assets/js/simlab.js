@@ -342,6 +342,123 @@ $(document).ready(function () {
       ],
     });
 
+    $("#asprak_si").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "27%", targets: [2] },
+        { width: "27%", targets: [3] },
+        { width: "10%", targets: [4] },
+        { width: "11%", targets: [5] },
+        { width: "10%", targets: [6] },
+      ],
+    });
+
+    $("#asprak_tk").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "27%", targets: [2] },
+        { width: "27%", targets: [3] },
+        { width: "10%", targets: [4] },
+        { width: "11%", targets: [5] },
+        { width: "10%", targets: [6] },
+      ],
+    });
+
+    $("#asprak_sia").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "27%", targets: [2] },
+        { width: "27%", targets: [3] },
+        { width: "10%", targets: [4] },
+        { width: "11%", targets: [5] },
+        { width: "10%", targets: [6] },
+      ],
+    });
+
+    $("#asprak_mp").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "27%", targets: [2] },
+        { width: "27%", targets: [3] },
+        { width: "10%", targets: [4] },
+        { width: "11%", targets: [5] },
+        { width: "10%", targets: [6] },
+      ],
+    });
+
+    $("#asprak_tt").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "27%", targets: [2] },
+        { width: "27%", targets: [3] },
+        { width: "10%", targets: [4] },
+        { width: "11%", targets: [5] },
+        { width: "10%", targets: [6] },
+      ],
+    });
+
+    $("#asprak_rpla").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "27%", targets: [2] },
+        { width: "27%", targets: [3] },
+        { width: "10%", targets: [4] },
+        { width: "11%", targets: [5] },
+        { width: "10%", targets: [6] },
+      ],
+    });
+
+    $("#asprak_ph").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "27%", targets: [2] },
+        { width: "27%", targets: [3] },
+        { width: "10%", targets: [4] },
+        { width: "11%", targets: [5] },
+        { width: "10%", targets: [6] },
+      ],
+    });
+
+    $("#asprak_trm").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "27%", targets: [2] },
+        { width: "27%", targets: [3] },
+        { width: "10%", targets: [4] },
+        { width: "11%", targets: [5] },
+        { width: "10%", targets: [6] },
+      ],
+    });
+
+    $("#asprak_sikc").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "27%", targets: [2] },
+        { width: "27%", targets: [3] },
+        { width: "10%", targets: [4] },
+        { width: "11%", targets: [5] },
+        { width: "10%", targets: [6] },
+      ],
+    });
+
     $("#laboran").DataTable({
       bAutoWidth: false,
       columnDefs: [
