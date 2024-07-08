@@ -27,4 +27,11 @@ class M_Tahun_Ajaran extends Model
     $this->where('id_ta', $id);
     return $this->first();
   }
+
+  public function getTahun()
+  {
+    $this->select('distinct(substring(tahun_ajaran, 1, 4)) as tahun');
+    $this->orderBy('tahun', 'DESC');
+    return $this->findAll();
+  }
 }
