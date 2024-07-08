@@ -105,6 +105,18 @@ if (!function_exists('tanggalIndoLengkap')) {
   }
 }
 
+if (!function_exists('tanggalIndo')) {
+  function tanggalIndo($tanggal)
+  {
+    $nama_hari      = hariIndo(date('l', strtotime($tanggal)));
+    $split_tanggal  = explode('-', $tanggal);
+    $tanggal        = $split_tanggal[2];
+    $bulan          = bulanIndoPanjang($split_tanggal[1]);
+    $tahun          = $split_tanggal[0];
+    return $nama_hari . ', ' . $tanggal . ' ' . $bulan . ' ' . $tahun;
+  }
+}
+
 if (!function_exists('bulanIndoPanjang')) {
   function bulanIndoPanjang($bulan)
   {
