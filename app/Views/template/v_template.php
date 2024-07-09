@@ -175,7 +175,26 @@ if ($segment_2 == null) {
     </div>
   </header>
   <!-- [ Header ] end -->
-  <?= $this->renderSection('content'); ?>
+  <!-- [ Main Content ] start -->
+  <section class="pcoded-main-container">
+    <div class="pcoded-content">
+      <!-- [ breadcrumb ] start -->
+      <div class="page-header">
+        <div class="page-block">
+          <div class="row align-items-center">
+            <div class="col-md-12">
+              <div class="page-header-title">
+                <!-- <h5 class="m-b-10">Basic Table Sizes</h5> -->
+                <img src="<?= base_url() ?>assets/images/logo_lab_white.png" style="max-height: 50px;">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- [ breadcrumb ] end -->
+      <?= $this->renderSection('content'); ?>
+    </div>
+  </section>
   <!-- [ Main Content ] end -->
   <!-- Required Js -->
   <script src="<?= base_url() ?>assets/js/vendor-all.min.js"></script>
