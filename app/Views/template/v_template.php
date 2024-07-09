@@ -38,6 +38,7 @@ if ($segment_2 == null) {
   <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
   <link rel="stylesheet" href="<?= base_url() ?>assets/css/plugins/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?= base_url() ?>assets/css/plugins/select2.min.css">
+  <link rel="stylesheet" href="<?= base_url() ?>assets/css/plugins/daterangepicker.css">
   <style>
     .honor_asprak {
       max-height: 330px;
@@ -58,6 +59,10 @@ if ($segment_2 == null) {
 
     .select2 {
       width: 100% !important;
+    }
+
+    table.table-bordered.dataTable tbody td {
+      vertical-align: middle;
     }
   </style>
 </head>
@@ -134,12 +139,8 @@ if ($segment_2 == null) {
   <!-- [ navigation menu ] end -->
   <!-- [ Header ] start -->
   <header class="navbar pcoded-header navbar-expand-lg navbar-light header-blue">
-    <div class="m-header">
+    <div class="m-header" style="width: 0px;">
       <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
-      <a href="#!" class="b-brand">
-        <!-- ========   change your logo hear   ============ -->
-        <img src="<?= base_url() ?>assets/images/logo.png" alt="" class="logo" height="28px">
-      </a>
       <a href="#!" class="mob-toggler">
         <i class="feather icon-more-vertical"></i>
       </a>
@@ -188,9 +189,13 @@ if ($segment_2 == null) {
   <script src="<?= base_url() ?>assets/js/plugins/dataTables.bootstrap4.min.js"></script>
   <!-- select2 Js -->
   <script src="<?= base_url() ?>assets/js/plugins/select2.full.min.js"></script>
-  <script src="<?= base_url() ?>assets/js/simlab.js"></script>
   <!-- Input mask Js -->
   <script src="<?= base_url() ?>assets/js/plugins/jquery.mask.min.js"></script>
+  <!-- datepicker js -->
+  <script src="<?= base_url() ?>assets/js/plugins/moment.min.js"></script>
+  <script src="<?= base_url() ?>assets/js/plugins/daterangepicker.js"></script>
+  <script src="<?= base_url() ?>assets/js/pages/ac-datepicker.js"></script>
+  <script src="<?= base_url() ?>assets/js/simlab.js"></script>
   <script>
     $(document).ready(function() {
       setTimeout(function() {
