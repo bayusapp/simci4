@@ -40,7 +40,7 @@ class Auth extends BaseController
         die();
       }
     } else {
-      $data['title'] = 'Login | Sistem Informasi Manajemen Laboratorium';
+      $data['title'] = 'Login | SIM Laboratorium';
       return view('auth/v_login', $data);
     }
   }
@@ -112,7 +112,7 @@ class Auth extends BaseController
     }
   }
 
-  public function registerLaboran()
+  public function laboran()
   {
     $data['title'] = 'Register Laboran | SIM Laboratorium';
     return view('auth/v_register_laboran', $data);

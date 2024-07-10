@@ -29,9 +29,9 @@
           <!-- <img src="assets/images/logo_auth.png" alt="" class="img-fluid" style="max-width: 200px;"> -->
           <h3 class="text-white font-weight-normal mb-4">Selamat Datang di</h3>
           <!-- <h2 class="text-white font-weight-normal mb-4">SIMLAB FIT</h2> -->
-          <img src="<?= base_url() ?>assets/images/logo_auth.png" alt="" class="img-fluid" style="max-width: 200px;">
-          <h5 class="text-white font-weight-normal mt-3">Unit Laboratorium/Bengkel/Studio<br>
-            Fakultas Ilmu Terapan, Telkom University</h5>
+          <img src="<?= base_url() ?>assets/images/logo_lab_white.png" alt="" class="img-fluid" style="max-width: 400px;">
+          <!-- <h5 class="text-white font-weight-normal mt-3">Unit Laboratorium/Bengkel/Studio<br>
+            Fakultas Ilmu Terapan, Telkom University</h5> -->
           <!-- <h4 class="text-white font-weight-normal">Signin to your account and get explore the Able pro Dashboard Template.<br />Do not forget to play with live customizer</h4> -->
         </div>
       </div>

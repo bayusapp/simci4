@@ -9,7 +9,7 @@ window.setTimeout(function () {
 function hapus_prodi(id) {
   swal({
     title: "Apakah Anda yakin?",
-    text: "Data Laboratorium akan dihapus",
+    text: "Data Program Studi Akan Dihapus",
     icon: "warning",
     buttons: true,
     dangerMode: true,
@@ -177,6 +177,33 @@ function hapus_mk_semester(id) {
         },
       });
     }
+  });
+}
+
+function cek_bank(id) {
+  $.ajax({
+    url: window.location.origin + "/Praktikum/cekBank",
+    method: "POST",
+    data: { id: id },
+    success: function (response) {
+      document.getElementById("data_bank_" + id).innerHTML = response;
+    },
+  });
+}
+
+function verif_bank(id) {
+  $.ajax({
+    url: window.location.origin + "/Praktikum/verifBank",
+    method: "POST",
+    data: { id: id },
+    success: function (response) {
+      if (response == "sukses") {
+        var label = document.getElementById("verif_bank_" + id);
+        document.getElementById("disetujui_" + id).style.display = "none";
+        label.innerHTML =
+          '<span class="badge badge-success"><i class="feather icon-check-circle"></i> Rekening Bank</span>';
+      }
+    },
   });
 }
 

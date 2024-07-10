@@ -417,7 +417,8 @@ class DataMaster extends BaseController
         'nama_laboran'    => $nama_laboran,
         'kontak_laboran'  => $kontak_laboran,
         'email_laboran'   => $email_laboran,
-        'posisi_laboran'  => $posisi_laboran
+        'posisi_laboran'  => $posisi_laboran,
+        'status'          => '1'
       ];
       if ($foto_laboran->getSize() > 0) {
         $nama_file      = $foto_laboran->getGenerateName($foto_laboran->getName());

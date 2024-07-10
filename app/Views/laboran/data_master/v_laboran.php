@@ -104,9 +104,17 @@
                       <a href="https://wa.me/<?= $l['kontak_laboran'] ?>" target="_blank" class="badge badge-pill badge-success">
                         <i class="fab fa-whatsapp"></i> WhatsApp
                       </a>
+                    <?php else : ?>
+                      <a href="#" class="badge badge-pill badge-danger">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
+                      </a>
                     <?php endif; ?>
                     <?php if ($l['email_laboran']) : ?>
-                      <a href="mailto:<?= $l['email_laboran'] ?>" target="_blank" class="badge badge-pill badge-info">
+                      <a href="mailto:<?= $l['email_laboran'] ?>" target="_blank" class="badge badge-pill badge-success">
+                        <i class="feather icon-mail"></i> Email
+                      </a>
+                    <?php else : ?>
+                      <a href="#" class="badge badge-pill badge-danger">
                         <i class="feather icon-mail"></i> Email
                       </a>
                     <?php endif; ?>

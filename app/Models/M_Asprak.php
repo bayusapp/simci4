@@ -16,4 +16,11 @@ class M_Asprak extends Model
     $this->where('nim_asprak', $nim);
     return $this->first();
   }
+
+  public function validateBank($nim)
+  {
+    $db = db_connect();
+    $query = "UPDATE asprak SET verif_laboran = '1' WHERE nim_asprak = '{$nim}'";
+    return $db->query($query);
+  }
 }

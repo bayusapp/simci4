@@ -27,7 +27,7 @@
         <?= session()->getFlashdata('deactiv') ?>
       </div>
     <?php endif; ?>
-    <form action="<?= base_url() ?>auth/login" method="post">
+    <form action="<?= base_url('Auth/login') ?>" method="post">
       <div class="form-group mb-3">
         <label class="floating-label" for="username">Username</label>
         <input type="text" class="form-control" id="username" name="username" value="<?= old('username') ?>">

@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\M_Asprak;
+use App\Models\M_Asprak_List;
 use App\Models\M_Dosen;
 use App\Models\M_Laboran;
 use App\Models\M_Matakuliah;
@@ -13,6 +15,8 @@ class Praktikum extends BaseController
 {
 
   var $data;
+  protected $asprak;
+  protected $asprak_list;
   protected $dosen;
   protected $laboran;
   protected $mk;
@@ -27,6 +31,8 @@ class Praktikum extends BaseController
       die();
     } else {
       if (session()->get('id_role') == '1' || session()->get('id_role') == '2') {
+        $this->asprak       = new M_Asprak();
+        $this->asprak_list  = new M_Asprak_List();
         $this->dosen        = new M_Dosen();
         $this->laboran      = new M_Laboran();
         $this->prodi        = new M_Prodi();
@@ -136,7 +142,90 @@ class Praktikum extends BaseController
   public function Asprak()
   {
     $data = $this->data;
+    if (!$this->validate([
+      'tahun_ajaran'  => ['rules' => 'required']
+    ])) {
+      $data['tahun_aktif']  = $this->ta->getTahunAjaran()['id_ta'];
+    } else {
+      $data['tahun_aktif']  = $this->request->getPost('tahun_ajaran');
+    }
     $data['prodi']  = $this->prodi->getDataProdi();
+    $data['ta']     = $this->ta->getAllTahunAjaran();
     return view('laboran/praktikum/v_asprak', $data);
+  }
+
+  public function simpanCSVAsprak()
+  {
+    $ta_aktif       = $this->ta->getTahunAjaran()['id_ta'];
+    $file           = $_FILES['file_csv']['tmp_name'];
+    $ekstensi_file  = explode('.', $_FILES['file_csv']['name']);
+    if (strtolower(end($ekstensi_file)) === 'csv' && $_FILES['file_csv']['size'] > 0) {
+      $handle = fopen($file, 'r');
+      $i      = 0;
+      while ($row = fgetcsv($handle, 2048, ';')) {
+        $i++;
+        if ($i == 1) {
+          continue;
+        }
+        $nim      = $row[0];
+        $nama     = $row[1];
+        $kode_mk  = $row[2];
+        $input    = [
+          'nim_asprak'  => $nim,
+          'nama_asprak' => $nama
+        ];
+        $cek_asprak = $this->asprak->checkDataAsprak($nim);
+        if (!$cek_asprak) {
+          $this->asprak->insert($input);
+        }
+        $id_mk_semester = $this->mk_semester->checkDataMKSemester($kode_mk, $ta_aktif)['id_mk_semester'];
+        $input_list = [
+          'nim_asprak'      => $nim,
+          'id_mk_semester'  => $id_mk_semester
+        ];
+        $cek_asprak_list  = $this->asprak_list->checkDataAsprakList($nim, $id_mk_semester);
+        if (!$cek_asprak_list) {
+          $this->asprak_list->insert($input_list);
+        }
+      }
+      session()->setFlashdata('sukses', 'Data Asisten Praktikum Sukses Ditambahkan');
+      return redirect()->back();
+    }
+  }
+
+  public function cekBank()
+  {
+    if (!$this->validate([
+      'id' => ['rules' => 'required']
+    ])) {
+      return redirect()->to('Beranda');
+    } else {
+      $id = $this->request->getPost('id');
+      $split_bank = explode('/', $id);
+      $kode_bank  = $split_bank[0];
+      $norek_bank = $split_bank[1];
+      $ambil_data = file_get_contents("https://api-rekening.lfourr.com/getBankAccount?bankCode={$kode_bank}&accountNumber={$norek_bank}");
+      $convert_data = json_decode($ambil_data);
+      return 'Rekening a.n. ' . $convert_data->data->accountname . ', Nomor Rekening ' . $convert_data->data->accountnumber . ' pada ' . $convert_data->data->bankname;
+    }
+  }
+
+  public function verifBank()
+  {
+    if (!$this->validate([
+      'id' => ['rules' => 'required']
+    ])) {
+      return redirect()->to('Beranda');
+    } else {
+      $id = $this->request->getPost('id');
+      $nim_asprak = $this->asprak_list->validateBank($id)['nim_asprak'];
+      $this->asprak->validateBank($nim_asprak);
+      return 'sukses';
+    }
+  }
+
+  public function SP()
+  {
+    return view('asprak/v_surat_perjanjian');
   }
 }
