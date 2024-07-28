@@ -1,10 +1,14 @@
-window.setTimeout(function () {
-  $(".alert")
-    .fadeTo(500, 0)
-    .slideUp(500, function () {
-      $(this).remove();
-    });
-}, 5000);
+// window.setTimeout(function () {
+//   $(".alert")
+//     .fadeTo(500, 0)
+//     .slideUp(500, function () {
+//       $(this).remove();
+//     });
+// }, 5000);
+function hanyaAngka(event) {
+  if ("01234567890".indexOf(event.key.toLowerCase()) < 0)
+    return event.preventDefault();
+}
 
 function hapus_prodi(id) {
   swal({
@@ -263,6 +267,40 @@ function hapus_kalender(id) {
       });
     }
   });
+}
+
+function hapus_kehadiran(id) {
+  swal({
+    title: "Apakah Anda yakin?",
+    text: "Data kehadiran Anda akan dihapus",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+    buttons: ["Tidak", "Ya"],
+  }).then((willDelete) => {
+    if (willDelete) {
+      $.ajax({
+        url: window.location.origin + "/Kehadiran/hapusKehadiran",
+        method: "POST",
+        data: { id, id },
+        success: function (response) {
+          swal({
+            text: "Data kehadiran Anda sukses dihapus",
+            icon: "success",
+            timer: 2000,
+            buttons: false,
+          }).then(function () {
+            location.reload();
+          });
+        },
+      });
+    }
+  });
+}
+
+function jam_praktikum(event) {
+  if ("01234567890:".indexOf(event.key.toLowerCase()) < 0)
+    return event.preventDefault();
 }
 
 $(document).ready(function () {
@@ -533,9 +571,29 @@ $(document).ready(function () {
     });
 
     $("#riwayat_login").DataTable();
+
+    $("#kehadiran").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "7%", targets: [2], className: "text-center" },
+        { width: "7%", targets: [3], className: "text-center" },
+        { width: "7%", targets: [4], className: "text-center" },
+        { width: "10%", targets: [5] },
+        { width: "9%", targets: [7], className: "text-center" },
+        { width: "12%", targets: [8], className: "text-center" },
+        { width: "10%", targets: [9], className: "text-center" },
+      ],
+    });
   }, 0);
 
   $(".kontak").mask("(00) 0000-0000-0000");
+
+  $(".bank").select2({
+    placeholder: "Pilih Nama Bank",
+    allowClear: true,
+  });
 
   $(".prodi").select2({
     placeholder: "Pilih Program Studi",
@@ -561,4 +619,78 @@ $(document).ready(function () {
     placeholder: "Pilih Tahun",
     allowClear: true,
   });
+
+  $(".mk_asprak").select2({
+    placeholder: "Pilih Mata Kuliah",
+    allowClear: true,
+  });
+
+  var masuk = $("#jam_masuk");
+  var keluar = $("#jam_keluar");
+  var hours = [
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+  ];
+  var minutes = ["00", "30"];
+
+  masuk.clockpicker({
+    autoclose: true,
+    afterShow: function () {
+      $(".clockpicker-minutes")
+        .find(".clockpicker-tick")
+        .filter(function (index, element) {
+          return !($.inArray($(element).text(), minutes) != -1);
+        })
+        .remove();
+      $(".clockpicker-hours")
+        .find(".clockpicker-tick")
+        .filter(function (index, element) {
+          return !($.inArray($(element).text(), hours) != -1);
+        })
+        .remove();
+    },
+  });
+
+  keluar.clockpicker({
+    autoclose: true,
+    afterShow: function () {
+      $(".clockpicker-minutes")
+        .find(".clockpicker-tick")
+        .filter(function (index, element) {
+          return !($.inArray($(element).text(), minutes) != -1);
+        })
+        .remove();
+      $(".clockpicker-hours")
+        .find(".clockpicker-tick")
+        .filter(function (index, element) {
+          return !($.inArray($(element).text(), hours) != -1);
+        })
+        .remove();
+    },
+  });
+
+  document
+    .getElementById("jam_masuk")
+    .addEventListener("keypress", function (event) {
+      if ("01234567890:".indexOf(event.key.toLowerCase()) < 0)
+        event.preventDefault();
+    });
+
+  document
+    .getElementById("jam_keluar")
+    .addEventListener("keypress", function (event) {
+      if ("01234567890:".indexOf(event.key.toLowerCase()) < 0)
+        event.preventDefault();
+    });
 });

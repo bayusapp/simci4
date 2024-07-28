@@ -35,4 +35,17 @@ class M_Asprak_List extends Model
     $this->where("substr(sha1(id_asprak_list), 8, 7)", $id_hash);
     return $this->first();
   }
+
+  public function getListMKAsprak($nim, $id_ta)
+  {
+    $this->join('matakuliah_semester', 'asprak_list.id_mk_semester = matakuliah_semester.id_mk_semester');
+    $this->join('matakuliah', 'matakuliah_semester.kode_mk = matakuliah.kode_mk');
+    $this->join('prodi', 'matakuliah.id_prodi = prodi.id_prodi');
+    $this->join('tahun_ajaran', 'matakuliah_semester.id_ta = tahun_ajaran.id_ta');
+    $this->where('asprak_list.nim_asprak', $nim);
+    $this->where('matakuliah_semester.id_ta', $id_ta);
+    $this->orderBy('prodi.id_prodi', 'ASC');
+    $this->orderBy('matakuliah.kode_mk', 'ASC');
+    return $this->findAll();
+  }
 }

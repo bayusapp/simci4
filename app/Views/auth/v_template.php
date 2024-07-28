@@ -19,6 +19,57 @@
   <link rel="shortcut icon" href="<?= base_url() ?>assets/images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI=" crossorigin="" />
+  <style>
+    .swal-button--danger {
+      color: #fff;
+      background-color: #00acc1;
+      border-color: #00acc1;
+    }
+
+    .swal-button--danger:not([disabled]):hover {
+      color: #fff;
+      background-color: #008a9b;
+      border-color: #007f8e;
+    }
+
+    .swal-button--danger:active {
+      color: #fff;
+      background-color: #007f8e;
+      border-color: #007381;
+    }
+
+    .swal-button--danger:focus {
+      color: #fff;
+      background-color: #008a9b;
+      border-color: #007f8e;
+      box-shadow: 0 0 0 0rem rgba(38, 184, 202, 0.5);
+    }
+
+    .swal-button--cancel {
+      color: #fff;
+      background-color: #9ccc65;
+      border-color: #9ccc65;
+    }
+
+    .swal-button--cancel:not([disabled]):hover {
+      color: #fff;
+      background-color: #8ac248;
+      border-color: #83bf3f;
+    }
+
+    .swal-button--cancel:active {
+      color: #fff;
+      background-color: #83bf3f;
+      border-color: #7db53c;
+    }
+
+    .swal-button--cancel:focus {
+      color: #fff;
+      background-color: #9ccc65;
+      border-color: #9ccc65;
+      box-shadow: 0 0 0 0rem rgba(171, 212, 124, 0.5);
+    }
+  </style>
 </head>
 
 <body>
@@ -42,31 +93,58 @@
   <script src="<?= base_url() ?>assets/js/plugins/bootstrap.min.js"></script>
   <script src="<?= base_url() ?>assets/js/ripple.js"></script>
   <script src="<?= base_url() ?>assets/js/pcoded.min.js"></script>
-  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
-  <script>
-    const map = L.map('map').fitWorld();
+  <!-- sweet alert Js -->
+  <script src="<?= base_url() ?>assets/js/plugins/sweetalert.min.js"></script>
+  <?php
+  $uri        = service('uri');
+  $segment_1  = $uri->getSegment(1);
+  if (!$segment_1) {
+  ?>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+    <script>
+      const map = L.map('map').fitWorld();
 
-    const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-    }).addTo(map);
+      const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      }).addTo(map);
 
-    function onLocationFound(e) {
-      document.getElementById('location').value = e.latlng;
-    }
+      function onLocationFound(e) {
+        document.getElementById('location').value = e.latlng;
+      }
 
-    function onLocationError(e) {
-      console.log(e.message);
-    }
+      function onLocationError(e) {
+        console.log(e.message);
+      }
 
-    map.on('locationfound', onLocationFound);
-    map.on('locationerror', onLocationError);
+      map.on('locationfound', onLocationFound);
+      map.on('locationerror', onLocationError);
 
-    map.locate({
-      setView: true,
-      maxZoom: 16
-    });
-  </script>
+      map.locate({
+        setView: true,
+        maxZoom: 16
+      });
+
+      function register() {
+        swal({
+          title: "Register Akun SIM Lab",
+          text: "Register sebagai",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+          buttons: ["Asisten Praktikum", "Dosen"],
+        }).then((willDelete) => {
+          if (willDelete) {
+            location.replace(window.location.origin + "/Auth/dosen");
+          } else {
+            location.replace(window.location.origin + "/Auth/asprak");
+          }
+        });
+      }
+    </script>
+  <?php
+  }
+  ?>
 </body>
 
 </html>

@@ -17,6 +17,12 @@ class M_Laboratorium extends Model
     return $this->findAll();
   }
 
+  public function getDataLabByKode($kode)
+  {
+    $this->where('kode_igracias', $kode);
+    return $this->first();
+  }
+
   public function getDataLabPraktikum()
   {
     $this->select('laboratorium.id_lab, laboratorium.nama_lab, laboratorium.kode_lab, laboratorium.kode_ruang, laboratorium.id_lab_kategori, laboratorium.id_lab_lokasi, laboratorium.id_prodi, laboratorium_lokasi.lokasi, prodi.nama_prodi, prodi.jenjang_prodi');

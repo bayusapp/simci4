@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\M_Asprak;
 use App\Models\M_Forgot_Password;
 use App\Models\M_Laboran;
 use App\Models\M_Riwayat_Login;
@@ -11,6 +12,7 @@ use App\Models\M_Users_Role;
 class Auth extends BaseController
 {
 
+  protected $asprak;
   protected $laboran;
   protected $token;
   protected $users;
@@ -19,6 +21,7 @@ class Auth extends BaseController
 
   public function __construct()
   {
+    $this->asprak     = new M_Asprak();
     $this->laboran    = new M_Laboran();
     $this->token      = new M_Forgot_Password();
     $this->users      = new M_Users();
@@ -98,15 +101,15 @@ class Auth extends BaseController
               return redirect()->to(base_url('Asprak/Beranda'));
             }
           } else {
-            session()->setFlashdata('invalid_password', 'Password tidak valid');
+            session()->setFlashdata('error', 'Password tidak valid');
             return redirect()->back()->withInput();
           }
         } else {
-          session()->setFlashdata('deactiv', 'Akun Anda berstatus nonaktif. Silahkan hubungi Unit Laboratorium');
+          session()->setFlashdata('error', 'Akun Anda berstatus nonaktif. Silahkan hubungi Unit Laboratorium');
           return redirect()->back()->withInput();
         }
       } else {
-        session()->setFlashdata('not_found', 'Username tidak ditemukan');
+        session()->setFlashdata('error', 'Username tidak ditemukan');
         return redirect()->back()->withInput();
       }
     }
@@ -172,6 +175,58 @@ Terima kasih";
       } else {
         session()->setFlashdata('not_laboran', $this->validator->listErrors());
         return redirect()->back()->withInput();
+      }
+    }
+  }
+
+  public function asprak()
+  {
+    $data['title'] = 'Register Asisten Praktikum | SIM Laboratorium';
+    return view('auth/v_register_asprak', $data);
+  }
+
+  public function registerAsprak()
+  {
+    if (!$this->validate([
+      'nim'       => ['rules' => 'required'],
+      'username'  => ['rules' => 'required'],
+      'password'  => ['rules' => 'required']
+    ])) {
+      session()->setFlashdata('error', "Harap lengkapi seluruh field.");
+      return redirect()->back()->withInput();
+    } else {
+      $nim          = $this->request->getPost('nim');
+      $username     = $this->request->getPost('username');
+      $password     = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
+      $cek_asprak   = $this->asprak->checkDataAsprak($nim);
+      if (!$cek_asprak) {
+        session()->setFlashdata('error', "NIM <b>{$nim}</b> tidak terdaftar sebagai Asisten Praktikum. Silahkan ke Unit Laboratorium untuk konfirmasi.");
+        return redirect()->back()->withInput();
+      } else {
+        $cek_regis  = $this->users->getUserByNIM($nim);
+        if ($cek_regis) {
+          session()->setFlashdata('error', "NIM <b>{$nim}</b> sudah melakukan register akun.");
+          return redirect()->back()->withInput();
+        } else {
+          $cek_username = $this->users->getUsername($username);
+          if ($cek_username) {
+            session()->setFlashdata('error', "Username <b>{$username}</b> sudah digunakan. Silahkan gunakan username lain.");
+            return redirect()->back()->withInput();
+          } else {
+            $input  = [
+              'username'          => $username,
+              'password'          => $password,
+              'id_role'           => '4',
+              'status_akun'       => '1',
+              'tanggal_register'  => date('Y-m-d H:i:s'),
+              'nim_asprak'        => $nim
+            ];
+            $this->users->insert($input);
+            session()->setFlashdata('success', "Akun Anda sudah terdaftar. Silahkan login");
+            header("Location: " . base_url());
+            die();
+          }
+        }
       }
     }
   }

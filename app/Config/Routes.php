@@ -6,10 +6,18 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 
+$routes->get('/Logbook', 'Logbook::index');
+$routes->get('/Logbook/upload', 'Logbook::upload');
+$routes->post('/Logbook/simpan', 'Logbook::simpan');
+$routes->post('/Logbook/LogbookLab', 'Logbook::LogbookLab');
+$routes->post('/Logbook/BAST', 'Logbook::BAST');
+
 // begin route class Auth
 $routes->get('/', 'Auth::index');
 $routes->post('/Auth/login', 'Auth::login');
 $routes->get('/Auth/logout', 'Auth::logout');
+$routes->get('/Auth/asprak', 'Auth::asprak');
+$routes->post('/Auth/registerAsprak', 'Auth::registerAsprak');
 // end route class Auth
 
 // begin route for laboran access
@@ -62,5 +70,18 @@ $routes->post('/Praktikum/Asprak', 'Praktikum::Asprak');
 $routes->post('/Praktikum/simpanCSVAsprak', 'Praktikum::simpanCSVAsprak');
 $routes->post('/Praktikum/cekBank', 'Praktikum::cekBank');
 $routes->post('/Praktikum/verifBank', 'Praktikum::verifBank');
+
+$routes->get('/Kalender', 'Kalender::index');
 // end route class Praktikum
 // end route for laboran access
+
+// begin route for asprak access
+$routes->get('/Asprak/Beranda', 'Asprak\Beranda::index');
+$routes->get('/Asprak/Kehadiran', 'Asprak\Kehadiran::index');
+// $routes->get('/Asprak/Kehadiran/simpanKehadiran', 'Asprak\Kehadiran::simpanKehadiran');
+$routes->post('/Asprak/Kehadiran/simpanKehadiran', 'Asprak\Kehadiran::simpanKehadiran');
+$routes->post('/Asprak/Kehadiran/hapusKehadiran', 'Asprak\Kehadiran::hapusKehadiran');
+
+$routes->get('/Asprak/DataPribadi', 'Asprak\DataPribadi::index');
+$routes->post('/Asprak/DataPribadi/simpanData', 'Asprak\DataPribadi::simpanData');
+// end route for asprak access
