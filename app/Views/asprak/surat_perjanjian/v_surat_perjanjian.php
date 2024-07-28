@@ -29,9 +29,6 @@
       width: 100%;
     }
 
-    .table th,
-    td {}
-
     .table thead {
       font-weight: bold;
     }
