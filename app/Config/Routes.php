@@ -82,6 +82,11 @@ $routes->get('/Asprak/Kehadiran', 'Asprak\Kehadiran::index');
 $routes->post('/Asprak/Kehadiran/simpanKehadiran', 'Asprak\Kehadiran::simpanKehadiran');
 $routes->post('/Asprak/Kehadiran/hapusKehadiran', 'Asprak\Kehadiran::hapusKehadiran');
 
+$routes->get('/Asprak/SuratPerjanjian', 'Asprak\SuratPerjanjian::index');
+$routes->get('/Asprak/SuratPerjanjian/view', 'Asprak\SuratPerjanjian::view');
+
 $routes->get('/Asprak/DataPribadi', 'Asprak\DataPribadi::index');
 $routes->post('/Asprak/DataPribadi/simpanData', 'Asprak\DataPribadi::simpanData');
+
+$routes->get('/Asprak/RiwayatLogin', 'Asprak\RiwayatLogin::index');
 // end route for asprak access

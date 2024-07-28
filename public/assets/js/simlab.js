@@ -586,6 +586,18 @@ $(document).ready(function () {
         { width: "10%", targets: [9], className: "text-center" },
       ],
     });
+
+    $("#surat_perjanjian").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        // { width: "10%", targets: [1] },
+        // { width: "7%", targets: [2], className: "text-center" },
+        // { width: "7%", targets: [3], className: "text-center" },
+        // { width: "7%", targets: [4], className: "text-center" },
+        { width: "12%", targets: [5] },
+      ],
+    });
   }, 0);
 
   $(".kontak").mask("(00) 0000-0000-0000");

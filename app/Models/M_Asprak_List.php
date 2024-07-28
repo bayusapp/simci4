@@ -48,4 +48,14 @@ class M_Asprak_List extends Model
     $this->orderBy('matakuliah.kode_mk', 'ASC');
     return $this->findAll();
   }
+
+  public function getSuratPerjanjian($nim)
+  {
+    $this->join('matakuliah_semester', 'asprak_list.id_mk_semester = matakuliah_semester.id_mk_semester');
+    $this->join('matakuliah', 'matakuliah_semester.kode_mk = matakuliah.kode_mk');
+    $this->join('prodi', 'matakuliah.id_prodi = prodi.id_prodi');
+    $this->join('tahun_ajaran', 'matakuliah_semester.id_ta = tahun_ajaran.id_ta');
+    $this->where('nim_asprak', $nim);
+    return $this->findAll();
+  }
 }
