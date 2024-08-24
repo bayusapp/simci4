@@ -127,19 +127,28 @@
 
       function register() {
         swal({
-          title: "Register Akun SIM Lab",
-          text: "Register sebagai",
-          icon: "warning",
-          buttons: true,
-          dangerMode: true,
-          buttons: ["Asisten Praktikum", "Dosen"],
-        }).then((willDelete) => {
-          if (willDelete) {
-            location.replace(window.location.origin + "/Auth/dosen");
-          } else {
-            location.replace(window.location.origin + "/Auth/asprak");
-          }
-        });
+            title: "Register Akun SIM Laboratorium",
+            text: "Register sebagai?",
+            icon: "warning",
+            buttons: {
+              dosen: {
+                text: "Dosen",
+                value: "dosen",
+              },
+              asprak: {
+                text: "Asisten Praktikum"
+              },
+            },
+            confirmButtonColor: '#8CD4F5',
+          })
+          .then((value) => {
+            switch (value) {
+              case "asprak":
+                location.replace(window.location.origin + "/Auth/asprak");
+              case "dosen":
+                location.replace(window.location.origin + "/Auth/dosen");
+            }
+          });
       }
     </script>
   <?php

@@ -30,6 +30,13 @@ class M_Matakuliah extends Model
     return $this->findAll();
   }
 
+  public function getProdiByKodeMK($kode_mk)
+  {
+    $this->join('prodi', 'matakuliah.id_prodi = prodi.id_prodi');
+    $this->where('kode_mk', $kode_mk);
+    return $this->first();
+  }
+
   public function updateDataMK($kode_old, $kode_mk, $nama_mk, $id_prodi)
   {
     $db = db_connect();

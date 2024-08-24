@@ -18,6 +18,8 @@ $routes->post('/Auth/login', 'Auth::login');
 $routes->get('/Auth/logout', 'Auth::logout');
 $routes->get('/Auth/asprak', 'Auth::asprak');
 $routes->post('/Auth/registerAsprak', 'Auth::registerAsprak');
+$routes->get('/Auth/dosen', 'Auth::dosen');
+$routes->post('/Auth/registerDosen', 'Auth::registerDosen');
 // end route class Auth
 
 // begin route for laboran access
@@ -71,7 +73,16 @@ $routes->post('/Praktikum/simpanCSVAsprak', 'Praktikum::simpanCSVAsprak');
 $routes->post('/Praktikum/cekBank', 'Praktikum::cekBank');
 $routes->post('/Praktikum/verifBank', 'Praktikum::verifBank');
 
+$routes->get('/Praktikum/BAP', 'Praktikum::BAP');
+$routes->post('/Praktikum/generateBAP', 'Praktikum::generateBAP');
+$routes->get('/Praktikum/LihatBAP/(:any)', 'Praktikum::LihatBAP');
+
+$routes->get('/Praktikum/SuratTugas/', 'Praktikum::SuratTugas');
+
 $routes->get('/Kalender', 'Kalender::index');
+
+$routes->get('/TroubleTicket', 'TroubleTicket::index');
+$routes->get('/TroubleTicket/test', 'TroubleTicket::test');
 // end route class Praktikum
 // end route for laboran access
 
@@ -83,10 +94,19 @@ $routes->post('/Asprak/Kehadiran/simpanKehadiran', 'Asprak\Kehadiran::simpanKeha
 $routes->post('/Asprak/Kehadiran/hapusKehadiran', 'Asprak\Kehadiran::hapusKehadiran');
 
 $routes->get('/Asprak/SuratPerjanjian', 'Asprak\SuratPerjanjian::index');
-$routes->get('/Asprak/SuratPerjanjian/view', 'Asprak\SuratPerjanjian::view');
+$routes->get('/Asprak/SuratPerjanjian/view/(:any)', 'Asprak\SuratPerjanjian::view');
+$routes->post('/Asprak/SuratPerjanjian/approve', 'Asprak\SuratPerjanjian::approve');
 
 $routes->get('/Asprak/DataPribadi', 'Asprak\DataPribadi::index');
 $routes->post('/Asprak/DataPribadi/simpanData', 'Asprak\DataPribadi::simpanData');
 
 $routes->get('/Asprak/RiwayatLogin', 'Asprak\RiwayatLogin::index');
 // end route for asprak access
+
+// begin route for dosen access
+$routes->get('/Dosen/Beranda', 'Dosen\Beranda::index');
+
+$routes->get('/Dosen/Kehadiran', 'Dosen\Kehadiran::index');
+$routes->post('/Dosen/Kehadiran/approve', 'Dosen\Kehadiran::approve');
+$routes->post('/Dosen/Kehadiran/reject', 'Dosen\Kehadiran::reject');
+// end route for dosen access

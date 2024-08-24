@@ -298,9 +298,114 @@ function hapus_kehadiran(id) {
   });
 }
 
+function ttd_sp(id) {
+  $.ajax({
+    url: window.location.origin + "/Asprak/SuratPerjanjian/approve",
+    method: "POST",
+    data: { id: id },
+    success: function (response) {
+      if (response == "sukses") {
+        var label = document.getElementById("status_sp_" + id);
+        document.getElementById("ttd_" + id).style.display = "none";
+        label.innerHTML =
+          '<span class="badge badge-success"><i class="feather feather icon-check-circle"></i> Sudah Tanda Tangan</span>';
+        $(function () {
+          toastr.options = {
+            closeButton: true,
+            debug: false,
+            progressBar: false,
+            preventDuplicates: false,
+            positionClass: "toast-top-right",
+            onclick: null,
+            showDuration: "400",
+            hideDuration: "1000",
+            timeOut: "7000",
+            extendedTimeOut: "1000",
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "fadeIn",
+            hideMethod: "fadeOut",
+          };
+          toastr.success("Surat Perjanjian Sukses Anda Tanda Tangani");
+        });
+      }
+    },
+  });
+}
+
 function jam_praktikum(event) {
   if ("01234567890:".indexOf(event.key.toLowerCase()) < 0)
     return event.preventDefault();
+}
+
+function approve_kehadiran(id) {
+  $.ajax({
+    url: window.location.origin + "/Dosen/Kehadiran/approve",
+    method: "POST",
+    data: { id: id },
+    success: function (response) {
+      if (response == "sukses") {
+        var label = document.getElementById("status_approve_" + id);
+        document.getElementById("button_aksi_" + id).innerHTML = "-";
+        label.innerHTML =
+          '<span class="badge badge-success"><i class="feather feather icon-check-circle"></i> Disetujui</span>';
+        $(function () {
+          toastr.options = {
+            closeButton: true,
+            debug: false,
+            progressBar: false,
+            preventDuplicates: false,
+            positionClass: "toast-top-right",
+            onclick: null,
+            showDuration: "400",
+            hideDuration: "1000",
+            timeOut: "7000",
+            extendedTimeOut: "1000",
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "fadeIn",
+            hideMethod: "fadeOut",
+          };
+          toastr.success("Kehadiran Asisten Praktikum Telah Disetujui");
+        });
+      }
+    },
+  });
+}
+
+function reject_kehadiran(id) {
+  $.ajax({
+    url: window.location.origin + "/Dosen/Kehadiran/reject",
+    method: "POST",
+    data: { id: id },
+    success: function (response) {
+      if (response == "sukses") {
+        var label = document.getElementById("status_approve_" + id);
+        document.getElementById("button_aksi_" + id).innerHTML = "-";
+        label.innerHTML =
+          '<span class="badge badge-danger"><i class="feather feather icon-x-circle"></i> Ditolak</span>';
+        $(function () {
+          toastr.options = {
+            closeButton: true,
+            debug: false,
+            progressBar: false,
+            preventDuplicates: false,
+            positionClass: "toast-top-right",
+            onclick: null,
+            showDuration: "400",
+            hideDuration: "1000",
+            timeOut: "7000",
+            extendedTimeOut: "1000",
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "fadeIn",
+            hideMethod: "fadeOut",
+          };
+          toastr.success("Kehadiran Asisten Praktikum Telah Ditolak");
+        });
+      }
+    },
+  });
 }
 
 $(document).ready(function () {
@@ -553,6 +658,123 @@ $(document).ready(function () {
       ],
     });
 
+    $("#bap_si").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "27%", targets: [2] },
+        { width: "27%", targets: [3] },
+        { width: "10%", targets: [4] },
+        { width: "11%", targets: [5], className: "text-center" },
+        { width: "10%", targets: [6], className: "text-center" },
+      ],
+    });
+
+    $("#bap_tk").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "27%", targets: [2] },
+        { width: "27%", targets: [3] },
+        { width: "10%", targets: [4] },
+        { width: "11%", targets: [5], className: "text-center" },
+        { width: "10%", targets: [6], className: "text-center" },
+      ],
+    });
+
+    $("#bap_sia").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "27%", targets: [2] },
+        { width: "27%", targets: [3] },
+        { width: "10%", targets: [4] },
+        { width: "11%", targets: [5], className: "text-center" },
+        { width: "10%", targets: [6], className: "text-center" },
+      ],
+    });
+
+    $("#bap_mp").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "27%", targets: [2] },
+        { width: "27%", targets: [3] },
+        { width: "10%", targets: [4] },
+        { width: "11%", targets: [5], className: "text-center" },
+        { width: "10%", targets: [6], className: "text-center" },
+      ],
+    });
+
+    $("#bap_tt").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "27%", targets: [2] },
+        { width: "27%", targets: [3] },
+        { width: "10%", targets: [4] },
+        { width: "11%", targets: [5], className: "text-center" },
+        { width: "10%", targets: [6], className: "text-center" },
+      ],
+    });
+
+    $("#bap_rpla").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "27%", targets: [2] },
+        { width: "28%", targets: [3] },
+        { width: "10%", targets: [4] },
+        { width: "10%", targets: [5], className: "text-center" },
+        { width: "10%", targets: [6], className: "text-center" },
+      ],
+    });
+
+    $("#bap_ph").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "27%", targets: [2] },
+        { width: "27%", targets: [3] },
+        { width: "10%", targets: [4] },
+        { width: "11%", targets: [5], className: "text-center" },
+        { width: "10%", targets: [6], className: "text-center" },
+      ],
+    });
+
+    $("#bap_trm").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "27%", targets: [2] },
+        { width: "27%", targets: [3] },
+        { width: "10%", targets: [4] },
+        { width: "11%", targets: [5], className: "text-center" },
+        { width: "10%", targets: [6], className: "text-center" },
+      ],
+    });
+
+    $("#bap_sikc").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "27%", targets: [2] },
+        { width: "27%", targets: [3] },
+        { width: "10%", targets: [4] },
+        { width: "10%", targets: [5], className: "text-center" },
+        { width: "10%", targets: [6], className: "text-center" },
+      ],
+    });
+
     $("#laboran").DataTable({
       bAutoWidth: false,
       columnDefs: [
@@ -594,8 +816,8 @@ $(document).ready(function () {
         // { width: "10%", targets: [1] },
         // { width: "7%", targets: [2], className: "text-center" },
         // { width: "7%", targets: [3], className: "text-center" },
-        // { width: "7%", targets: [4], className: "text-center" },
-        { width: "12%", targets: [5] },
+        { width: "13%", targets: [4], className: "text-center" },
+        { width: "10%", targets: [5], className: "text-center" },
       ],
     });
   }, 0);
@@ -635,6 +857,34 @@ $(document).ready(function () {
   $(".mk_asprak").select2({
     placeholder: "Pilih Mata Kuliah",
     allowClear: true,
+  });
+
+  $(function () {
+    $(function () {
+      $('input[name="dari_tanggal"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+      });
+
+      $('input[name="sampai_tanggal"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+      });
+    });
+  });
+
+  $("#kehadiran_asprak").DataTable({
+    bAutoWidth: false,
+    columnDefs: [
+      { width: "5%", targets: [0] },
+      { width: "10%", targets: [1] },
+      { width: "7%", targets: [2], className: "text-center" },
+      { width: "7%", targets: [3], className: "text-center" },
+      { width: "7%", targets: [4], className: "text-center" },
+      { width: "10%", targets: [5] },
+      { width: "9%", targets: [7], className: "text-center" },
+      { width: "10%", targets: [8], className: "text-center" },
+    ],
   });
 
   var masuk = $("#jam_masuk");

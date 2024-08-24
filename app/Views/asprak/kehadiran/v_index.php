@@ -33,7 +33,7 @@
         if ($identitas['email_asprak'] == null) {
           $error[] = 'Alamat email belum diisi.';
         }
-        if ($identitas['norek_asprak'] == null || $identitas['bank'] == null || $identitas['nama_akun']) {
+        if ($identitas['norek_asprak'] == null || $identitas['bank'] == null || $identitas['nama_akun'] == null) {
           $error[] = 'No. Rekening belum diisi.';
         }
         if ($identitas['file_foto'] == null) {
@@ -172,9 +172,11 @@
               foreach ($kehadiran as $k) :
                 $hash_id_kehadiran = substr(sha1($k['id_kehadiran']), 7, 7);
                 if ($k['approve_dosen'] == '0') :
-                  $approve = '<span class="badge badge-warning"><i class="feather icon-alert-circle"></i> Belum Diverifikasi</span>';
+                  $approve = '<span class="badge badge-warning"><i class="feather icon-alert-circle"></i> Menunggu Persetujuan</span>';
                 elseif ($k['approve_dosen'] == '1') :
-                  $approve = '<span class="badge badge-success"><i class="feather icon-check-circle"></i> Terverifikasi</span>';
+                  $approve = '<span class="badge badge-success"><i class="feather icon-check-circle"></i> Disetujui</span>';
+                elseif ($k['approve_dosen'] == '2') :
+                  $approve = '<span class="badge badge-danger"><i class="feather icon-x-circle"></i> Ditolak</span>';
                 endif;
               ?>
                 <tr>

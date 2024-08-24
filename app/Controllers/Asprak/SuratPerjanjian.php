@@ -44,6 +44,22 @@ class SuratPerjanjian extends BaseController
 
   public function view()
   {
-    return view('asprak/surat_perjanjian/v_surat_perjanjian');
+    $id  = $this->request->getUri()->getSegment(4);
+    $data['sp'] = $this->asprak_list->getSuratPerjanjianById($id);
+    return view('asprak/surat_perjanjian/v_surat_perjanjian', $data);
+  }
+
+  public function approve()
+  {
+    if (!$this->validate([
+      'id'  => ['rules' => 'required']
+    ])) {
+      return redirect()->to('Asprak/Beranda');
+    } else {
+      $id = $this->request->getPost('id');
+      $tanggal = date('Y-m-d');
+      $this->asprak_list->approveSuratPerjanjian($id, $tanggal);
+      return 'sukses';
+    }
   }
 }

@@ -37,6 +37,24 @@ class M_Matakuliah_Semester extends Model
     return $this->findAll();
   }
 
+  public function getDataMKSemesterAktif()
+  {
+    $this->join('matakuliah', 'matakuliah_semester.kode_mk = matakuliah.kode_mk');
+    $this->join('prodi', 'matakuliah.id_prodi = prodi.id_prodi');
+    $this->join('tahun_ajaran', 'matakuliah_semester.id_ta = tahun_ajaran.id_ta');
+    $this->where('tahun_ajaran.is_active', '1');
+    $this->orderBy('prodi.id_prodi', 'ASC');
+    $this->orderBy('matakuliah.kode_mk', 'ASC');
+    return $this->findAll();
+  }
+
+  public function getDataKoordinatorMK($kode_mk)
+  {
+    $this->join('dosen', 'matakuliah_semester.kode_dosen = dosen.kode_dosen');
+    $this->where('matakuliah_semester.kode_mk', $kode_mk);
+    return $this->first();
+  }
+
   public function updateDataMKSemester($id_mk_semester, $kode_mk, $id_ta, $kode_dosen)
   {
     $db = db_connect();

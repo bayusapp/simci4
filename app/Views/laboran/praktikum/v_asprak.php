@@ -52,37 +52,37 @@
           </div>
         <?php endif; ?>
         <div class="row">
-          <div class="col-lg-5">
+          <div class="col-lg-12">
             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#form_lab"><i class="feather icon-plus"></i> Tambah Asisten Praktikum</button>
             <div id="form_lab" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="label_form" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="label_form">Form Tambah Mata Kuliah</h5>
+                    <h5 class="modal-title" id="label_form">Form Tambah Asisten Praktikum</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                   </div>
-                  <form method="post" action="<?= base_url('Praktikum/simpanMK') ?>">
+                  <form method="post" action="<?= base_url('Praktikum/simpanAsprak') ?>">
                     <div class="modal-body">
                       <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-12">
                           <div class="form-group">
-                            <label for="kode_mk">Kode Mata Kuliah</label>
-                            <input type="text" class="form-control" name="kode_mk" id="kode_mk" value="<?= old('kode_mk') ?>" placeholder="Contoh: VSI1I3" required>
-                          </div>
-                        </div>
-                        <div class="col-lg-5 col-md-5 col-sm-12">
-                          <div class="form-group">
-                            <label for="nama_mk">Nama Mata Kuliah</label>
-                            <input type="text" class="form-control" name="nama_mk" id="nama_mk" value="<?= old('nama_mk') ?>" placeholder="Contoh: Arsitektur dan Jaringan Komputer" required>
+                            <label for="nim_asprak">NIM Asisten Praktikum</label>
+                            <input type="text" class="form-control" name="nim_asprak" id="nim_asprak" value="<?= old('nim_asprak') ?>" placeholder="Contoh: 1234567890" required>
                           </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12">
                           <div class="form-group">
-                            <label for="id_prodi">Program Studi</label>
-                            <select class="id_prodi form-control" name="id_prodi" required>
+                            <label for="nama_asprak">Nama Asisten Praktikum</label>
+                            <input type="text" class="form-control" name="nama_asprak" id="nama_asprak" value="<?= old('nama_asprak') ?>" placeholder="Contoh: John Doe" required>
+                          </div>
+                        </div>
+                        <div class="col-lg-5 col-md-5 col-sm-12">
+                          <div class="form-group">
+                            <label for="id_prodi">Mata Kuliah</label>
+                            <select class="matakuliah form-control" name="id_prodi" multiple required>
                               <option></option>
-                              <?php foreach ($prodi as $p) : ?>
-                                <option value="<?= $p['id_prodi'] ?>"><?= $p['jenjang_prodi'] . ' ' . $p['nama_prodi'] ?></option>
+                              <?php foreach ($matkul as $m) : ?>
+                                <option value="<?= $m['id_mk_semester'] ?>"><?= $m['jenjang_prodi'] . '' . $m['kode_prodi'] . '-' . $m['kode_mk'] . ' | ' . $m['nama_mk'] ?></option>
                               <?php endforeach; ?>
                             </select>
                           </div>
@@ -107,7 +107,7 @@
                   </div>
                   <form method="post" action="<?= base_url('Praktikum/simpanCSVAsprak') ?>" enctype="multipart/form-data">
                     <div class="modal-body">
-                      <input type="file" class="form-control" name="file_csv" id="file_csv">
+                      <input type="file" class="form-control" name="file_csv" id="file_csv" accept=".csv">
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn  btn-secondary" data-dismiss="modal">Tutup</button>
@@ -120,6 +120,26 @@
             <a href="<?= base_url('assets/template/Template_CSV_Asprak.xlsx') ?>" download>
               <button type="button" class="btn btn-sm btn-secondary"><i class="feather icon-download-cloud"></i> Unduh Format CSV</button>
             </a>
+            <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#generateSuratTugas"><i class="feather icon-printer"></i> Generate Surat Tugas</button>
+            <div id="generateSuratTugas" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Generate Surat Tugas Asprak</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  </div>
+                  <form method="post" action="<?= base_url('Praktikum/simpanCSVAsprak') ?>" target="_blank">
+                    <div class="modal-body">
+                      <input type="file" class="form-control" name="file_csv" id="file_csv">
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn  btn-secondary" data-dismiss="modal">Tutup</button>
+                      <button type="submit" class="btn  btn-primary">Upload</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <ul class="nav nav-pills mb-3" id="myTab" role="tablist" style="margin-top: 10px;">
@@ -200,13 +220,13 @@
                             <span class="badge badge-success"><i class="feather icon-check-circle"></i> Surat Perjanjian</span>
                           <?php endif; ?>
                           <br>
-                          <?php if ($a['norek_asprak'] == null && $a['bank'] == null && $a['nama_akun'] == null && $a['verif_laboran'] == null) : ?>
+                          <?php if ($a['norek_asprak'] == null && $a['bank'] == null && $a['nama_akun'] == null && $a['status_verif'] == null) : ?>
                             <span class="badge badge-danger"><i class="feather icon-x-circle"></i> Rekening Bank</span>
-                          <?php elseif ($a['norek_asprak'] != null && $a['bank'] != null && $a['nama_akun'] != null && $a['verif_laboran'] == null) : ?>
+                          <?php elseif ($a['norek_asprak'] != null && $a['bank'] != null && $a['nama_akun'] != null && $a['status_verif'] == null) : ?>
                             <span id="verif_bank_<?= $hash_id_asprak_list ?>">
                               <span class="badge badge-warning"><i class="feather icon-alert-circle"></i> Rekening Bank</span>
                             </span>
-                          <?php elseif ($a['norek_asprak'] != null && $a['bank'] != null && $a['nama_akun'] != null && $a['verif_laboran'] == '1') : ?>
+                          <?php elseif ($a['norek_asprak'] != null && $a['bank'] != null && $a['nama_akun'] != null && $a['status_verif'] == '1') : ?>
                             <span class="badge badge-success"><i class="feather icon-check-circle"></i> Rekening Bank</span>
                           <?php endif; ?>
                         </td>
@@ -253,17 +273,19 @@
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                       <div class="form-group">
-                                        <label for="foto_<?= $hash_id_asprak_list ?>">Foto</label>
+                                        <label for="foto_<?= $hash_id_asprak_list ?>">Foto</label><br>
                                         <?php if ($a['file_foto'] == null) : ?>
                                           <p class="mb-1">Tidak ada foto</p>
                                         <?php else : ?>
-                                          <button type="button" class="btn btn-sm btn-info"><i class="feather icon-eye"></i> Lihat Foto</button>
+                                          <a href="<?= base_url($a['file_foto']) ?>" target="_blank">
+                                            <button type="button" class="btn btn-sm btn-info"><i class="feather icon-eye"></i> Lihat Foto</button>
+                                          </a>
                                         <?php endif; ?>
                                       </div>
                                     </div>
                                     <div class="col-lg-3 col-md-3 col-sm-12">
                                       <div class="form-group">
-                                        <label for="foto_<?= $hash_id_asprak_list ?>">Kartu Keluarga</label>
+                                        <label for="foto_<?= $hash_id_asprak_list ?>">Kartu Keluarga</label><br>
                                         <?php if ($a['file_kk'] == null) : ?>
                                           <p class="mb-1">Tidak ada KK</p>
                                         <?php else : ?>

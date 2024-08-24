@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\M_Asprak;
+use App\Models\M_Dosen;
 use App\Models\M_Forgot_Password;
 use App\Models\M_Laboran;
 use App\Models\M_Riwayat_Login;
@@ -13,6 +14,7 @@ class Auth extends BaseController
 {
 
   protected $asprak;
+  protected $dosen;
   protected $laboran;
   protected $token;
   protected $users;
@@ -22,6 +24,7 @@ class Auth extends BaseController
   public function __construct()
   {
     $this->asprak     = new M_Asprak();
+    $this->dosen      = new M_Dosen();
     $this->laboran    = new M_Laboran();
     $this->token      = new M_Forgot_Password();
     $this->users      = new M_Users();
@@ -99,6 +102,8 @@ class Auth extends BaseController
               return redirect()->to(base_url('Aslab/Beranda'));
             } elseif ($jenis_akses['nama_role'] == 'Asisten Praktikum') {
               return redirect()->to(base_url('Asprak/Beranda'));
+            } elseif ($jenis_akses['nama_role'] == 'Dosen') {
+              return redirect()->to(base_url('Dosen/Beranda'));
             }
           } else {
             session()->setFlashdata('error', 'Password tidak valid');
@@ -220,6 +225,58 @@ Terima kasih";
               'status_akun'       => '1',
               'tanggal_register'  => date('Y-m-d H:i:s'),
               'nim_asprak'        => $nim
+            ];
+            $this->users->insert($input);
+            session()->setFlashdata('success', "Akun Anda sudah terdaftar. Silahkan login");
+            header("Location: " . base_url());
+            die();
+          }
+        }
+      }
+    }
+  }
+
+  public function dosen()
+  {
+    $data['title'] = 'Register Dosen | SIM Laboratorium';
+    return view('auth/v_register_dosen', $data);
+  }
+
+  public function registerDosen()
+  {
+    if (!$this->validate([
+      'kode_dosen'  => ['rules' => 'required'],
+      'username'    => ['rules' => 'required'],
+      'password'    => ['rules' => 'required']
+    ])) {
+      session()->setFlashdata('error', "Harap lengkapi seluruh field.");
+      return redirect()->back()->withInput();
+    } else {
+      $kode_dosen   = $this->request->getPost('kode_dosen');
+      $username     = $this->request->getPost('username');
+      $password     = password_hash($this->request->getPost('password'), PASSWORD_DEFAULT);
+      $cek_dosen    = $this->dosen->getDataDosenByKodeDosen($kode_dosen);
+      if (!$cek_dosen) {
+        session()->setFlashdata('error', "Kode Dosen <b>{$kode_dosen}</b> tidak terdaftar sebagai Dosen. Silahkan ke Unit Laboratorium untuk konfirmasi.");
+        return redirect()->back()->withInput();
+      } else {
+        $cek_regis  = $this->users->getUserByKodeDosen($kode_dosen);
+        if ($cek_regis) {
+          session()->setFlashdata('error', "Kode Dosen <b>{$kode_dosen}</b> sudah melakukan register akun.");
+          return redirect()->back()->withInput();
+        } else {
+          $cek_username = $this->users->getUsername($username);
+          if ($cek_username) {
+            session()->setFlashdata('error', "Username <b>{$username}</b> sudah digunakan. Silahkan gunakan username lain.");
+            return redirect()->back()->withInput();
+          } else {
+            $input  = [
+              'username'          => $username,
+              'password'          => $password,
+              'id_role'           => '5',
+              'status_akun'       => '1',
+              'tanggal_register'  => date('Y-m-d H:i:s'),
+              'kode_dosen'        => strtoupper($kode_dosen)
             ];
             $this->users->insert($input);
             session()->setFlashdata('success', "Akun Anda sudah terdaftar. Silahkan login");

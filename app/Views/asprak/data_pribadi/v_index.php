@@ -69,7 +69,7 @@
             <div class="col-sm-9"><?= $nama_asprak ?></div>
           </div>
           <div class="form-group row">
-            <label class="col-sm-3 col-form-label font-weight-bolder">Nomor Seluler <span class="text-danger" style="font-size: 10px;">*Aktif WhatsApp</span></label>
+            <label class="col-sm-3 col-form-label font-weight-bolder">Nomor Seluler</label>
             <div class="col-sm-9">
               <?php
               if ($informasi['kontak_asprak'] == null) {
@@ -111,7 +111,7 @@
               if ($informasi['ttd_digital'] == null) {
                 echo '-';
               } else {
-                echo '<img src="' . base_url('assets/images/ttd/Henokh_edit.png') . '" style="max-height: 60px;">';
+                echo '<img src="' . base_url($informasi['ttd_digital']) . '" style="max-height: 60px;">';
               }
               ?>
             </div>
@@ -159,7 +159,7 @@
               if ($informasi['verif_laboran'] == null) {
                 echo '-';
               } else {
-                echo ' (Laboran)';
+                echo $informasi['nama_laboran'] . ' (Laboran)';
               }
               ?>
             </div>

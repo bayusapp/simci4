@@ -2,14 +2,16 @@
 <html lang="en">
 
 <head>
+  <title>Surat Perjanjian Asisten Praktikum Mata Kuliah <?= $sp['kode_mk'] . ' - ' . $sp['nama_mk'] ?> | SIM Laboratorium</title>
   <meta charset="utf-8">
-  <title>Create a report base on paper size using CSS</title>
-  <!-- Normalize or reset CSS with your favorite library -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="SIM Laboratorium adalah sistem informasi manajemen untuk pengelolaan administrasi di Unit Laboratorium/Bengkel/Studio Fakultas Ilmu Terapan, Universitas Telkom" />
+  <meta name="keywords" content="simlab, asprak, aslab, laboratorium, fakultas ilmu terapan, universitas telkom">
+  <meta name="author" content="Bayu Setya Ajie Perdana Putra" />
+  <link rel="shortcut icon" href="<?= base_url() ?>assets/images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-  <!-- Load paper.css for happy printing -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paper-css/0.4.1/paper.css">
-  <!-- Set page size here: A5, A4 or A3 -->
-  <!-- Set also "landscape" if you need -->
   <style>
     body {
       font-family: "Calibri", sans-serif;
@@ -44,7 +46,7 @@
     }
 
     .body_surat {
-      font-size: 12pt;
+      font-size: 13pt;
       text-align: justify;
     }
 
@@ -54,14 +56,9 @@
     }
   </style>
 </head>
-<!-- Set "A5", "A4" or "A3" for class name -->
-<!-- Set also "landscape" if you need -->
 
 <body class="A4">
-  <!-- Each sheet element should have the class "sheet" -->
-  <!-- "padding-**mm" is optional: you can set 10, 15, 20 or 25 -->
   <section class="sheet padding-10mm">
-    <!-- Write HTML just like a web page -->
     <table width="100%">
       <tr>
         <td><img src="<?= base_url('assets/images/logo_telu.png') ?>" style="max-height: 66px;"></td>
@@ -91,33 +88,51 @@
         <tr>
           <td width="20%">Nama Lengkap</td>
           <td width="2%">:</td>
-          <td></td>
+          <td><?= $sp['nama_asprak'] ?></td>
         </tr>
         <tr>
           <td>NIM</td>
           <td>:</td>
-          <td></td>
+          <td><?= $sp['nim_asprak'] ?></td>
         </tr>
         <tr>
           <td>Asprak Mata Kuliah</td>
           <td>:</td>
-          <td></td>
+          <td><?= $sp['kode_mk'] . ' - ' . $sp['nama_mk'] ?></td>
         </tr>
         <tr>
           <td>Program Studi</td>
           <td>:</td>
-          <td></td>
+          <td><?= $sp['jenjang_prodi'] . ' ' . $sp['nama_prodi'] ?></td>
         </tr>
       </table>
-      <p style="text-align: justify;">Menyatakan dan berjanji akan mematuhi aturan dan kebijakan laboratorium yang berlaku selama saya menjadi asisten praktikum di mata kuliah tersebut pada Semester ….. Tahun Akademik ……/…… di Fakultas Ilmu Terapan Universitas Telkom. Dan bersedia menerima sanksi apabila melakukan pelanggaran yang tidak sesuai dengan aturan dan kebijakan laboratorium.</p>
+      <?php
+      $tahun_ajaran = $sp['tahun_ajaran'];
+      $split_ta     = explode('-', $tahun_ajaran);
+      if ($split_ta[1] == '1') {
+        $semester = 'Ganjil';
+      } elseif ($split_ta[1] == '2') {
+        $semester = 'Genap';
+      }
+      if ($sp['tanggal_surat_perjanjian'] == null) {
+        $tanggal_ttd = 'xx xxxx xxxx';
+      } else {
+        $tanggal_ttd = convertTanggal($sp['tanggal_surat_perjanjian']);
+      }
+      if ($sp['surat_perjanjian'] == null) {
+        $ttd = '<img src="' . base_url('assets/images/white.jpg') . '" style="max-height: 70px">';
+      } else {
+        $ttd = '<img src="' . base_url($sp['ttd_digital']) . '" style="max-height: 70px">';
+      }
+      ?>
+      <p style="text-align: justify;">Menyatakan dan berjanji akan mematuhi aturan dan kebijakan laboratorium yang berlaku selama saya menjadi asisten praktikum di mata kuliah tersebut pada Semester <?= $semester ?> Tahun Akademik <?= $split_ta[0] ?> di Fakultas Ilmu Terapan Universitas Telkom. Dan bersedia menerima sanksi apabila melakukan pelanggaran yang tidak sesuai dengan aturan dan kebijakan laboratorium.</p>
       <br><br><br>
-      <p>Bandung, <?= date('d M Y') ?></p>
-      <img src="<?= base_url('assets/images/ttd/Henokh_edit.png') ?>" style="max-height: 70px;">
-      <p>Nama Lengkap</p>
+      <p>Bandung, <?= $tanggal_ttd ?></p>
+      <?= $ttd ?>
+      <p><?= $sp['nama_asprak'] ?></p>
     </div>
   </section>
   <section class="sheet padding-10mm">
-    <!-- Write HTML just like a web page -->
     <table width="100%">
       <tr>
         <td><img src="<?= base_url('assets/images/logo_telu.png') ?>" style="max-height: 66px;"></td>
@@ -142,9 +157,9 @@
     <div class="body_surat">
       <p style="font-weight: bold; text-align: center; margin-top: 22pt; margin-bottom: 11pt">DEFINISI DAN KETENTUAN ASISTEN PRAKTIKUM</p>
       <center><span style="font-weight: bold">DEFINISI</span></center>
-      <table width="100%" class="def" style="margin-bottom: 22pt;">
+      <table width="100%" class="def" style="margin-bottom: 11pt;">
         <tr>
-          <td width="5%">(1)</td>
+          <td width="6%">(1)</td>
           <td>Asisten Praktikum adalah posisi yang diduduki mahasiswa aktif Fakultas Ilmu Terapan dengan tugas untuk membantu kegiatan praktikum.</td>
         </tr>
         <tr>
@@ -159,7 +174,7 @@
       <center><span style="font-weight: bold;">KETENTUAN</span></center>
       <table width="100%">
         <tr>
-          <td width="5%">(1)</td>
+          <td width="6%">(1)</td>
           <td>Asisten Praktikum membantu Dosen dalam melakukan asistensi praktikum sesuai dengan Modul Praktikum yang ada.</td>
         </tr>
         <tr>

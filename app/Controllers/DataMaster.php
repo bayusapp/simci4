@@ -497,7 +497,7 @@ class DataMaster extends BaseController
     } else {
       $nip_laboran  = $this->request->getPost('id');
       $data         = $this->laboran->getDataLaboranByNIPHash($nip_laboran);
-      unlink($data['foto_laboran']);
+      // unlink($data['foto_laboran']);
       $this->laboran->deleteLaboran($nip_laboran);
     }
   }

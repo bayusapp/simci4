@@ -27,6 +27,16 @@ if ($role == '1') {
     $header = $m_sub_menu->getDataSubMenuSegment($segment_1, $segment_2)['nama_menu'];
     $title  = $header . ' | SIM Laboratorium';
   }
+} elseif ($role == '5') {
+  $segment_1 = $uri->getSegment(2);
+  $segment_2 = $uri->getSegment(3);
+  if ($segment_2 == null) {
+    $header = $model->getAccessMenuByLink(session()->get('id_role'), 'Dosen/' . $segment_1)['nama_menu'];
+    $title  = $header . ' | SIM Laboratorium';
+  } else {
+    $header = $m_sub_menu->getDataSubMenuSegment($segment_1, $segment_2)['nama_menu'];
+    $title  = $header . ' | SIM Laboratorium';
+  }
 }
 ?>
 <!DOCTYPE html>
@@ -46,6 +56,7 @@ if ($role == '1') {
   <link rel="stylesheet" href="<?= base_url() ?>assets/css/plugins/select2.min.css">
   <link rel="stylesheet" href="<?= base_url() ?>assets/css/plugins/daterangepicker.css">
   <link rel="stylesheet" href="<?= base_url() ?>assets/css/plugins/clockpicker.css">
+  <link rel="stylesheet" href="<?= base_url() ?>assets/css/plugins/toastr.min.css">
   <style>
     .pcoded-header .m-header {
       width: 0px;
@@ -111,6 +122,15 @@ if ($role == '1') {
       width: 100% !important;
     }
 
+    .select2-container--default .select2-selection--multiple .select2-selection__choice {
+      background-color: #4680ff;
+      border: 1px solid #373a3c;
+      max-width: 100%;
+      box-sizing: border-box;
+      white-space: normal;
+      word-wrap: break-word;
+    }
+
     .clockpicker-popover {
       z-index: 10060 !important;
     }
@@ -145,6 +165,10 @@ if ($role == '1') {
               }
               $nama     = $nama_asprak;
               $no_induk = $nim_asprak;
+            } elseif ($role == '5') {
+              $foto     = base_url('assets/images/person-flat.png');
+              $nama     = $nama_dosen;
+              $no_induk = $kode_dosen;
             } else {
               $foto     = base_url('assets/images/person-flat.png');
               $nama     = 'Users';
@@ -274,6 +298,7 @@ if ($role == '1') {
   <script src="<?= base_url() ?>assets/js/plugins/daterangepicker.js"></script>
   <!-- <script src="<?= base_url() ?>assets/js/pages/ac-datepicker.js"></script> -->
   <script src="<?= base_url() ?>assets/js/plugins/clockpicker.js"></script>
+  <script src="<?= base_url() ?>assets/js/plugins/toastr.min.js"></script>
   <script src="<?= base_url() ?>assets/js/simlab.js"></script>
   <script>
     $(document).ready(function() {

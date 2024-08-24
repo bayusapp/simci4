@@ -139,6 +139,17 @@ if (!function_exists('convertTanggalPendek')) {
   }
 }
 
+if (!function_exists('convertDatePicker')) {
+  function convertDatePicker($tanggal)
+  {
+    $split_tanggal  = explode('/', $tanggal);
+    $tanggal        = $split_tanggal[1];
+    $bulan          = $split_tanggal[0];
+    $tahun          = $split_tanggal[2];
+    return $tahun . '-' . $bulan . '-' . $tanggal;
+  }
+}
+
 if (!function_exists('bulanIndoPanjang')) {
   function bulanIndoPanjang($bulan)
   {
@@ -464,6 +475,16 @@ if (!function_exists('hitungMenitKeJam')) {
     $ambil_jam = intdiv((int)$menit, 60);
     $ambil_menit  = (int)$menit % 60;
     return $ambil_jam . ':' . $ambil_menit;
+  }
+}
+
+if (!function_exists('ambilJamAsprak')) {
+  function ambilJamAsprak($tanggal)
+  {
+    $split_tanggal  = explode(' ', $tanggal);
+    $ambil_jam      = $split_tanggal[1];
+    $split_jam      = explode(':', $ambil_jam);
+    return $split_jam[0] . ':' . $split_jam[1];
   }
 }
 

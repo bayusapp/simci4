@@ -26,10 +26,10 @@ class M_Asprak extends Model
     return $this->first();
   }
 
-  public function validateBank($nim)
+  public function validateBank($nim, $nip)
   {
     $db = db_connect();
-    $query = "UPDATE asprak SET verif_laboran = '1' WHERE nim_asprak = '{$nim}'";
+    $query = "UPDATE asprak SET verif_laboran = '{$nip}', status_verif = '1' WHERE nim_asprak = '{$nim}'";
     return $db->query($query);
   }
 

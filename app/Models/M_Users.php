@@ -8,7 +8,7 @@ class M_Users extends Model
 {
 
   protected $table = 'users';
-  protected $allowedFields = ['username', 'password', 'id_role', 'jabatan', 'status_akun', 'tanggal_register', 'nip_laboran', 'nim_aslab', 'nim_asprak'];
+  protected $allowedFields = ['username', 'password', 'id_role', 'jabatan', 'status_akun', 'tanggal_register', 'nip_laboran', 'nim_aslab', 'nim_asprak', 'kode_dosen'];
 
   public function getUsername($username)
   {
@@ -25,6 +25,12 @@ class M_Users extends Model
   public function getUserByNIM($nim)
   {
     $this->where('nim_asprak', $nim);
+    return $this->first();
+  }
+
+  public function getUserByKodeDosen($kode_dosen)
+  {
+    $this->where('kode_dosen', $kode_dosen);
     return $this->first();
   }
 
