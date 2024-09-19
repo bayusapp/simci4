@@ -28,7 +28,7 @@
               <?php
               $no = 1;
               foreach ($kehadiran as $k) :
-                $hash_kehadiran = substr(sha1($k['id_kehadiran']), 12, 7);
+                $hash_kehadiran = substr(sha1($k['id_asprak_bap_kehadiran']), 12, 7);
                 if ($k['approve_dosen'] == '0') :
                   $approve = '<span class="badge badge-warning"><i class="feather icon-alert-circle"></i> Menunggu Persetujuan</span>';
                 elseif ($k['approve_dosen'] == '1') :

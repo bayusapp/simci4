@@ -8,18 +8,18 @@ class M_Kalender_Libur extends Model
 {
 
   protected $table = 'kalender_libur';
-  protected $primaryKey = 'id_tanggal';
-  protected $allowedFields = ['tanggal', 'keterangan'];
+  protected $primaryKey = 'id_kalender_libur';
+  protected $allowedFields = ['tanggal_libur', 'keterangan'];
 
   public function getDataKalender($tahun)
   {
-    $this->where("tanggal like '{$tahun}%'");
+    $this->where("tanggal_libur like '{$tahun}%'");
     return $this->findAll();
   }
 
   public function checkDataKalender($tanggal)
   {
-    $this->where('tanggal', $tanggal);
+    $this->where('tanggal_libur', $tanggal);
     return $this->first();
   }
 
@@ -32,7 +32,7 @@ class M_Kalender_Libur extends Model
   public function updateKalender($id_tanggal, $tanggal, $keterangan)
   {
     $db = db_connect();
-    $query = "UPDATE kalender_libur SET tanggal = '{$tanggal}', keterangan = '{$keterangan}' WHERE substr(sha1(id_tanggal), 8, 7) = '{$id_tanggal}'";
+    $query = "UPDATE kalender_libur SET tanggal_libur = '{$tanggal}', keterangan = '{$keterangan}' WHERE substr(sha1(id_tanggal), 8, 7) = '{$id_tanggal}'";
     return $db->query($query);
   }
 

@@ -22,7 +22,7 @@ class M_Asprak_List extends Model
     $this->join('asprak', 'asprak_list.nim_asprak = asprak.nim_asprak');
     $this->join('matakuliah_semester', 'asprak_list.id_mk_semester = matakuliah_semester.id_mk_semester');
     $this->join('matakuliah', 'matakuliah_semester.kode_mk = matakuliah.kode_mk');
-    $this->join('bank', 'asprak.bank = bank.kode_bank', 'left');
+    $this->join('bank', 'asprak.kode_bank = bank.kode_bank', 'left');
     $this->where('matakuliah.id_prodi', $id_prodi);
     $this->where('matakuliah_semester.id_ta', $id_ta);
     $this->orderBy('matakuliah.kode_mk', 'ASC');
@@ -55,6 +55,11 @@ class M_Asprak_List extends Model
     return $this->findAll();
   }
 
+  public function getHistoryMKAsprak($nim)
+  {
+    //
+  }
+
   public function getSuratPerjanjian($nim)
   {
     $this->join('matakuliah_semester', 'asprak_list.id_mk_semester = matakuliah_semester.id_mk_semester');
@@ -84,5 +89,11 @@ class M_Asprak_List extends Model
     $this->set('tanggal_surat_perjanjian', $tanggal);
     $this->where('substr(sha1(id_asprak_list), 8, 7)', $id);
     $this->update();
+  }
+
+  public function deleteAsprakList($id_asprak_list)
+  {
+    $this->where('SUBSTR(SHA1(id_asprak_list), 8, 7)', $id_asprak_list);
+    return $this->delete();
   }
 }

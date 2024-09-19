@@ -3,6 +3,7 @@
 namespace App\Controllers\Dosen;
 
 use App\Controllers\BaseController;
+use App\Models\M_Asprak_BAP_Kehadiran;
 use App\Models\M_BAP_Asprak_Kehadiran;
 use App\Models\M_Dosen;
 use App\Models\M_Users;
@@ -22,7 +23,7 @@ class Kehadiran extends BaseController
       die();
     } else {
       $this->dosen    = new M_Dosen();
-      $this->kehadiran = new M_BAP_Asprak_Kehadiran();
+      $this->kehadiran = new M_Asprak_BAP_Kehadiran();
       $this->users    = new M_Users();
       $username       = session()->get('username');
       $kode_dosen     = $this->users->getUsername($username)['kode_dosen'];

@@ -97,6 +97,35 @@ function hapus_mk(id) {
   });
 }
 
+function generate_qr_lab(id, nama_lab) {
+  swal({
+    title: "Apakah Anda yakin?",
+    text: "Generate QR Code Trouble Ticket untuk Laboratorium " + nama_lab,
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+    buttons: ["Tidak", "Ya"],
+  }).then((willDelete) => {
+    if (willDelete) {
+      $.ajax({
+        url: window.location.origin + "/Laboratorium/generateQR",
+        method: "POST",
+        data: { id, id },
+        success: function (response) {
+          swal({
+            text: "Generate QR Code Trouble Ticket Sukses Dibuat",
+            icon: "success",
+            timer: 2000,
+            buttons: false,
+          }).then(function () {
+            location.reload();
+          });
+        },
+      });
+    }
+  });
+}
+
 function hapus_laboran(id) {
   swal({
     title: "Apakah Anda yakin?",
@@ -237,6 +266,27 @@ function hapus_asprak(id) {
         },
       });
     }
+  });
+}
+
+function track_tt(id) {
+  // $.ajax({
+  //   url: window.location.origin + "/TroubleTicket/TrackTroubleTicket",
+  //   method: "POST",
+  //   data: { id: id },
+  //   success: function (response) {
+  //     document.getElementById("view_track_tt_" + $id).innerHTML = id;
+  //   },
+  // });
+  // document.getElementById("view_tract_tt_" + id).innerHTML = id;
+  // document.getElementById("view_track_tt_" + id).innerHTML = "I have changed!";
+  $.ajax({
+    url: window.location.origin + "/TroubleTicket/TrackTroubleTicket",
+    method: "POST",
+    data: { id: id },
+    success: function (response) {
+      document.getElementById("view_" + id).innerHTML = response;
+    },
   });
 }
 
@@ -433,6 +483,87 @@ $(document).ready(function () {
         { width: "5%", targets: [0] },
         { width: "10%", targets: [1] },
         { width: "12%", targets: [4] },
+      ],
+    });
+
+    $("#matkul-si").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "12%", targets: [3], className: "text-center" },
+      ],
+    });
+
+    $("#matkul-tk").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "12%", targets: [3], className: "text-center" },
+      ],
+    });
+
+    $("#matkul-sia").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "12%", targets: [3], className: "text-center" },
+      ],
+    });
+
+    $("#matkul-mp").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "12%", targets: [3], className: "text-center" },
+      ],
+    });
+
+    $("#matkul-tt").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "12%", targets: [3], className: "text-center" },
+      ],
+    });
+
+    $("#matkul-rpla").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "12%", targets: [3], className: "text-center" },
+      ],
+    });
+
+    $("#matkul-ph").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "12%", targets: [3], className: "text-center" },
+      ],
+    });
+
+    $("#matkul-trm").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "12%", targets: [3], className: "text-center" },
+      ],
+    });
+
+    $("#matkul-sikc").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "10%", targets: [1] },
+        { width: "12%", targets: [3], className: "text-center" },
       ],
     });
 
@@ -784,6 +915,26 @@ $(document).ready(function () {
       ],
     });
 
+    $("#profil_kehadiran").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { targets: [4], className: "text-center" },
+        { width: "5%", targets: [5], className: "text-center" },
+        { width: "30%", targets: [6] },
+        { width: "10%", targets: [7], className: "text-center" },
+        { width: "10%", targets: [8], className: "text-center" },
+      ],
+    });
+
+    $("#trouble_ticket").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "10%", targets: [5], className: "text-center" },
+        { width: "10%", targets: [6], className: "text-center" },
+      ],
+    });
+
     $("#kalender_libur").DataTable({
       bAutoWidth: false,
       columnDefs: [
@@ -859,6 +1010,16 @@ $(document).ready(function () {
     allowClear: true,
   });
 
+  $(".tt_kategori").select2({
+    placeholder: "Pilih Kategori Informan",
+    allowClear: true,
+  });
+
+  $(".laboratorium").select2({
+    placeholder: "Pilih Laboratorium",
+    allowClear: true,
+  });
+
   $(function () {
     $(function () {
       $('input[name="dari_tanggal"]').daterangepicker({
@@ -867,6 +1028,11 @@ $(document).ready(function () {
       });
 
       $('input[name="sampai_tanggal"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+      });
+
+      $('input[name="tanggal_tt"]').daterangepicker({
         singleDatePicker: true,
         showDropdowns: true,
       });

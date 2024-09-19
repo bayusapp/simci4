@@ -13,7 +13,7 @@ class M_Honor_Jam extends Model
 
   public function getHonorActive()
   {
-    $this->where('status', '1');
+    $this->where('status_honor', '1');
     return $this->first();
   }
 }

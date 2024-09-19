@@ -144,10 +144,10 @@
                   <tbody>
                     <?php
                     $no = 1;
-                    $model_bap_asprak = new \App\Models\M_BAP_Asprak();
-                    $bap              = $model_bap_asprak->getDataBAP($id_prodi);
+                    $model_asprak_bap = new \App\Models\M_Asprak_BAP();
+                    $bap              = $model_asprak_bap->getDataBAP($id_prodi);
                     foreach ($bap as $b) {
-                      $hash_bap = substr(sha1($b['id_bap']), 7, 7);
+                      $hash_bap = substr(sha1($b['id_asprak_bap']), 7, 7);
                     ?>
                       <tr>
                         <td><?= $no++ ?></td>

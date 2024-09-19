@@ -131,22 +131,32 @@
             text: "Register sebagai?",
             icon: "warning",
             buttons: {
+              laboran: {
+                text: "Laboran",
+                value: "laboran",
+              },
               dosen: {
                 text: "Dosen",
                 value: "dosen",
               },
               asprak: {
-                text: "Asisten Praktikum"
+                text: "Asisten Praktikum",
+                value: "asprak",
               },
             },
-            confirmButtonColor: '#8CD4F5',
+            // confirmButtonColor: '#8CD4F5',
           })
           .then((value) => {
             switch (value) {
-              case "asprak":
-                location.replace(window.location.origin + "/Auth/asprak");
+              case "laboran":
+                location.replace(window.location.origin + "/Auth/laboran");
+                break;
               case "dosen":
                 location.replace(window.location.origin + "/Auth/dosen");
+                break;
+              case "asprak":
+                location.replace(window.location.origin + "/Auth/asprak");
+                break;
             }
           });
       }

@@ -9,7 +9,7 @@ class M_Asprak extends Model
 
   protected $table = 'asprak';
   protected $primaryKey = 'nim_asprak';
-  protected $allowedFields = ['nim_asprak', 'nama_asprak', 'kontak_asprak', 'email_asprak', 'norek_asprak', 'bank', 'nama_akun', 'status_verif', 'verif_laboran', 'file_kk', 'file_foto', 'ttd_digital', 'id_prodi'];
+  protected $allowedFields = ['nim_asprak', 'nama_asprak', 'kontak_asprak', 'email_asprak', 'norek_asprak', 'kode_bank', 'nama_akun', 'status_verif', 'verif_laboran', 'file_kk', 'file_foto', 'ttd_digital', 'id_prodi'];
 
   public function checkDataAsprak($nim)
   {
@@ -19,7 +19,7 @@ class M_Asprak extends Model
 
   public function getDataAsprak($nim)
   {
-    $this->join('bank', 'asprak.bank = bank.kode_bank', 'left');
+    $this->join('bank', 'asprak.kode_bank = bank.kode_bank', 'left');
     $this->join('prodi', 'asprak.id_prodi = prodi.id_prodi', 'left');
     $this->join('laboran', 'asprak.verif_laboran = laboran.nip_laboran', 'left');
     $this->where('nim_asprak', $nim);

@@ -33,7 +33,7 @@
         if ($identitas['email_asprak'] == null) {
           $error[] = 'Alamat email belum diisi.';
         }
-        if ($identitas['norek_asprak'] == null || $identitas['bank'] == null || $identitas['nama_akun'] == null) {
+        if ($identitas['norek_asprak'] == null || $identitas['kode_bank'] == null || $identitas['nama_akun'] == null) {
           $error[] = 'No. Rekening belum diisi.';
         }
         if ($identitas['file_foto'] == null) {
@@ -170,7 +170,7 @@
               <?php
               $no = 1;
               foreach ($kehadiran as $k) :
-                $hash_id_kehadiran = substr(sha1($k['id_kehadiran']), 7, 7);
+                $hash_id_kehadiran = substr(sha1($k['id_asprak_bap_kehadiran']), 7, 7);
                 if ($k['approve_dosen'] == '0') :
                   $approve = '<span class="badge badge-warning"><i class="feather icon-alert-circle"></i> Menunggu Persetujuan</span>';
                 elseif ($k['approve_dosen'] == '1') :

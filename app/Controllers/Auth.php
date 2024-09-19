@@ -95,14 +95,14 @@ class Auth extends BaseController
             session()->set('login', 'login');
             session()->set('username', $username);
             session()->set('id_role', $jenis_akses['id_role']);
-            if ($jenis_akses['nama_role'] == 'Administrator' || $jenis_akses['nama_role'] == 'Laboran') {
+            if ($jenis_akses['id_role'] == '1' || $jenis_akses['id_role'] == '2' || $jenis_akses['id_role'] == '6') {
               session()->set('nip_laboran', $cek_data['nip_laboran']);
               return redirect()->to(base_url('Beranda'));
-            } elseif ($jenis_akses['nama_role'] == 'Asisten Laboratorium') {
+            } elseif ($jenis_akses['id_role'] == '3') {
               return redirect()->to(base_url('Aslab/Beranda'));
-            } elseif ($jenis_akses['nama_role'] == 'Asisten Praktikum') {
+            } elseif ($jenis_akses['id_role'] == '4') {
               return redirect()->to(base_url('Asprak/Beranda'));
-            } elseif ($jenis_akses['nama_role'] == 'Dosen') {
+            } elseif ($jenis_akses['id_role'] == '5') {
               return redirect()->to(base_url('Dosen/Beranda'));
             }
           } else {
@@ -140,7 +140,7 @@ class Auth extends BaseController
       $username       = $this->request->getPost('username');
       $password       = $this->request->getPost('password');
       $password_hash  = password_hash($password, PASSWORD_DEFAULT);
-      $cek_data = $this->laboran->getDataLaboran($nip);
+      $cek_data = $this->laboran->getDataLaboranByNIP($nip);
       if ($cek_data) {
         $cek_nip = $this->users->getUserByNIP($nip);
         if ($cek_nip) {
@@ -153,16 +153,16 @@ class Auth extends BaseController
             return redirect()->back()->withInput();
           } else {
             $data = [
-              'username'    => $username,
-              'password'    => $password_hash,
-              'jenis_akses' => 'laboran',
-              'jabatan'     => 'Laboran',
-              'status_akun' => '1',
-              'nip_laboran' => $nip
+              'username'          => $username,
+              'password'          => $password_hash,
+              'status_akun'       => '1',
+              'tanggal_register'  => date('Y-m-d H:i:s'),
+              'id_role'           => '2',
+              'nip_laboran'       => $nip
             ];
-            $cek_data_laboran = $this->laboran->getDataLaboran($nip);
+            $cek_data_laboran = $this->laboran->getDataLaboranByNIP($nip);
             $nama_laboran     = $cek_data_laboran['nama_laboran'];
-            $no_telp          = $cek_data_laboran['no_telp'];
+            $no_telp          = $cek_data_laboran['kontak_laboran'];
             $pesan            = 'Selamat ' . greetings() . " " . $nama_laboran . ',';
             $pesan            .= "
             
@@ -173,8 +173,8 @@ Password: *" . $password . "*
 Terima kasih";
             kirimWA($pesan, $no_telp);
             $this->users->insert($data);
-            session()->setFlashdata('success', 'success');
-            return redirect()->back();
+            session()->setFlashdata('success', 'Akun Anda sudah terdaftar. Silahkan login');
+            return redirect()->to(base_url());
           }
         }
       } else {

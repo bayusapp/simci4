@@ -114,15 +114,15 @@
               <?php
               $no = 1;
               foreach ($kalender as $k) :
-                $hash_kalender  = substr(sha1($k['id_tanggal']), 7, 7);
-                $tanggal        = $k['tanggal'];
+                $hash_kalender  = substr(sha1($k['id_kalender_libur']), 7, 7);
+                $tanggal        = $k['tanggal_libur'];
                 $split_tanggal  = explode('-', $tanggal);
                 $array_tanggal  = array($split_tanggal[1], $split_tanggal[2], $split_tanggal[0]);
                 $tanggal        = implode('/', $array_tanggal);
               ?>
                 <tr>
                   <td style="text-align: center;"><?= $no++ ?></td>
-                  <td><?= tanggalIndo($k['tanggal']); ?></td>
+                  <td><?= tanggalIndo($k['tanggal_libur']); ?></td>
                   <td><?= $k['keterangan'] ?></td>
                   <td style="text-align: center;">
                     <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#edit_kalender_<?= $hash_kalender ?>">

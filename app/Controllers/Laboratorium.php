@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Libraries\QRCode;
 use App\Models\M_Laboran;
 use App\Models\M_Laboratorium;
 use App\Models\M_Laboratorium_Kategori;
@@ -85,7 +86,7 @@ class Laboratorium extends BaseController
       }
       $this->lab->insert($data_lab);
       session()->setFlashdata('sukses', 'Data Laboratorium Sukses Ditambahkan');
-      return redirect()->back();
+      return redirect()->to('Laboratorium');
     }
   }
 
@@ -115,6 +116,28 @@ class Laboratorium extends BaseController
       $this->lab->updateDataLab($id, $nama_lab, $kode_lab, $kode_ruang, $id_lab_lokasi, $id_lab_kategori, $id_prodi);
       session()->setFlashdata('sukses', 'Data Laboratorium Sukses Diperbarui');
       return redirect()->back();
+    }
+  }
+
+  public function generateQR()
+  {
+    if (!$this->validate([
+      'id' => ['rules' => 'required']
+    ])) {
+      return redirect()->to('Beranda');
+    } else {
+      $id_lab     = $this->request->getPost('id');
+      $data       = $this->lab->getDataForGenerateQR($id_lab);
+      $link       = base_url('Ticketing/' . $id_lab);
+      $qr_code    = new QRCode();
+      $nama_file  = $data['kode_lab'] . ".png";
+      $filePath   = 'assets/images/qr_code/trouble_ticket/';
+      $file       = $filePath . '' . $nama_file;
+      if (!file_exists($filePath)) {
+        mkdir($filePath);
+      }
+      $this->lab->generateQR($id_lab, $filePath . '' . $nama_file);
+      $qr_code->generate($link, $file);
     }
   }
 

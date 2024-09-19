@@ -18,7 +18,8 @@ class M_Laboran extends Model
   public function getAllLaboran()
   {
     $this->where('posisi_laboran != "System Administrator"');
-    $this->orderBy('nip_laboran', 'ASC');
+    // $this->orderBy('nip_laboran', 'ASC');
+    $this->orderBy('nama_laboran', 'ASC');
     return $this->findAll();
   }
 

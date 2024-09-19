@@ -16,6 +16,8 @@ $routes->post('/Logbook/BAST', 'Logbook::BAST');
 $routes->get('/', 'Auth::index');
 $routes->post('/Auth/login', 'Auth::login');
 $routes->get('/Auth/logout', 'Auth::logout');
+$routes->get('/Auth/laboran', 'Auth::laboran');
+$routes->post('/Auth/submitLaboran', 'Auth::submitLaboran');
 $routes->get('/Auth/asprak', 'Auth::asprak');
 $routes->post('/Auth/registerAsprak', 'Auth::registerAsprak');
 $routes->get('/Auth/dosen', 'Auth::dosen');
@@ -57,6 +59,7 @@ $routes->post('/DataMaster/deleteLaboran', 'DataMaster::deleteLaboran');
 $routes->get('/Laboratorium', 'Laboratorium::index');
 $routes->post('/Laboratorium/simpanLab', 'Laboratorium::simpanLab');
 $routes->post('/Laboratorium/updateLab', 'Laboratorium::updateLab');
+$routes->post('/Laboratorium/generateQR', 'Laboratorium::generateQR');
 $routes->post('/Laboratorium/deleteLab', 'Laboratorium::deleteLab');
 // end route class Laboratorium
 
@@ -69,6 +72,9 @@ $routes->post('/Praktikum/deleteMK', 'Praktikum::deleteMK');
 
 $routes->get('/Praktikum/Asprak', 'Praktikum::Asprak');
 $routes->post('/Praktikum/Asprak', 'Praktikum::Asprak');
+$routes->get('/Praktikum/DataAsprak/(:any)', 'Praktikum::DataAsprak');
+$routes->post('/Praktikum/simpanAsprak', 'Praktikum::simpanAsprak');
+$routes->post('/Praktikum/deleteAsprakList', 'Praktikum::deleteAsprakList');
 $routes->post('/Praktikum/simpanCSVAsprak', 'Praktikum::simpanCSVAsprak');
 $routes->post('/Praktikum/cekBank', 'Praktikum::cekBank');
 $routes->post('/Praktikum/verifBank', 'Praktikum::verifBank');
@@ -82,6 +88,9 @@ $routes->get('/Praktikum/SuratTugas/', 'Praktikum::SuratTugas');
 $routes->get('/Kalender', 'Kalender::index');
 
 $routes->get('/TroubleTicket', 'TroubleTicket::index');
+$routes->post('/TroubleTicket/simpanTroubleTicket', 'TroubleTicket::simpanTroubleTicket');
+$routes->post('/TroubleTicket/TrackTroubleTicket', 'TroubleTicket::TrackTroubleTicket');
+$routes->get('/TroubleTicket/pesanWA', 'TroubleTicket::pesanWA');
 $routes->get('/TroubleTicket/test', 'TroubleTicket::test');
 // end route class Praktikum
 // end route for laboran access
@@ -97,6 +106,8 @@ $routes->get('/Asprak/SuratPerjanjian', 'Asprak\SuratPerjanjian::index');
 $routes->get('/Asprak/SuratPerjanjian/view/(:any)', 'Asprak\SuratPerjanjian::view');
 $routes->post('/Asprak/SuratPerjanjian/approve', 'Asprak\SuratPerjanjian::approve');
 
+$routes->get('/Asprak/StaffLaboratorium', 'Asprak\StaffLaboratorium::index');
+
 $routes->get('/Asprak/DataPribadi', 'Asprak\DataPribadi::index');
 $routes->post('/Asprak/DataPribadi/simpanData', 'Asprak\DataPribadi::simpanData');
 
@@ -110,3 +121,9 @@ $routes->get('/Dosen/Kehadiran', 'Dosen\Kehadiran::index');
 $routes->post('/Dosen/Kehadiran/approve', 'Dosen\Kehadiran::approve');
 $routes->post('/Dosen/Kehadiran/reject', 'Dosen\Kehadiran::reject');
 // end route for dosen access
+
+
+$routes->get('/Tracking/(:any)', 'Tracking::index');
+
+
+$routes->get('/Ticketing', 'Ticketing::index');

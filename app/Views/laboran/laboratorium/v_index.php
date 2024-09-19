@@ -54,7 +54,7 @@
                         <select class="id_lab_lokasi form-control" name="id_lab_lokasi">
                           <option></option>
                           <?php foreach ($lokasi as $l) : ?>
-                            <option value="<?= $l['id_lab_lokasi'] ?>"><?= $l['lokasi'] ?></option>
+                            <option value="<?= $l['id_lab_lokasi'] ?>"><?= $l['nama_gedung'] . ' ' . $l['lokasi'] ?></option>
                           <?php endforeach; ?>
                         </select>
                       </div>
@@ -149,16 +149,46 @@
                     ?>
                       <tr>
                         <td><?= $no++ ?></td>
-                        <td><?= $d['nama_lab'] ?></td>
+                        <td><?= esc($d['nama_lab']) ?></td>
                         <td><?= $d['kode_lab'] . ' | ' . $d['kode_ruang'] ?></td>
                         <td><?= $d['lokasi'] ?></td>
                         <?php if ($k['kategori_lab'] == 'Praktikum') : ?>
                           <td><?= $d['jenjang_prodi'] . ' ' . $d['nama_prodi'] ?></td>
                         <?php endif; ?>
                         <td style="text-align: center;">
-                          <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#edit_lab_<?= $d['id_lab'] ?>"><i class="feather icon-edit"></i></button>
-                          <button type="button" class="btn btn-sm btn-danger" onclick="hapus_lab('<?= $hash_id ?>')"><i class="feather icon-trash-2"></i></button>
+                          <?php if ($k['kategori_lab'] == 'Praktikum'): ?>
+                            <?php if ($d['qr_trouble_ticket'] != NULL): ?>
+                              <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#qr_<?= $d['id_lab'] ?>">
+                                <span data-toggle="tooltip" data-placement="bottom" title="Lihat QR Trouble Ticket"><i class="fas fa-qrcode"></i></span>
+                              </button>
+                            <?php else: ?>
+                              <button type="button" class="btn btn-sm btn-info" onclick="generate_qr_lab('<?= $hash_id ?>', '<?= $d['nama_lab'] ?>')">
+                                <span data-toggle="tooltip" data-placement="bottom" title="Generate QR Code"><i class="fas fa-qrcode"></i></span>
+                              </button>
+                            <?php endif; ?>
+                          <?php endif; ?>
+                          <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#edit_lab_<?= $d['id_lab'] ?>">
+                            <span data-toggle="tooltip" data-placement="bottom" title="Edit"><i class="feather icon-edit"></i></span>
+                          </button>
+                          <button type="button" class="btn btn-sm btn-danger" onclick="hapus_lab('<?= $hash_id ?>')">
+                            <span data-toggle="tooltip" data-placement="bottom" title="Hapus"><i class="feather icon-trash-2"></i></span>
+                          </button>
                         </td>
+                        <?php if ($k['kategori_lab'] == 'Praktikum'): ?>
+                          <div id="qr_<?= $d['id_lab'] ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="qr_tt_<?= $d['id_lab'] ?>" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="qr_tt_<?= $d['id_lab'] ?>">QR Code Trouble Ticket Laboratorium <?= $d['nama_lab'] ?></h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                </div>
+                                <div class="modal-body" style="text-align: center;">
+                                  <img src="<?= base_url() . '' . $d['qr_trouble_ticket'] ?>" style="max-height: 300px;">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        <?php endif; ?>
                         <div id="edit_lab_<?= $d['id_lab'] ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="label_form" aria-hidden="true">
                           <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                             <div class="modal-content">
@@ -201,7 +231,7 @@
                                               $select_lokasi = '';
                                             }
                                             ?>
-                                            <option value="<?= $lo['id_lab_lokasi'] ?>" <?= $select_lokasi ?>><?= $lo['lokasi'] ?></option>
+                                            <option value="<?= $lo['id_lab_lokasi'] ?>" <?= $select_lokasi ?>><?= $lo['nama_gedung'] . ' ' . $lo['lokasi'] ?></option>
                                           <?php endforeach; ?>
                                         </select>
                                       </div>

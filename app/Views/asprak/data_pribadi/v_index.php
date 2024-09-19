@@ -232,7 +232,7 @@
               <select class="bank form-control" name="bank" required>
                 <option></option>
                 <?php foreach ($bank as $b) : ?>
-                  <?php if ($informasi['bank'] == $b['kode_bank']) : ?>
+                  <?php if ($informasi['kode_bank'] == $b['kode_bank']) : ?>
                     <option value="<?= $b['kode_bank'] ?>" selected><?= $b['nama_bank'] ?></option>
                   <?php else : ?>
                     <option value="<?= $b['kode_bank'] ?>"><?= $b['nama_bank'] ?></option>

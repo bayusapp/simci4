@@ -18,8 +18,8 @@ use App\Models\M_Tahun_Ajaran;
 // use Dompdf\Dompdf;
 
 use App\Libraries\Pdfgenerator;
-use App\Models\M_BAP_Asprak;
-use App\Models\M_BAP_Asprak_Kehadiran;
+use App\Models\M_Asprak_BAP;
+use App\Models\M_Asprak_BAP_Kehadiran;
 use App\Models\M_Honor_Jam;
 
 class Praktikum extends BaseController
@@ -27,9 +27,9 @@ class Praktikum extends BaseController
 
   var $data;
   protected $asprak;
+  protected $asprak_bap;
+  protected $asprak_bap_kehadiran;
   protected $asprak_list;
-  protected $bap_asprak;
-  protected $bap_asprak_kehadiran;
   protected $dosen;
   protected $honor_jam;
   protected $laboran;
@@ -45,10 +45,10 @@ class Praktikum extends BaseController
       die();
     } else {
       if (session()->get('id_role') == '1' || session()->get('id_role') == '2') {
-        $this->asprak       = new M_Asprak();
-        $this->asprak_list  = new M_Asprak_List();
-        $this->bap_asprak           = new M_BAP_Asprak();
-        $this->bap_asprak_kehadiran = new M_BAP_Asprak_Kehadiran();
+        $this->asprak               = new M_Asprak();
+        $this->asprak_bap           = new M_Asprak_BAP();
+        $this->asprak_bap_kehadiran = new M_Asprak_BAP_Kehadiran();
+        $this->asprak_list          = new M_Asprak_List();
         $this->dosen        = new M_Dosen();
         $this->honor_jam    = new M_Honor_Jam();
         $this->laboran      = new M_Laboran();
@@ -172,6 +172,64 @@ class Praktikum extends BaseController
     return view('laboran/praktikum/v_asprak', $data);
   }
 
+  public function DataAsprak()
+  {
+    $data               = $this->data;
+    $uri                = service('uri');
+    $nim                = $uri->getSegment('3');
+    $data['asprak']     = $this->asprak->getDataAsprak($nim);
+    $data['kehadiran']  = $this->asprak_bap_kehadiran->getKehadiranAsprak($nim);
+    return view('laboran/praktikum/v_data_asprak', $data);
+  }
+
+  public function simpanAsprak()
+  {
+    if (!$this->validate([
+      'nim_asprak' => ['rules' => 'required'],
+      'nama_asprak' => ['rules' => 'required'],
+      'mk'          => ['rules' => 'required']
+    ])) {
+      session()->setFlashdata('error', 'Harap Lengkapi Seluruh Field');
+      return redirect()->back()->withInput();
+    } else {
+      $nim_asprak   = $this->request->getPost('nim_asprak');
+      $nama_asprak  = $this->request->getPost('nama_asprak');
+      $mk  = $this->request->getPost('mk');
+      $cek_data     = $this->asprak->checkDataAsprak($nim_asprak);
+      if (!$cek_data) {
+        $input = [
+          'nim_asprak'  => $nim_asprak,
+          'nama_asprak' => $nama_asprak
+        ];
+        $this->asprak->insert($input);
+      }
+      foreach ($mk as $m) {
+        $input_list = [
+          'nim_asprak'  => $nim_asprak,
+          'id_mk_semester'  => $m
+        ];
+        $cek_list = $this->asprak_list->checkDataAsprakList($nim_asprak, $m);
+        if (!$cek_list) {
+          $this->asprak_list->insert($input_list);
+        }
+      }
+      session()->setFlashdata('sukses', 'Data Asisten Praktikum Sukses Ditambahkan');
+      return redirect()->back();
+    }
+  }
+
+  public function deleteAsprakList()
+  {
+    if (!$this->validate([
+      'id' => ['rules' => 'required']
+    ])) {
+      return redirect()->to('Beranda');
+    } else {
+      $id_asprak_list = $this->request->getPost('id');
+      $this->asprak_list->deleteAsprakList($id_asprak_list);
+    }
+  }
+
   public function simpanCSVAsprak()
   {
     $ta_aktif       = $this->ta->getTahunAjaran()['id_ta'];
@@ -283,7 +341,7 @@ class Praktikum extends BaseController
       foreach ($get_asprak_list as $g) {
         $nim_asprak     = $g['nim_asprak'];
         $id_asprak_list = $g['id_asprak_list'];
-        $get_data_kehadiran = $this->bap_asprak_kehadiran->generateBAP($id_asprak_list, $tanggal_awal, $tanggal_akhir);
+        $get_data_kehadiran = $this->asprak_bap_kehadiran->generateBAP($id_asprak_list, $tanggal_awal, $tanggal_akhir);
         if ($get_data_kehadiran) {
           $jumlah_jam = 0;
           foreach ($get_data_kehadiran as $k) {
@@ -302,7 +360,7 @@ class Praktikum extends BaseController
           ];
           $this->bap_asprak->insert($input);
           $id_bap = $this->bap_asprak->getIdBAP($bulan, $tahun, $jumlah_jam, $tanggal_awal, $tanggal_akhir, $tanggal_generate, $nim_asprak, $id_prodi, $kode_mk)['id_bap'];
-          $this->bap_asprak_kehadiran->updateIdBAPnHonor($tanggal_awal, $tanggal_akhir, $id_asprak_list, $id_bap, $id_honor);
+          $this->asprak_bap_kehadiran->updateIdBAPnHonor($tanggal_awal, $tanggal_akhir, $id_asprak_list, $id_bap, $id_honor);
         }
       }
       session()->setFlashdata('sukses', 'BAP Asisten Praktikum Sukses Digenerate');
@@ -313,13 +371,13 @@ class Praktikum extends BaseController
   public function LihatBAP()
   {
     $id  = $this->request->getUri()->getSegment(3);
-    $cek_bap = $this->bap_asprak->getDataBAPById($id);
+    $cek_bap = $this->asprak_bap->getDataBAPById($id);
     if ($cek_bap) {
       $kode_mk            = $cek_bap['kode_mk'];
-      $id_bap             = $this->bap_asprak->getDataBAPById($id)['id_bap'];
+      $id_bap             = $this->asprak_bap->getDataBAPById($id)['id_asprak_bap'];
       $data['mk']         = $this->mk->getProdiByKodeMK($kode_mk);
-      $data['mk_bap']     = $this->bap_asprak->getDataBAPById($id);
-      $data['kehadiran']  = $this->bap_asprak_kehadiran->getDataBAPByIdBAP($id_bap);
+      $data['mk_bap']     = $this->asprak_bap->getDataBAPById($id);
+      $data['kehadiran']  = $this->asprak_bap_kehadiran->getDataBAPByIdBAP($id_bap);
       $data['koor']       = $this->mk_semester->getDataKoordinatorMK($kode_mk)['nama_dosen'];
       return view('laboran/praktikum/v_format_bap', $data);
     } else {

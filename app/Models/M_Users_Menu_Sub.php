@@ -8,12 +8,13 @@ class M_Users_Menu_Sub extends Model
 {
 
   protected $table = 'users_menu_sub';
-  protected $allowedFields = ['nama_menu', 'url_menu', 'urutan_menu', 'is_active', 'id_menu'];
+  protected $allowedFields = ['nama_menu', 'url_menu', 'urutan_menu', 'is_active', 'id_menu', 'id_role'];
 
-  public function getDataSubMenu($id_menu)
+  public function getDataSubMenu($id_menu, $id_role)
   {
     $this->where('id_menu', $id_menu);
-    $this->orderBy('urutan_menu', 'asc');
+    $this->where('id_role', $id_role);
+    $this->orderBy('urutan_menu', 'ASC');
     return $this->findAll();
   }
 

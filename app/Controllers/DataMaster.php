@@ -23,7 +23,7 @@ class DataMaster extends BaseController
       header("Location: " . base_url());
       die();
     } else {
-      if (session()->get('id_role') == '1') {
+      if (session()->get('id_role') == '1' || session()->get('id_role') == '2') {
         $this->dosen      = new M_Dosen();
         $this->laboran    = new M_Laboran();
         $this->matakuliah = new M_Matakuliah();
@@ -430,7 +430,9 @@ class DataMaster extends BaseController
         return redirect()->back()->withInput();
       } else {
         $this->laboran->insert($input);
-        $foto_laboran->move('assets/images/laboran', $nama_file);
+        if ($foto_laboran->getSize() > 0) {
+          $foto_laboran->move('assets/images/laboran', $nama_file);
+        }
         session()->setFlashdata('sukses', 'Data Mata Kuliah Sukses Ditambahkan');
         return redirect()->back();
       }
@@ -477,7 +479,9 @@ class DataMaster extends BaseController
           session()->setFlashdata('error', 'NIP sudah ada');
           return redirect()->back()->withInput();
         } else {
-          if ($cek_data['foto_laboran']) {
+          $hash_nip       = $nip_old;
+          $cek_data       = $this->laboran->getDataLaboranByNIPHash($hash_nip);
+          if ($cek_data['foto_laboran'] != NULL) {
             unlink($cek_data['foto_laboran']);
           }
           $this->laboran->updateDataLaboran($nip_old, $nip_laboran, $nama_laboran, $foto, $kontak_laboran, $email_laboran, $posisi_laboran);

@@ -4,8 +4,8 @@ namespace App\Controllers\Asprak;
 
 use App\Controllers\BaseController;
 use App\Models\M_Asprak;
+use App\Models\M_Asprak_BAP_Kehadiran;
 use App\Models\M_Asprak_List;
-use App\Models\M_BAP_Asprak_Kehadiran;
 use App\Models\M_Dosen;
 use App\Models\M_Kalender_Libur;
 use App\Models\M_Tahun_Ajaran;
@@ -33,7 +33,7 @@ class Kehadiran extends BaseController
       $this->asprak_list    = new M_Asprak_List();
       $this->dosen          = new M_Dosen();
       $this->kalender_libur = new M_Kalender_Libur();
-      $this->kehadiran      = new M_BAP_Asprak_Kehadiran();
+      $this->kehadiran      = new M_Asprak_BAP_Kehadiran();
       $this->ta             = new M_Tahun_Ajaran();
       $this->users          = new M_Users();
       $username             = session()->get('username');

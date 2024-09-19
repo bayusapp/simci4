@@ -9,7 +9,7 @@ class M_Laboratorium extends Model
 
   protected $table = 'laboratorium';
   protected $primaryKey = 'id_lab';
-  protected $allowedFields  = ['id_lab', 'nama_lab', 'kode_lab', 'kode_igracias', 'kode_ruang', 'id_lab_kategori', 'id_lab_lokasi', 'id_prodi'];
+  protected $allowedFields  = ['id_lab', 'nama_lab', 'nama_lab_pendek', 'kode_lab', 'kode_igracias', 'kode_ruang', 'qr_trouble_ticket', 'id_lab_kategori', 'id_lab_lokasi', 'id_prodi'];
 
   public function getAllLaboratorium()
   {
@@ -25,11 +25,12 @@ class M_Laboratorium extends Model
 
   public function getDataLabPraktikum()
   {
-    $this->select('laboratorium.id_lab, laboratorium.nama_lab, laboratorium.kode_lab, laboratorium.kode_ruang, laboratorium.id_lab_kategori, laboratorium.id_lab_lokasi, laboratorium.id_prodi, laboratorium_lokasi.lokasi, prodi.nama_prodi, prodi.jenjang_prodi');
+    $this->select('laboratorium.id_lab, laboratorium.nama_lab, laboratorium.kode_lab, laboratorium.kode_ruang, laboratorium.qr_trouble_ticket, laboratorium.id_lab_kategori, laboratorium.id_lab_lokasi, laboratorium.id_prodi, laboratorium_lokasi.lokasi, prodi.nama_prodi, prodi.jenjang_prodi');
     $this->join('laboratorium_lokasi', 'laboratorium.id_lab_lokasi = laboratorium_lokasi.id_lab_lokasi');
     $this->join('prodi', 'laboratorium.id_prodi = prodi.id_prodi');
     $this->where('laboratorium.id_lab_kategori', '1');
-    $this->orderBy('laboratorium.kode_lab', 'asc');
+    // $this->orderBy('laboratorium.kode_lab', 'asc');
+    $this->orderBy('laboratorium.kode_ruang', 'ASC');
     return $this->findAll();
   }
 
@@ -49,6 +50,19 @@ class M_Laboratorium extends Model
     $this->where('laboratorium.id_lab_kategori', '3');
     $this->orderBy('laboratorium.kode_lab', 'asc');
     return $this->findAll();
+  }
+
+  public function getDataForGenerateQR($id)
+  {
+    $this->where('substr(sha1(id_lab), 8, 7)', $id);
+    return $this->first();
+  }
+
+  public function generateQR($id, $file_qr)
+  {
+    $this->set('qr_trouble_ticket', $file_qr);
+    $this->where('substr(sha1(id_lab), 8, 7)', $id);
+    $this->update();
   }
 
   public function updateDataLab($id, $nama_lab, $kode_lab, $kode_ruang, $id_lab_lokasi, $id_lab_kategori, $id_prodi)

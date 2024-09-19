@@ -1,43 +1,85 @@
 <?php
-$uri        = service('uri');
-$model      = new \App\Models\M_Users_Access_Menu();
-$m_sub_menu = new \App\Models\M_Users_Menu_Sub();
-$tahun      = new \App\Models\M_Tahun_Ajaran();
-$menu       = $model->getAccessMenu(session()->get('id_role'));
-$role       = session()->get('id_role');
-$ta         = $tahun->getTahunAjaran();
+// $uri        = service('uri');
+// $model      = new \App\Models\M_Users_Access_Menu();
+// $m_sub_menu = new \App\Models\M_Users_Menu_Sub();
+// $tahun      = new \App\Models\M_Tahun_Ajaran();
+// $menu       = $model->getAccessMenu(session()->get('id_role'));
+// $role       = session()->get('id_role');
+// $ta         = $tahun->getTahunAjaran();
 
-if ($role == '1') {
+// if ($role == '1') {
+//   $segment_1 = $uri->getSegment(1);
+//   $segment_2 = $uri->getSegment(2);
+//   if ($segment_2 == null) {
+//     $header = $model->getAccessMenuByLink(session()->get('id_role'), $segment_1)['nama_menu'];
+//     $title  = $header . ' | SIM Laboratorium';
+//   } else {
+//     $header = $m_sub_menu->getDataSubMenuSegment($segment_1, $segment_2)['nama_menu'];
+//     $title  = $header . ' | SIM Laboratorium';
+//   }
+// } elseif ($role == '4') {
+//   $segment_1 = $uri->getSegment(2);
+//   $segment_2 = $uri->getSegment(3);
+//   if ($segment_2 == null) {
+//     $header = $model->getAccessMenuByLink(session()->get('id_role'), 'Asprak/' . $segment_1)['nama_menu'];
+//     $title  = $header . ' | SIM Laboratorium';
+//   } else {
+//     $header = $m_sub_menu->getDataSubMenuSegment($segment_1, $segment_2)['nama_menu'];
+//     $title  = $header . ' | SIM Laboratorium';
+//   }
+// } elseif ($role == '5') {
+//   $segment_1 = $uri->getSegment(2);
+//   $segment_2 = $uri->getSegment(3);
+//   if ($segment_2 == null) {
+//     $header = $model->getAccessMenuByLink(session()->get('id_role'), 'Dosen/' . $segment_1)['nama_menu'];
+//     $title  = $header . ' | SIM Laboratorium';
+//   } else {
+//     $header = $m_sub_menu->getDataSubMenuSegment($segment_1, $segment_2)['nama_menu'];
+//     $title  = $header . ' | SIM Laboratorium';
+//   }
+// }
+
+$uri                  = service('uri');
+$model_tahun          = new \App\Models\M_Tahun_Ajaran();
+$model_users_menu     = new \App\Models\M_Users_Menu();
+$model_users_menu_sub = new \App\Models\M_Users_Menu_Sub();
+$role                 = session()->get('id_role');
+
+$ta         = $model_tahun->getTahunAjaran();
+$users_menu = $model_users_menu->getMenuByRole($role);
+
+if ($role == '1' || $role == '2') {
   $segment_1 = $uri->getSegment(1);
   $segment_2 = $uri->getSegment(2);
-  if ($segment_2 == null) {
-    $header = $model->getAccessMenuByLink(session()->get('id_role'), $segment_1)['nama_menu'];
+  if ($segment_2 == NULL) {
+    $header = $model_users_menu->getMenuByLink($segment_1, $role)['nama_menu'];
     $title  = $header . ' | SIM Laboratorium';
   } else {
-    $header = $m_sub_menu->getDataSubMenuSegment($segment_1, $segment_2)['nama_menu'];
+    $header = $model_users_menu_sub->getDataSubMenuSegment($segment_1, $segment_2)['nama_menu'];
     $title  = $header . ' | SIM Laboratorium';
   }
 } elseif ($role == '4') {
   $segment_1 = $uri->getSegment(2);
   $segment_2 = $uri->getSegment(3);
-  if ($segment_2 == null) {
-    $header = $model->getAccessMenuByLink(session()->get('id_role'), 'Asprak/' . $segment_1)['nama_menu'];
+  if ($segment_2 == NULL) {
+    $header = $model_users_menu->getMenuByLink('Asprak/' . $segment_1, $role)['nama_menu'];
     $title  = $header . ' | SIM Laboratorium';
   } else {
-    $header = $m_sub_menu->getDataSubMenuSegment($segment_1, $segment_2)['nama_menu'];
+    $header = $model_users_menu_sub->getDataSubMenuSegment($segment_1, $segment_2)['nama_menu'];
     $title  = $header . ' | SIM Laboratorium';
   }
 } elseif ($role == '5') {
   $segment_1 = $uri->getSegment(2);
   $segment_2 = $uri->getSegment(3);
-  if ($segment_2 == null) {
-    $header = $model->getAccessMenuByLink(session()->get('id_role'), 'Dosen/' . $segment_1)['nama_menu'];
+  if ($segment_2 == NULL) {
+    $header = $model_users_menu->getMenuByLink('Dosen/' . $segment_1, $role)['nama_menu'];
     $title  = $header . ' | SIM Laboratorium';
   } else {
-    $header = $m_sub_menu->getDataSubMenuSegment($segment_1, $segment_2)['nama_menu'];
+    $header = $model_users_menu_sub->getDataSubMenuSegment($segment_1, $segment_2)['nama_menu'];
     $title  = $header . ' | SIM Laboratorium';
   }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -138,6 +180,17 @@ if ($role == '1') {
     table.table-bordered.dataTable tbody td {
       vertical-align: middle;
     }
+
+    .footer {
+      background: none repeat scroll 0 0 white;
+      border-top: 1px solid #e7eaec;
+      bottom: 0;
+      left: 0;
+      padding: 10px 0;
+      position: fixed;
+      width: 100%;
+      text-align: center;
+    }
   </style>
 </head>
 
@@ -185,11 +238,11 @@ if ($role == '1') {
           <li class="nav-item pcoded-menu-caption">
             <label>Menu</label>
           </li>
-          <?php foreach ($menu as $m) : ?>
-            <?php
-            $sub_menu = $m_sub_menu->getDataSubMenu($m['id_menu']);
-            if ($sub_menu) {
-            ?>
+          <?php
+          foreach ($users_menu as $m) :
+            $sub_menu = $model_users_menu_sub->getDataSubMenu($m['id_menu'], $role);
+            if ($sub_menu) :
+          ?>
               <li class="nav-item pcoded-hasmenu">
                 <a href="#" class="nav-link">
                   <span class="pcoded-micon"><i class="<?= $m['icon_menu'] ?>"></i></span>
@@ -202,7 +255,7 @@ if ($role == '1') {
                 </ul>
               </li>
             <?php
-            } else {
+            else:
             ?>
               <li class="nav-item">
                 <a href="<?= base_url($m['url_menu']) ?>" class="nav-link">
@@ -211,9 +264,11 @@ if ($role == '1') {
                 </a>
               </li>
             <?php
-            }
+            endif;
             ?>
-          <?php endforeach; ?>
+          <?php
+          endforeach;
+          ?>
         </ul>
       </div>
     </div>
@@ -248,7 +303,9 @@ if ($role == '1') {
                 </div>
               </div>
               <ul class="pro-body">
-                <li><a href="<?= base_url() ?>Profil" class="dropdown-item"><i class="feather icon-user"></i> Pengaturan Profil</a></li>
+                <?php if (session()->get('id_role') != '4'): ?>
+                  <li><a href="<?= base_url() ?>Profil" class="dropdown-item"><i class="feather icon-user"></i> Pengaturan Profil</a></li>
+                <?php endif; ?>
                 <li><a href="<?= base_url() ?>Auth/logout" class="dropdown-item"><i class="feather icon-log-out text-danger"></i> Keluar</a></li>
               </ul>
             </div>
@@ -276,6 +333,9 @@ if ($role == '1') {
       </div>
       <!-- [ breadcrumb ] end -->
       <?= $this->renderSection('content'); ?>
+      <div class="footer">
+        <strong>&copy; Developed by</strong> Bayu Setya Ajie Perdana Putra
+      </div>
     </div>
   </section>
   <!-- [ Main Content ] end -->
@@ -317,69 +377,6 @@ if ($role == '1') {
       });
     });
   </script>
-  <?php
-  $segment_1  = $uri->getSegment(1);
-  $segment_2  = $uri->getSegment(2);
-  $m_kalender = new \App\Models\M_Kalender_Libur();
-  $kalender   = $m_kalender->getDataKalender(date('Y'));
-  $jumlah     = count($kalender);
-  $no         = 1;
-  $tanggal    = '';
-  foreach ($kalender as $k) :
-    $split_tanggal  = explode('-', $k['tanggal']);
-    $urut_tanggal   = array($split_tanggal[1], $split_tanggal[2], $split_tanggal[0]);
-    $fix_tanggal    = implode('/', $urut_tanggal);
-    if ($no < $jumlah) :
-      $tanggal .= '"' . $fix_tanggal . '",';
-    elseif ($no == $jumlah) :
-      $tanggal .= '"' . $fix_tanggal . '"';
-    endif;
-    $no++;
-  endforeach;
-  if ($segment_1 == 'Asprak' && $segment_2 == 'Kehadiran') :
-  ?>
-    <!-- <script>
-      $(document).ready(function() {
-        var dateToday = new Date();
-        $(function() {
-          var matiin = [<?= $tanggal ?>];
-          $('input[name="tanggal"]').daterangepicker({
-            singleDatePicker: true,
-            showDropdowns: true,
-            minDate: dateToday,
-            locale: {
-              format: "MM/DD/YYYY",
-              daysOfWeek: ["Min", "Sen", "Sel", "Rab", "Kam", "Jum", "Sab"],
-              monthNames: [
-                "Januari",
-                "Februari",
-                "Maret",
-                "April",
-                "Mei",
-                "Juni",
-                "Juli",
-                "Agustus",
-                "September",
-                "Oktober",
-                "November",
-                "Desember",
-              ],
-            },
-            isInvalidDate: function(date) {
-              for (let i = 0; i < matiin.length; i++) {
-                if (date.format("MM/DD/YYYY") == matiin[i]) {
-                  return true;
-                }
-              }
-              if (date.day() == 0) {
-                return true;
-              }
-            },
-          });
-        });
-      });
-    </script> -->
-  <?php endif; ?>
 </body>
 
 </html>
