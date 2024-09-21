@@ -89,7 +89,8 @@ class Logbook extends BaseController
           'ruangan'     => $row[2],
           'kelas'       => $row[5],
           'kode_dosen'  => $row[6],
-          'kode_mk'     => $row[3]
+          'kode_mk'     => $row[3],
+          'nama_mk'     => $row[4]
         );
         $this->lab_jadwal->insert($input);
       }

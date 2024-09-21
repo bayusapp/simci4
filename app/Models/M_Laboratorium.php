@@ -29,7 +29,7 @@ class M_Laboratorium extends Model
     $this->join('laboratorium_lokasi', 'laboratorium.id_lab_lokasi = laboratorium_lokasi.id_lab_lokasi');
     $this->join('prodi', 'laboratorium.id_prodi = prodi.id_prodi');
     $this->where('laboratorium.id_lab_kategori', '1');
-    // $this->orderBy('laboratorium.kode_lab', 'asc');
+    $this->orderBy('laboratorium.kode_lab', 'asc');
     $this->orderBy('laboratorium.kode_ruang', 'ASC');
     return $this->findAll();
   }
