@@ -1,16 +1,19 @@
 <?php
-$uri = service('uri');
+$uri                = service('uri');
+$model_tt_tracking  = new \App\Models\M_Trouble_Ticket_Tracking();
+$id_trouble_ticket  = $uri->getSegment(2);
+$tanggal_open       = new DateTime($trouble_ticket['tanggal_tt']);
+$tanggal_close      = new DateTime($model_tt_tracking->getDateTTClose($uri->getSegment('2'))['tanggal_track']);
+$durasi_tt          = $tanggal_open->diff($tanggal_close);
 ?>
 <!DOCTYPE html>
 <html>
 
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>INSPINIA | intimeline</title>
-
+  <title>Tracking Trouble Ticket | SIM Laboratorium</title>
+  <link rel="shortcut icon" href="<?= base_url() ?>assets/images/favicon.png" type="image/x-icon">
   <link href="<?= base_url() ?>assets/inspinia/css/bootstrap.min.css" rel="stylesheet">
   <link href="<?= base_url() ?>assets/inspinia/font-awesome/css/font-awesome.css" rel="stylesheet">
   <link href="<?= base_url() ?>assets/inspinia/css/plugins/iCheck/custom.css" rel="stylesheet">
@@ -42,18 +45,24 @@ $uri = service('uri');
             <h5>Status Trouble Ticket:</h5>
             <?php
             if ($trouble_ticket['status_tt'] == '1') {
-              $status = 'Open';
+              $status = 'Dibuka';
             } elseif ($trouble_ticket['status_tt'] == '2') {
               $status = 'Sedang Ditangani';
             } elseif ($trouble_ticket['status_tt'] == '3') {
-              $status = 'Close';
+              $status = 'Ditutup';
             }
             ?>
             <h2><?= $status ?></h2>
           </div>
           <div class="col-lg-3 col-md-3 col-sm-12">
             <h5>Durasi Pengerjaan:</h5>
-            <h2> Hari</h2>
+            <?php if ($trouble_ticket['status_tt'] == '1'): ?>
+              <h2>Sedang Ditangani</h2>
+            <?php elseif ($trouble_ticket['status_tt'] == '2'): ?>
+              <h2>Sedang Ditangani</h2>
+            <?php elseif ($trouble_ticket['status_tt'] == '3'): ?>
+              <h2> <?= $durasi_tt->days ?> Hari</h2>
+            <?php endif; ?>
           </div>
         </div>
       </div>
@@ -72,12 +81,43 @@ $uri = service('uri');
                 Lokasi: <?= $trouble_ticket['kode_lab'] . ' | ' . $trouble_ticket['nama_lab'] ?>
               </p>
               <span class="vertical-date">
-
+                <small><?= convertTanggal($trouble_ticket['tanggal_tt']) ?></small>
               </span>
             </div>
           </div>
           <?php
-
+          $data           = $model_tt_tracking->getTroubleTicketTracking($id_trouble_ticket);
+          $count_tracking = count($data);
+          $count          = 1;
+          foreach ($data as $d):
+            if ($trouble_ticket['status_tt'] == '3' && $count == $count_tracking) :
+              $header = 'Trouble Ticket Ditutup';
+              $color  = 'red-bg';
+              $icon   = 'fa fa-ticket';
+            else :
+              $header = 'Sedang Ditangani';
+              $color  = 'yellow-bg';
+              $icon   = 'fa fa-sign-language';
+            endif;
+          ?>
+            <div class="vertical-timeline-block">
+              <div class="vertical-timeline-icon <?= $color ?>">
+                <i class="<?= $icon ?>"></i>
+              </div>
+              <div class="vertical-timeline-content">
+                <h2><?= $header ?></h2>
+                <p>
+                  Petugas: <?= $d['nama_petugas'] ?><br>
+                  Aktivitas: <?= $d['solusi'] ?>
+                </p>
+                <span class="vertical-date">
+                  <small><?= convertTanggal($d['tanggal_track']) ?></small>
+                </span>
+              </div>
+            </div>
+          <?php
+            $count++;
+          endforeach;
           ?>
         </div>
       </div>

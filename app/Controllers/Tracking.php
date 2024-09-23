@@ -20,8 +20,6 @@ class Tracking extends BaseController
     $uri  = service('uri');
     $id   = $uri->getSegment(2);
     $data['trouble_ticket'] = $this->trouble_ticket->getTroubleTicketDetail($id);
-    // dd($data);
     return view('tracking/v_index', $data);
-    // echo $id;
   }
 }

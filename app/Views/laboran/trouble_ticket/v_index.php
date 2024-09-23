@@ -27,14 +27,14 @@
                 <h5 class="modal-title" id="label_form">Form Tambah Trouble Ticket</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               </div>
-              <form method="post" action="<?= base_url('TroubleTicket/simpanTroubleTicket') ?>" enctype="multipart/form-data">
+              <form method="post" action="<?= base_url('TroubleTicket/simpanTroubleTicket') ?>">
                 <?= csrf_field(); ?>
                 <div class="modal-body">
                   <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-12">
                       <div class="form-group">
                         <label for="tanggal_tt">Tanggal</label>
-                        <input type="text" class="form-control" name="tanggal_tt" id="tanggal_tt" placeholder="Contoh: 12345678" required>
+                        <input type="text" class="form-control" name="tanggal_tt" id="tanggal_tt" placeholder="Contoh: 07/12/2024" required>
                       </div>
                     </div>
                     <div class="col-lg-5 col-md-5 col-sm-12">
@@ -112,9 +112,9 @@
                 if ($tt['status_tt'] == '1') :
                   $status_tt = '<span class="badge badge-success">Dibuka</span>';
                 elseif ($tt['status_tt'] == '2') :
-                  $status_tt = 'Ditangani';
+                  $status_tt = '<span class="badge badge-warning">Ditangani</span>';
                 elseif ($tt['status_tt'] == '3'):
-                  $status_tt = 'Ditutup';
+                  $status_tt = '<span class="badge badge-danger">Ditutup</span>';
                 endif;
               ?>
                 <tr>
@@ -125,12 +125,78 @@
                   <td><?= $tt['kendala'] ?></td>
                   <td><?= $status_tt ?></td>
                   <td>
-                    <!-- <a href="<?= base_url('Tracking/' . $hash_id_tt) ?>" target="_blank">
+                    <a href="<?= base_url('Tracking/' . $hash_id_tt) ?>" target="_blank">
                       <button class="btn btn-sm btn-info"><i class="feather icon-eye"></i></button>
-                    </a> -->
-                    <button type="butotn" class="btn btn-sm btn-info" data-toggle="modal" data-target="#view_track_tt_<?= $hash_id_tt ?>" onclick="track_tt('<?= $hash_id_tt ?>')"><i class="feather icon-eye"></i></button>
+                    </a>
+                    <?php if ($tt['status_tt'] != '3'): ?>
+                      <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#edit_tt_<?= $hash_id_tt ?>">
+                        <span data-toggle="tooltip" data-placement="bottom" title="Tambah Progres"><i class="feather icon-plus"></i></span>
+                      </button>
+                    <?php endif; ?>
                   </td>
-                  <span id="view_<?= $hash_id_tt ?>"></span>
+                  <div id="edit_tt_<?= $hash_id_tt ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="label_form" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="label_form">Form Tambah Progres Trouble Ticket</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <form method="post" action="<?= base_url('TroubleTicket/progresTroubleTicket') ?>">
+                          <?= csrf_field(); ?>
+                          <div class="modal-body">
+                            <div class="row">
+                              <div class="col-lg-3 col-md-3 col-sm-12">
+                                <div class="form-group">
+                                  <label for="tanggal_tt">Tanggal</label>
+                                  <input type="text" class="form-control" name="tanggal_tt" id="tanggal_tt" placeholder="Contoh: 07/12/2024" required>
+                                  <input type="text" name="id_trouble_ticket" id="id_trouble_ticket" value="<?= $hash_id_tt ?>" hidden required>
+                                </div>
+                              </div>
+                              <div class="col-lg-5 col-md-5 col-sm-12">
+                                <div class="form-group">
+                                  <label for="nama_petugas">Nama Petugas</label>
+                                  <input type="text" class="form-control" name="nama_petugas" id="nama_petugas" placeholder="Contoh: John Doe" required>
+                                </div>
+                              </div>
+                              <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="form-group">
+                                  <label for="tt_petugas">Kategori Petugas</label>
+                                  <select class="tt_petugas form-control" name="tt_petugas" required>
+                                    <option></option>
+                                    <?php foreach ($tt_kategori as $k): ?>
+                                      <option value="<?= $k['id_tt_orang'] ?>"><?= $k['nama_kategori'] ?></option>
+                                    <?php endforeach; ?>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-lg-8 col-md-8 col-sm-12">
+                                <div class="form-group">
+                                  <label for="solusi">Solusi</label>
+                                  <textarea class="form-control" name="solusi" id="solusi" placeholder="Contoh: Lampu sudah diganti oleh Logistik FIT" required></textarea>
+                                </div>
+                              </div>
+                              <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="form-group">
+                                  <label for="status_tt">Status Trouble Ticket</label>
+                                  <select class="status_tt form-control" name="status_tt" required>
+                                    <option></option>
+                                    <option value="2">Sedang Ditangani</option>
+                                    <option value="3">Trouble Ticket Selesai</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
                 </tr>
               <?php
               endforeach;

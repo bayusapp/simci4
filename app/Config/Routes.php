@@ -89,6 +89,7 @@ $routes->get('/Kalender', 'Kalender::index');
 
 $routes->get('/TroubleTicket', 'TroubleTicket::index');
 $routes->post('/TroubleTicket/simpanTroubleTicket', 'TroubleTicket::simpanTroubleTicket');
+$routes->post('/TroubleTicket/progresTroubleTicket', 'TroubleTicket::progresTroubleTicket');
 $routes->post('/TroubleTicket/TrackTroubleTicket', 'TroubleTicket::TrackTroubleTicket');
 $routes->get('/TroubleTicket/pesanWA', 'TroubleTicket::pesanWA');
 $routes->get('/TroubleTicket/test', 'TroubleTicket::test');

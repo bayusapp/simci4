@@ -1015,6 +1015,16 @@ $(document).ready(function () {
     allowClear: true,
   });
 
+  $(".tt_petugas").select2({
+    placeholder: "Pilih Kategori Petugas",
+    allowClear: true,
+  });
+
+  $(".status_tt").select2({
+    placeholder: "Pilih Status",
+    allowClear: true,
+  });
+
   $(".laboratorium").select2({
     placeholder: "Pilih Laboratorium",
     allowClear: true,

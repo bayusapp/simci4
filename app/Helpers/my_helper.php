@@ -84,7 +84,7 @@ if (!function_exists('greetings')) {
       $salam = 'Siang';
     } elseif ($jam < '18:00') {
       $salam = 'Sore';
-    } else {
+    } elseif ($jam >= '18:00' && $jam < '23:59') {
       $salam = 'Malam';
     }
 

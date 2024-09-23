@@ -13,6 +13,8 @@ class M_Trouble_Ticket extends Model
   {
     $this->join('laboratorium', 'trouble_ticket.id_lab = laboratorium.id_lab');
     $this->join('trouble_ticket_kategori_orang', 'trouble_ticket.kategori_informan = trouble_ticket_kategori_orang.id_tt_orang');
+    $this->orderBy('status_tt', 'ASC');
+    $this->orderBy('id_trouble_ticket', 'DESC');
     return $this->findAll();
   }
 
@@ -32,5 +34,12 @@ class M_Trouble_Ticket extends Model
     $this->where('kontak_informan', $kontak_informan);
     $this->orderBy('id_trouble_ticket', 'DESC');
     return $this->first();
+  }
+
+  public function updateStatusTT($status, $id)
+  {
+    $this->set('status_tt', $status);
+    $this->where('substr(sha1(id_trouble_ticket), 13, 7)', $id);
+    $this->update();
   }
 }

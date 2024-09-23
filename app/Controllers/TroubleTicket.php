@@ -8,6 +8,8 @@ use App\Models\M_Laboratorium;
 use App\Models\M_Laboratorium_PIC;
 use App\Models\M_Trouble_Ticket;
 use App\Models\M_Trouble_Ticket_Kategori_Orang;
+use App\Models\M_Trouble_Ticket_Tracking;
+use DateTime;
 
 class TroubleTicket extends BaseController
 {
@@ -18,6 +20,7 @@ class TroubleTicket extends BaseController
   protected $laboratorium_pic;
   protected $trouble_ticket;
   protected $tt_kategori;
+  protected $tt_tracking;
 
   public function __construct()
   {
@@ -31,6 +34,7 @@ class TroubleTicket extends BaseController
         $this->laboratorium_pic = new M_Laboratorium_PIC();
         $this->trouble_ticket   = new M_Trouble_Ticket();
         $this->tt_kategori      = new M_Trouble_Ticket_Kategori_Orang();
+        $this->tt_tracking      = new M_Trouble_Ticket_Tracking();
         $nip                    = session()->get('nip_laboran');
         $data_laboran           = $this->laboran->getDataLaboran($nip);
         $this->data             = array(
@@ -48,11 +52,10 @@ class TroubleTicket extends BaseController
   public function index()
   {
     $data = $this->data;
-    $data['laboratorium'] = $this->laboratorium->getAllLaboratorium();
+    $data['laboratorium']   = $this->laboratorium->getAllLaboratorium();
     $data['trouble_ticket'] = $this->trouble_ticket->getAllTroubleTicket();
-    $data['tt_kategori'] = $this->tt_kategori->getListKategori();
+    $data['tt_kategori']    = $this->tt_kategori->getListKategori();
     return view('laboran/trouble_ticket/v_index', $data);
-    // dd($data['trouble_ticket']);
   }
 
   public function simpanTroubleTicket()
@@ -88,57 +91,51 @@ class TroubleTicket extends BaseController
       $data               = $this->laboratorium_pic->getDataPIC($laboratorium);
       $id_trouble_ticket  = substr(sha1($id_trouble_ticket), 12, 7);
       $link               = base_url('Tracking/' . $id_trouble_ticket);
-      $this->pesanWA($data['nama_laboran'], $data['nama_lab'], $nama_informan, $kendala, $data['kontak_laboran']);
-      $this->pesanWA($data['nama_aslab'], $data['nama_lab'], $nama_informan, $kendala, $data['kontak_aslab']);
-      $this->pesanWAInforman($nama_informan, $data['nama_lab'], $link, $kontak_informan);
+      $this->pesanWA($data['nama_laboran'], $data['nama_lab'], $nama_informan, $kendala, $data['kontak_laboran']); //laboran
+      $this->pesanWA($data['nama_aslab'], $data['nama_lab'], $nama_informan, $kendala, $data['kontak_aslab']); //aslab
+      $this->pesanWAInforman($nama_informan, $id_trouble_ticket, $kendala, $data['nama_lab'], $link, $kontak_informan); //informan
       session()->setFlashdata('sukses', 'Data Trouble Ticket Sukses Ditambahkan');
       return redirect()->back();
     }
   }
 
-  public function TrackTroubleTicket()
+  public function progresTroubleTicket()
   {
     if (!$this->validate([
-      'id' => ['rules' => 'required']
+      'id_trouble_ticket' => ['rules' => 'required'],
+      'tanggal_tt'        => ['rules' => 'required'],
+      'nama_petugas'      => ['rules' => 'required'],
+      'tt_petugas'        => ['rules' => 'required'],
+      'solusi'            => ['rules' => 'required'],
+      'status_tt'         => ['rules' => 'required']
     ])) {
-      return redirect()->to('Beranda');
+      session()->setFlashdata('error', 'Harap lengkapi seluruh field');
+      return redirect()->back()->withInput();
     } else {
-      $id_tt = $this->request->getPost('id');
-      $response = '<div id="view_track_tt_' . $id_tt . '" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="label_form" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="label_form">Form Tambah Trouble Ticket</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              </div>
-              
-              
-                <div class="modal-body">
-                  <div class="row">
-                    <div class="col-lg-3 col-md-3 col-sm-12">
-                      <div class="form-group">
-                        <label for="tanggal_tt">Tanggal</label>
-                        <input type="text" class="form-control" name="tanggal_tt" id="tanggal_tt" placeholder="Contoh: 12345678" required>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
-                      <div class="form-group">
-                        <label for="kendala">Kendala</label>
-                        <textarea class="form-control" name="kendala" id="kendala" placeholder="Contoh: Lampu di lab D1 mati" required></textarea>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                  <button type="submit" class="btn btn-primary">Simpan</button>
-                </div>
-            </div>
-          </div>
-        </div>';
-      return $response;
+      $id_trouble_ticket  = $this->request->getPost('id_trouble_ticket');
+      $tanggal_tt         = convertDatePicker($this->request->getPost('tanggal_tt'));
+      $nama_petugas       = $this->request->getPost('nama_petugas');
+      $tt_petugas         = $this->request->getPost('tt_petugas');
+      $solusi             = $this->request->getPost('solusi');
+      $status_tt          = $this->request->getPost('status_tt');
+      $data_tt            = $this->trouble_ticket->getTroubleTicketDetail($id_trouble_ticket);
+      $this->trouble_ticket->updateStatusTT($status_tt, $id_trouble_ticket);
+      $input_track        = [
+        'tanggal_track'     => $tanggal_tt,
+        'kategori_petugas'  => $tt_petugas,
+        'nama_petugas'      => $nama_petugas,
+        'solusi'            => $solusi,
+        'id_trouble_ticket' => $data_tt['id_trouble_ticket']
+      ];
+      $this->tt_tracking->insert($input_track);
+      $tanggal_open   = new DateTime($data_tt['tanggal_tt']);
+      $tanggal_close  = new DateTime($tanggal_tt);
+      $durasi         = $tanggal_open->diff($tanggal_close);
+      if ($status_tt == '3') {
+        $this->pesanWAInformanSelesai($data_tt['nama_informan'], $id_trouble_ticket, $data_tt['kendala'], $data_tt['nama_lab'], $durasi->days, $data_tt['kontak_informan']);
+      }
+      session()->setFlashdata('sukses', 'Data Progres Trouble Ticket Sukses Ditambahkan');
+      return redirect()->back();
     }
   }
 
@@ -146,25 +143,42 @@ class TroubleTicket extends BaseController
   {
     $pesan = "Selamat " . greetings() . " {$nama_laboran},
 
-Di laboratorium {$lab} ada komplain dari {$nama_informan} terkait:
-{$kendala}
+Kami telah menerima trouble ticket baru terkait {$kendala} di {$lab} dari {$nama_informan}. Mohon segera dilakukan pengecekan dan/atau perbaikan agar kegiatan di {$lab} dapat berjalan dengan baik.
 
-Mohon segera dilakukan pengecekan dan/atau perbaikan agar kegiatan praktikum dapat berjalan dengan baik.
-
-Terima kasih";
+Salam,
+Unit Laboratorium/Bengkel/Studio Fakultas Ilmu Terapan, Universitas Telkom";
     kirimWA($pesan, $tujuan);
   }
 
-  private function pesanWAInforman($nama_informan, $lab, $link, $tujuan)
+  private function pesanWAInforman($nama_informan, $id_trouble_ticket, $kendala, $lab, $link, $tujuan)
+  {
+    $pesan = "Selamat " . greetings() . " {$nama_informan},
+
+Terima kasih atas laporan Anda. Kami telah menerima trouble ticket dengan nomor #{$id_trouble_ticket} terkait {$kendala} di {$lab}.
+
+Tim kami sedang melakukan pengecekan lebih lanjut dan akan segera menangani masalah ini. Perkembangan atas masalah tersebut dapat dilihat pada {$link}.
+
+Jika Anda memiliki informasi tambahan yang dapat membantu kami dalam proses penanganan, dapat hubungi kami melalui 0851-7208-8181.
+
+Terima kasih atas perhatian dan kesabarannya.
+
+Salam,
+Unit Laboratorium/Bengkel/Studio Fakultas Ilmu Terapan, Universitas Telkom";
+    kirimWA($pesan, $tujuan);
+  }
+
+  private function pesanWAInformanSelesai($nama_informan, $id_trouble_ticket, $kendala, $lab, $durasi, $tujuan)
   {
     $pesan = "Selamat " . greetings() . " {$nama_informan},
     
-Keluhan Anda di laboratorium {$lab} sudah kami terima. Untuk melihat progres keluhan Anda dapat klik tautan berikut:
+Kami ingin menginformasikan bahwa trouble ticket dengan nomor #{$id_trouble_ticket} yang Anda laporkan terkait {$kendala} di {$lab} telah berhasil kami selesaikan dalam {$durasi} hari.
 
-{$link}
+Jika Anda memiliki pertanyaan lebih lanjut atau membutuhkan bantuan tambahan, dapat menghubungi kami di 0851-7208-8181. Kami senantiasa siap membantu.
 
-Terima kasih
-";
+Terima kasih atas kesabarannya, dan mohon maaf atas ketidaknyamanan.
+
+Salam,
+Unit Laboratorium/Bengkel/Studio Fakultas Ilmu Terapan, Universitas Telkom";
     kirimWA($pesan, $tujuan);
   }
 
