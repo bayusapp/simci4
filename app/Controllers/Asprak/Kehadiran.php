@@ -74,7 +74,8 @@ class Kehadiran extends BaseController
       return redirect()->back()->withInput();
     } else {
       $array_error      = array();
-      $tanggal          = '2024-02-29';
+      // $tanggal          = '2024-02-29';
+      $tanggal          = convertDatePicker($this->request->getPost('tanggal'));
       $jam_masuk        = $this->request->getPost('jam_masuk');
       $jam_keluar       = $this->request->getPost('jam_keluar');
       $kelas            = $this->request->getPost('kelas');

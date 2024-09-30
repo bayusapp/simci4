@@ -330,7 +330,7 @@ function hapus_kehadiran(id) {
   }).then((willDelete) => {
     if (willDelete) {
       $.ajax({
-        url: window.location.origin + "/Kehadiran/hapusKehadiran",
+        url: window.location.origin + "/Asprak/Kehadiran/hapusKehadiran",
         method: "POST",
         data: { id, id },
         success: function (response) {
@@ -915,6 +915,14 @@ $(document).ready(function () {
       ],
     });
 
+    $("#template").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "12%", targets: [3] },
+      ],
+    });
+
     $("#profil_kehadiran").DataTable({
       bAutoWidth: false,
       columnDefs: [
@@ -956,7 +964,6 @@ $(document).ready(function () {
         { width: "10%", targets: [5] },
         { width: "9%", targets: [7], className: "text-center" },
         { width: "12%", targets: [8], className: "text-center" },
-        { width: "10%", targets: [9], className: "text-center" },
       ],
     });
 
@@ -1030,8 +1037,18 @@ $(document).ready(function () {
     allowClear: true,
   });
 
+  $(".kategori_dokumen").select2({
+    placeholder: "Pilih Kategori Dokumen",
+    allowClear: true,
+  });
+
   $(function () {
     $(function () {
+      $('input[name="tanggal"]').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+      });
+
       $('input[name="dari_tanggal"]').daterangepicker({
         singleDatePicker: true,
         showDropdowns: true,

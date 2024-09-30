@@ -82,7 +82,8 @@
                       <div class="col-lg-3 col-md-3 col-sm-12">
                         <div class="form-group">
                           <label for="tanggal">Tanggal</label>
-                          <input type="text" class="form-control" name="tanggal" id="tanggal" value="<?= convertTanggal(date('Y-m-d')) ?>" readonly>
+                          <!-- <input type="text" class="form-control" name="tanggal" id="tanggal" value="<?= convertTanggal(date('Y-m-d')) ?>" readonly> -->
+                          <input type="text" class="form-control" name="tanggal" id="tanggal" required>
                         </div>
                       </div>
                       <div class="col-lg-3 col-md-3 col-sm-12">
@@ -163,7 +164,6 @@
                 <th>Mata Kuliah & Modul Praktikum</th>
                 <th>Kode Dosen</th>
                 <th>Status</th>
-                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -189,97 +189,6 @@
                   <td><?= $k['modul_praktikum'] ?></td>
                   <td><?= $k['kode_dosen'] ?></td>
                   <td><?= $approve ?></td>
-                  <td>
-                    <?php if ($k['approve_dosen'] == '0') : ?>
-                      <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#edit_kehadiran_<?= $hash_id_kehadiran ?>">
-                        <span data-toggle="tooltip" data-placement="bottom" title="Edit Kehadiran"><i class="feather icon-edit"></i></span>
-                      </button>
-                      <button type="button" class="btn btn-sm btn-danger" onclick="hapus_kehadiran('<?= $hash_id_kehadiran ?>')">
-                        <span data-toggle="tooltip" data-placement="bottom" title="Hapus Kehadiran"><i class="feather icon-trash-2"></i></span>
-                      </button>
-                    <?php elseif ($k['approve_dosen'] == '1') : ?>
-                      -
-                    <?php endif; ?>
-                  </td>
-                  <div id="edit_kehadiran_<?= $hash_id_kehadiran ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="label_form" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="label_form">Form Tambah Kehadiran</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
-                        <form method="post" action="<?= base_url('Asprak/Kehadiran/updateKehadiran') ?>">
-                          <?= csrf_field(); ?>
-                          <div class="modal-body">
-                            <div class="row">
-                              <div class="col-lg-3 col-md-3 col-sm-12">
-                                <div class="form-group">
-                                  <label for="tanggal">Tanggal</label>
-                                  <input type="text" class="form-control" name="tanggal" id="tanggal" value="<?= convertTanggal(date('Y-m-d')) ?>" readonly>
-                                </div>
-                              </div>
-                              <div class="col-lg-3 col-md-3 col-sm-12">
-                                <div class="form-group">
-                                  <label for="jam_masuk">Jam Masuk</label>
-                                  <div class="input-group jam_masuk" data-autoclose="true">
-                                    <input type="text" class="form-control" name="jam_masuk" id="jam_masuk" placeholder="09:30" onkeypress="jam_praktikum(event)" required>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-lg-3 col-md-3 col-sm-12">
-                                <div class="form-group">
-                                  <label for="jam_keluar">Jam Keluar</label>
-                                  <div class="input-group jam_keluar" data-autoclose="true">
-                                    <input type="text" class="form-control" name="jam_keluar" id="jam_keluar" placeholder="11:30" required>
-                                  </div>
-                                </div>
-                              </div>
-                              <div class="col-lg-3 col-md-3 col-sm-12">
-                                <div class="form-group">
-                                  <label for="kelas">Kelas</label>
-                                  <input type="text" class="form-control" name="kelas" id="kelas" placeholder="Contoh: D3SI-38-06" required>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-lg-4 col-md-4 col-sm-12">
-                                <div class="form-group">
-                                  <label for="mk_asprak">Mata Kuliah</label>
-                                  <select class="mk_asprak form-control" name="mk_asprak" required>
-                                    <option></option>
-                                    <?php foreach ($mk as $m) : ?>
-                                      <option value="<?= $m['id_asprak_list'] ?>"><?= $m['jenjang_prodi'] . '' . $m['kode_prodi'] . ' | ' . $m['kode_mk'] . ' | ' . $m['nama_mk'] ?></option>
-                                    <?php endforeach; ?>
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="col-lg-4 col-md-4 col-sm-12">
-                                <div class="form-group">
-                                  <label for="kode_dosen">Kode Dosen</label>
-                                  <select class="dosen form-control" name="kode_dosen" required>
-                                    <option></option>
-                                    <?php foreach ($dosen as $d) : ?>
-                                      <option value="<?= $d['kode_dosen'] ?>"><?= $d['kode_dosen'] . ' | ' . $d['nama_dosen'] ?></option>
-                                    <?php endforeach; ?>
-                                  </select>
-                                </div>
-                              </div>
-                              <div class="col-lg-4 col-md-4 col-sm-12">
-                                <div class="form-group">
-                                  <label for="modul">Modul Praktikum</label>
-                                  <input type="text" class="form-control" name="modul" id="modul" placeholder="Contoh: Installasi Framework Laravel" required>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                            <button type="submit" class="btn btn-primary">Perbarui</button>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
                 </tr>
               <?php endforeach; ?>
             </tbody>

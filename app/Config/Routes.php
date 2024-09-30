@@ -85,6 +85,9 @@ $routes->get('/Praktikum/LihatBAP/(:any)', 'Praktikum::LihatBAP');
 
 $routes->get('/Praktikum/SuratTugas/', 'Praktikum::SuratTugas');
 
+$routes->get('/Dokumen/Template', 'Dokumen::template');
+$routes->post('/Dokumen/simpanDokumen', 'Dokumen::simpanDokumen');
+
 $routes->get('/Kalender', 'Kalender::index');
 
 $routes->get('/TroubleTicket', 'TroubleTicket::index');

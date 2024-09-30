@@ -3,8 +3,13 @@ $uri                = service('uri');
 $model_tt_tracking  = new \App\Models\M_Trouble_Ticket_Tracking();
 $id_trouble_ticket  = $uri->getSegment(2);
 $tanggal_open       = new DateTime($trouble_ticket['tanggal_tt']);
-$tanggal_close      = new DateTime($model_tt_tracking->getDateTTClose($uri->getSegment('2'))['tanggal_track']);
-$durasi_tt          = $tanggal_open->diff($tanggal_close);
+$close              = $model_tt_tracking->getDateTTClose($uri->getSegment('2'));
+if ($close) {
+  $tanggal_close  = new DateTime($close['tanggal_track']);
+  $durasi_tt      = $tanggal_open->diff($tanggal_close);
+} else {
+  $durasi_tt = 0;
+}
 ?>
 <!DOCTYPE html>
 <html>

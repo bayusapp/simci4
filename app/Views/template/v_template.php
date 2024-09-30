@@ -108,6 +108,10 @@ if ($role == '1' || $role == '2') {
       display: none;
     }
 
+    .menupos-fixed {
+      border-radius: 0 0.7rem 0 0 !important;
+    }
+
     @media only screen and (max-width: 991px) {
       .pcoded-header .m-header {
         display: flex;
@@ -179,6 +183,10 @@ if ($role == '1' || $role == '2') {
 
     table.table-bordered.dataTable tbody td {
       vertical-align: middle;
+    }
+
+    .round_custom {
+      border-radius: 0.7rem;
     }
 
     .footer {
