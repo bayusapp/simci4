@@ -957,15 +957,6 @@ $(document).ready(function () {
       ],
     });
 
-    $("#riwayat_mk").DataTable({
-      bAutoWidth: false,
-      columnDefs: [
-        { width: "5%", targets: [0] },
-        { width: "15%", targets: [1] },
-        { width: "25%", targets: [3] },
-      ],
-    });
-
     $("#trouble_ticket").DataTable({
       bAutoWidth: false,
       columnDefs: [
