@@ -10,6 +10,28 @@ function hanyaAngka(event) {
     return event.preventDefault();
 }
 
+function darkMode(check, id) {
+  if (check.checked) {
+    $.ajax({
+      url: window.location.origin + "/Auth/darkMode",
+      method: "POST",
+      data: { id: id },
+      success: function (response) {
+        location.reload();
+      },
+    });
+  } else {
+    $.ajax({
+      url: window.location.origin + "/Auth/darkMode",
+      method: "POST",
+      data: { id: id },
+      success: function (response) {
+        location.reload();
+      },
+    });
+  }
+}
+
 function hapus_prodi(id) {
   swal({
     title: "Apakah Anda yakin?",
@@ -932,6 +954,15 @@ $(document).ready(function () {
         { width: "30%", targets: [6] },
         { width: "10%", targets: [7], className: "text-center" },
         { width: "10%", targets: [8], className: "text-center" },
+      ],
+    });
+
+    $("#riwayat_mk").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "15%", targets: [1] },
+        { width: "25%", targets: [3] },
       ],
     });
 

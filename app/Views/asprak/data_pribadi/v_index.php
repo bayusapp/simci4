@@ -19,7 +19,7 @@
                       $foto = base_url($informasi['file_foto']);
                     }
                     ?>
-                    <img class="img-radius img-fluid wid-100" src="<?= $foto ?>" alt="User image">
+                    <img class="img-radius img-fluid wid-100 img-asprak" src="<?= $foto ?>" alt="User image">
                   </div>
                 </div>
               </a>

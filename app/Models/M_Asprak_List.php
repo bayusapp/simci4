@@ -10,6 +10,14 @@ class M_Asprak_List extends Model
   protected $table = 'asprak_list';
   protected $allowedFields = ['surat_perjanjian', 'tanggal_surat_perjanjian', 'nim_asprak', 'id_mk_semester'];
 
+  public function numberOfAsprak($id_ta)
+  {
+    $this->select('count(id_asprak_list) jumlah');
+    $this->join('matakuliah_semester', 'asprak_list.id_mk_semester = matakuliah_semester.id_mk_semester');
+    $this->where('id_ta', $id_ta);
+    return $this->first();
+  }
+
   public function checkDataAsprakList($nim, $id_mk_semester)
   {
     $this->where('nim_asprak', $nim);
@@ -57,7 +65,12 @@ class M_Asprak_List extends Model
 
   public function getHistoryMKAsprak($nim)
   {
-    //
+    $this->join('matakuliah_semester', 'asprak_list.id_mk_semester = matakuliah_semester.id_mk_semester');
+    $this->join('matakuliah', 'matakuliah_semester.kode_mk = matakuliah.kode_mk');
+    $this->join('tahun_ajaran', 'matakuliah_semester.id_ta = tahun_ajaran.id_ta');
+    $this->where('asprak_list.nim_asprak', $nim);
+    $this->orderBy('matakuliah_semester.id_mk_semester', 'DESC');
+    return $this->findAll();
   }
 
   public function getSuratPerjanjian($nim)

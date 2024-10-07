@@ -108,8 +108,8 @@
       <div class="col-lg-12">
         <div class="card bg-c-green text-white widget-visitor-card round_custom">
           <div class="card-body text-center">
-            <h2 class="text-white">16</h2>
-            <h6 class="text-white">Asisten Praktikum</h6>
+            <h2 class="text-white"><?= $jumlah_asprak ?></h2>
+            <h6 class="text-white">Asisten Praktikum <?= $tahun_ajaran['tahun_ajaran'] ?></h6>
             <i class="feather icon-users"></i>
           </div>
         </div>

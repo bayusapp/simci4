@@ -499,44 +499,17 @@ if (!function_exists('ambilJamAsprak')) {
 if (!function_exists('kirimWA')) {
   function kirimWA($pesan, $tujuan)
   {
-    // $pesan = str_replace(' ', ' ', $pesan);
-
-    // $body = array(
-    //   "api_key" => "5b79f4142bf39b929c2e27013fc10db7daf5c275",
-    //   "receiver" => $tujuan,
-    //   "data" => array("message" => $pesan)
-    // );
-
-    // $curl = curl_init();
-    // curl_setopt_array($curl, [
-    //   CURLOPT_URL => "https://waps.bayusapp.com/api/send-message",
-    //   CURLOPT_RETURNTRANSFER => true,
-    //   CURLOPT_ENCODING => "",
-    //   CURLOPT_MAXREDIRS => 10,
-    //   CURLOPT_TIMEOUT => 30,
-    //   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-    //   CURLOPT_CUSTOMREQUEST => "POST",
-    //   CURLOPT_POSTFIELDS => json_encode($body),
-    //   CURLOPT_HTTPHEADER => [
-    //     "Accept: */*",
-    //     "Content-Type: application/json",
-    //   ],
-    // ]);
-
-    // $response = curl_exec($curl);
-
-    // curl_close($curl);
-    // // echo $response;
-
     $pesan = str_replace(' ', ' ', $pesan);
+
     $body = array(
-      "session" => 'laboran',
-      "to" => $tujuan,
-      "text" => $pesan
+      "api_key" => "46dff53c12f68ebdd1c4f7a7a517f211a79d1d42",
+      "receiver" => $tujuan,
+      "data" => array("message" => $pesan)
     );
+
     $curl = curl_init();
     curl_setopt_array($curl, [
-      CURLOPT_URL => "https://wa.bayusapp.com/send-message",
+      CURLOPT_URL => "https://waps.bayusapp.com/api/send-message",
       CURLOPT_RETURNTRANSFER => true,
       CURLOPT_ENCODING => "",
       CURLOPT_MAXREDIRS => 10,
@@ -553,7 +526,35 @@ if (!function_exists('kirimWA')) {
     $response = curl_exec($curl);
 
     curl_close($curl);
-    echo $response;
+    // echo $response;
+
+    // wa.bayusapp.com
+    // $pesan = str_replace(' ', ' ', $pesan);
+    // $body = array(
+    //   "session" => 'laboran',
+    //   "to" => $tujuan,
+    //   "text" => $pesan
+    // );
+    // $curl = curl_init();
+    // curl_setopt_array($curl, [
+    //   CURLOPT_URL => "https://wa.bayusapp.com/send-message",
+    //   CURLOPT_RETURNTRANSFER => true,
+    //   CURLOPT_ENCODING => "",
+    //   CURLOPT_MAXREDIRS => 10,
+    //   CURLOPT_TIMEOUT => 30,
+    //   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    //   CURLOPT_CUSTOMREQUEST => "POST",
+    //   CURLOPT_POSTFIELDS => json_encode($body),
+    //   CURLOPT_HTTPHEADER => [
+    //     "Accept: */*",
+    //     "Content-Type: application/json",
+    //   ],
+    // ]);
+
+    // $response = curl_exec($curl);
+
+    // curl_close($curl);
+    // echo $response;
 
     sleep(7);
   }

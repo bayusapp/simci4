@@ -23,7 +23,7 @@
       </div>
       <div class="form-group mb-3">
         <label class="floating-label" for="username">Username</label>
-        <input type="text" class="form-control" id="username" name="username" value="<?= old('username') ?>" required>
+        <input type="text" class="form-control" id="username" name="username" value="<?= old('username') ?>" onkeypress="return event.charCode != 32" required>
       </div>
       <div class="form-group mb-4">
         <label class="floating-label" for="password">Password</label>

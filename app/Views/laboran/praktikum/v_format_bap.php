@@ -40,6 +40,19 @@
       text-align: center;
       vertical-align: middle;
     }
+
+    footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    .qr-code {
+      max-height: 60px;
+    }
   </style>
 </head>
 
@@ -148,6 +161,9 @@
         </td>
       </tr>
     </table>
+    <footer>
+      Digenerate oleh <?= $laboran['nama_laboran'] ?> <img src="<?= base_url($mk_bap['qr']) ?>" class="qr-code">
+    </footer>
   </section>
 </body>
 

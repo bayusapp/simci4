@@ -103,27 +103,15 @@ class Kalender extends BaseController
         }
         $tanggal  = $row[0];
         $kalender = $row[1];
-        // $kode_mk  = $row[2];
-        // $input    = [
-        //   'nim_asprak'  => $nim,
-        //   'nama_asprak' => $nama
-        // ];
-        // $cek_asprak = $this->asprak->checkDataAsprak($nim);
-        // if (!$cek_asprak) {
-        //   $this->asprak->insert($input);
-        // }
-        // $id_mk_semester = $this->mk_semester->checkDataMKSemester($kode_mk, $ta_aktif)['id_mk_semester'];
-        // $input_list = [
-        //   'nim_asprak'      => $nim,
-        //   'id_mk_semester'  => $id_mk_semester
-        // ];
-        // $cek_asprak_list  = $this->asprak_list->checkDataAsprakList($nim, $id_mk_semester);
-        // if (!$cek_asprak_list) {
-        //   $this->asprak_list->insert($input_list);
-        // }
+        $split    = explode('/', $tanggal);
+        $input    = [
+          'tanggal_libur' => $split[2] . '-' . $split[1] . '-' . $split[0],
+          'keterangan'    => $kalender
+        ];
+        $this->kalender->insert($input);
       }
-      // session()->setFlashdata('sukses', 'Data Asisten Praktikum Sukses Ditambahkan');
-      // return redirect()->back();
+      session()->setFlashdata('sukses', 'Data Kalender Libur Sukses Ditambahkan');
+      return redirect()->back();
     }
   }
 

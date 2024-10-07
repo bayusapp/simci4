@@ -39,7 +39,7 @@ class M_Asprak extends Model
     $this->set('kontak_asprak', $kontak_asprak);
     $this->set('email_asprak', $email_asprak);
     $this->set('norek_asprak', $norek_asprak);
-    $this->set('bank', $bank);
+    $this->set('kode_bank', $bank);
     $this->set('nama_akun', $nama_akun);
     $this->set('status_verif', $status_verif);
     $this->set('verif_laboran', $verif_laboran);

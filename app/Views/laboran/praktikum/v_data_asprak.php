@@ -67,10 +67,10 @@
           </div>
           <ul class="nav nav-tabs profile-tabs nav-fill" id="myTab" role="tablist">
             <li class="nav-item">
-              <a class="nav-link text-reset active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><i class="feather icon-user-check mr-2"></i>Kehadiran</a>
+              <a class="nav-link text-reset active" id="home-tab" data-toggle="tab" href="#kehadiran-tab" role="tab" aria-controls="home" aria-selected="true"><i class="feather icon-user-check mr-2"></i>Kehadiran</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-reset" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i class="feather icon-rotate-ccw mr-2"></i>Riwayat Mata Kuliah</a>
+              <a class="nav-link text-reset" id="profile-tab" data-toggle="tab" href="#riwayat-tab" role="tab" aria-controls="profile" aria-selected="false"><i class="feather icon-rotate-ccw mr-2"></i>Riwayat Mata Kuliah</a>
             </li>
           </ul>
         </div>
@@ -84,7 +84,7 @@
 <div class="row">
   <div class="col-md-12">
     <div class="tab-content" id="myTabContent">
-      <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+      <div class="tab-pane fade show active" id="kehadiran-tab" role="tabpanel" aria-labelledby="riwayat-tab">
         <div class="card">
           <div class="card-body">
             <div class="dt-responsive table-responsive">
@@ -134,243 +134,42 @@
           </div>
         </div>
       </div>
-      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+      <div class="tab-pane fade" id="riwayat-tab" role="tabpanel" aria-labelledby="riwayat-tab">
         <div class="card">
-          <div class="card-body d-flex align-items-center justify-content-between">
-            <h5 class="mb-0">Personal details</h5>
-            <button type="button" class="btn btn-primary btn-sm rounded m-0 float-right" data-toggle="collapse" data-target=".pro-det-edit" aria-expanded="false" aria-controls="pro-det-edit-1 pro-det-edit-2">
-              <i class="feather icon-edit"></i>
-            </button>
-          </div>
-          <div class="card-body border-top pro-det-edit collapse show" id="pro-det-edit-1">
-            <form>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Full Name</label>
-                <div class="col-sm-9">
-                  <?= $asprak['nama_asprak'] ?>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Gender</label>
-                <div class="col-sm-9">
-                  Male
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Birth Date</label>
-                <div class="col-sm-9">
-                  16-12-1994
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Martail Status</label>
-                <div class="col-sm-9">
-                  Unmarried
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Location</label>
-                <div class="col-sm-9">
-                  <p class="mb-0 text-muted">4289 Calvin Street</p>
-                  <p class="mb-0 text-muted">Baltimore, near MD Tower Maryland,</p>
-                  <p class="mb-0 text-muted">Maryland (21201)</p>
-                </div>
-              </div>
-            </form>
-          </div>
-          <div class="card-body border-top pro-det-edit collapse " id="pro-det-edit-2">
-            <form>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Full Name</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" placeholder="Full Name" value="Lary Doe">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Gender</label>
-                <div class="col-sm-9">
-                  <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="customRadioInline1" name="customRadioInline1" class="custom-control-input" checked>
-                    <label class="custom-control-label" for="customRadioInline1">Male</label>
-                  </div>
-                  <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" id="customRadioInline2" name="customRadioInline1" class="custom-control-input">
-                    <label class="custom-control-label" for="customRadioInline2">Female</label>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Birth Date</label>
-                <div class="col-sm-9">
-                  <input type="date" class="form-control" value="1994-12-16">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Martail Status</label>
-                <div class="col-sm-9">
-                  <select class="form-control" id="exampleFormControlSelect1">
-                    <option>Select Marital Status</option>
-                    <option>Married</option>
-                    <option selected>Unmarried</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Location</label>
-                <div class="col-sm-9">
-                  <textarea class="form-control">4289 Calvin Street,  Baltimore, near MD Tower Maryland, Maryland (21201)</textarea>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label"></label>
-                <div class="col-sm-9">
-                  <button type="submit" class="btn btn-primary">Save</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body d-flex align-items-center justify-content-between">
-            <h5 class="mb-0">Contact Information</h5>
-            <button type="button" class="btn btn-primary btn-sm rounded m-0 float-right" data-toggle="collapse" data-target=".pro-dont-edit" aria-expanded="false" aria-controls="pro-dont-edit-1 pro-dont-edit-2">
-              <i class="feather icon-edit"></i>
-            </button>
-          </div>
-          <div class="card-body border-top pro-dont-edit collapse show" id="pro-dont-edit-1">
-            <form>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Mobile Number</label>
-                <div class="col-sm-9">
-                  +1 9999-999-999
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Email Address</label>
-                <div class="col-sm-9">
-                  Demo@domain.com
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Twitter</label>
-                <div class="col-sm-9">
-                  @phonixcoded
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Skype</label>
-                <div class="col-sm-9">
-                  @phonixcoded demo
-                </div>
-              </div>
-            </form>
-          </div>
-          <div class="card-body border-top pro-dont-edit collapse " id="pro-dont-edit-2">
-            <form>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Mobile Number</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" placeholder="Full Name" value="+1 9999-999-999">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Email Address</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" placeholder="Ema" value="Demo@domain.com">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Twitter</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" placeholder="Full Name" value="@phonixcoded">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Skype</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" placeholder="Full Name" value="@phonixcoded demo">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label"></label>
-                <div class="col-sm-9">
-                  <button type="submit" class="btn btn-primary">Save</button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-body d-flex align-items-center justify-content-between">
-            <h5 class="mb-0">other Information</h5>
-            <button type="button" class="btn btn-primary btn-sm rounded m-0 float-right" data-toggle="collapse" data-target=".pro-wrk-edit" aria-expanded="false" aria-controls="pro-wrk-edit-1 pro-wrk-edit-2">
-              <i class="feather icon-edit"></i>
-            </button>
-          </div>
-          <div class="card-body border-top pro-wrk-edit collapse show" id="pro-wrk-edit-1">
-            <form>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Occupation</label>
-                <div class="col-sm-9">
-                  Designer
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Skills</label>
-                <div class="col-sm-9">
-                  C#, Javascript, Scss
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Jobs</label>
-                <div class="col-sm-9">
-                  Phoenixcoded
-                </div>
-              </div>
-            </form>
-          </div>
-          <div class="card-body border-top pro-wrk-edit collapse " id="pro-wrk-edit-2">
-            <form>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Occupation</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" placeholder="Full Name" value="Designer">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Email Address</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" placeholder="Ema" value="Demo@domain.com">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label font-weight-bolder">Jobs</label>
-                <div class="col-sm-9">
-                  <div class="custom-control custom-checkbox form-check d-inline-block mr-2">
-                    <input type="checkbox" class="custom-control-input" id="pro-wrk-chk-1" checked>
-                    <label class="custom-control-label" for="pro-wrk-chk-1">C#</label>
-                  </div>
-                  <div class="custom-control custom-checkbox form-check d-inline-block mr-2">
-                    <input type="checkbox" class="custom-control-input" id="pro-wrk-chk-2" checked>
-                    <label class="custom-control-label" for="pro-wrk-chk-2">Javascript</label>
-                  </div>
-                  <div class="custom-control custom-checkbox form-check d-inline-block mr-2">
-                    <input type="checkbox" class="custom-control-input" id="pro-wrk-chk-3" checked>
-                    <label class="custom-control-label" for="pro-wrk-chk-3">Scss</label>
-                  </div>
-                  <div class="custom-control custom-checkbox form-check d-inline-block mr-2">
-                    <input type="checkbox" class="custom-control-input" id="pro-wrk-chk-4">
-                    <label class="custom-control-label" for="pro-wrk-chk-4">Html</label>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label"></label>
-                <div class="col-sm-9">
-                  <button type="submit" class="btn btn-primary">Save</button>
-                </div>
-              </div>
-            </form>
+          <div class="card-body">
+            <div class="dt-responsive table-responsive">
+              <table id="riwayat_mk" class="table table-striped table-bordered">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Kode Mata Kuliah</th>
+                    <th>Mata Kuliah</th>
+                    <th>Tahun Ajaran/Semester</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  $no = 1;
+                  foreach ($history as $h) :
+                    $split = explode('-', $h['tahun_ajaran']);
+                    if ($split[1] == '1') :
+                      $semester = 'Ganjil';
+                    elseif ($split[1] == '2') :
+                      $semester = 'Genap';
+                    endif;
+                  ?>
+                    <tr>
+                      <td><?= $no++ ?></td>
+                      <td><?= $h['kode_mk'] ?></td>
+                      <td><?= $h['nama_mk'] ?></td>
+                      <td><?= $split[0] . ' ' . $semester ?></td>
+                    </tr>
+                  <?php
+                  endforeach;
+                  ?>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

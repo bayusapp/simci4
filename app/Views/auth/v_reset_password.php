@@ -15,8 +15,8 @@
     <h4 class="mb-3 f-w-400">Reset Password</h4>
     <form method="post" action="<?= base_url('Auth/submitReset') ?>">
       <div class="form-group mb-4">
-        <label for="id">Username/NIP/NIM</label>
-        <input type="text" class="form-control" name="id" id="id" value="<?= old('id') ?>" placeholder="Contoh: johndoe">
+        <label for="id">Kode Dosen/NIP/NIM</label>
+        <input type="text" class="form-control" name="id" id="id" value="<?= old('id') ?>" placeholder="Contoh: 123456">
       </div>
       <input type="text" name="location" id="location" class="form-control" readonly hidden>
       <div id='map' hidden></div>
@@ -24,8 +24,8 @@
     </form>
     <div class="text-center">
       <div class="saprator my-4"><span>ATAU</span></div>
-      <p class="mb-2 mt-4 text-muted">Sudah punya akun? <a href="auth-reset-password-img-side.html" class="f-w-400">Login</a></p>
-      <p class="mb-0 text-muted">Belum punya akun? <a href="auth-signup-img-side.html" class="f-w-400">Register Akun</a></p>
+      <p class="mb-2 mt-4 text-muted">Sudah punya akun? <a href="<?= base_url() ?>" class="f-w-400">Login</a></p>
+      <p class="mb-0 text-muted">Belum punya akun? <a href="javascript:register()" class="f-w-400">Register Akun</a></p>
     </div>
   </div>
 </div>

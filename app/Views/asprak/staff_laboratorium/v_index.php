@@ -1,5 +1,9 @@
 <?= $this->extend('template/v_template') ?>
 <?= $this->section('content') ?>
+<?php
+$model_users_preference = new \App\Models\M_Users_Preference();
+$dark_mode              = $model_users_preference->getStatusDarkMode(session()->get('username'));
+?>
 <!-- [ Main Content ] start -->
 <div class="row" style="margin-bottom: 50px;">
   <!-- Zero config table start -->
@@ -30,10 +34,14 @@
                   </div>
                 <?php else: ?>
                   <div class="col">
-                    <a href="https://wa.me/<?= $l['kontak_laboran'] ?>" target="_blank" style="color: #373a3c;">
-                      <i class="fab fa-whatsapp"></i>
-                      <p class="mb-1"><?= $l['kontak_laboran'] ?></p>
-                    </a>
+                    <?php if ($dark_mode && $dark_mode['dark_mode'] == '1'): ?>
+                      <a href="https://wa.me/<?= $l['kontak_laboran'] ?>" target="_blank">
+                      <?php else: ?>
+                        <a href="https://wa.me/<?= $l['kontak_laboran'] ?>" target="_blank" style="color: #373a3c;">
+                        <?php endif; ?>
+                        <i class="fab fa-whatsapp"></i>
+                        <p class="mb-1"><?= $l['kontak_laboran'] ?></p>
+                        </a>
                   </div>
                 <?php endif; ?>
                 <div class="col">

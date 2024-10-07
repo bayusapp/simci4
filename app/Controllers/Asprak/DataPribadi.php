@@ -109,15 +109,15 @@ class DataPribadi extends BaseController
       } else {
         $file_kkk = $cek_data['file_kk'];
       }
-      if ($cek_data['norek_asprak'] != $norek_asprak || $cek_data['bank'] != $bank || $cek_data['nama_akun'] != $nama_akun) {
+      if ($cek_data['norek_asprak'] != $norek_asprak || $cek_data['kode_bank'] != $bank || $cek_data['nama_akun'] != $nama_akun) {
         $norek_asprak  = $norek_asprak;
         $bank          = $bank;
         $nama_akun     = $nama_akun;
         $status_verif  = '0';
         $verif_laboran = null;
-      } elseif ($cek_data['norek_asprak'] == $norek_asprak && $cek_data['bank'] == $bank && $cek_data['nama_akun'] == $nama_akun) {
+      } elseif ($cek_data['norek_asprak'] == $norek_asprak && $cek_data['kode_bank'] == $bank && $cek_data['nama_akun'] == $nama_akun) {
         $norek_asprak   = $cek_data['norek_asprak'];
-        $bank           = $cek_data['bank'];
+        $bank           = $cek_data['kode_bank'];
         $nama_akun      = $cek_data['nama_akun'];
         $status_verif   = $cek_data['status_verif'];
         $verif_laboran  = $cek_data['verif_laboran'];

@@ -9,6 +9,11 @@
         <h5>Surat Perjanjian</h5>
       </div>
       <div class="card-body">
+        <?php if ($asprak['ttd_digital'] == null) : ?>
+          <div class="alert alert-danger" role="alert">
+            Harap upload tanda tangan digital terlebih dahulu
+          </div>
+        <?php endif; ?>
         <div class="dt-responsive table-responsive">
           <table id="surat_perjanjian" class="table table-striped table-bordered nowrap">
             <thead>
@@ -51,10 +56,12 @@
                     </span>
                   </td>
                   <td>
-                    <?php if ($sp['surat_perjanjian'] == null) : ?>
-                      <button type="button" id="ttd_<?= $hash_id_asprak_list ?>" class="btn btn-sm btn-success" onclick="ttd_sp('<?= $hash_id_asprak_list ?>')">
-                        <span data-toggle="tooltip" data-placement="bottom" title="Tanda Tangan"><i class="fas fa-file-signature"></i></span>
-                      </button>
+                    <?php if ($asprak['ttd_digital'] != null): ?>
+                      <?php if ($sp['surat_perjanjian'] == null) : ?>
+                        <button type="button" id="ttd_<?= $hash_id_asprak_list ?>" class="btn btn-sm btn-success" onclick="ttd_sp('<?= $hash_id_asprak_list ?>')">
+                          <span data-toggle="tooltip" data-placement="bottom" title="Tanda Tangan"><i class="fas fa-file-signature"></i></span>
+                        </button>
+                      <?php endif; ?>
                     <?php endif; ?>
                     <a href="<?= base_url('Asprak/SuratPerjanjian/view/' . $hash_id_asprak_list) ?>" target="_blank">
                       <button type="button" class="btn btn-sm btn-info">

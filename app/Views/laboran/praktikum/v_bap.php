@@ -97,6 +97,50 @@
                 </div>
               </div>
             </div>
+            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#print_bap"><i class="feather icon-printer"></i> Print BAP</button>
+            <div id="print_bap" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="label_form" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="label_form">Print BAP Asisten Praktikum</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  </div>
+                  <form method="post" action="<?= base_url('Praktikum/generateBAP') ?>">
+                    <div class="modal-body">
+                      <div class="row">
+                        <div class="col-lg-6 col-md-3 col-sm-12">
+                          <div class="form-group">
+                            <label for="kode_mk">Mata Kuliah</label>
+                            <select class="matakuliah form-control" name="kode_mk" id="kode_mk" required>
+                              <option></option>
+                              <?php foreach ($matakuliah as $m) : ?>
+                                <option value="<?= $m['kode_mk'] ?>"><?= $m['jenjang_prodi'] . '' . $m['kode_prodi'] . ' | ' . $m['kode_mk'] . ' - ' . $m['nama_mk'] ?></option>
+                              <?php endforeach; ?>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-5 col-sm-12">
+                          <div class="form-group">
+                            <label for="id_ta">Dari Tanggal</label>
+                            <input type="text" name="dari_tanggal" value="<?= date('m/d/Y') ?>" class="form-control" />
+                          </div>
+                        </div>
+                        <div class="col-lg-3 col-md-5 col-sm-12">
+                          <div class="form-group">
+                            <label for="kode_dosen">Sampai Tanggal</label>
+                            <input type="text" name="sampai_tanggal" value="<?= date('m/d/Y') ?>" class="form-control" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                      <button type="submit" class="btn btn-primary">Simpan</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <ul class="nav nav-pills mb-3" id="myTab" role="tablist" style="margin-top: 10px;">

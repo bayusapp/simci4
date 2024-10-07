@@ -8,6 +8,7 @@ use App\Models\M_Forgot_Password;
 use App\Models\M_Laboran;
 use App\Models\M_Riwayat_Login;
 use App\Models\M_Users;
+use App\Models\M_Users_Preference;
 use App\Models\M_Users_Role;
 
 class Auth extends BaseController
@@ -15,21 +16,24 @@ class Auth extends BaseController
 
   protected $asprak;
   protected $dosen;
+  protected $forgot_password;
   protected $laboran;
   protected $token;
   protected $users;
+  protected $users_preference;
   protected $users_role;
   protected $history;
 
   public function __construct()
   {
-    $this->asprak     = new M_Asprak();
-    $this->dosen      = new M_Dosen();
-    $this->laboran    = new M_Laboran();
-    $this->token      = new M_Forgot_Password();
-    $this->users      = new M_Users();
-    $this->users_role = new M_Users_Role();
-    $this->history    = new M_Riwayat_Login();
+    $this->asprak           = new M_Asprak();
+    $this->dosen            = new M_Dosen();
+    $this->forgot_password  = new M_Forgot_Password();
+    $this->laboran          = new M_Laboran();
+    $this->users            = new M_Users();
+    $this->users_preference = new M_Users_Preference();
+    $this->users_role       = new M_Users_Role();
+    $this->history          = new M_Riwayat_Login();
   }
 
   public function index()
@@ -62,35 +66,35 @@ class Auth extends BaseController
     } else {
       $username     = $this->request->getPost('username');
       $password     = $this->request->getPost('password');
-      $lokasi       = $this->request->getPost('location');
-      $lokasi       = preg_replace('/[^0-9-.,]/', '', $lokasi);
-      $maps         = getAddress($lokasi);
-      $geolocation  = check_ip();
-      if ($maps == 'off') {
-        $kota = $geolocation['city'];
-        $provinsi = $geolocation['region'];
-      } else {
-        $maps     = getAddress($lokasi)->address_components;
-        $kota = $maps[2]->short_name . ', ' . $maps[3]->short_name . ', ' . $maps[4]->short_name;
-        $provinsi = $maps[5]->short_name;
-      }
+      // $lokasi       = $this->request->getPost('location');
+      // $lokasi       = preg_replace('/[^0-9-.,]/', '', $lokasi);
+      // $maps         = getAddress($lokasi);
+      // $geolocation  = check_ip();
+      // if ($maps == 'off') {
+      //   $kota = $geolocation['city'];
+      //   $provinsi = $geolocation['region'];
+      // } else {
+      //   $maps     = getAddress($lokasi)->address_components;
+      //   $kota = $maps[2]->short_name . ', ' . $maps[3]->short_name . ', ' . $maps[4]->short_name;
+      //   $provinsi = $maps[5]->short_name;
+      // }
       $cek_data = $this->users->getUsername($username);
       if ($cek_data) {
         if ($cek_data['status_akun'] == "1") {
           $password_hash  = $cek_data['password'];
           if (password_verify($password, $password_hash)) {
-            $data_history = [
-              'ip_address'    => $geolocation['ip'],
-              'browser'       => $this->checkUserAgent(),
-              'platform'      => $this->getPlatform(),
-              'tanggal_login' => date('Y-m-d H:i:s'),
-              'kota'          => $kota,
-              'provinsi'      => $provinsi,
-              'organisasi'    => check_isp(),
-              'geolocation'   => $lokasi,
-              'username'      => $username
-            ];
-            $this->history->insert($data_history);
+            // $data_history = [
+            //   'ip_address'    => $geolocation['ip'],
+            //   'browser'       => $this->checkUserAgent(),
+            //   'platform'      => $this->getPlatform(),
+            //   'tanggal_login' => date('Y-m-d H:i:s'),
+            //   'kota'          => $kota,
+            //   'provinsi'      => $provinsi,
+            //   'organisasi'    => check_isp(),
+            //   'geolocation'   => $lokasi,
+            //   'username'      => $username
+            // ];
+            // $this->history->insert($data_history);
             $jenis_akses  = $this->users_role->getRole($cek_data['id_role']);
             session()->set('login', 'login');
             session()->set('username', $username);
@@ -301,10 +305,24 @@ Terima kasih";
     ])) {
       return redirect()->to(base_url());
     } else {
-      $id = $this->request->getPost('id');
-      $cek = $this->users->getData($id);
-      if ($cek) {
-        $username = $cek['username'];
+      $username = null;
+      $id       = $this->request->getPost('id');
+      $cek_nip  = $this->users->getUserByNIP($id);
+      if ($cek_nip) {
+        $username = $cek_nip['username'];
+        $tujuan   = $this->laboran->getDataLaboranByNIP($id)['kontak_laboran'];
+      }
+      $cek_nim = $this->users->getUserByNIM($id);
+      if ($cek_nim) {
+        $username = $cek_nim['username'];
+        $tujuan   = $this->asprak->checkDataAsprak($id)['kontak_asprak'];
+      }
+      $cek_dosen = $this->users->getUserByKodeDosen($id);
+      if ($cek_dosen) {
+        $username = $cek_dosen['username'];
+        // $tujuan   = $this->dosen->getDataDosenByKodeDosen($id)[''];
+      }
+      if ($username != null) {
         $token    = bin2hex(random_bytes(16));
         $tanggal  = date('Y-m-d H:i:s');
         $input    = [
@@ -313,37 +331,29 @@ Terima kasih";
           'tanggal'   => $tanggal,
           'status'    => '0'
         ];
-        if ($cek['status_akun'] == '1') {
-          if ($cek['nip_laboran']) {
-            $whatsapp = $this->laboran->getDataLaboranByNIP($cek['nip_laboran'])['kontak_laboran'];
-            $nama     = $this->laboran->getDataLaboranByNIP($cek['nip_laboran'])['nama_laboran'];
-          }
-          if ($cek['nim_aslab']) {
-            echo 'aslab nih';
-          }
-          if ($cek['nim_asprak']) {
-            echo 'asprak nih';
-          }
-          $this->token->insert($input);
-          $pesan = 'Selamat ' . greetings() . ' ' . $nama . ',
+        $this->forgot_password->insert($input);
+        $pesan = "Selamat " . greetings() . ",
 
-Untuk melakukan reset password silahkan klik tautan dibawah ini dan tautan tersebut *hanya berlaku selama 5 menit*
-          
-' . base_url('Auth/reset/' . $token) . ' 
-          
+Kami menerima permintaan untuk reset password akun Anda.
+
+Untuk melanjutkan, silahkan klik tautan berikut:
+
+" . base_url('Auth/reset/' . $token) . "
+
+Tautan tersebut hanya berlaku selama 5 menit.
+
+Jika Anda tidak meminta reset password, abaikan pesan ini.
+
 Terima kasih
-          
-Salam
-Unit Laboratorium/Bengkel/Studio, Fakultas Ilmu Terapan';
-          session()->setFlashdata('sukses', 'Token untuk reset password sukses dikirim ke WhatsApp');
-          kirimWA($pesan, $whatsapp);
-          return redirect()->back();
-        } else {
-          session()->setFlashdata('error', 'Akun berstatus tidak aktif, silahkan hubungi Unit Laboratorium');
-          return redirect()->back()->withInput();
-        }
+
+Salam,
+Unit Laboratorium/Bengkel/Studio Fakultas Ilmu Terapan, Universitas Telkom";
+        kirimWA($pesan, $tujuan);
+        session()->setFlashdata('sukses', 'Tautan untuk reset password sukses dikirim ke nomor WhatsApp Anda');
+        return redirect()->back();
       } else {
-        session()->setFlashdata('error', 'Data Username/NIP/NIM tidak ditemukan');
+        echo 'null';
+        session()->setFlashdata('error', 'Data Kode Dosen/NIP/NIM tidak ditemukan');
         return redirect()->back()->withInput();
       }
     }
@@ -351,7 +361,7 @@ Unit Laboratorium/Bengkel/Studio, Fakultas Ilmu Terapan';
 
   public function reset($id)
   {
-    $cek_token = $this->token->checkToken($id);
+    $cek_token = $this->forgot_password->checkToken($id);
     if ($cek_token) {
       if ($cek_token['status'] == '0') {
         $tanggal_token    = strtotime($cek_token['tanggal']);
@@ -359,7 +369,7 @@ Unit Laboratorium/Bengkel/Studio, Fakultas Ilmu Terapan';
         $selisih          = round(abs($tanggal_sekarang - $tanggal_token) / 60);
         if ($selisih > 5) {
           session()->setFlashdata('error', 'Token sudah tidak belaku/lebih dari 5 menit');
-          return redirect()->to(base_url('Auth/resetPassword'));
+          return redirect()->to(base_url('Auth/ResetPassword'));
         } else {
           $data['title'] = 'Reset Password | Sistem Informasi Manajemen Laboratorium';
           $data['token'] = $id;
@@ -367,14 +377,14 @@ Unit Laboratorium/Bengkel/Studio, Fakultas Ilmu Terapan';
         }
       } elseif ($cek_token['status'] == '1') {
         session()->setFlashdata('error', 'Token sudah digunakan');
-        return redirect()->to(base_url('Auth/resetPassword'));
+        return redirect()->to(base_url('Auth/ResetPassword'));
       } else {
         session()->setFlashdata('error', 'Token tidak ditemukan, harap cek kembali');
-        return redirect()->to(base_url('Auth/resetPassword'));
+        return redirect()->to(base_url('Auth/ResetPassword'));
       }
     } else {
       session()->setFlashdata('error', 'Token tidak ditemukan, harap cek kembali');
-      return redirect()->to(base_url('Auth/resetPassword'));
+      return redirect()->to(base_url('Auth/ResetPassword'));
     }
   }
 
@@ -391,10 +401,8 @@ Unit Laboratorium/Bengkel/Studio, Fakultas Ilmu Terapan';
       $password_baru    = $this->request->getPost('password_baru');
       $konfirm_password = $this->request->getPost('konfirm_password');
       $token            = $this->request->getPost('token');
-      $cek              = $this->token->checkToken($token);
-      if ($password_baru == $konfirm_password) {
-        //
-      } else {
+      $cek              = $this->forgot_password->checkToken($token);
+      if ($password_baru != $konfirm_password) {
         session()->setFlashdata('error', 'Password Baru dan Konfirmasi Password Baru tidak cocok, harap cek kembali');
         return redirect()->to(base_url('Auth/reset/' . $token));
       }
@@ -402,11 +410,37 @@ Unit Laboratorium/Bengkel/Studio, Fakultas Ilmu Terapan';
         // echo $cek['username'];
         $password_baru = password_hash($password_baru, PASSWORD_DEFAULT);
         $this->users->changePassword($cek['username'], $password_baru);
-        session()->setFlashdata('sukses', 'Password sukses diperbarui. Silahkan login');
+        $this->forgot_password->updateStatus($token);
+        session()->setFlashdata('success', 'Password sukses diperbarui. Silahkan login');
         return redirect()->to(base_url());
       } else {
         session()->setFlashdata('error', 'Token tidak ditemukan, harap cek kembali');
         return redirect()->back();
+      }
+    }
+  }
+
+  public function darkMode()
+  {
+    if (!$this->validate([
+      'id' => ['rules' => 'required']
+    ])) {
+      return redirect()->to('Beranda');
+    } else {
+      $username       = $this->request->getPost('id');
+      $cek_dark_mode  = $this->users_preference->getStatusDarkMode($username);
+      if (!$cek_dark_mode) {
+        $input = [
+          'dark_mode' => '1',
+          'username'  => $username
+        ];
+        $this->users_preference->insert($input);
+      } else {
+        if ($cek_dark_mode['dark_mode'] == '1') {
+          $this->users_preference->disableDarkMode($username);
+        } elseif ($cek_dark_mode['dark_mode'] == '0') {
+          $this->users_preference->enableDarkMode($username);
+        }
       }
     }
   }

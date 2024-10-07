@@ -65,7 +65,7 @@ class M_Asprak_BAP_Kehadiran extends Model
 
   public function updateIdBAPnHonor($tanggal_awal, $tanggal_akhir, $id_asprak_list, $id_bap, $id_honor)
   {
-    $this->set('id_bap', $id_bap);
+    $this->set('id_asprak_bap', $id_bap);
     $this->set('id_honor', $id_honor);
     $this->where('jam_masuk >=', $tanggal_awal);
     $this->where('jam_masuk <=', $tanggal_akhir);

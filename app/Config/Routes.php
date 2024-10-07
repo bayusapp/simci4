@@ -22,6 +22,11 @@ $routes->get('/Auth/asprak', 'Auth::asprak');
 $routes->post('/Auth/registerAsprak', 'Auth::registerAsprak');
 $routes->get('/Auth/dosen', 'Auth::dosen');
 $routes->post('/Auth/registerDosen', 'Auth::registerDosen');
+$routes->get('/Auth/ResetPassword', 'Auth::resetPassword');
+$routes->post('/Auth/submitReset', 'Auth::submitReset');
+$routes->get('/Auth/reset/(:any)', 'Auth::reset/$1');
+$routes->post('/Auth/ubah', 'Auth::ubah');
+$routes->post('/Auth/darkMode', 'Auth::darkMode');
 // end route class Auth
 
 // begin route for laboran access
@@ -87,8 +92,10 @@ $routes->get('/Praktikum/SuratTugas/', 'Praktikum::SuratTugas');
 
 $routes->get('/Dokumen/Template', 'Dokumen::template');
 $routes->post('/Dokumen/simpanDokumen', 'Dokumen::simpanDokumen');
+$routes->get('/Dokumen/SuratTugasAsprak', 'Dokumen::suratTugasAsprak');
 
 $routes->get('/Kalender', 'Kalender::index');
+$routes->post('/Kalender/simpanCSVKalender', 'Kalender::simpanCSVKalender');
 
 $routes->get('/TroubleTicket', 'TroubleTicket::index');
 $routes->post('/TroubleTicket/simpanTroubleTicket', 'TroubleTicket::simpanTroubleTicket');
@@ -131,3 +138,5 @@ $routes->get('/Tracking/(:any)', 'Tracking::index');
 
 
 $routes->get('/Ticketing', 'Ticketing::index');
+
+$routes->get('/Validasi', 'Validasi::index');

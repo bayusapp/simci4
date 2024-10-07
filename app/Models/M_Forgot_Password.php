@@ -16,4 +16,11 @@ class M_Forgot_Password extends Model
     $this->where('token', $token);
     return $this->first();
   }
+
+  public function updateStatus($token)
+  {
+    $this->set('status', '1');
+    $this->where('token', $token);
+    $this->update();
+  }
 }

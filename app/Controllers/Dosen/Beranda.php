@@ -34,6 +34,6 @@ class Beranda extends BaseController
   public function index()
   {
     $data   = $this->data;
-    return view('aslab/beranda/v_index', $data);
+    return view('dosen/beranda/v_index', $data);
   }
 }

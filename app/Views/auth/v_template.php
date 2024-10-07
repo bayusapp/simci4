@@ -95,6 +95,43 @@
   <script src="<?= base_url() ?>assets/js/pcoded.min.js"></script>
   <!-- sweet alert Js -->
   <script src="<?= base_url() ?>assets/js/plugins/sweetalert.min.js"></script>
+  <script>
+    function register() {
+      swal({
+          title: "Register Akun SIM Laboratorium",
+          text: "Register sebagai?",
+          icon: "warning",
+          buttons: {
+            laboran: {
+              text: "Laboran",
+              value: "laboran",
+            },
+            dosen: {
+              text: "Dosen",
+              value: "dosen",
+            },
+            asprak: {
+              text: "Asisten Praktikum",
+              value: "asprak",
+            },
+          },
+          // confirmButtonColor: '#8CD4F5',
+        })
+        .then((value) => {
+          switch (value) {
+            case "laboran":
+              location.replace(window.location.origin + "/Auth/laboran");
+              break;
+            case "dosen":
+              location.replace(window.location.origin + "/Auth/dosen");
+              break;
+            case "asprak":
+              location.replace(window.location.origin + "/Auth/asprak");
+              break;
+          }
+        });
+    }
+  </script>
   <?php
   $uri        = service('uri');
   $segment_1  = $uri->getSegment(1);
@@ -124,42 +161,6 @@
         setView: true,
         maxZoom: 16
       });
-
-      function register() {
-        swal({
-            title: "Register Akun SIM Laboratorium",
-            text: "Register sebagai?",
-            icon: "warning",
-            buttons: {
-              laboran: {
-                text: "Laboran",
-                value: "laboran",
-              },
-              dosen: {
-                text: "Dosen",
-                value: "dosen",
-              },
-              asprak: {
-                text: "Asisten Praktikum",
-                value: "asprak",
-              },
-            },
-            // confirmButtonColor: '#8CD4F5',
-          })
-          .then((value) => {
-            switch (value) {
-              case "laboran":
-                location.replace(window.location.origin + "/Auth/laboran");
-                break;
-              case "dosen":
-                location.replace(window.location.origin + "/Auth/dosen");
-                break;
-              case "asprak":
-                location.replace(window.location.origin + "/Auth/asprak");
-                break;
-            }
-          });
-      }
     </script>
   <?php
   }

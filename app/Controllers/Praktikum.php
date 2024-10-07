@@ -18,6 +18,7 @@ use App\Models\M_Tahun_Ajaran;
 // use Dompdf\Dompdf;
 
 use App\Libraries\Pdfgenerator;
+use App\Libraries\QRCode;
 use App\Models\M_Asprak_BAP;
 use App\Models\M_Asprak_BAP_Kehadiran;
 use App\Models\M_Honor_Jam;
@@ -178,6 +179,7 @@ class Praktikum extends BaseController
     $uri                = service('uri');
     $nim                = $uri->getSegment('3');
     $data['asprak']     = $this->asprak->getDataAsprak($nim);
+    $data['history']    = $this->asprak_list->getHistoryMKAsprak($nim);
     $data['kehadiran']  = $this->asprak_bap_kehadiran->getKehadiranAsprak($nim);
     return view('laboran/praktikum/v_data_asprak', $data);
   }
@@ -356,11 +358,22 @@ class Praktikum extends BaseController
             'tanggal_generate'  => $tanggal_generate,
             'nim_asprak'        => $nim_asprak,
             'id_prodi'          => $id_prodi,
-            'kode_mk'           => $kode_mk
+            'kode_mk'           => $kode_mk,
+            'generated_by'      => session()->get('nip_laboran')
           ];
-          $this->bap_asprak->insert($input);
-          $id_bap = $this->bap_asprak->getIdBAP($bulan, $tahun, $jumlah_jam, $tanggal_awal, $tanggal_akhir, $tanggal_generate, $nim_asprak, $id_prodi, $kode_mk)['id_bap'];
+          $this->asprak_bap->insert($input);
+          $id_bap = $this->asprak_bap->getIdBAP($bulan, $tahun, $jumlah_jam, $tanggal_awal, $tanggal_akhir, $tanggal_generate, $nim_asprak, $id_prodi, $kode_mk)['id_asprak_bap'];
           $this->asprak_bap_kehadiran->updateIdBAPnHonor($tanggal_awal, $tanggal_akhir, $id_asprak_list, $id_bap, $id_honor);
+          $link       = base_url('Validasi/' . substr(sha1($id_bap), 7, 7));
+          $qr_code    = new QRCode();
+          $nama_file  = substr(sha1($id_bap), 7, 7) . ".png";
+          $filePath   = 'assets/images/qr_code/bap/';
+          $file       = $filePath . '' . $nama_file;
+          if (!file_exists($filePath)) {
+            mkdir($filePath);
+          }
+          $qr_code->generate($link, $file);
+          $this->asprak_bap->updateForQR($id_bap, $filePath . '' . $nama_file);
         }
       }
       session()->setFlashdata('sukses', 'BAP Asisten Praktikum Sukses Digenerate');
@@ -370,8 +383,8 @@ class Praktikum extends BaseController
 
   public function LihatBAP()
   {
-    $id  = $this->request->getUri()->getSegment(3);
-    $cek_bap = $this->asprak_bap->getDataBAPById($id);
+    $id       = $this->request->getUri()->getSegment(3);
+    $cek_bap  = $this->asprak_bap->getDataBAPById($id);
     if ($cek_bap) {
       $kode_mk            = $cek_bap['kode_mk'];
       $id_bap             = $this->asprak_bap->getDataBAPById($id)['id_asprak_bap'];
@@ -379,6 +392,7 @@ class Praktikum extends BaseController
       $data['mk_bap']     = $this->asprak_bap->getDataBAPById($id);
       $data['kehadiran']  = $this->asprak_bap_kehadiran->getDataBAPByIdBAP($id_bap);
       $data['koor']       = $this->mk_semester->getDataKoordinatorMK($kode_mk)['nama_dosen'];
+      $data['laboran']    = $this->laboran->getDataLaboranByNIP($cek_bap['generated_by']);
       return view('laboran/praktikum/v_format_bap', $data);
     } else {
       return redirect()->to('Praktikum/BAP');

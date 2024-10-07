@@ -9,7 +9,7 @@ class M_Asprak_BAP extends Model
 
   protected $table = 'asprak_bap';
   protected $primaryKey = 'id_asprak_bap';
-  protected $allowedFields  = ['bulan', 'tahun', 'jumlah_jam', 'tanggal_awal', 'tanggal_akhir', 'tanggal_generate', 'nim_asprak', 'id_prodi', 'kode_mk'];
+  protected $allowedFields  = ['bulan', 'tahun', 'jumlah_jam', 'tanggal_awal', 'tanggal_akhir', 'tanggal_generate', 'qr', 'nim_asprak', 'id_prodi', 'kode_mk', 'generated_by'];
 
   function getDataBAP($id_prodi)
   {
@@ -24,7 +24,7 @@ class M_Asprak_BAP extends Model
 
   function getDataBAPById($id_bap)
   {
-    $this->select('asprak_bap.id_asprak_bap, asprak_bap.bulan, asprak_bap.tahun, asprak_bap.jumlah_jam, asprak_bap.tanggal_generate, asprak.nim_asprak, asprak.nama_asprak, matakuliah.kode_mk, matakuliah.nama_mk');
+    $this->select('asprak_bap.id_asprak_bap, asprak_bap.bulan, asprak_bap.tahun, asprak_bap.jumlah_jam, asprak_bap.tanggal_generate, asprak_bap.generated_by, asprak_bap.qr, asprak.nim_asprak, asprak.nama_asprak, matakuliah.kode_mk, matakuliah.nama_mk');
     $this->join('asprak', 'asprak_bap.nim_asprak = asprak.nim_asprak');
     $this->join('matakuliah', 'asprak_bap.kode_mk = matakuliah.kode_mk');
     $this->where('substr(sha1(asprak_bap.id_asprak_bap), 8, 7)', $id_bap);
@@ -45,5 +45,12 @@ class M_Asprak_BAP extends Model
     $this->where('id_prodi', $id_prodi);
     $this->where('kode_mk', $kode_mk);
     return $this->first();
+  }
+
+  public function updateForQR($id_bap, $qr)
+  {
+    $this->set('qr', $qr);
+    $this->where('id_asprak_bap', $id_bap);
+    $this->update();
   }
 }

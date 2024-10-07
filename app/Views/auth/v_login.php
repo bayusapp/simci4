@@ -25,13 +25,13 @@
         <label class="floating-label" for="password">Password</label>
         <input type="password" class="form-control" id="password" name="password">
       </div>
-      <input type="text" name="location" id="location" class="form-control" readonly hidden>
-      <div id='map' hidden></div>
+      <!-- <input type="text" name="location" id="location" class="form-control" readonly hidden> -->
+      <!-- <div id='map' hidden></div> -->
       <button class="btn btn-block btn-primary mb-4">Login</button>
     </form>
     <div class="text-center">
       <div class="saprator my-4"><span>ATAU</span></div>
-      <p class="mb-2 mt-4 text-muted">Lupa password? <a href="<?= base_url('Auth/resetPassword') ?>" class="f-w-400">Reset Password</a></p>
+      <p class="mb-2 mt-4 text-muted">Lupa password? <a href="<?= base_url('Auth/ResetPassword') ?>" class="f-w-400">Reset Password</a></p>
       <p class="mb-0 text-muted">Belum punya akun? <a href="javascript:register()" class="f-w-400">Register Akun</a></p>
     </div>
   </div>

@@ -23,7 +23,7 @@
     </form>
     <div class="text-center">
       <div class="saprator my-4"><span>ATAU</span></div>
-      <p class="mb-2 mt-4 text-muted">Lupa password? <a href="<?= base_url('Auth/resetPassword') ?>" class="f-w-400">Reset Password</a></p>
+      <p class="mb-2 mt-4 text-muted">Lupa password? <a href="<?= base_url('Auth/ResetPassword') ?>" class="f-w-400">Reset Password</a></p>
       <p class="mb-0 text-muted">Sudah punya akun? <a href="<?= base_url() ?>" class="f-w-400">Login</a></p>
     </div>
   </div>
