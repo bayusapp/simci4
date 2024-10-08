@@ -157,7 +157,7 @@ class Praktikum extends BaseController
     }
   }
 
-  public function Asprak()
+  public function Asprak($id)
   {
     $data = $this->data;
     if (!$this->validate([
@@ -168,9 +168,10 @@ class Praktikum extends BaseController
       $data['tahun_aktif']  = $this->request->getPost('tahun_ajaran');
     }
     $data['matkul'] = $this->mk_semester->getDataMKSemesterAktif();
-    $data['prodi']  = $this->prodi->getDataProdi();
+    // $data['prodi']  = $this->prodi->getDataProdi();
     $data['ta']     = $this->ta->getAllTahunAjaran();
     return view('laboran/praktikum/v_asprak', $data);
+    // echo $id;
   }
 
   public function DataAsprak()

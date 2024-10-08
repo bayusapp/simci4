@@ -75,7 +75,7 @@ $routes->post('/Praktikum/simpanMK', 'Praktikum::simpanMK');
 $routes->post('/Praktikum/updateMK', 'Praktikum::updateMK');
 $routes->post('/Praktikum/deleteMK', 'Praktikum::deleteMK');
 
-$routes->get('/Praktikum/Asprak', 'Praktikum::Asprak');
+$routes->get('/Praktikum/Asprak/(:any)', 'Praktikum::Asprak/$1');
 $routes->post('/Praktikum/Asprak', 'Praktikum::Asprak');
 $routes->get('/Praktikum/DataAsprak/(:any)', 'Praktikum::DataAsprak');
 $routes->post('/Praktikum/simpanAsprak', 'Praktikum::simpanAsprak');

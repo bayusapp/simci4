@@ -25,13 +25,14 @@ class M_Asprak_List extends Model
     return $this->first();
   }
 
-  public function getDataAsprakMK($id_prodi, $id_ta)
+  public function getDataAsprakMK($kode_prodi, $id_ta)
   {
     $this->join('asprak', 'asprak_list.nim_asprak = asprak.nim_asprak');
     $this->join('matakuliah_semester', 'asprak_list.id_mk_semester = matakuliah_semester.id_mk_semester');
     $this->join('matakuliah', 'matakuliah_semester.kode_mk = matakuliah.kode_mk');
     $this->join('bank', 'asprak.kode_bank = bank.kode_bank', 'left');
-    $this->where('matakuliah.id_prodi', $id_prodi);
+    $this->join('prodi', 'matakuliah.id_prodi = prodi.id_prodi');
+    $this->where('prodi.kode_prodi', $kode_prodi);
     $this->where('matakuliah_semester.id_ta', $id_ta);
     $this->orderBy('matakuliah.kode_mk', 'ASC');
     $this->orderBy('asprak.nim_asprak', 'ASC');
