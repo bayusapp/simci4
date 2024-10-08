@@ -290,7 +290,7 @@ $dark_mode = $model_users_preference->getStatusDarkMode(session()->get('username
                     <ul class="pcoded-submenu">
                       <?php
                       foreach ($sub_menu as $s) :
-                        $sub_sub_menu = $model_sub_sub_menu->getDataSubSubMenu($s['id_menu_sub']);
+                        $sub_sub_menu = $model_sub_sub_menu->getDataSubSubMenu($s['id_menu_sub'], $role);
                         if ($sub_sub_menu) :
                       ?>
                           <li class="pcoded-hasmenu">
