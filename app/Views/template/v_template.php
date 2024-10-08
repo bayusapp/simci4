@@ -297,7 +297,7 @@ $dark_mode = $model_users_preference->getStatusDarkMode(session()->get('username
                             <a href="#"><?= $s['nama_menu'] ?></a>
                             <ul class="pcoded-submenu">
                               <?php foreach ($sub_sub_menu as $ss): ?>
-                                <li><a href="<?= $ss['url_menu'] ?>"><?= $ss['nama_menu'] ?></a></li>
+                                <li><a href="<?= base_url($ss['url_menu']) ?>"><?= $ss['nama_menu'] ?></a></li>
                               <?php endforeach; ?>
                             </ul>
                           </li>

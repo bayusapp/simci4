@@ -122,7 +122,7 @@
             </a>
           </div>
         </div>
-        <div class="dt-responsive table-responsive">
+        <div class="dt-responsive table-responsive" style="margin-top: 10px;">
           <table id="asprak" class="table table-striped table-bordered nowrap">
             <thead>
               <tr>

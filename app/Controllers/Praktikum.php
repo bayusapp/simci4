@@ -159,19 +159,22 @@ class Praktikum extends BaseController
 
   public function Asprak($id)
   {
-    $data = $this->data;
-    if (!$this->validate([
-      'tahun_ajaran'  => ['rules' => 'required']
-    ])) {
-      $data['tahun_aktif']  = $this->ta->getTahunAjaran()['id_ta'];
+    $cek_prodi = $this->prodi->getDataProdiByKodeProdi($id);
+    if ($cek_prodi) {
+      $data = $this->data;
+      if (!$this->validate([
+        'tahun_ajaran'  => ['rules' => 'required']
+      ])) {
+        $data['tahun_aktif']  = $this->ta->getTahunAjaran()['id_ta'];
+      } else {
+        $data['tahun_aktif']  = $this->request->getPost('tahun_ajaran');
+      }
+      $data['matkul'] = $this->mk_semester->getDataMKSemesterAktif();
+      $data['ta']     = $this->ta->getAllTahunAjaran();
+      return view('laboran/praktikum/v_asprak', $data);
     } else {
-      $data['tahun_aktif']  = $this->request->getPost('tahun_ajaran');
+      return redirect()->to(base_url());
     }
-    $data['matkul'] = $this->mk_semester->getDataMKSemesterAktif();
-    // $data['prodi']  = $this->prodi->getDataProdi();
-    $data['ta']     = $this->ta->getAllTahunAjaran();
-    return view('laboran/praktikum/v_asprak', $data);
-    // echo $id;
   }
 
   public function DataAsprak()
