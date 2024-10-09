@@ -24,6 +24,7 @@ use App\Models\M_Asprak_BAP_Kehadiran;
 use App\Models\M_Honor_Jam;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
 
 class Praktikum extends BaseController
 {
@@ -218,10 +219,10 @@ class Praktikum extends BaseController
       $sheet->setCellValue('G' . $no, $a['norek_asprak']);
       $sheet->setCellValue('H' . $no, $a['nama_akun']);
 
-      $sheet->getStyle('A' . $no)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_GENERAL);
-      $sheet->getStyle('B' . $no)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_GENERAL);
-      $sheet->getStyle('D' . $no)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_GENERAL);
-      $sheet->getStyle('G' . $no)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_GENERAL);
+      $sheet->getStyle('A' . $no)->getNumberFormat()->setFormatCode(NumberFormat::FORMAT_GENERAL);
+      $sheet->getStyle('B' . $no)->getNumberFormat()->setFormatCode(NumberFormat::FORMAT_GENERAL);
+      $sheet->getStyle('D' . $no)->getNumberFormat()->setFormatCode(NumberFormat::FORMAT_GENERAL);
+      $sheet->getStyle('G' . $no)->getNumberFormat()->setFormatCode(NumberFormat::FORMAT_GENERAL);
       $no++;
       $count++;
     }
