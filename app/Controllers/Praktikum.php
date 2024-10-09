@@ -219,10 +219,10 @@ class Praktikum extends BaseController
       $sheet->setCellValue('G' . $no, $a['norek_asprak']);
       $sheet->setCellValue('H' . $no, $a['nama_akun']);
 
-      $sheet->getStyle('A' . $no)->getNumberFormat()->setFormatCode(NumberFormat::FORMAT_GENERAL);
-      $sheet->getStyle('B' . $no)->getNumberFormat()->setFormatCode(NumberFormat::FORMAT_GENERAL);
-      $sheet->getStyle('D' . $no)->getNumberFormat()->setFormatCode(NumberFormat::FORMAT_GENERAL);
-      $sheet->getStyle('G' . $no)->getNumberFormat()->setFormatCode(NumberFormat::FORMAT_GENERAL);
+      $sheet->getStyle('A' . $no)->getNumberFormat()->setFormatCode(NumberFormat::FORMAT_NUMBER);
+      $sheet->getStyle('B' . $no)->getNumberFormat()->setFormatCode(NumberFormat::FORMAT_NUMBER);
+      $sheet->getStyle('D' . $no)->getNumberFormat()->setFormatCode(NumberFormat::FORMAT_NUMBER);
+      $sheet->getStyle('G' . $no)->getNumberFormat()->setFormatCode(NumberFormat::FORMAT_NUMBER);
       $no++;
       $count++;
     }
