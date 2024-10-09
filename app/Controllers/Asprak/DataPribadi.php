@@ -102,7 +102,7 @@ class DataPribadi extends BaseController
         if ($file_kk->getSize() <= $max_file_size) {
           $nama_kk = $file_kk->getGenerateName($nim_asprak . '.' . $file_kk->guessExtension());
           $file_kk->move('assets/images/asprak/kk', $nama_kk);
-          $file_kkk = 'assets/image/asprak/kk/' . $nama_kk;
+          $file_kkk = 'assets/images/asprak/kk/' . $nama_kk;
         } else {
           $array_error[] = 'Ukuran file Kartu Keluarga tidak boleh lebih dari 1MB';
         }

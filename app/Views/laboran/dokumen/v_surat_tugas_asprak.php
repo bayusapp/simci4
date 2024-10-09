@@ -75,7 +75,7 @@
               ?>
                 <tr>
                   <td><?= $no++ ?></td>
-                  <td><?= convertTanggal($st['tanggal_dibuat']) ?></td>
+                  <td><?= convertDateTime($st['tanggal_dibuat']) ?></td>
                   <td><?= $st['kode_mk'] . ' | ' . $st['nama_mk'] ?></td>
                   <td><?= $st['tahun_ajaran'] ?></td>
                   <td>

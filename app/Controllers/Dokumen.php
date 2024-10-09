@@ -101,7 +101,7 @@ class Dokumen extends BaseController
       return redirect()->back()->withInput();
     } else {
       $mk               = $this->request->getPost('mk');
-      $tanggal_dibuat   = date('Y-m-d');
+      $tanggal_dibuat   = date('Y-m-d H:i:s');
       $pembuat_dokumen  = session()->get('nip_laboran');
       $input  = [
         'tanggal_dibuat'  => $tanggal_dibuat,

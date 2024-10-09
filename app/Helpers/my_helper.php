@@ -128,6 +128,18 @@ if (!function_exists('convertTanggal')) {
   }
 }
 
+if (!function_exists('convertDateTime')) {
+  function convertDateTime($tanggal)
+  {
+    $split          = explode(' ', $tanggal);
+    $split_tanggal  = explode('-', $split[0]);
+    $tanggal        = $split_tanggal[2];
+    $bulan          = bulanIndoPanjang($split_tanggal[1]);
+    $tahun          = $split_tanggal[0];
+    return $tanggal . ' ' . $bulan . ' ' . $tahun;
+  }
+}
+
 if (!function_exists('convertWA')) {
   function convertWA($wa)
   {

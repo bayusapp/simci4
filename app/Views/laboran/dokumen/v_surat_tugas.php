@@ -203,7 +203,7 @@
         </div>
       </div>
       <p style="font-size: 12pt;">Demikian Surat Tugas ini dibuat agar dapat dilaksanakan dengan penuh tanggung jawab.</p>
-      <p style="font-size: 12pt; margin-top: 30px">Bandung, <?= convertTanggal($surat['tanggal_dibuat']) ?></p>
+      <p style="font-size: 12pt; margin-top: 30px">Bandung, <?= convertDateTime($surat['tanggal_dibuat']) ?></p>
       <p style="font-size: 12pt; margin-bottom: 60px; margin-top: -15px">Dekan Fakultas Ilmu Terapan</p>
       <p style="font-size: 12pt; text-decoration: underline">Angga Rusdinar, S.T., M.T., Ph.D.</p>
       <p style="font-size: 12pt; margin-top: -20px">NIP: 07740023</p>
