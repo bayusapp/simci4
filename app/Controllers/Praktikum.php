@@ -216,6 +216,11 @@ class Praktikum extends BaseController
       $sheet->setCellValue('F' . $no, $a['nama_bank']);
       $sheet->setCellValue('G' . $no, $a['norek_asprak']);
       $sheet->setCellValue('H' . $no, $a['nama_akun']);
+
+      $sheet->getStyle('A' . $no)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_GENERAL);
+      $sheet->getStyle('B' . $no)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_GENERAL);
+      $sheet->getStyle('D' . $no)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_GENERAL);
+      $sheet->getStyle('G' . $no)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_GENERAL);
       $no++;
     }
 
