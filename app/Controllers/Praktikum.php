@@ -206,9 +206,10 @@ class Praktikum extends BaseController
     $sheet->setCellValue('G1', 'No Rekening');
     $sheet->setCellValue('H1', 'Nama Account');
 
-    $no = 1;
+    $no = 2;
+    $count = 1;
     foreach ($asprak as $a) {
-      $sheet->setCellValue('A' . $no, $no);
+      $sheet->setCellValue('A' . $no, $count);
       $sheet->setCellValue('B' . $no, $a['nim_asprak']);
       $sheet->setCellValue('C' . $no, $a['nama_asprak']);
       $sheet->setCellValue('D' . $no, $a['kontak_asprak']);
@@ -222,6 +223,7 @@ class Praktikum extends BaseController
       $sheet->getStyle('D' . $no)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_GENERAL);
       $sheet->getStyle('G' . $no)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_GENERAL);
       $no++;
+      $count++;
     }
 
     $writter = new Xlsx($spreadsheet);
