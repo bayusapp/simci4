@@ -22,6 +22,8 @@ use App\Libraries\QRCode;
 use App\Models\M_Asprak_BAP;
 use App\Models\M_Asprak_BAP_Kehadiran;
 use App\Models\M_Honor_Jam;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class Praktikum extends BaseController
 {
@@ -50,16 +52,16 @@ class Praktikum extends BaseController
         $this->asprak_bap           = new M_Asprak_BAP();
         $this->asprak_bap_kehadiran = new M_Asprak_BAP_Kehadiran();
         $this->asprak_list          = new M_Asprak_List();
-        $this->dosen        = new M_Dosen();
-        $this->honor_jam    = new M_Honor_Jam();
-        $this->laboran      = new M_Laboran();
-        $this->prodi        = new M_Prodi();
-        $this->mk           = new M_Matakuliah();
-        $this->mk_semester  = new M_Matakuliah_Semester();
-        $this->ta           = new M_Tahun_Ajaran();
-        $nip                = session()->get('nip_laboran');
-        $data_laboran       = $this->laboran->getDataLaboran($nip);
-        $this->data         = array(
+        $this->dosen                = new M_Dosen();
+        $this->honor_jam            = new M_Honor_Jam();
+        $this->laboran              = new M_Laboran();
+        $this->prodi                = new M_Prodi();
+        $this->mk                   = new M_Matakuliah();
+        $this->mk_semester          = new M_Matakuliah_Semester();
+        $this->ta                   = new M_Tahun_Ajaran();
+        $nip                        = session()->get('nip_laboran');
+        $data_laboran               = $this->laboran->getDataLaboran($nip);
+        $this->data                 = array(
           'nip_laboran'   => $data_laboran['nip_laboran'],
           'nama_laboran'  => $data_laboran['nama_laboran'],
           'foto_laboran'  => $data_laboran['foto_laboran']
@@ -186,6 +188,45 @@ class Praktikum extends BaseController
     $data['history']    = $this->asprak_list->getHistoryMKAsprak($nim);
     $data['kehadiran']  = $this->asprak_bap_kehadiran->getKehadiranAsprak($nim);
     return view('laboran/praktikum/v_data_asprak', $data);
+  }
+
+  public function unduhDataAsprak($id)
+  {
+    $id_ta        = $this->ta->getTahunAjaran()['id_ta'];
+    $asprak       = $this->asprak_list->getDataAsprakMK($id, $id_ta);
+    $spreadsheet  = new Spreadsheet();
+    $sheet        = $spreadsheet->getActiveSheet();
+
+    $sheet->setCellValue('A1', 'No');
+    $sheet->setCellValue('B1', 'NIM');
+    $sheet->setCellValue('C1', 'Nama');
+    $sheet->setCellValue('D1', 'Kontak');
+    $sheet->setCellValue('E1', 'Email');
+    $sheet->setCellValue('F1', 'Nama Bank');
+    $sheet->setCellValue('G1', 'No Rekening');
+    $sheet->setCellValue('H1', 'Nama Account');
+
+    $no = 2;
+    foreach ($asprak as $a) {
+      $sheet->setCellValue('A' . $no, $no);
+      $sheet->setCellValue('B' . $no, $a['nim_asprak']);
+      $sheet->setCellValue('C' . $no, $a['nama_asprak']);
+      $sheet->setCellValue('D' . $no, $a['kontak_asprak']);
+      $sheet->setCellValue('E' . $no, $a['email_asprak']);
+      $sheet->setCellValue('F' . $no, $a['nama_bank']);
+      $sheet->setCellValue('G' . $no, $a['norek_asprak']);
+      $sheet->setCellValue('H' . $no, $a['nama_akun']);
+      $no++;
+    }
+
+    $writter = new Xlsx($spreadsheet);
+
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header('Content-Disposition: attachment; filename="Data_Asprak_' . $id . '.xlsx"');
+    header('Cache-Control: max-age=0');
+
+    $writter->save('php://output');
+    exit;
   }
 
   public function simpanAsprak()

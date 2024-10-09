@@ -842,6 +842,14 @@ $(document).ready(function () {
       ],
     });
 
+    $("#surat_tugas").DataTable({
+      bAutoWidth: false,
+      columnDefs: [
+        { width: "5%", targets: [0] },
+        { width: "12%", targets: [4], className: "text-center" },
+      ],
+    });
+
     $("#profil_kehadiran").DataTable({
       bAutoWidth: false,
       columnDefs: [

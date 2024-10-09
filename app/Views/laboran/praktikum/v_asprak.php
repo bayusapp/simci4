@@ -18,6 +18,8 @@
             } elseif ($split_ta[1] == "2") {
               $semester = 'Genap';
             }
+            $uri                = service('uri');
+            $kode_prodi         = $uri->getSegment('3');
             ?>
             <h5>Asisten Praktikum Tahun Ajaran <?= $split_ta[0] . ' Semester ' . $semester ?></h5>
           </div>
@@ -120,6 +122,9 @@
             <a href="<?= base_url('assets/template/Template_CSV_Asprak.xlsx') ?>" download>
               <button type="button" class="btn btn-sm btn-secondary"><i class="feather icon-download-cloud"></i> Unduh Format CSV</button>
             </a>
+            <a href="<?= base_url('Praktikum/unduhDataAsprak/' . $kode_prodi) ?>" target="_blank">
+              <button type="button" class="btn btn-sm btn-info"><i class="feather icon-save"></i> Simpan Data</button>
+            </a>
           </div>
         </div>
         <div class="dt-responsive table-responsive" style="margin-top: 10px;">
@@ -139,8 +144,6 @@
               <?php
               $no = 1;
               $model_asprak_list  = new \App\Models\M_Asprak_List();
-              $uri                = service('uri');
-              $kode_prodi         = $uri->getSegment('3');
               $asprak             = $model_asprak_list->getDataAsprakMK($kode_prodi, $id_ta_aktif);
               foreach ($asprak as $a) :
                 $hash_id_asprak_list = substr(sha1($a['id_asprak_list']), 7, 7);

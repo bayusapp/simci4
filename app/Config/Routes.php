@@ -77,6 +77,7 @@ $routes->post('/Praktikum/deleteMK', 'Praktikum::deleteMK');
 
 $routes->get('/Praktikum/Asprak/(:any)', 'Praktikum::Asprak/$1');
 $routes->post('/Praktikum/Asprak', 'Praktikum::Asprak');
+$routes->get('/Praktikum/unduhDataAsprak/(:any)', 'Praktikum::unduhDataAsprak/$1');
 $routes->get('/Praktikum/DataAsprak/(:any)', 'Praktikum::DataAsprak');
 $routes->post('/Praktikum/simpanAsprak', 'Praktikum::simpanAsprak');
 $routes->post('/Praktikum/deleteAsprakList', 'Praktikum::deleteAsprakList');
@@ -93,6 +94,8 @@ $routes->get('/Praktikum/SuratTugas/', 'Praktikum::SuratTugas');
 $routes->get('/Dokumen/Template', 'Dokumen::template');
 $routes->post('/Dokumen/simpanDokumen', 'Dokumen::simpanDokumen');
 $routes->get('/Dokumen/SuratTugasAsprak', 'Dokumen::suratTugasAsprak');
+$routes->post('/Dokumen/simpanSuratTugasAsprak', 'Dokumen::simpanSuratTugasAsprak');
+$routes->get('/Dokumen/LihatSuratTugas/(:any)', 'Dokumen::lihatSuratTugas/$1');
 
 $routes->get('/Kalender', 'Kalender::index');
 $routes->post('/Kalender/simpanCSVKalender', 'Kalender::simpanCSVKalender');
@@ -140,3 +143,8 @@ $routes->get('/Tracking/(:any)', 'Tracking::index');
 $routes->get('/Ticketing', 'Ticketing::index');
 
 $routes->get('/Validasi', 'Validasi::index');
+
+$routes->get('/Excel', 'Excel::index');
+
+// Restful API
+$routes->resource('Aslab_API');

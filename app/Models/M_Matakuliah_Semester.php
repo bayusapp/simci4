@@ -7,9 +7,9 @@ use CodeIgniter\Model;
 class M_Matakuliah_Semester extends Model
 {
 
-  protected $table = 'matakuliah_semester';
-  protected $primaryKey = 'id_mk_semester';
-  protected $allowedFields = ['kode_mk', 'id_ta', 'kode_dosen'];
+  protected $table          = 'matakuliah_semester';
+  protected $primaryKey     = 'id_mk_semester';
+  protected $allowedFields  = ['kode_mk', 'id_ta', 'kode_dosen'];
 
   public function checkDataMKSemester($kode_mk, $id_ta)
   {
