@@ -206,7 +206,7 @@ class Praktikum extends BaseController
     $sheet->setCellValue('G1', 'No Rekening');
     $sheet->setCellValue('H1', 'Nama Account');
 
-    $no = 2;
+    $no = 1;
     foreach ($asprak as $a) {
       $sheet->setCellValue('A' . $no, $no);
       $sheet->setCellValue('B' . $no, $a['nim_asprak']);
