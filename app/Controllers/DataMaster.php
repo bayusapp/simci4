@@ -23,7 +23,7 @@ class DataMaster extends BaseController
       header("Location: " . base_url());
       die();
     } else {
-      if (session()->get('id_role') == '1' || session()->get('id_role') == '2') {
+      if (session()->get('id_role') == '1' || session()->get('id_role') == '2' || session()->get('id_role') == '6') {
         $this->dosen      = new M_Dosen();
         $this->laboran    = new M_Laboran();
         $this->matakuliah = new M_Matakuliah();

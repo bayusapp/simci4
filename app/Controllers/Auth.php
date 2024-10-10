@@ -39,7 +39,7 @@ class Auth extends BaseController
   public function index()
   {
     if (session()->get('login') == 'login') {
-      if (session()->get('id_role') == '1' || session()->get('id_role') == '2') {
+      if (session()->get('id_role') == '1' || session()->get('id_role') == '2' || session()->get('id_role') == '6') {
         header("Location: " . base_url('Beranda'));
         die();
       } elseif (session()->get('id_role') == '3') {

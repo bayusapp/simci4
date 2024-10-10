@@ -48,7 +48,7 @@ class Praktikum extends BaseController
       header("Location: " . base_url());
       die();
     } else {
-      if (session()->get('id_role') == '1' || session()->get('id_role') == '2') {
+      if (session()->get('id_role') == '1' || session()->get('id_role') == '2' || session()->get('id_role') == '6') {
         $this->asprak               = new M_Asprak();
         $this->asprak_bap           = new M_Asprak_BAP();
         $this->asprak_bap_kehadiran = new M_Asprak_BAP_Kehadiran();

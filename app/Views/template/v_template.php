@@ -9,7 +9,7 @@ $role                   = session()->get('id_role');
 $ta         = $model_tahun->getTahunAjaran();
 $users_menu = $model_users_menu->getMenuByRole($role);
 
-if ($role == '1' || $role == '2') {
+if ($role == '1' || $role == '2' || $role == '6') {
   $segment_1 = $uri->getSegment(1);
   $segment_2 = $uri->getSegment(2);
   if ($segment_2 == NULL) {
@@ -244,7 +244,7 @@ $dark_mode = $model_users_preference->getStatusDarkMode(session()->get('username
             <div class="" style="margin-bottom: 30px;">
               <div class="main-menu-header">
                 <?php
-                if ($role == '1' || $role == '2') {
+                if ($role == '1' || $role == '2' || $role == '6') {
                   $foto     = base_url($foto_laboran);
                   $nama     = $nama_laboran;
                   $no_induk = $nip_laboran;

@@ -28,7 +28,7 @@ class Dokumen extends BaseController
       header("Location: " . base_url());
       die();
     } else {
-      if (session()->get('id_role') == '1' || session()->get('id_role') == '2') {
+      if (session()->get('id_role') == '1' || session()->get('id_role') == '2' || session()->get('id_role') == '6') {
         $this->asprak_list                      = new M_Asprak_List();
         $this->dokumen                          = new M_Dokumen();
         $this->dokumen_kategori                 = new M_Dokumen_Kategori();

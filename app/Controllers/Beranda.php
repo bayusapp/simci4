@@ -22,7 +22,7 @@ class Beranda extends BaseController
       header("Location: " . base_url());
       die();
     } else {
-      if (session()->get('id_role') == '1' || session()->get('id_role') == '2') {
+      if (session()->get('id_role') == '1' || session()->get('id_role') == '2' || session()->get('id_role') == '6') {
         $this->asprak_list  = new M_Asprak_List();
         $this->laboran      = new M_Laboran();
         $this->prodi        = new M_Prodi();
