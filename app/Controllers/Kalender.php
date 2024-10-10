@@ -21,7 +21,7 @@ class Kalender extends BaseController
       header("Location: " . base_url());
       die();
     } else {
-      if (session()->get('id_role') == '1' || session()->get('id_role') == '2') {
+      if (session()->get('id_role') == '1' || session()->get('id_role') == '2' || session()->get('id_role') == '6') {
         $this->kalender     = new M_Kalender_Libur();
         $this->laboran      = new M_Laboran();
         $this->ta           = new M_Tahun_Ajaran();
