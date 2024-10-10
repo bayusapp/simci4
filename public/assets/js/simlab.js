@@ -342,10 +342,17 @@ function hapus_kalender(id) {
   });
 }
 
-function hapus_kehadiran(id) {
+function hapus_kehadiran(id, tanggal, masuk, keluar) {
   swal({
     title: "Apakah Anda yakin?",
-    text: "Data kehadiran Anda akan dihapus",
+    text:
+      "Data kehadiran Anda pada " +
+      tanggal +
+      " pukul " +
+      masuk +
+      " - " +
+      keluar +
+      " akan dihapus",
     icon: "warning",
     buttons: true,
     dangerMode: true,
@@ -891,6 +898,7 @@ $(document).ready(function () {
         { width: "10%", targets: [5] },
         { width: "9%", targets: [7], className: "text-center" },
         { width: "12%", targets: [8], className: "text-center" },
+        { width: "10%", targets: [9], className: "text-center" },
       ],
     });
 

@@ -114,6 +114,8 @@ $routes->get('/Asprak/Beranda', 'Asprak\Beranda::index');
 $routes->get('/Asprak/Kehadiran', 'Asprak\Kehadiran::index');
 // $routes->get('/Asprak/Kehadiran/simpanKehadiran', 'Asprak\Kehadiran::simpanKehadiran');
 $routes->post('/Asprak/Kehadiran/simpanKehadiran', 'Asprak\Kehadiran::simpanKehadiran');
+$routes->get('/Asprak/Kehadiran/EditKehadiran/(:any)', 'Asprak\Kehadiran::editKehadiran/$1');
+$routes->post('/Asprak/Kehadiran/updateKehadiran', 'Asprak\Kehadiran::updateKehadiran');
 $routes->post('/Asprak/Kehadiran/hapusKehadiran', 'Asprak\Kehadiran::hapusKehadiran');
 
 $routes->get('/Asprak/SuratPerjanjian', 'Asprak\SuratPerjanjian::index');

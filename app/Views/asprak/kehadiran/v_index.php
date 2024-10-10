@@ -14,6 +14,11 @@
             <?= session()->getFlashdata('sukses') ?>
           </div>
         <?php endif; ?>
+        <?php if (!empty(session()->getFlashdata('error_'))) : ?>
+          <div class="alert alert-danger" role="alert">
+            <?= session()->getFlashdata('error_') ?>
+          </div>
+        <?php endif; ?>
         <?php if (!empty(session()->getFlashdata('error'))) : ?>
           <div class="alert alert-danger" role="alert">
             <?php
@@ -164,6 +169,7 @@
                 <th>Mata Kuliah & Modul Praktikum</th>
                 <th>Kode Dosen</th>
                 <th>Status</th>
+                <th>Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -189,6 +195,24 @@
                   <td><?= $k['modul_praktikum'] ?></td>
                   <td><?= $k['kode_dosen'] ?></td>
                   <td><?= $approve ?></td>
+                  <td>
+                    <?php
+                    if ($k['approve_dosen'] == '0') :
+                    ?>
+                      <a href="<?= base_url('Asprak/Kehadiran/EditKehadiran/' . $hash_id_kehadiran) ?>">
+                        <button class="btn btn-sm btn-warning"><i class="feather icon-edit"></i></button>
+                      </a>
+                      <button type="button" class="btn btn-sm btn-danger" onclick="hapus_kehadiran('<?= $hash_id_kehadiran ?>', '<?= convertTanggalPendek($k['tanggal']) ?>', '<?= $k['masuk'] ?>', '<?= $k['keluar'] ?>')">
+                        <span data-toggle="tooltip" data-placement="bottom" title="Hapus Kehadiran"><i class="feather icon-trash-2"></i></span>
+                      </button>
+                    <?php
+                    else:
+                    ?>
+                      -
+                    <?php
+                    endif;
+                    ?>
+                  </td>
                 </tr>
               <?php endforeach; ?>
             </tbody>

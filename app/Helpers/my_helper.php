@@ -140,6 +140,24 @@ if (!function_exists('convertDateTime')) {
   }
 }
 
+if (!function_exists('convertJamDB')) {
+  function convertJamDB($tanggal)
+  {
+    $split        = explode(' ', $tanggal);
+    $split_waktu  = explode(':', $split[1]);
+    return $split_waktu[0] . ':' . $split_waktu[1];
+  }
+}
+
+if (!function_exists('convertTanggalDBToView')) {
+  function convertTanggalDBToView($tanggal)
+  {
+    $split          = explode(' ', $tanggal);
+    $split_tanggal  = explode('-', $split[0]);
+    return $split_tanggal[1] . '/' . $split_tanggal[2] . '/' . $split_tanggal[0];
+  }
+}
+
 if (!function_exists('convertWA')) {
   function convertWA($wa)
   {

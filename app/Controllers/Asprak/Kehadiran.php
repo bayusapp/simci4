@@ -106,7 +106,7 @@ class Kehadiran extends BaseController
       if ($cek_bap) {
         $jumlah_jam_sebelumnya = 0;
         foreach ($cek_bap as $c) {
-          if ((hitungJamKeMenit($jam_masuk) > $c['masuk']) && (hitungJamKeMenit($jam_masuk) < $c['keluar'])) {
+          if ((hitungJamKeMenit($jam_masuk) >= $c['masuk']) && (hitungJamKeMenit($jam_masuk) < $c['keluar'])) {
             $array_error[] = 'Jam masuk Anda diantara jam ' . hitungMenitKeJam($c['masuk']) . ' - ' . hitungMenitKeJam($c['keluar']) . ' pada hari yang sama.';
           }
           if ((hitungJamKeMenit($jam_keluar) > $c['masuk']) && (hitungJamKeMenit($jam_keluar) < $c['keluar'])) {
@@ -137,6 +137,116 @@ class Kehadiran extends BaseController
         session()->setFlashdata('sukses', 'Data Kehadiran Anda Sukses Disimpan');
         return redirect()->back();
       }
+    }
+  }
+
+  public function editKehadiran($id)
+  {
+    $cek = $this->kehadiran->getDataKehadiran($id);
+    if ($cek) {
+      $data               = $this->data;
+      $id_ta              = $this->ta->getTahunAjaran()['id_ta'];
+      $username           = session()->get('username');
+      $nim_asprak         = $this->users->getUsername($username)['nim_asprak'];
+      $data['dosen']      = $this->dosen->getDataDosen();
+      $data['identitas']  = $this->asprak->checkDataAsprak($this->data['nim_asprak']);
+      $data['kehadiran']  = $cek;
+      $data['mk']         = $this->asprak_list->getListMKAsprak($nim_asprak, $id_ta);
+      return view('asprak/kehadiran/v_edit_kehadiran', $data);
+    } else {
+      session()->setFlashdata('error_', 'Data Kehadiran Tidak Ditemukan');
+      return redirect()->to(base_url('Asprak/Kehadiran'));
+    }
+  }
+
+  public function updateKehadiran()
+  {
+    if (!$this->validate([
+      'id_kehadiran'  => ['rules' => 'required'],
+      'tanggal'       => ['rules' => 'required'],
+      'jam_masuk'     => ['rules' => 'required'],
+      'jam_keluar'    => ['rules' => 'required'],
+      'kelas'         => ['rules' => 'required'],
+      'mk_asprak'     => ['rules' => 'required'],
+      'kode_dosen'    => ['rules' => 'required'],
+      'modul'         => ['rules' => 'required']
+    ])) {
+      session()->setFlashdata('error', 'Harap lengkapi seluruh field');
+      return redirect()->back()->withInput();
+    } else {
+      $array_error      = array();
+      $id_kehadiran     = $this->request->getPost('id_kehadiran');
+      $tanggal          = convertDatePicker($this->request->getPost('tanggal'));
+      $jam_masuk        = $this->request->getPost('jam_masuk');
+      $jam_keluar       = $this->request->getPost('jam_keluar');
+      $kelas            = $this->request->getPost('kelas');
+      $id_asprak_list   = $this->request->getPost('mk_asprak');
+      $kode_dosen       = $this->request->getPost('kode_dosen');
+      $modul            = $this->request->getPost('modul');
+      if ((hitungJamKeMenit($jam_masuk) < hitungJamKeMenit('06:30')) || (hitungJamKeMenit($jam_masuk) > hitungJamKeMenit('18:30'))) {
+        $array_error[]        = 'Jam perkuliahan direntang waktu 06:30 - 18:30, jam masuk Anda pada pukul ' . $jam_masuk . '.';
+      }
+      if ((hitungJamKeMenit($jam_keluar) < hitungJamKeMenit('06:30')) || (hitungJamKeMenit($jam_keluar) > hitungJamKeMenit('18:30'))) {
+        $array_error[]        = 'Jam perkuliahan direntang waktu 06:30 - 18:30, jam keluar Anda pada pukul ' . $jam_keluar . '.';
+      }
+      $selisih_jam      = (hitungJamKeMenit($jam_keluar) - hitungJamKeMenit($jam_masuk)) / 60;
+      if ($selisih_jam < 0) {
+        $array_error[]        = 'Jam keluar Anda lebih awal dibanding jam masuk Anda, jam masuk Anda ' . $jam_masuk . ' dan jam keluar Anda ' . $jam_keluar . '.';
+      }
+      if ($selisih_jam < 1) {
+        $array_error[]        = 'Minimal jam kehadiran dalam satu sesi adalah 1 jam, jam masuk Anda ' . $jam_masuk . ' dan jam keluar Anda ' . $jam_keluar . '.';
+      }
+      $cek_kalender_libur  = $this->kalender_libur->checkDataKalender($tanggal);
+      if (date('D', strtotime($tanggal)) == 'Sun') {
+        $array_error[]        = 'Tanggal ' . convertTanggal($tanggal) . ' adalah hari Minggu.';
+      }
+      if ($cek_kalender_libur) {
+        $array_error[]        = 'Tanggal ' . convertTanggal($tanggal) . ' adalah hari libur (' . $cek_kalender_libur['keterangan'] . ').';
+      }
+      $tmp_id_kehadiran = [$id_kehadiran];
+      $cek_bap  = $this->kehadiran->checkBAPForUpdate($tanggal, $this->data['nim_asprak'], $tmp_id_kehadiran);
+      if ($cek_bap) {
+        $jumlah_jam_sebelumnya = 0;
+        foreach ($cek_bap as $c) {
+          if ((hitungJamKeMenit($jam_masuk) >= $c['masuk']) && (hitungJamKeMenit($jam_masuk) < $c['keluar'])) {
+            $array_error[] = 'Jam masuk Anda diantara jam ' . hitungMenitKeJam($c['masuk']) . ' - ' . hitungMenitKeJam($c['keluar']) . ' pada hari yang sama.';
+          }
+          if ((hitungJamKeMenit($jam_keluar) > $c['masuk']) && (hitungJamKeMenit($jam_keluar) < $c['keluar'])) {
+            $array_error[] = 'Jam keluar Anda diantara jam ' . hitungMenitKeJam($c['masuk']) . ' - ' . hitungMenitKeJam($c['keluar']) . ' pada hari yang sama.';
+          }
+          $jumlah_jam_sebelumnya = $jumlah_jam_sebelumnya + (($c['keluar'] - $c['masuk']) / 60);
+        }
+        if (($jumlah_jam_sebelumnya + $selisih_jam) > 6) {
+          $array_error[]  = 'Jumlah kehadiran Anda dalam satu hari sudah melebihi dari 6 jam, jumlah jam kehadiran Anda hari ini sudah ' . $jumlah_jam_sebelumnya . ' jam.';
+        }
+      }
+      if (count($array_error) > 0) {
+        session()->setFlashdata('error', $array_error);
+        return redirect()->to(base_url('Asprak/Kehadiran/EditKehadiran/' . $id_kehadiran));
+      } else {
+        $jam_masuk       = $tanggal . ' ' . $jam_masuk;
+        $jam_keluar      = $tanggal . ' ' . $jam_keluar;
+        $jumlah_jam      = $selisih_jam;
+        $kelas           = $kelas;
+        $modul_praktikum = $modul;
+        $kode_dosen      = $kode_dosen;
+        $id_asprak_list  = $id_asprak_list;
+        $this->kehadiran->updateKehadiran($jam_masuk, $jam_keluar, $jumlah_jam, $kelas, $modul_praktikum, $kode_dosen, $id_asprak_list, $id_kehadiran);
+        session()->setFlashdata('sukses', 'Data Kehadiran Anda Sukses Disimpan');
+        return redirect()->to(base_url('Asprak/Kehadiran'));
+      }
+    }
+  }
+
+  public function hapusKehadiran()
+  {
+    if (!$this->validate([
+      'id' => ['rules' => 'required']
+    ])) {
+      return redirect()->to('Beranda');
+    } else {
+      $id_kehadiran = $this->request->getPost('id');
+      $this->kehadiran->deleteKehadiran($id_kehadiran);
     }
   }
 }

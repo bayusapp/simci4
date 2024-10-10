@@ -14,6 +14,7 @@ class M_Users_Menu_Sub extends Model
   {
     $this->where('id_menu', $id_menu);
     $this->where('id_role', $id_role);
+    $this->where('is_active', '1');
     $this->orderBy('urutan_menu', 'ASC');
     return $this->findAll();
   }

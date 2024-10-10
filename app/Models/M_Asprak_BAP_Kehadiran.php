@@ -42,11 +42,26 @@ class M_Asprak_BAP_Kehadiran extends Model
     return $this->findAll();
   }
 
+  public function checkBAPForUpdate($tanggal, $nim_asprak, $id_kehadiran)
+  {
+    $this->select('id_asprak_bap_kehadiran, date_format(jam_masuk, "%Y-%m-%d") tanggal, (cast(date_format(jam_masuk, "%H") as signed) * 60 + cast(date_format(jam_masuk, "%i") as signed)) masuk, (cast(date_format(jam_keluar, "%H") as signed) * 60 + cast(date_format(jam_keluar, "%i") as signed)) as keluar');
+    $this->like('jam_masuk', $tanggal);
+    $this->where('nim_asprak', $nim_asprak);
+    $this->whereNotIn('substr(sha1(id_asprak_bap_kehadiran), 8, 7)', $id_kehadiran);
+    return $this->findAll();
+  }
+
   public function getDataBAPByIdBAP($id_bap)
   {
     $this->where('id_asprak_bap', $id_bap);
     $this->orderBy('jam_masuk', 'ASC');
     return $this->findAll();
+  }
+
+  public function getDataKehadiran($id)
+  {
+    $this->where('substr(sha1(id_asprak_bap_kehadiran), 8, 7)', $id);
+    return $this->first();
   }
 
   public function checkBAPNotIn($tanggal, $nim_asprak, $id_kehadiran)
@@ -61,6 +76,19 @@ class M_Asprak_BAP_Kehadiran extends Model
     $this->where('jam_masuk >=', $tanggal_awal);
     $this->where('jam_masuk <=', $tanggal_akhir);
     return $this->findAll();
+  }
+
+  public function updateKehadiran($jam_masuk, $jam_keluar, $jumlah_jam, $kelas, $modul_praktikum, $kode_dosen, $id_asprak_list, $id)
+  {
+    $this->set('jam_masuk', $jam_masuk);
+    $this->set('jam_keluar', $jam_keluar);
+    $this->set('jumlah_jam', $jumlah_jam);
+    $this->set('kelas', $kelas);
+    $this->set('modul_praktikum', $modul_praktikum);
+    $this->set('kode_dosen', $kode_dosen);
+    $this->set('id_asprak_list', $id_asprak_list);
+    $this->where('substr(sha1(id_asprak_bap_kehadiran), 8, 7)', $id);
+    $this->update();
   }
 
   public function updateIdBAPnHonor($tanggal_awal, $tanggal_akhir, $id_asprak_list, $id_bap, $id_honor)
@@ -100,5 +128,11 @@ class M_Asprak_BAP_Kehadiran extends Model
     $this->set('approve_dosen', '2');
     $this->where('substr(sha1(id_asprak_bap_kehadiran), 13, 7)', $id);
     $this->update();
+  }
+
+  public function deleteKehadiran($id)
+  {
+    $this->where('substr(sha1(id_asprak_bap_kehadiran), 8, 7)', $id);
+    $this->delete();
   }
 }

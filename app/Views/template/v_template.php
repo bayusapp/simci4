@@ -26,7 +26,8 @@ if ($role == '1' || $role == '2' || $role == '6') {
     $header = $model_users_menu->getMenuByLink('Asprak/' . $segment_1, $role)['nama_menu'];
     $title  = $header . ' | SIM Laboratorium';
   } else {
-    $header = $model_users_menu_sub->getDataSubMenuSegment($segment_1, $segment_2)['nama_menu'];
+    // $header = $model_users_menu_sub->getDataSubMenuSegment($segment_1, $segment_2)['nama_menu'];
+    $header = 'Edit Kehadiran';
     $title  = $header . ' | SIM Laboratorium';
   }
 } elseif ($role == '5') {
