@@ -192,7 +192,9 @@
                     <?php if ($a['status_verif'] == '1') : ?>
                       <span class="badge badge-primary"><i class="feather icon-check-circle"></i> Verifikasi</span>
                     <?php else: ?>
-                      <span class="badge badge-danger"><i class="feather icon-x-circle"></i> Verifikasi</span>
+                      <span id="status_verif_<?= $hash_id_asprak_list ?>">
+                        <span class="badge badge-danger"><i class="feather icon-x-circle"></i> Verifikasi</span>
+                      </span>
                     <?php endif; ?>
                   </td>
                   <td style="text-align: center; vertical-align: middle">
