@@ -255,9 +255,12 @@ function verif_bank(id) {
     success: function (response) {
       if (response == "sukses") {
         var label = document.getElementById("verif_bank_" + id);
+        var status = document.getElementById("status_verif_" + id);
         document.getElementById("disetujui_" + id).style.display = "none";
         label.innerHTML =
           '<span class="badge badge-success"><i class="feather icon-check-circle"></i> Rekening Bank</span>';
+        status.innerHTML =
+          '<span class="badge badge-primary"><i class="feather icon-check-circle"></i> Verifikasi</span>';
       }
     },
   });
@@ -916,6 +919,16 @@ $(document).ready(function () {
   }, 0);
 
   $(".kontak").mask("(00) 0000-0000-0000");
+
+  $(".laboran").select2({
+    placeholder: "Pilih Laboran",
+    allowClear: true,
+  });
+
+  $(".laboratorium").select2({
+    placeholder: "Pilih Laboratorium",
+    allowClear: true,
+  });
 
   $(".bank").select2({
     placeholder: "Pilih Nama Bank",
