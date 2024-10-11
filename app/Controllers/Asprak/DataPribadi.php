@@ -68,7 +68,7 @@ class DataPribadi extends BaseController
       $id_prodi       = $this->request->getPost('id_prodi');
       $file_foto      = $this->request->getFile('file_foto');
       $ttd_digital    = $this->request->getFile('ttd_digital');
-      $norek_asprak   = $this->request->getPost('norek_asprak');
+      $norek_asprak   = preg_replace('/\D/', '', $this->request->getPost('norek_asprak'));
       $bank           = $this->request->getPost('bank');
       $nama_akun      = $this->request->getPost('nama_akun');
       $file_kk        = $this->request->getFile('file_kk');

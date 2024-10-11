@@ -1309,7 +1309,7 @@ div.DTS div.dataTables_scrollBody table {
   }
 
   .pcoded-header > .collapse:not(.show) {
-    background: #121f3b;
+    background: #232323;
     box-shadow: 0 1px 20px 0 rgba(0, 0, 0, 0.08);
   }
 
