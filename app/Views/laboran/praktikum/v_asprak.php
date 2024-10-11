@@ -305,7 +305,7 @@
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-                            <?php if ($a['norek_asprak'] != null && $a['kode_bank'] != null && $a['nama_akun'] != null && $a['verif_laboran'] == null) : ?>
+                            <?php if ($a['norek_asprak'] != null && $a['kode_bank'] != null && $a['nama_akun'] != null) : ?>
                               <button type="button" id="cek_bank_<?= $hash_id_asprak_list ?> " class="btn btn-warning" onclick="cek_bank('<?= $a['kode_bank'] . '/' . $a['norek_asprak'] ?>')">Cek Bank</button>
                               <?php if ($a['verif_laboran'] == null) : ?>
                                 <button type="button" id="disetujui_<?= $hash_id_asprak_list ?>" class="btn btn-success" onclick="verif_bank('<?= $hash_id_asprak_list ?>')">Disetujui</button>
