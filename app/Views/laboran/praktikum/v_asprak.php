@@ -188,6 +188,12 @@
                     <?php elseif ($a['norek_asprak'] != null && $a['kode_bank'] != null && $a['nama_akun'] != null) : ?>
                       <span class="badge badge-success"><i class="feather icon-check-circle"></i> Rekening Bank</span>
                     <?php endif; ?>
+                    <br>
+                    <?php if ($a['status_verif'] == '1') : ?>
+                      <span class="badge badge-primary"><i class="feather icon-check-circle"></i> Verifikasi</span>
+                    <?php else: ?>
+                      <span class="badge badge-danger"><i class="feather icon-x-circle"></i> Verifikasi</span>
+                    <?php endif; ?>
                   </td>
                   <td style="text-align: center; vertical-align: middle">
                     <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#lihat_asprak_<?= $hash_id_asprak_list ?>">
