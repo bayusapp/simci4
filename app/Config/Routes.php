@@ -68,6 +68,10 @@ $routes->post('/Laboratorium/generateQR', 'Laboratorium::generateQR');
 $routes->post('/Laboratorium/deleteLab', 'Laboratorium::deleteLab');
 // end route class Laboratorium
 
+// begin routes class Aslab
+$routes->get('/Aslab', 'Aslab::index');
+// end routes class Aslab
+
 // begin route class Praktikum
 $routes->get('/Praktikum/Matakuliah', 'Praktikum::Matakuliah');
 $routes->post('/Praktikum/Matakuliah', 'Praktikum::Matakuliah');
@@ -84,6 +88,7 @@ $routes->post('/Praktikum/deleteAsprakList', 'Praktikum::deleteAsprakList');
 $routes->post('/Praktikum/simpanCSVAsprak', 'Praktikum::simpanCSVAsprak');
 $routes->post('/Praktikum/cekBank', 'Praktikum::cekBank');
 $routes->post('/Praktikum/verifBank', 'Praktikum::verifBank');
+$routes->get('/Praktikum/SuratPerjanjian/(:any)', 'Praktikum::suratPerjanjian/$1');
 
 $routes->get('/Praktikum/BAP', 'Praktikum::BAP');
 $routes->post('/Praktikum/generateBAP', 'Praktikum::generateBAP');

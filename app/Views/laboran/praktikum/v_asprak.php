@@ -174,7 +174,9 @@
                     <?php if ($a['surat_perjanjian'] != '1') : ?>
                       <span class="badge badge-danger"><i class="feather icon-x-circle"></i> Surat Perjanjian</span>
                     <?php else : ?>
-                      <span class="badge badge-success"><i class="feather icon-check-circle"></i> Surat Perjanjian</span>
+                      <a href="<?= base_url('Praktikum/SuratPerjanjian/' . $hash_id_asprak_list) ?>" target="_blank">
+                        <span class="badge badge-success"><i class="feather icon-check-circle"></i> Surat Perjanjian</span>
+                      </a>
                     <?php endif; ?>
                     <br>
                     <?php if ($a['norek_asprak'] == null && $a['kode_bank'] == null && $a['nama_akun'] == null && $a['status_verif'] == null) : ?>
@@ -183,7 +185,7 @@
                       <span id="verif_bank_<?= $hash_id_asprak_list ?>">
                         <span class="badge badge-warning"><i class="feather icon-alert-circle"></i> Rekening Bank</span>
                       </span>
-                    <?php elseif ($a['norek_asprak'] != null && $a['kode_bank'] != null && $a['nama_akun'] != null && $a['status_verif'] == '1') : ?>
+                    <?php elseif ($a['norek_asprak'] != null && $a['kode_bank'] != null && $a['nama_akun'] != null) : ?>
                       <span class="badge badge-success"><i class="feather icon-check-circle"></i> Rekening Bank</span>
                     <?php endif; ?>
                   </td>

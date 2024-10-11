@@ -356,6 +356,12 @@ class Praktikum extends BaseController
     }
   }
 
+  public function suratPerjanjian($id)
+  {
+    $data['sp'] = $this->asprak_list->getSuratPerjanjianById($id);
+    return view('asprak/surat_perjanjian/v_surat_perjanjian', $data);
+  }
+
   public function BAP()
   {
     $data = $this->data;

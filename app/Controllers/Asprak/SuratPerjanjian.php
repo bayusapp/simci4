@@ -37,7 +37,7 @@ class SuratPerjanjian extends BaseController
 
   public function index()
   {
-    $data = $this->data;
+    $data           = $this->data;
     $data['asprak'] = $this->asprak->checkDataAsprak($this->data['nim_asprak']);
     $data['sp']     = $this->asprak_list->getSuratPerjanjian($this->data['nim_asprak']);
     return view('asprak/surat_perjanjian/v_index', $data);
@@ -45,7 +45,7 @@ class SuratPerjanjian extends BaseController
 
   public function view()
   {
-    $id  = $this->request->getUri()->getSegment(4);
+    $id         = $this->request->getUri()->getSegment(4);
     $data['sp'] = $this->asprak_list->getSuratPerjanjianById($id);
     return view('asprak/surat_perjanjian/v_surat_perjanjian', $data);
   }

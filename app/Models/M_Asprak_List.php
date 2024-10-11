@@ -35,7 +35,8 @@ class M_Asprak_List extends Model
     $this->where('prodi.kode_prodi', $kode_prodi);
     $this->where('matakuliah_semester.id_ta', $id_ta);
     $this->orderBy('matakuliah.kode_mk', 'ASC');
-    $this->orderBy('asprak.nim_asprak', 'ASC');
+    $this->orderBy('surat_perjanjian', 'ASC');
+    $this->orderBy('asprak.nama_asprak', 'ASC');
     return $this->findAll();
   }
 
