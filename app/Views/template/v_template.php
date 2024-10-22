@@ -242,7 +242,7 @@ $dark_mode = $model_users_preference->getStatusDarkMode(session()->get('username
         <?php endif; ?>
         <div class="navbar-wrapper  ">
           <div class="navbar-content scroll-div ">
-            <div class="" style="margin-bottom: 30px;">
+            <div class="" style="margin-bottom: 50px;">
               <div class="main-menu-header">
                 <?php
                 if ($role == '1' || $role == '2' || $role == '6') {
@@ -273,7 +273,7 @@ $dark_mode = $model_users_preference->getStatusDarkMode(session()->get('username
                 </div>
               </div>
             </div>
-            <ul class="nav pcoded-inner-navbar ">
+            <ul class="nav pcoded-inner-navbar">
               <li class="nav-item pcoded-menu-caption">
                 <label>Menu</label>
               </li>

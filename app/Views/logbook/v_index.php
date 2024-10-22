@@ -11,6 +11,18 @@
   <link rel="icon" href="<?= base_url() ?>assets/images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="<?= base_url() ?>assets/css/plugins/select2.min.css">
   <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
+  <style>
+    .footer {
+      background: none repeat scroll 0 0 #fff;
+      border-top: 1px solid #e7eaec;
+      bottom: 0;
+      left: 0;
+      padding: 10px 0;
+      position: fixed;
+      width: 100%;
+      text-align: center;
+    }
+  </style>
 </head>
 
 <body>
@@ -65,6 +77,9 @@
         </div>
       </div>
     </div>
+  </div>
+  <div class="footer">
+    <strong>&copy; Developed by</strong> Bayu Setya Ajie Perdana Putra
   </div>
   <script src="<?= base_url() ?>assets/js/vendor-all.min.js"></script>
   <script src="<?= base_url() ?>assets/js/plugins/bootstrap.min.js"></script>
