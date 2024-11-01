@@ -177,6 +177,10 @@ $dark_mode = $model_users_preference->getStatusDarkMode(session()->get('username
     .round_custom {
       border-radius: 0.7rem;
     }
+
+    .swal-modal .swal-text {
+      text-align: center;
+    }
   </style>
   <?php if ($dark_mode && $dark_mode['dark_mode'] == '1'): ?>
     <style>
