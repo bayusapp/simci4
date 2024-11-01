@@ -31,7 +31,7 @@
                 <?= csrf_field(); ?>
                 <div class="modal-body">
                   <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12">
+                    <div class="col-lg-8 col-md-8 col-sm-12">
                       <div class="form-group">
                         <label for="nama_dokumen">Kode & Nama Mata Kuliah</label>
                         <select class="matakuliah form-control" name="mk" required>
@@ -44,6 +44,12 @@
                           endforeach;
                           ?>
                         </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                      <div class="form-group">
+                        <label for="tanggal_penugasan">Tanggal Penugasan</label>
+                        <input type="text" class="form-control" name="tanggal" id="tanggal" value="<?= date('m/d/Y') ?>" placeholder="Contoh: 01/01/2024" required>
                       </div>
                     </div>
                   </div>
@@ -63,6 +69,7 @@
                 <th>No</th>
                 <th>Tanggal Generate</th>
                 <th>Kode & Nama Mata Kuliah</th>
+                <th>Tanggal Penugasan</th>
                 <th>Tahun Ajaran</th>
                 <th>Aksi</th>
               </tr>
@@ -75,14 +82,17 @@
               ?>
                 <tr>
                   <td><?= $no++ ?></td>
-                  <td><?= convertDateTime($st['tanggal_dibuat']) ?></td>
+                  <td><?= convertDateTimePendek($st['tanggal_dibuat']) ?></td>
                   <td><?= $st['kode_mk'] . ' | ' . $st['nama_mk'] ?></td>
+                  <td><?= convertDateTimePendek($st['tanggal_penugasan']) ?></td>
                   <td><?= $st['tahun_ajaran'] ?></td>
                   <td>
                     <a href="<?= base_url('Dokumen/LihatSuratTugas/' . $hash_id) ?>" target="_blank">
                       <button class="btn btn-sm btn-info"><i class="feather icon-eye"></i></button>
                     </a>
-                    <button class="btn btn-sm btn-danger"><i class="feather icon-trash-2"></i></button>
+                    <button type="button" class="btn btn-sm btn-danger" onclick="hapus_surat_tugas('<?= $hash_id ?>', '<?= $st['kode_mk'] . ' | ' . $st['nama_mk'] ?>')">
+                      <i class="feather icon-trash-2"></i>
+                    </button>
                   </td>
                 </tr>
               <?php
