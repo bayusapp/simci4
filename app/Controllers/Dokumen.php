@@ -100,13 +100,18 @@ class Dokumen extends BaseController
       session()->setFlashdata('error', 'Harap lengkapi seluruh field');
       return redirect()->back()->withInput();
     } else {
-      $mk               = $this->request->getPost('mk');
-      $tanggal_dibuat   = date('Y-m-d H:i:s');
-      $pembuat_dokumen  = session()->get('nip_laboran');
+      $mk                 = $this->request->getPost('mk');
+      $tanggal_dibuat     = date('Y-m-d H:i:s');
+      $tanggal_penugasan  = $this->request->getPost('tanggal');
+      $split_tanggal      = explode('/', $tanggal_penugasan);
+      $array_tanggal      = array($split_tanggal[2], $split_tanggal[0], $split_tanggal[1]);
+      $tanggal_penugasan  = implode('-', $array_tanggal);
+      $pembuat_dokumen    = session()->get('nip_laboran');
       $input  = [
-        'tanggal_dibuat'  => $tanggal_dibuat,
-        'pembuat_dokumen' => $pembuat_dokumen,
-        'id_mk_semester'  => $mk
+        'tanggal_dibuat'    => $tanggal_dibuat,
+        'tanggal_penugasan' => $tanggal_penugasan,
+        'pembuat_dokumen'   => $pembuat_dokumen,
+        'id_mk_semester'    => $mk
       ];
       $this->dokumen_surat_tugas_asprak->insert($input);
       $id_dsta  = $this->dokumen_surat_tugas_asprak->getIDSuratTugas($tanggal_dibuat, $pembuat_dokumen, $mk)['id_dsta'];
@@ -122,7 +127,7 @@ class Dokumen extends BaseController
         }
       }
       session()->setFlashdata('sukses', 'Surat Tugas Asprak Sukses Dibuat');
-      return redirect()->back();
+      return redirect()->to(base_url('Dokumen/SuratTugasAsprak'));
     }
   }
 
@@ -134,6 +139,18 @@ class Dokumen extends BaseController
     } else {
       session()->setFlashdata('error', 'ID Surat Tugas Asprak Tidak Ditemukan');
       return redirect()->to(base_url('Dokumen/SuratTugasAsprak'));
+    }
+  }
+
+  public function deleteSuratTugas()
+  {
+    if (!$this->validate([
+      'id' => ['rules' => 'required']
+    ])) {
+      redirect()->to(base_url('Dokumen/SuratTugasAsprak'));
+    } else {
+      $id = $this->request->getPost('id');
+      $this->dokumen_surat_tugas_asprak->deleteSuratTugas($id);
     }
   }
 }
