@@ -101,6 +101,7 @@ $routes->post('/Dokumen/simpanDokumen', 'Dokumen::simpanDokumen');
 $routes->get('/Dokumen/SuratTugasAsprak', 'Dokumen::suratTugasAsprak');
 $routes->post('/Dokumen/simpanSuratTugasAsprak', 'Dokumen::simpanSuratTugasAsprak');
 $routes->get('/Dokumen/LihatSuratTugas/(:any)', 'Dokumen::lihatSuratTugas/$1');
+$routes->post('/Dokumen/deleteSuratTugas', 'Dokumen::deleteSuratTugas');
 
 $routes->get('/Kalender', 'Kalender::index');
 $routes->post('/Kalender/simpanCSVKalender', 'Kalender::simpanCSVKalender');
