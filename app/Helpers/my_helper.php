@@ -140,6 +140,18 @@ if (!function_exists('convertDateTime')) {
   }
 }
 
+if (!function_exists('convertDateTimePendek')) {
+  function convertDateTimePendek($tanggal)
+  {
+    $split          = explode(' ', $tanggal);
+    $split_tanggal  = explode('-', $split[0]);
+    $tanggal        = $split_tanggal[2];
+    $bulan          = bulanIndoPendek($split_tanggal[1]);
+    $tahun          = $split_tanggal[0];
+    return $tanggal . ' ' . $bulan . ' ' . $tahun;
+  }
+}
+
 if (!function_exists('convertJamDB')) {
   function convertJamDB($tanggal)
   {
