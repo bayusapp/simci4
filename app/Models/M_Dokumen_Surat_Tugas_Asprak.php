@@ -9,7 +9,7 @@ class M_Dokumen_Surat_Tugas_Asprak extends Model
 
   protected $table          = 'dokumen_surat_tugas_asprak';
   protected $primaryKey     = 'id_dsta';
-  protected $allowedFields  = ['tanggal_dibuat', 'pembuat_dokumen', 'id_mk_semester'];
+  protected $allowedFields  = ['tanggal_dibuat', 'tanggal_penugasan', 'pembuat_dokumen', 'id_mk_semester'];
 
   public function getAllSuratTugas()
   {
@@ -43,5 +43,11 @@ class M_Dokumen_Surat_Tugas_Asprak extends Model
     $this->where('pembuat_dokumen', $pembuat_dokumen);
     $this->where('id_mk_semester', $id_mk_semester);
     return $this->first();
+  }
+
+  public function deleteSuratTugas($id_dsta)
+  {
+    $this->where('substr(sha1(id_dsta), 13, 7)', $id_dsta);
+    $this->delete();
   }
 }
