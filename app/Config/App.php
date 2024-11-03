@@ -16,7 +16,8 @@ class App extends BaseConfig
      *
      * E.g., http://example.com/
      */
-    public string $baseURL = BASE;
+    // public string $baseURL = BASE;
+    public string $baseURL = 'https://sim.labfit.id/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
