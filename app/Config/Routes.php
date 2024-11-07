@@ -140,6 +140,7 @@ $routes->get('/Asprak/RiwayatLogin', 'Asprak\RiwayatLogin::index');
 $routes->get('/Dosen/Beranda', 'Dosen\Beranda::index');
 
 $routes->get('/Dosen/Kehadiran', 'Dosen\Kehadiran::index');
+$routes->get('/Dosen/Kehadiran/approveAll', 'Dosen\Kehadiran::approveAll');
 $routes->post('/Dosen/Kehadiran/approve', 'Dosen\Kehadiran::approve');
 $routes->post('/Dosen/Kehadiran/reject', 'Dosen\Kehadiran::reject');
 // end route for dosen access
