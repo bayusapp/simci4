@@ -9,7 +9,7 @@ class M_Asprak_BAP_Kehadiran extends Model
 
   protected $table = 'asprak_bap_kehadiran';
   protected $primaryKey = 'id_asprak_bap_kehadiran';
-  protected $allowedFields  = ['jam_masuk', 'jam_keluar', 'jumlah_jam', 'kelas', 'modul_praktikum', 'kode_dosen', 'approve_dosen', 'nim_asprak', 'id_asprak_list', 'id_asprak_bap', 'id_honor'];
+  protected $allowedFields  = ['jam_masuk', 'jam_keluar', 'jumlah_jam', 'kelas', 'modul_praktikum', 'kode_dosen', 'approve_dosen', 'tanggal_approve', 'alasan_ditolak', 'nim_asprak', 'id_asprak_list', 'id_asprak_bap', 'id_honor'];
 
   public function getDataBAP($nim_asprak)
   {
@@ -104,28 +104,71 @@ class M_Asprak_BAP_Kehadiran extends Model
 
   public function getDataByKodeDosen($kode_dosen)
   {
-    $this->select('id_asprak_bap_kehadiran, nama_asprak, date_format(jam_masuk, "%Y-%m-%d") tanggal, date_format(jam_masuk, "%H:%i") masuk, date_format(jam_keluar, "%H:%i") keluar, jumlah_jam, kelas, matakuliah.kode_mk, matakuliah.nama_mk, modul_praktikum, approve_dosen');
+    $this->select('id_asprak_bap_kehadiran, asprak.nim_asprak, nama_asprak, date_format(jam_masuk, "%Y-%m-%d") tanggal, date_format(jam_masuk, "%H:%i") masuk, date_format(jam_keluar, "%H:%i") keluar, jumlah_jam, kelas, matakuliah.kode_mk, matakuliah.nama_mk, modul_praktikum, approve_dosen');
     $this->join('asprak_list', 'asprak_bap_kehadiran.id_asprak_list = asprak_list.id_asprak_list');
     $this->join('asprak', 'asprak_list.nim_asprak = asprak.nim_asprak');
     $this->join('matakuliah_semester', 'asprak_list.id_mk_semester = matakuliah_semester.id_mk_semester');
     $this->join('matakuliah', 'matakuliah_semester.kode_mk = matakuliah.kode_mk');
     $this->where('asprak_bap_kehadiran.kode_dosen', $kode_dosen);
+    $this->where('approve_dosen = "0"');
     $this->orderBy('approve_dosen', 'ASC');
     $this->orderBy('jam_masuk', 'DESC');
     $this->orderBy('id_asprak_bap_kehadiran', 'DESC');
     return $this->findAll();
   }
 
-  public function approveKehadiran($id)
+  public function getApproveByKodeDosen($kode_dosen)
+  {
+    $this->select('id_asprak_bap_kehadiran, asprak.nim_asprak, nama_asprak, date_format(jam_masuk, "%Y-%m-%d") tanggal, date_format(jam_masuk, "%H:%i") masuk, date_format(jam_keluar, "%H:%i") keluar, jumlah_jam, kelas, matakuliah.kode_mk, matakuliah.nama_mk, modul_praktikum, approve_dosen, tanggal_approve');
+    $this->join('asprak_list', 'asprak_bap_kehadiran.id_asprak_list = asprak_list.id_asprak_list');
+    $this->join('asprak', 'asprak_list.nim_asprak = asprak.nim_asprak');
+    $this->join('matakuliah_semester', 'asprak_list.id_mk_semester = matakuliah_semester.id_mk_semester');
+    $this->join('matakuliah', 'matakuliah_semester.kode_mk = matakuliah.kode_mk');
+    $this->where('asprak_bap_kehadiran.kode_dosen', $kode_dosen);
+    $this->where('approve_dosen = "1"');
+    $this->orderBy('approve_dosen', 'ASC');
+    $this->orderBy('jam_masuk', 'DESC');
+    $this->orderBy('id_asprak_bap_kehadiran', 'DESC');
+    return $this->findAll();
+  }
+
+  public function getRejectByKodeDosen($kode_dosen)
+  {
+    $this->select('id_asprak_bap_kehadiran, asprak.nim_asprak, nama_asprak, date_format(jam_masuk, "%Y-%m-%d") tanggal, date_format(jam_masuk, "%H:%i") masuk, date_format(jam_keluar, "%H:%i") keluar, jumlah_jam, kelas, matakuliah.kode_mk, matakuliah.nama_mk, modul_praktikum, approve_dosen, tanggal_approve, alasan_ditolak');
+    $this->join('asprak_list', 'asprak_bap_kehadiran.id_asprak_list = asprak_list.id_asprak_list');
+    $this->join('asprak', 'asprak_list.nim_asprak = asprak.nim_asprak');
+    $this->join('matakuliah_semester', 'asprak_list.id_mk_semester = matakuliah_semester.id_mk_semester');
+    $this->join('matakuliah', 'matakuliah_semester.kode_mk = matakuliah.kode_mk');
+    $this->where('asprak_bap_kehadiran.kode_dosen', $kode_dosen);
+    $this->where('approve_dosen = "2"');
+    $this->orderBy('approve_dosen', 'ASC');
+    $this->orderBy('jam_masuk', 'DESC');
+    $this->orderBy('id_asprak_bap_kehadiran', 'DESC');
+    return $this->findAll();
+  }
+
+  public function approveKehadiranAll($kode_dosen, $waktu)
   {
     $this->set('approve_dosen', '1');
+    $this->set('tanggal_approve', $waktu);
+    $this->where('kode_dosen', $kode_dosen);
+    $this->where('approve_dosen = "0"');
+    $this->update();
+  }
+
+  public function approveKehadiran($id, $waktu)
+  {
+    $this->set('approve_dosen', '1');
+    $this->set('tanggal_approve', $waktu);
     $this->where('substr(sha1(id_asprak_bap_kehadiran), 13, 7)', $id);
     $this->update();
   }
 
-  public function rejectKehadiran($id)
+  public function rejectKehadiran($id, $waktu, $alasan)
   {
     $this->set('approve_dosen', '2');
+    $this->set('tanggal_approve', $waktu);
+    $this->set('alasan_ditolak', $alasan);
     $this->where('substr(sha1(id_asprak_bap_kehadiran), 13, 7)', $id);
     $this->update();
   }
