@@ -413,7 +413,7 @@ $dark_mode = $model_users_preference->getStatusDarkMode(session()->get('username
             <!-- [ breadcrumb ] end -->
             <?= $this->renderSection('content'); ?>
             <div class="footer">
-              <strong>&copy; Developed by</strong> Bayu Setya Ajie Perdana Putra
+              <strong>&copy; Developed by</strong> Bayu S. Ajie P. Putra (Unit Laboratorium/Bengkel/Studio)
             </div>
           </div>
         </section>
