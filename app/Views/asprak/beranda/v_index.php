@@ -174,6 +174,20 @@ if ($split[1] == '1') {
                 </div>
               </div>
             </div>
+            <div class="row" style="margin-bottom: 25px;">
+              <div class="offset-lg-4 col-lg-4" style="text-align: center;">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <a href="<?= base_url('assets/template/70-TEMPLATE-LAPORAN-ASPRAK-SIKC-v2024.docx') ?>" target="_blank"><button class="btn btn-primary btn-icon"><i class="feather icon-file-text"></i></button></a>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    LPJ Asprak D4SIKC
+                  </div>
+                </div>
+              </div>
+            </div>
             <!-- <div class="row" style="margin-bottom: 25px;">
               <div class="col-lg-4 offset-lg-4" style="text-align: center;">
                 <div class="row">
