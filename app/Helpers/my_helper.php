@@ -152,6 +152,18 @@ if (!function_exists('convertDateTimePendek')) {
   }
 }
 
+if (!function_exists('convertTanggalApprove')) {
+  function convertTanggalApprove($waktu)
+  {
+    $split          = explode(' ', $waktu);
+    $split_tanggal  = explode('-', $split[0]);
+    $tanggal        = $split_tanggal[2];
+    $bulan          = bulanIndoPendek($split_tanggal[1]);
+    $tahun          = $split_tanggal[0];
+    return $tanggal . ' ' . $bulan . ' ' . $tahun . ' ' . $split[1];
+  }
+}
+
 if (!function_exists('convertJamDB')) {
   function convertJamDB($tanggal)
   {
