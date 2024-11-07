@@ -36,7 +36,7 @@ function darkMode(check, id) {
 function hapus_prodi(id) {
   swal({
     title: "Apakah Anda yakin?",
-    text: "Data Program Studi Akan Dihapus",
+    text: "Data Program Studi akan dihapus",
     icon: "warning",
     buttons: true,
     dangerMode: true,
@@ -49,7 +49,7 @@ function hapus_prodi(id) {
         data: { id: id },
         success: function (response) {
           swal({
-            text: "Data Program Studi Sukses Dihapus",
+            text: "Data Program Studi sukses dihapus",
             icon: "success",
             timer: 2000,
             buttons: false,
@@ -78,7 +78,7 @@ function hapus_dosen(id) {
         data: { id, id },
         success: function (response) {
           swal({
-            text: "Data Dosen Sukses Dihapus",
+            text: "Data Dosen sukses dihapus",
             icon: "success",
             timer: 2000,
             buttons: false,
@@ -107,7 +107,7 @@ function hapus_mk(id) {
         data: { id, id },
         success: function (response) {
           swal({
-            text: "Data Mata Kuliah Sukses Dihapus",
+            text: "Data Mata Kuliah sukses dihapus",
             icon: "success",
             timer: 2000,
             buttons: false,
@@ -165,7 +165,7 @@ function hapus_laboran(id) {
         data: { id, id },
         success: function (response) {
           swal({
-            text: "Data Laboran Sukses Dihapus",
+            text: "Data Laboran sukses dihapus",
             icon: "success",
             timer: 2000,
             buttons: false,
@@ -194,7 +194,7 @@ function hapus_lab(id) {
         data: { id, id },
         success: function (response) {
           swal({
-            text: "Data Laboratorium Sukses Dihapus",
+            text: "Data Laboratorium sukses dihapus",
             icon: "success",
             timer: 2000,
             buttons: false,
@@ -223,7 +223,7 @@ function hapus_mk_semester(id) {
         data: { id, id },
         success: function (response) {
           swal({
-            text: "Data Mata Kuliah Semester Sukses Dihapus",
+            text: "Data Mata Kuliah Semester sukses dihapus",
             icon: "success",
             timer: 2000,
             buttons: false,
@@ -282,7 +282,7 @@ function hapus_asprak(id) {
         data: { id, id },
         success: function (response) {
           swal({
-            text: "Data Asisten Praktikum Sukses Dihapus",
+            text: "Data Asisten Praktikum sukses dihapus",
             icon: "success",
             timer: 2000,
             buttons: false,
@@ -316,6 +316,35 @@ function track_tt(id) {
   });
 }
 
+function hapus_surat_tugas(id, mk) {
+  swal({
+    title: "Apakah Anda yakin?",
+    text: "Data Surat Tugas " + mk + " akan dihapus",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+    buttons: ["Tidak", "Ya"],
+  }).then((willDelete) => {
+    if (willDelete) {
+      $.ajax({
+        url: window.location.origin + "/Dokumen/deleteSuratTugas",
+        method: "POST",
+        data: { id: id },
+        success: function (response) {
+          swal({
+            text: "Data Surat Tugas sukses dihapus",
+            icon: "success",
+            timer: 2000,
+            buttons: false,
+          }).then(function () {
+            location.reload();
+          });
+        },
+      });
+    }
+  });
+}
+
 function hapus_kalender(id) {
   swal({
     title: "Apakah Anda yakin?",
@@ -332,7 +361,7 @@ function hapus_kalender(id) {
         data: { id, id },
         success: function (response) {
           swal({
-            text: "Data Kalender Libur Sukses Dihapus",
+            text: "Data Kalender Libur sukses dihapus",
             icon: "success",
             timer: 2000,
             buttons: false,
@@ -856,7 +885,10 @@ $(document).ready(function () {
       bAutoWidth: false,
       columnDefs: [
         { width: "5%", targets: [0] },
-        { width: "12%", targets: [4], className: "text-center" },
+        { width: "15%", targets: [1] },
+        { width: "15%", targets: [3] },
+        { width: "15%", targets: [4] },
+        { width: "12%", targets: [5], className: "text-center" },
       ],
     });
 
@@ -1019,12 +1051,34 @@ $(document).ready(function () {
     columnDefs: [
       { width: "5%", targets: [0] },
       { width: "10%", targets: [1] },
-      { width: "7%", targets: [2], className: "text-center" },
-      { width: "7%", targets: [3], className: "text-center" },
       { width: "7%", targets: [4], className: "text-center" },
-      { width: "10%", targets: [5] },
-      { width: "9%", targets: [7], className: "text-center" },
-      { width: "10%", targets: [8], className: "text-center" },
+      { width: "7%", targets: [5], className: "text-center" },
+      { width: "9%", targets: [6], className: "text-center" },
+      { width: "20%", targets: [7], className: "text-center" },
+    ],
+  });
+
+  $("#kehadiran_approve").DataTable({
+    bAutoWidth: false,
+    columnDefs: [
+      { width: "5%", targets: [0] },
+      { width: "10%", targets: [1] },
+      { width: "7%", targets: [4], className: "text-center" },
+      { width: "7%", targets: [5], className: "text-center" },
+      { width: "9%", targets: [6], className: "text-center" },
+      { width: "10%", targets: [7], className: "text-center" },
+    ],
+  });
+
+  $("#kehadiran_reject").DataTable({
+    bAutoWidth: false,
+    columnDefs: [
+      { width: "5%", targets: [0] },
+      { width: "10%", targets: [1] },
+      { width: "7%", targets: [4], className: "text-center" },
+      { width: "7%", targets: [5], className: "text-center" },
+      { width: "9%", targets: [6], className: "text-center" },
+      { width: "10%", targets: [7], className: "text-center" },
     ],
   });
 
