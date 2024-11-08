@@ -193,11 +193,12 @@ if (!function_exists('convertWA')) {
 if (!function_exists('convertTanggalPendek')) {
   function convertTanggalPendek($tanggal)
   {
+    $nama_hari      = hariIndo(date('l', strtotime($tanggal)));
     $split_tanggal  = explode('-', $tanggal);
     $tanggal        = $split_tanggal[2];
     $bulan          = bulanIndoPendek($split_tanggal[1]);
     $tahun          = $split_tanggal[0];
-    return $tanggal . ' ' . $bulan . ' ' . $tahun;
+    return $nama_hari . ', ' . $tanggal . ' ' . $bulan . ' ' . $tahun;
   }
 }
 
